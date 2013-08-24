@@ -1,0 +1,10 @@
+parameters:
+#    product.example.class: Maynard\ProductBundle\Example
+
+services:
+            
+  recipe.form.productfiltersform:
+    class: Maynard\ProductBundle\Form\ProductFiltersFormType        
+    arguments: ["@doctrine.orm.entity_manager"]        
+    tags:
+      - { name: form.type, alias: productfiltersform }

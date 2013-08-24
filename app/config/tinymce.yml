@@ -1,0 +1,20 @@
+stfalcon_tinymce:
+  include_jquery: false
+  tinymce_jquery: true
+  selector: ".tinymce"
+  language: %locale%
+  theme:
+    simple: ~
+    advanced:
+     # skin: "o2k7"
+     # skin_variant : "silver"
+      width: "500"
+      height: "340"
+      plugins: 
+          - "pagebreak layer table save autosave insertdatetime anchor charmap hr image link code"
+          - "preview media searchreplace print contextmenu paste directionality fullscreen noneditable visualchars nonbreaking"
+      convert_urls : false
+      toolbar1 : "save | undo redo | cut copy paste pastetext pasteword | search replace | insertdate inserttime | removeformat visualaid | cleanup code | fullscreen | preview | print | spellchecker | help"
+      toolbar2 : "bold italic underline strikethrough | justifyleft justifycenter justifyright justifyfull | formatselect fontsizeselect forecolor | blockquote | sub sup | bullist numlist"
+      toolbar3 : "tablecontrols | charmap iespell advhr | link unlink anchor image media | cite abbr acronym attribs"
+      image_advtab : true

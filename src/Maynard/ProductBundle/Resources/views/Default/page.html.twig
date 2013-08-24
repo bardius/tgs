@@ -1,0 +1,127 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ page.pagetitle }}{% endblock %}
+{% block metaDescription %}{{ page.description }}{% endblock %}
+{% block metaKeywords %}{{ page.keywords }}{% endblock %}
+{% block metaAuthor %}{{ page.metaAuthor }}{% endblock %}
+
+{% block OgTitle %}{{ page.pagetitle }}{% endblock %}
+{% block OgSiteName %}{{ page.pagetitle }}{% endblock %}
+{% block metaOgDescription %}{{ page.description }}{% endblock %}
+
+{% block siteLogoTitle %}{{ page.pagetitle }}{% endblock %}
+{% block siteLogoKeywords %}{{ page.keywords }}{% endblock %}
+{% block siteLogoDescription %}{{ page.title }} {{ page.description }}{% endblock %}
+
+
+{% block body_start %}
+{% if page.bgimage is not empty %}
+    <div class="topBg {% if page.pageclass is not null %}{{ page.pageclass }}ProductTopBg{% endif %}">
+        <div class="row">
+            <div class="column twelve topBgImg {% if page.pagetype == 'product_cat_page' or page.pagetype == 'product_filtered_list' or page.pagetype == 'product_home' %} productListTopBgImg{% endif %} productsTopBgImg" {% if page.bgimage is not empty %}style="background-image: url({% path page.bgimage.id,  'big' %});"{% endif %}>            
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="twelve columns productPage {% if page.pageclass is not null %}{{ page.pageclass }}{% endif %}">
+    {% if page.pagetype == 'product_article' %}    
+        <div class="row productSummary contentRow">
+            <div class="four columns mobile-three">
+                <div class="twelve column productImage">
+                    {% if page.productimage.id is defined %}
+                    {% media page.productimage.id,  'big' with {'alt': page.title, 'title': '' } %}
+                    {% endif %}
+                </div>
+                {% include 'ProductBundle:Contents:featured-tags.html.twig' %}
+            </div>
+            <div class="eight column productTopText mobile-six">
+                <h2>{% if page.displayFairtrade == 1 %}Fairtrade {% endif %}{{ page.title }}</h2>
+                {% if page.topArrowText is not null %}
+                <span class="playfullCopy"><span class="tastesCopy">{{ page.topArrowText }}</span></span>
+                {% endif %}
+                {% if page.summary is not null %}
+                <div class="summary">{{ page.summary|raw }}</div>
+                {% endif %}
+                {% if page.modalcontentblocks|length > 0 %}
+                <a id="nutritionBtn" href="#" title="Nutritional information">Nutritional information</a>
+                {% endif %}
+            </div>
+            <div class="eight columns productExtras mobile-nine">
+                {% include 'ProductBundle:Contents:related-recipes.html.twig' %}
+                <div class="twelve columns packagesList mobile-nine">
+                    {% include 'ProductBundle:Contents:product-packages.html.twig' %}
+                </div>
+            </div>
+        </div>
+        {% if page.maincontentblocks is not empty %} 
+        <div class="row">
+            <div class="twelve columns pageText mobile-nine">
+                {% include 'ProductBundle:Contents:maincontentblocks.html.twig' %}
+            </div>
+        </div>
+        {% endif %}
+        {% if rangelist is not empty %} 
+        <div class="row">
+            <div class="twelve columns rangeList mobile-nine">
+                    <span class="rangeListCopy"><span class="rangeListCopy1">What's your <br /></span><span class="rangeListCopy2">flavour?</span></span>
+                {% include 'ProductBundle:Contents:range-list.html.twig' %}
+            </div>
+        </div>
+        {% endif %}
+    {% elseif page.pagetype == 'product_cat_page' or page.pagetype == 'product_filtered_list' or page.pagetype == 'product_home' %} 
+        <div class="row productListTop">
+            <div class="seven column">  
+                <h2>{{ page.title }}</h2>
+                {% if page.summary is not empty %} 
+                <div class="summary">{{ page.summary|raw }}</div>
+                {% endif %}  
+            </div>
+            <div class="five column hide-for-small">
+                {% if page.featuredproduct is not empty %} 
+                <a class="featuredProduct" href="{{ url('ProductBundle_page_normal', { 'alias': page.featuredproduct.alias }) }}" title="{{ page.featuredproduct.title }}">
+                    {% media page.featuredproduct.productimage.id, 'small' with {'alt': page.featuredproduct.title, 'title': ''} %}
+                </a>  
+                {% endif %}  
+                {% if page.topArrowText is not empty %}
+                <p class="playfullCopy"><span class="featuredText">{{ page.topArrowText|raw }}</span></p>
+                {% endif %}          
+            </div>
+        </div>
+        <div class="row {{ page.pagetype }}List productList">
+            <div class="twelve columns mobile-nine"> 
+                {% include 'ProductBundle:Contents:filterResultsFormHolder.html.twig' %}
+            </div>
+            {% if page.maincontentblocks is not empty %}
+            <div class="twelve columns pageText mobile-nine">
+                {% include 'ProductBundle:Contents:maincontentblocks.html.twig' %}
+            </div>
+            {% endif %}
+            <div class="twelve columns categoryListing mobile-nine">
+                {% if pages %}
+                    {% for pageItem in pages %}
+                        <div class="columns categoryListingItem three mobile-four">
+                            {% include 'ProductBundle:Contents:page-list-item.html.twig' %}
+                        </div>
+                    {% endfor %}
+                {% endif %} 
+            </div>
+        </div>
+        {% if page.pagetype == 'product_filtered_list' %} 
+            {% include 'ProductBundle:Contents:tags-pagination.html.twig' %}
+        {% elseif page.pagetype == 'product_home' %}
+            {% include 'ProductBundle:Contents:home_pagination.html.twig' %}
+        {% else %} 
+            {% include 'ProductBundle:Contents:pagination.html.twig' %}            
+        {% endif %} 
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block gAnalytics %}{% include 'PageBundle:Contents:ga.html.twig' %}{% endblock %}
+
+{% block modal %}
+    {% include 'ProductBundle:Contents:modalcontentblocks.html.twig' %}
+{% endblock %}

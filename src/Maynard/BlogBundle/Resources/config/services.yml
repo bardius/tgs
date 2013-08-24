@@ -1,0 +1,7 @@
+parameters:
+#    blog.example.class: Maynard\BlogBundle\Example
+
+services:
+
+
+

@@ -1,0 +1,20 @@
+                    <div id="contactFormHolder" class="small-12 large-12">
+                        <form id="contactForm" method="post" {{ form_enctype(form) }} class="contactForm">
+                            <p><span class="noticeMsg">All fields are mandatory</span></p>
+                            {{ form_errors(form) }}
+                            
+                            {{ form_row(form.firstname) }}
+                            {{ form_row(form.surname) }}
+                            {{ form_row(form.email) }}
+                            {{ form_row(form.comment) }}
+
+                            {{ form_rest(form) }}
+                            {% if page.formMessage is defined %}
+                            <p class="contactForm-message">
+                                {{ page.formMessage }}
+                            </p>
+                            {% endif %}
+
+                            <input type="submit" id="contactFormBtn" class="button" value="Submit" />
+                        </form>
+                     </div>

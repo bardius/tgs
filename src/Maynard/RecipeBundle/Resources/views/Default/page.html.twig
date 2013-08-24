@@ -1,0 +1,153 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ page.pagetitle }}{% endblock %}
+{% block metaDescription %}{{ page.description }}{% endblock %}
+{% block metaKeywords %}{{ page.keywords }}{% endblock %}
+{% block metaAuthor %}{{ page.metaAuthor }}{% endblock %}
+
+{% block OgTitle %}{{ page.pagetitle }}{% endblock %}
+{% block OgSiteName %}{{ page.pagetitle }}{% endblock %}
+{% block metaOgDescription %}{{ page.description }}{% endblock %}
+
+{% block siteLogoTitle %}{{ page.pagetitle }}{% endblock %}
+{% block siteLogoKeywords %}{{ page.keywords }}{% endblock %}
+{% block siteLogoDescription %}{{ page.title }} {{ page.description }}{% endblock %}
+
+
+{% block body_start %}
+    <div class="topBg {% if page.product is not empty and page.product.pageclass is not null %}{{ page.product.pageclass }}RecipeTopBg{% endif %}">
+        <div class="row">
+            <div class="column twelve topBgImg recipesTopBgImg {% if page.pagetype == 'recipe_article' %}recipeArticleTopBgImg{% endif%}" {% if page.bgimage is not empty %}style="background-image: url({% path page.bgimage.id,  'big' %});"{% endif %}>            
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="twelve columns recipePage {% if page.pagetype == 'recipe_article' %}recipeArticlePage{% endif%}">
+    {% if page.pagetype == 'recipe_article' %}    
+        <div class="row recipeSummary {% if page.product is not empty and page.product.pageclass is not null %}{{ page.product.pageclass }}RecipeSummary{% endif %}">
+            <div class="four column recipeImageHolder mobile-four">
+                {% if page.recipeimage.id is defined %}
+                {% media page.recipeimage.id,  'big' with {'alt': page.title, 'title': '' } %}
+                {% else %}
+                    <img src="/images/site_assets/defaultRecipeImage.jpg" alt="{{ page.title }}" />
+                {% endif %}
+            </div>
+            <div class="six column mobile-five">  
+                <div class="recipeSummaryTextHolder">
+                    <h2>{{ page.title }}</h2>
+                    <div class="summary">{{ page.summary|raw }}</div>                    
+                </div>
+            </div>
+        </div>
+        <div class="row recipeFeatures">
+            <div class="schedule column six mobile-nine">
+                <ul>
+                    <li>
+                        <span class="title">Preparation</span>
+                        <span class="icon preperationIcon"></span>
+                        <span class="time">{{ page.preperation }}</span>                                
+                    </li>
+                    <li>
+                        <span class="title">Cooking</span>
+                        <span class="icon cookingIcon"></span>
+                        <span class="time">{{ page.cooking }}</span>                                
+                    </li>
+                    <li>
+                        <span class="title">Servings</span>
+                        <span class="icon servingsIcon"></span>
+                        <span class="time">{{ page.servings }}</span>                                
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="two column relatedProduct mobile-nine">
+                {% if page.product is not empty %}
+                <div class="relatedProductItem">
+                    <a class="relatedProductImage" href="{{ url('ProductBundle_page_normal', { 'alias': page.product.alias }) }}" title="View {{ page.product.title }}">
+                        {% media page.product.productimage.id,  'small' with {'alt': page.product.title, 'title': '' } %}
+                        <h4>{{ page.product.title }}</h4>
+                    </a>                
+                    <div class="productLinks">
+                        <a href="{{ url('ProductBundle_page_normal', { 'alias': page.product.alias }) }}" title="View {{ page.product.title }}">View</a>
+                        <a class="productBuyLink" href="http://tateandlyle.where-to-buy.co/Widgets/CrossDevicePartial/{{ page.product.manufacturersPartNo1 }}" title="Buy {{ page.product.title }} now">Buy</a>
+                    </div>  
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row contentRow">
+            <div class="four columns mobile-nine push-eight clearBoth">
+                <div class="twelve columns ingredientsText">
+                    <h3 class="bigHeading">Ingredients</h3>
+                    {% include 'RecipeBundle:Contents:secondarycontentblocks.html.twig' %}
+                    <a class="convertionsBtn" href="{{ url('PageBundle_page', { 'alias': 'conversions' }) }}" title="Need help with conversions?">Need help with conversions?</a>                
+                </div>
+                <div class="twelve columns  mobile-nine">
+                    {% include 'RecipeBundle:Contents:smo_share.html.twig' %}
+                </div>
+            </div>
+            <div class="eight columns pageText recipeText pull-four mobile-nine">
+                <h3 class="bigHeading">How to make this recipe</h3>
+                {% include 'RecipeBundle:Contents:maincontentblocks.html.twig' %}
+                {% if page.modalcontentblocks|length > 0 %}
+                <a id="nutritionBtn" href="#" title="Nutritional information for this recipe"><span>Nutritional information for this recipe</span></a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            {% include 'RecipeBundle:Contents:related-recipes.html.twig' %}
+        </div>
+    {% elseif page.pagetype == 'recipe_cat_page' or page.pagetype == 'recipe_filtered_list' or page.pagetype == 'recipe_home' %} 
+            <div class="row recipeListTop">
+                <div class="seven column mobile-nine">  
+                    <h2>{{ page.title }}</h2>
+                    {% if page.summary is not empty %}
+                    <div class="summary">{{ page.summary|raw }}</div>
+                    {% endif %}
+                </div>
+                <div class="five column featuredRecipe hide-for-small">
+                    {% if page.cooking is not empty %}
+                    <span class="playfullCopy">{{ page.cooking|raw }}</span>
+                    {% endif %}
+                    {% if page.preperation is not empty %}
+                    <a href="{{ url('RecipeBundle_page_normal', { 'alias': page.preperation }) }}" title="Try our featured recipe" class="featuredBtn moreBtn">Try our featured recipe</a>   
+                    {% endif %}
+                </div>
+            </div>
+        <div class="row {{ page.pagetype }}List recipeList">            
+            <div class="twelve columns mobile-nine"> 
+                {% include 'RecipeBundle:Contents:filterResultsFormHolder.html.twig' %}
+            </div>
+            {% if page.maincontentblocks is not empty %}
+            <div class="twelve columns pageText mobile-nine">
+                {% include 'RecipeBundle:Contents:maincontentblocks.html.twig' %}
+            </div>
+            {% endif %}
+            <div class="twelve columns categoryListing mobile-nine">
+                {% if pages %}
+                    {% for pageItem in pages %}
+                        <div class="columns categoryListingItem three mobile-four">
+                            {% include 'RecipeBundle:Contents:page-list-item.html.twig' %}
+                        </div>
+                    {% endfor %}
+                {% endif %} 
+            </div>
+        </div>
+        {% if page.pagetype == 'recipe_filtered_list' %} 
+            {% include 'RecipeBundle:Contents:tags-pagination.html.twig' %}
+        {% elseif page.pagetype == 'recipe_home'%}
+            {% include 'RecipeBundle:Contents:home_pagination.html.twig' %}
+        {% else %} 
+            {% include 'RecipeBundle:Contents:pagination.html.twig' %}            
+        {% endif %} 
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block gAnalytics %}{% include 'PageBundle:Contents:ga.html.twig' %}{% endblock %}
+
+{% block modal %}
+    {% include 'RecipeBundle:Contents:modalcontentblocks.html.twig' %}
+{% endblock %}

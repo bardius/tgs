@@ -1,0 +1,11 @@
+<div class="twelve column {{ pageItem.pagetype }}Item {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %} ">
+    <a href="{{ url('ProductBundle_page_normal', { 'alias': pageItem.alias }) }}" title="{{ pageItem.title }}">
+        {% if pageItem.productlistimage.id is defined %}
+        {% media pageItem.productlistimage.id, 'medium' with {'alt': pageItem.title, 'title': ''} %}
+        {% endif %}
+        <div class="productItemText {% if pageItem.pageclass is defined %}{{ pageItem.pageclass }}{% endif %}">
+            <h5 class="title"><span>{{ pageItem.title }}</span></h5>
+            {% include 'ProductBundle:Contents:listitem-featured-tags.html.twig' %}
+        </div>
+    </a>
+</div>

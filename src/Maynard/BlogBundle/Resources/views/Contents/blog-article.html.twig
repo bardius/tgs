@@ -1,0 +1,15 @@
+{% if page.showPageTitle == 1 %}
+<div class="six columns pageSummary">
+    <h2>{{ page.title }}</h2>
+    <span class="date"><span class="day">{{ page.date|date("d") }}</span><span class="month">{{ page.date|date("M") }}</span></span>
+</div>
+{% endif %}
+{% if page.bannercontentblocks|length > 0 %}
+<div class="twelve columns pageDescription">
+    {% include 'BlogBundle:Contents:bannercontentblocks.html.twig' %}
+</div>
+{% endif %}
+<div class="twelve column pageText">
+    {% include 'BlogBundle:Contents:maincontentblocks.html.twig' %}
+</div>
+{% include 'BlogBundle:Contents:smo_share.html.twig' %}

@@ -1,0 +1,98 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ page.pagetitle }}{% endblock %}
+{% block metaDescription %}{{ page.description }}{% endblock %}
+{% block metaKeywords %}{{ page.keywords }}{% endblock %}
+{% block metaAuthor %}{{ page.metaAuthor }}{% endblock %}
+
+{% block OgTitle %}{{ page.pagetitle }}{% endblock %}
+{% block OgSiteName %}{{ page.pagetitle }}{% endblock %}
+{% block metaOgDescription %}{{ page.description }}{% endblock %}
+
+{% block siteLogoTitle %}{{ page.pagetitle }}{% endblock %}
+{% block siteLogoKeywords %}{{ page.keywords }}{% endblock %}
+{% block siteLogoDescription %}{{ page.title }} {{ page.description }}{% endblock %}
+
+
+{% block body_start %}
+    <div class="topBg">
+        <div class="row">
+            <div class="column twelve topBgImg blogTopBgImg" {% if page.bgimage is not empty %}style="background-image: url({% path page.bgimage.id,  'big' %});"{% endif %}>            
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    
+{% block content %}
+<div class="twelve columns blogPage blogArticlePage{% if page.pageclass is not null %}{{ page.pageclass }}{% endif %}">
+    {% if page.pagetype == 'blog_article' %}
+        <div class="row blogArticleText">
+            <div class="columns categoryListingItem five mobile-nine push-seven">
+                <div class="twelve columns pageSummary">
+                    <h2>Welcome To Our Food Blog</h2>
+                    <div class="contentBlock  twelve column">
+                        <h4>Join the conversation</h4>
+                        <ul class="blogSmoIcons">
+                        <li><a target="_blank" href="http://www.facebook.com/welovebaking" title="Facebook" class="smoIcon fbIcon"><span>Facebook</span></a></li>
+                        <li><a target="_blank" href="http://twitter.com/welovebaking" title="Twitter" class="smoIcon tweetIcon"><span>Twitter</span></a></li>
+                        <li><a target="_blank" href="/register" title="Newsletter Subscribe" class="smoIcon mailIcon"><span>Newsletter Subscribe</span></a></li>
+                        </ul>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <div class="row">
+            {% include 'BlogBundle:Contents:blog-article.html.twig' %}            
+        </div>
+    {% elseif page.pagetype == 'blog_cat_page' or page.pagetype == 'blog_filtered_list' or  page.pagetype == 'blog_home' %} 
+        <div class="row {{ page.pagetype }} itemsList">            
+            {% if page.maincontentblocks is not empty %}
+                <div class="twelve columns pageText">
+                    {% include 'BlogBundle:Contents:maincontentblocks.html.twig' %}
+                </div>
+            {% endif %}
+            {% if page.pagetype == 'blog_filtered_list' %} 
+                <div class="twelve columns"> 
+                    {% include 'BlogBundle:Contents:filterResultsFormHolder.html.twig' %}
+                </div>
+            {% endif %}
+            <div class="twelve columns categoryListing">
+                {% if pages %}
+                    {% for pageItem in pages %}
+                        {% if loop.index0 == 0 %}
+                        <div class="columns categoryListingItem five mobile-nine push-seven">
+                        {% if page.showPageTitle == 1 %} 
+                        <div class="twelve columns pageSummary">  
+                            <h2>{{ page.title }}</h2>
+                            {% if page.bannercontentblocks|length > 0 %}
+                                {% include 'BlogBundle:Contents:bannercontentblocks.html.twig' %}
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        </div>                             
+                    <div class="columns categoryListingItem categoryListingItem{{ loop.index0 }} six mobile-nine pull-five">
+                            {% include 'BlogBundle:Contents:page-list-item.html.twig' %}
+                        </div>   
+                        {% else %}
+                        <div class="columns categoryListingItem categoryListingItem{{ loop.index0 }} six mobile-nine {% if loop.index0 is odd %}clearBoth{% endif %}">
+                            {% include 'BlogBundle:Contents:page-list-item.html.twig' %}
+                        </div> 
+                        {% endif %}                    
+                    {% endfor %}
+                {% endif %} 
+            </div>      
+        </div>
+        {% if page.pagetype == 'blog_filtered_list' %} 
+            {% include 'BlogBundle:Contents:tags-pagination.html.twig' %}
+        {% else %} 
+            {% include 'BlogBundle:Contents:pagination.html.twig' %}            
+        {% endif %} 
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block gAnalytics %}{% include 'PageBundle:Contents:ga.html.twig' %}{% endblock %}
+
+{% block modal %}
+    {% include 'BlogBundle:Contents:modalcontentblocks.html.twig' %}
+{% endblock %}

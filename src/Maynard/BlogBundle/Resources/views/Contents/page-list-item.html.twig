@@ -1,0 +1,23 @@
+<div class="twelve columns {{ pageItem.pagetype }}Item {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %}">
+    <span class="date"><span class="day">{{ pageItem.date|date("d") }}</span><span class="month">{{ pageItem.date|date("M") }}</span></span>
+    {% if pageItem.introimage.id is defined %}
+    <div class="column five mobile-four">
+    <a href="{{ app.request.getBaseURL() }}/blog/{{ pageItem.alias }}" title="{{ pageItem.title }}" class="readMoreImage">
+        {% media pageItem.introimage.id, 'blog' with {'alt': pageItem.title, 'title': ''} %}
+    </a>
+    </div>
+    <div class="column seven mobile-five introItemText">
+    {% else %}
+    <div class="column twelve mobile-nine introItemText">
+    {% endif %}
+        <h4>
+            <a href="{{ app.request.getBaseURL() }}/blog/{{ pageItem.alias }}" title="{{ pageItem.title }}">
+                {{ pageItem.title }}
+            </a>
+        </h4>        
+        {% if pageItem.introtext is not null %}
+        {{ pageItem.introtext|raw }}
+        {% endif %}
+        <a class="readMore" href="{{ app.request.getBaseURL() }}/blog/{{ pageItem.alias }}" title="More">More</a>
+    </div>
+</div>

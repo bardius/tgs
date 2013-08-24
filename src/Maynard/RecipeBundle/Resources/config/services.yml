@@ -1,0 +1,10 @@
+parameters:
+#    skeleton.example.class: Maynard\SkeletonBundle\Example
+
+services:
+            
+  recipe.form.recipefiltersform:
+    class: Maynard\RecipeBundle\Form\RecipeFiltersFormType        
+    arguments: ["@doctrine.orm.entity_manager"]        
+    tags:
+      - { name: form.type, alias: recipefiltersform }

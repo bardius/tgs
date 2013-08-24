@@ -1,0 +1,19 @@
+{% if page.tags is not null %}
+<div class="twelve column featuredTags hide-for-small">
+    {% for tag in page.tags if tag.tagCategory == 'product_featured' %}
+    {% if loop.index0 == 0 %}
+    <h4>Perfect for</h4>
+    <ul>
+    {% endif %}
+    {% if loop.index0 < 3 %}
+        <li class="tagIcon tagIcon{{ loop.index0 }}">
+        {% if tag.tagIcon.id is not empty %}
+            <span class='tagImage'>{% media tag.tagIcon.id, 'medium' with {'alt': tag.title, 'title': ''} %}</span>
+        {% endif %}
+        <span class='tagTitle'>{{ tag.title }}</span>
+        </li>
+    {% endif %}
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}

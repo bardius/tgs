@@ -17,8 +17,32 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
+
+
 # Collabtive #
 #################
 pm/config/standard/config.php
+
+
+
+# Netbeans #
+#################
+nbproject/
+
+
+
+# Symfonny2 #
+#############
+app/bootstrap.php.cache
+app/cache/*
+app/logs/*
+build/
+composer.phar
+foundation/.sass-cache/
+parameters.yml
+/web/.sass-cache/
+/web/foundation/.sass-cache/vendor/
+app/cache/
+/web/foundation/sass/.sass-cache/
 
 

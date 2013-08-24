@@ -1,0 +1,14 @@
+{% for tag in pageItem.tags if tag.tagCategory == 'product_featured' %}
+{% if loop.index0 == 0 %}
+ <p class="featuredTagsHeading">Wonderful in</p>
+ <span class="featuredTags">
+ {% endif %}
+    {% if loop.index0 < 3 %}
+    <span class="tagIcon tagIcon{{ loop.index0 }}">
+    {% if tag.smallIcon.id is not empty %}
+        {% media tag.smallIcon.id, 'small' with {'alt': tag.title, 'title': tag.title} %}
+    {% endif %} 
+    </span>
+    {% endif %}
+{% endfor %} 
+</span>    

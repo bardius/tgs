@@ -1,0 +1,109 @@
+body{
+	position: absolute;
+    font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    color: #FFF;
+	background: url("/uc/mobile-bg.jpg") 100% 100% no-repeat #0c0c0c;
+	background-size:cover;
+}
+
+header {
+    background-color: transparent;
+}
+
+#logo {
+    text-align: center;
+	margin:84px 0 74px 0;
+}
+
+#logo .logo {
+    display: inline-block;
+    float: none;
+    margin: 0;
+	text-align: center;
+}
+
+.ucPageText .columns{
+    text-align: center;
+	
+}
+
+.ucHeaders{
+	margin:0 0 64px 0;	
+}
+
+.ucForm{
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #FFF;
+}
+
+h2{
+	font-size:64px;
+	font-size:4rem;
+	font-weight:normal;
+	margin:0;
+}
+
+.ucHeaders p{
+	font-size:38px;
+	font-size:2.25rem;
+	margin:0;
+}
+
+footer {
+    background-color: transparent;
+}
+
+#footerNav {
+    text-align: center;
+}
+
+.smoMenu{
+    text-align: center;	
+	margin:64px 0;	
+}
+
+.smoMenu li{
+	display:inline-block;
+	float:none;
+	margin: 0;
+}
+
+.smoMenu a{
+	display:inline-block;
+	height:72px;
+	width:72px;
+	background-image: url("/uc/smoIcons.png");
+	background-repeat:no-repeat;
+}
+
+.smoMenu .Facebook{
+	background-position: 0 -4px;
+}
+
+.smoMenu .Twitter{
+	background-position: -84px -4px;
+}
+
+.smoMenu .Vimeo{
+	background-position: -164px -4px;
+}
+
+.smoMenu .Instagram{
+	background-position: -244px -4px;
+}
+
+
+
+@media only screen and (max-width: 480px){
+	body{
+		background-image: url("/uc/mobile-bg.jpg");	
+	}
+}
+
+@media only screen and (min-width: 481px){
+	body{
+		background-image: url("/uc/bg.jpg");
+	}	
+}

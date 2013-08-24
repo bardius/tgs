@@ -1,0 +1,11 @@
+<div class="column twelve">
+    <h3>Our Range</h3>
+</div>
+{% for product in rangelist if product.productimage.id is defined %}
+        <div class="rangeProduct {% if product.pageclass is not null %}{{ product.pageclass }}{% endif %} column one mobile-one">
+            <a href="{{ url('ProductBundle_page_normal', { 'alias': product.alias }) }}" title="{{ product.title }}">
+                {% media product.productimage.id, 'xsmall' with {'alt': product.title, 'title': ''} %}
+                <span>{{ product.title }}</span>
+            </a>
+        </div>
+{% endfor %}

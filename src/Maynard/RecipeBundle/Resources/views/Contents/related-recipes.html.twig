@@ -1,0 +1,24 @@
+{% if relatedrecipes %}
+<div class="twelve columns relatedRecipeList">
+    <div class="column twelve">
+        <h3>More recipes to whet your appetite</h3>
+    </div>
+    {% for relatedrecipe in relatedrecipes if relatedrecipe.recipeimage.id is defined %}
+    <div class="column relatedRecipeItem recipe_articleItem three mobile-four">
+        <a href="{{ url('RecipeBundle_page_normal', { 'alias': relatedrecipe.alias }) }}" title="{{ relatedrecipe.title }}">
+            {% if relatedrecipe.recipeimage.id is defined %}
+            {% media relatedrecipe.recipeimage.id, 'small' with {'alt': relatedrecipe.title, 'title': ''} %}
+            {% else %}
+            <img src="/images/site_assets/defaultRecipeThumb.jpg" alt="{{ relatedrecipe.title }}" />
+            {% endif %}
+            <div class="relatedItemText {{ relatedrecipe.product.pageclass }}">
+                <h5 class="title"><span>{{ relatedrecipe.title }}</span></h5>
+                <span class="itemIcon preperation">{{ relatedrecipe.preperation }}</span>
+                <span class="itemIcon cooking">{{ relatedrecipe.cooking }}</span>
+                <span class="itemIcon servings">{{ relatedrecipe.servings }}</span>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endif %} 

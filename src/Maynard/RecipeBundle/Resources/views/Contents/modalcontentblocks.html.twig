@@ -1,0 +1,49 @@
+{% if page.modalcontentblocks|length > 0 %}
+<div id="nutritionModal" class="reveal-modal medium {% if page.product.pageclass is defined %}{{ page.product.pageclass }}{% endif %}">
+    {% for contentBlock in page.modalcontentblocks|sort_by_attribute('ordering') %}
+        <h3>Nutritional Information</h3>
+        {% if contentBlock.publishedState == 1 %}
+        <div class="contentBlock {% if contentBlock.className is not null %}{{ contentBlock.className }}{% endif %} {% if contentBlock.sizeClass is null %}twelve{% else %}{{ contentBlock.sizeClass }}{% endif %} columns" {% if contentBlock.idName is not null %}id="{{ contentBlock.idName }}"{% endif %}>
+            {% if contentBlock.showTitle == 1 %}
+                <h4>{{ contentBlock.title }}</h4>
+            {% endif %}
+            {% if contentBlock.contentType == 'html' %}
+                {{ contentBlock.htmlText|raw }}
+            {% elseif contentBlock.contentType == 'image' %}
+                {% if contentBlock.imageFiles|length > 1 %}
+                <div id="slideshow_{{ contentBlock.id}}" class="slideshow">
+                    {% for imageBlock in contentBlock.imageFiles|sort_by_attribute('imageOrder') %}
+                    {% media imageBlock.imageFile.id, contentBlock.mediaSize with {'alt': contentBlock.title, 'title': '' } %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                {% for imageBlock in contentBlock.imageFiles|sort_by_attribute('imageOrder') %}
+                {% media imageBlock.imageFile.id, contentBlock.mediaSize with {'alt': contentBlock.title, 'title': '' } %}
+                {% endfor %}
+                {% endif %}
+            {% elseif contentBlock.contentType == 'file' %}
+                <p>Download file: <a class="fileLink" href="{{ path('sonata_media_download', {'id': contentBlock.fileFile.id}) }}" target="_blank">{{ contentBlock.fileFile.name }}</a></p>
+            {% elseif contentBlock.contentType == 'youtube' and contentBlock.youtube.id is defined %}
+                <div class="flex-video">
+                {% media contentBlock.youtube.id, contentBlock.mediaSize %}
+		</div>
+            {% else %}
+                <p class="error">No content yet.</p>
+            {% endif %}
+        </div>
+    {% endif %}
+    {% endfor %}
+    <a href='#closeNutritionModal' class='close-reveal-modal'></a>
+</div>
+{% endif %}
+
+{% if page.product.manufacturersPartNo1 is defined %}
+<div id="buyNowModal" class="reveal-modal medium {% if page.product.pageclass is defined %}{{ page.product.pageclass }}{% endif %}">
+    <h3>Visit an online retailer to buy <span>{{ page.product.title }} ({{ page.product.packageSize1 }})</span> now</h3>
+    <p class="notice">Tate & Lyle Sugars cannot guarantee stock availability</p>
+    <div id="storelist">
+        <img src="{{ app.request.basepath }}/images/site_assets/loading.gif" alt="loading..." />
+    </div>
+    <a href='#closeBuyNowModal' class='close-reveal-modal'></a>
+</div>
+{% endif %}
