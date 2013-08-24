@@ -44,5 +44,6 @@ parameters.yml
 /web/foundation/.sass-cache/vendor/
 app/cache/
 /web/foundation/sass/.sass-cache/
+vendor/
 
 
