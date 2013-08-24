@@ -33,8 +33,8 @@ nbproject/
 
 # Symfonny2 #
 #############
-app/bootstrap.php.cache
-app/cache/*
+#app/bootstrap.php.cache
+#app/cache/*
 app/logs/*
 build/
 composer.phar
@@ -42,7 +42,6 @@ foundation/.sass-cache/
 parameters.yml
 /web/.sass-cache/
 /web/foundation/.sass-cache/vendor/
-app/cache/
 /web/foundation/sass/.sass-cache/
 vendor/
 
