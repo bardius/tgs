@@ -30,7 +30,7 @@ if (preg_match($pattern, trim(strip_tags($_POST['email'])))) {
 }
 
 //   CHANGE THE BELOW VARIABLES TO YOUR NEEDS
-$to = 'george@bardis.info';
+$to = 'apo.apostolopoulos@gmail.com';
 
 $subject = 'TGS - Website launch date notice request';
 
