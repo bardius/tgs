@@ -33,12 +33,12 @@ class AppKernel extends Kernel
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
-            new Maynard\SettingsBundle\SettingsBundle(),
-            new Maynard\MenuBundle\MenuBundle(),
-            new Maynard\PageBundle\PageBundle(),
-            new Maynard\BlogBundle\BlogBundle(),
-            new Maynard\RecipeBundle\RecipeBundle(),
-            new Maynard\ProductBundle\ProductBundle(),
+            new BardisCMS\SettingsBundle\SettingsBundle(),
+            new BardisCMS\MenuBundle\MenuBundle(),
+            new BardisCMS\PageBundle\PageBundle(),
+            new BardisCMS\BlogBundle\BlogBundle(),
+            new BardisCMS\RecipeBundle\RecipeBundle(),
+            new BardisCMS\ProductBundle\ProductBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

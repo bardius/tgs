@@ -1,0 +1,10 @@
+parameters:
+#    product.example.class: BardisCMS\ProductBundle\Example
+
+services:
+            
+  recipe.form.productfiltersform:
+    class: BardisCMS\ProductBundle\Form\ProductFiltersFormType        
+    arguments: ["@doctrine.orm.entity_manager"]        
+    tags:
+      - { name: form.type, alias: productfiltersform }

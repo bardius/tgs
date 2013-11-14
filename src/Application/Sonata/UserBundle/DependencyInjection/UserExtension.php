@@ -1,7 +1,7 @@
 <?php
 /*
  * User Bundle
- * This file is part of the maynard malone CMS.
+ * This file is part of the BardisCMS.
  *
  * (c) George Bardis <george@bardis.info>
  *

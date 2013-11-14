@@ -108,7 +108,7 @@ sonata_user:
     impersonating_route: sonata_user_impersonating
     admin:
         user:
-            class: Application\Sonata\UserBundle\Admin\Entity\MMUserAdmin
+            class: Application\Sonata\UserBundle\Admin\Entity\BardisCMSUserAdmin
     
 
 sonata_block:
@@ -127,7 +127,7 @@ sonata_block:
         # Some specific blocks from the SonataMediaBundle
         sonata.media.block.media:
           
-        # Some specific blocks from the Maynard Malone Bundles
+        # Some specific blocks from the BardisCMS Bundles
         sonata.admin.pages:
         sonata.admin.menus: 
         sonata.admin.blogs:
@@ -343,21 +343,21 @@ sonata_media:
             thumbnail:  sonata.media.thumbnail.format
 
         image:
-            resizer:    sonata.media.resizer.maynard # sonata.media.resizer.square # sonata.media.resizer.simple
+            resizer:    sonata.media.resizer.bardiscms # sonata.media.resizer.square # sonata.media.resizer.simple
             filesystem: sonata.media.filesystem.local
             cdn:        sonata.media.cdn.server
             generator:  sonata.media.generator.default
             thumbnail:  sonata.media.thumbnail.format
 
         youtube:
-            resizer:    sonata.media.resizer.maynard # sonata.media.resizer.square # sonata.media.resizer.simple
+            resizer:    sonata.media.resizer.bardiscms # sonata.media.resizer.square # sonata.media.resizer.simple
             filesystem: sonata.media.filesystem.local
             cdn:        sonata.media.cdn.server
             generator:  sonata.media.generator.default
             thumbnail:  sonata.media.thumbnail.format
 
         vimeo:
-            resizer:    sonata.media.resizer.maynard # sonata.media.resizer.square # sonata.media.resizer.simple
+            resizer:    sonata.media.resizer.bardiscms # sonata.media.resizer.square # sonata.media.resizer.simple
             filesystem: sonata.media.filesystem.local
             cdn:        sonata.media.cdn.server
             generator:  sonata.media.generator.default

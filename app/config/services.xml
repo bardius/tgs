@@ -2,124 +2,124 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-      <service id="sonata.admin.pages" class="Maynard\PageBundle\Admin\PageAdmin">
+      <service id="sonata.admin.pages" class="BardisCMS\PageBundle\Admin\PageAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Pages" label="Manage Website Pages" />
           <argument />
-          <argument>Maynard\PageBundle\Entity\Page</argument>
+          <argument>BardisCMS\PageBundle\Entity\Page</argument>
           <argument>PageBundle:PageAdmin</argument>
           <call method="setTranslationDomain">
               <argument>PageBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.blogs" class="Maynard\BlogBundle\Admin\BlogAdmin">
+      <service id="sonata.admin.blogs" class="BardisCMS\BlogBundle\Admin\BlogAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Blog" label="Manage Blog Pages" />
           <argument />
-          <argument>Maynard\BlogBundle\Entity\Blog</argument>
+          <argument>BardisCMS\BlogBundle\Entity\Blog</argument>
           <argument>BlogBundle:BlogAdmin</argument>
           <call method="setTranslationDomain">
               <argument>BlogBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.recipes" class="Maynard\RecipeBundle\Admin\RecipeAdmin">
+      <service id="sonata.admin.recipes" class="BardisCMS\RecipeBundle\Admin\RecipeAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Recipe" label="Manage Recipe Pages" />
           <argument />
-          <argument>Maynard\RecipeBundle\Entity\Recipe</argument>
+          <argument>BardisCMS\RecipeBundle\Entity\Recipe</argument>
           <argument>RecipeBundle:RecipeAdmin</argument>
           <call method="setTranslationDomain">
               <argument>RecipeBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.products" class="Maynard\ProductBundle\Admin\ProductAdmin">
+      <service id="sonata.admin.products" class="BardisCMS\ProductBundle\Admin\ProductAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Product" label="Manage Product Pages" />
           <argument />
-          <argument>Maynard\ProductBundle\Entity\Product</argument>
+          <argument>BardisCMS\ProductBundle\Entity\Product</argument>
           <argument>ProductBundle:ProductAdmin</argument>
           <call method="setTranslationDomain">
               <argument>ProductBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.menus" class="Maynard\MenuBundle\Admin\MenuAdmin">
+      <service id="sonata.admin.menus" class="BardisCMS\MenuBundle\Admin\MenuAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Menus" label="Manage Menus" />
           <argument />
-          <argument>Maynard\MenuBundle\Entity\Menu</argument>
+          <argument>BardisCMS\MenuBundle\Entity\Menu</argument>
           <argument>MenuBundle:MenuAdmin</argument>
           <call method="setTranslationDomain">
               <argument>MenuBundle</argument>
           </call>
       </service> 
-      <service id="sonata.admin.categories" class="Maynard\PageBundle\Admin\CategoriesAdmin">
+      <service id="sonata.admin.categories" class="BardisCMS\PageBundle\Admin\CategoriesAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Categories" label="Manage Categories" />
           <argument />
-          <argument>Maynard\PageBundle\Entity\Category</argument>
+          <argument>BardisCMS\PageBundle\Entity\Category</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
               <argument>PageBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.recipecategories" class="Maynard\RecipeBundle\Admin\RecipeCategoriesAdmin">
+      <service id="sonata.admin.recipecategories" class="BardisCMS\RecipeBundle\Admin\RecipeCategoriesAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Recipe Categories" label="Manage Recipe Categories" />
           <argument />
-          <argument>Maynard\RecipeBundle\Entity\RecipeCategory</argument>
+          <argument>BardisCMS\RecipeBundle\Entity\RecipeCategory</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
               <argument>RecipeBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.productcategories" class="Maynard\ProductBundle\Admin\ProductCategoriesAdmin">
+      <service id="sonata.admin.productcategories" class="BardisCMS\ProductBundle\Admin\ProductCategoriesAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Product Categories" label="Manage Product Categories" />
           <argument />
-          <argument>Maynard\ProductBundle\Entity\ProductCategory</argument>
+          <argument>BardisCMS\ProductBundle\Entity\ProductCategory</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
               <argument>ProductBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.tags" class="Maynard\PageBundle\Admin\TagsAdmin">
+      <service id="sonata.admin.tags" class="BardisCMS\PageBundle\Admin\TagsAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Tags" label="Manage Tags" />
           <argument />
-          <argument>Maynard\PageBundle\Entity\Tag</argument>
+          <argument>BardisCMS\PageBundle\Entity\Tag</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
               <argument>PageBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.recipetags" class="Maynard\RecipeBundle\Admin\RecipeTagsAdmin">
+      <service id="sonata.admin.recipetags" class="BardisCMS\RecipeBundle\Admin\RecipeTagsAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Recipe Tags" label="Manage Recipe Tags" />
           <argument />
-          <argument>Maynard\RecipeBundle\Entity\RecipeTag</argument>
+          <argument>BardisCMS\RecipeBundle\Entity\RecipeTag</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
               <argument>RecipeBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.producttags" class="Maynard\ProductBundle\Admin\ProductTagsAdmin">
+      <service id="sonata.admin.producttags" class="BardisCMS\ProductBundle\Admin\ProductTagsAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Product Tags" label="Manage Product Tags" />
           <argument />
-          <argument>Maynard\ProductBundle\Entity\ProductTag</argument>
+          <argument>BardisCMS\ProductBundle\Entity\ProductTag</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
               <argument>ProductBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.contentblocks" class="Maynard\PageBundle\Admin\ContentBlockAdmin">
+      <service id="sonata.admin.contentblocks" class="BardisCMS\PageBundle\Admin\ContentBlockAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Content Blocks" label="Manage Content Blocks" />
           <argument />
-          <argument>Maynard\PageBundle\Entity\ContentBlock</argument>
+          <argument>BardisCMS\PageBundle\Entity\ContentBlock</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
               <argument>PageBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.settings" class="Maynard\SettingsBundle\Admin\SettingsAdmin">
+      <service id="sonata.admin.settings" class="BardisCMS\SettingsBundle\Admin\SettingsAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Settings" label="Manage Website Settings" />
           <argument />
-          <argument>Maynard\SettingsBundle\Entity\Settings</argument>
+          <argument>BardisCMS\SettingsBundle\Entity\Settings</argument>
           <argument>SettingsBundle:SettingsAdmin</argument>
           <call method="setTranslationDomain">
               <argument>SettingsBundle</argument>
           </call>
       </service>
-      <service id="sonata.media.resizer.maynard" class="Maynard\PageBundle\Media\Resizer\MaynardResizer">
+      <service id="sonata.media.resizer.bardiscms" class="BardisCMS\PageBundle\Media\Resizer\BardisCMSResizer">
             <tag name="sonata.media.resizer" />
             <argument type="service" id="sonata.media.adapter.image.gd" />
       </service> 
