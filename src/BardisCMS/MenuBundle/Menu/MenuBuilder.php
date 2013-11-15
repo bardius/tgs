@@ -1,5 +1,11 @@
 <?php
-
+/*
+ * Menu Bundle
+ * This file is part of the BardisCMS.
+ *
+ * (c) George Bardis <george@bardis.info>
+ *
+ */
 namespace BardisCMS\MenuBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
@@ -90,7 +96,7 @@ class MenuBuilder
             
             $menuItemCounter++;
             
-            // @TODO: here we must add proper acl for each menu item
+            // @TODO: here we must add proper acl based on permition levels for each menu item
             if ($menuItem->getPublishstate() != '0') 
             {
                 $urlParams = $menuItem->getMenuUrlExtras();
@@ -102,50 +108,85 @@ class MenuBuilder
                 switch ($menuType) {
                     
                     case 'http':
-                        $menu->addChild($menuItem->getTitle(), array(
-                            'uri' => $menuItem->getExternalUrl()
-                        ));
-                        $menu[$menuItem->getTitle()]->setLinkAttribute('target', '_blank');
-                        $menu[$menuItem->getTitle()]->setLinkAttribute('rel', 'nofollow');
-                        break;
+			$targetURL = $menuItem->getExternalUrl();
+			
+			if($targetURL === null){  
+			    $targetURL = '#';		    
+			}
+			
+			$menu->addChild($menuItem->getTitle(), array(
+			    'uri' => $targetURL
+			));
+			$menu[$menuItem->getTitle()]->setLinkAttribute('target', '_blank');
+			$menu[$menuItem->getTitle()]->setLinkAttribute('rel', 'nofollow');	
+                        
+			break;
                     
                     case 'url':
-                        $menu->addChild($menuItem->getTitle(), array(
-                            'uri' => $menuItem->getExternalUrl()
-                        ));
-                        break;
+			$targetURL = $menuItem->getExternalUrl();
+			
+			if($targetURL === null){	  
+			    $targetURL = '#';
+			}
+			
+			$menu->addChild($menuItem->getTitle(), array(
+			    'uri' => $targetURL
+			));	
+                        
+			break;
                     
                     case 'seperator':
                         $menu->addChild($menuItem->getTitle());
                         $menu[$menuItem->getTitle()]->setLabelAttribute('class', 'divider');
-                        break;
+                        
+			break;
                     
                     case 'Page':
-                        $alias = $this->getPageAlias($menuItem->$getPageFunction(), $em, $menuType);
-                        if(null === $alias) {
-                            $menu->addChild($menuItem->getTitle(), array('uri' => '/'.$menuItem->getRoute().'/'.$menuItem->$getPageFunction().$urlParams));
-                        } else {
-                            $menu->addChild($menuItem->getTitle(), array('uri' => '/'.$alias.$urlParams));
-                        }
-                        break;                        
+			$pageFunction = $menuItem->$getPageFunction();
+			
+			// If Link Action is not selected point to homepage else to alias or page id based route 
+			if($pageFunction != null){
+			    $alias = $this->getPageAlias($pageFunction, $em, $menuType);
+			    
+			    if(null === $alias) {
+				$menu->addChild($menuItem->getTitle(), array('uri' => '/'.$menuItem->getRoute().'/'.$pageFunction.$urlParams));
+			    } else {
+				$menu->addChild($menuItem->getTitle(), array('uri' => '/'.$alias.$urlParams));
+			    }			    
+			}
+			else{
+			    $menu->addChild($menuItem->getTitle(), array('uri' => '/'));
+			}
+                       
+			break;                        
                    
                     case 'Blog':
                     case 'Recipe':
                     case 'Product':
-                        $alias = $this->getPageAlias($menuItem->$getPageFunction(), $em, $menuType);
-                        if(null === $alias) {
-                            $menu->addChild($menuItem->getTitle(), array('uri' => '/'.strtolower($menuType).'/'.$menuItem->getRoute().'/'.$menuItem->$getPageFunction().$urlParams));
-                        } else {
-                            $menu->addChild($menuItem->getTitle(), array('uri' => '/'.strtolower($menuType).'/'.$alias.$urlParams));
-                        }   
-                        break;
+			$pageFunction = $menuItem->$getPageFunction();			
+			
+			// If Link Action is not selected point to homepage else to alias or page id based route 
+			if($pageFunction != null){
+			    $alias = $this->getPageAlias($menuItem->$getPageFunction(), $em, $menuType);
+			    
+			    if(null === $alias) {
+			        $menu->addChild($menuItem->getTitle(), array('uri' => '/'.strtolower($menuType).'/'.$menuItem->getRoute().'/'.$menuItem->$getPageFunction().$urlParams));
+			    } else {
+			        $menu->addChild($menuItem->getTitle(), array('uri' => '/'.strtolower($menuType).'/'.$alias.$urlParams));
+			    } 
+			}
+			else{
+			    $menu->addChild($menuItem->getTitle(), array('uri' => '/'));
+			}  
+                        
+			break;
                     
                     default:
                         $menu->addChild($menuItem->getTitle());
                         $menu[$menuItem->getTitle()]->setLabelAttribute('class', 'divider');                        
                     
                 }
-                
+		
                 $menu[$menuItem->getTitle()]->setAttribute('class', 'item'.$menuItemCounter.' level'.$this->menuItemlevel);
                 $menu[$menuItem->getTitle()]->setLinkAttribute('class', 'item'.$menuItemCounter.' level'.$this->menuItemlevel);
                 $menu[$menuItem->getTitle()]->setLinkAttribute('title', $menuItem->getTitle());
