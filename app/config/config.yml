@@ -142,6 +142,7 @@ sonata_block:
         sonata.admin.contentblocks:
         sonata.user.admin.user:
         sonata.admin.settings:
+        sonata.admin.category:
 
 sonata_cache:
     caches:
@@ -241,6 +242,10 @@ sonata_admin:
               items:
                   - sonata.media.admin.media
                   - sonata.media.admin.gallery
+           sonata_testing:
+              label: Test Functionality
+              items:
+                  - sonata.admin.category
 
 sonata_media:
     default_context: default
@@ -326,10 +331,11 @@ sonata_media:
                 - sonata.media.provider.image
 
             formats:
-                small:    { width: 46 , height: 46 , quality: 80}
-                medium:   { width: 66 , height: 66 , quality: 80}
-                big:      { width: 86 , height: 86 , quality: 80}
-                original: { quality: 80 } 
+                adminthumb: { width: 46 , height: 46 , quality: 80 }
+                small:			{ width: 46 , height: 46 , quality: 80}
+                medium:			{ width: 66 , height: 66 , quality: 80}
+                big:				{ width: 86 , height: 86 , quality: 80}
+                original:		{ quality: 80 } 
 
     cdn:
         server:

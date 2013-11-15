@@ -39,6 +39,7 @@ class AppKernel extends Kernel
             new BardisCMS\BlogBundle\BlogBundle(),
             new BardisCMS\RecipeBundle\RecipeBundle(),
             new BardisCMS\ProductBundle\ProductBundle(),
+            new BardisCMS\CategoryBundle\CategoryBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
