@@ -4,6 +4,7 @@
  * @param options
  */
 function initTinyMCE(options) {
+    if (typeof options == 'undefined') options = stfalcon_tinymce_config;
     (function($, undefined) {
         $(function() {
             var textareas = $('textarea');
@@ -49,6 +50,17 @@ function initTinyMCE(options) {
                             tinymce.PluginManager.load(id, url);
                         }
                     });
+                    //Init Event
+                    if (options.use_callback_tinymce_init) {
+                        ed.on('init', function() {
+                            var callback = window['callback_tinymce_init'];
+                            if (typeof callback == 'function') {
+                                callback();
+                            } else {
+                                alert('You have to create callback function: callback_tinymce_init');
+                            }
+                        });
+                    }
                 };
                 textarea.tinymce(settings);
             });
