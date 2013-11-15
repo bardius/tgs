@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 use BardisCMS\PageBundle\Entity\ContentBlock;
-use BardisCMS\PageBundle\Entity\Category;
+use BardisCMS\CategoryBundle\Entity\Category;
 use BardisCMS\PageBundle\Entity\Tag;
 
 
@@ -108,7 +108,7 @@ class Skeleton
     protected $introclass = null;
 
     /**
-    * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Category", inversedBy="skeletons", cascade={"persist"})
+    * @ORM\ManyToMany(targetEntity="BardisCMS\CategoryBundle\Entity\Category", inversedBy="skeletons", cascade={"persist"})
     * @ORM\JoinTable(name="skeletons_categories")
     */
     protected $categories;
@@ -534,10 +534,10 @@ class Skeleton
     /**
      * Add categories
      *
-     * @param \BardisCMS\PageBundle\Entity\Category $categories
+     * @param \BardisCMS\CategoryBundle\Entity\Category $categories
      * @return Skeleton
      */
-    public function addCategory(\BardisCMS\PageBundle\Entity\Category $categories)
+    public function addCategory(\BardisCMS\CategoryBundle\Entity\Category $categories)
     {
         $this->categories[] = $categories;
     
@@ -547,9 +547,9 @@ class Skeleton
     /**
      * Remove categories
      *
-     * @param \BardisCMS\PageBundle\Entity\Category $categories
+     * @param \BardisCMS\CategoryBundle\Entity\Category $categories
      */
-    public function removeCategory(\BardisCMS\PageBundle\Entity\Category $categories)
+    public function removeCategory(\BardisCMS\CategoryBundle\Entity\Category $categories)
     {
         $this->categories->removeElement($categories);
     }

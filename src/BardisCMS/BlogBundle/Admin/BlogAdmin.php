@@ -62,7 +62,7 @@ class BlogAdmin extends Admin
                 ))
             ->end()
             ->with('Categories & Tags', array('collapsed' => true))
-                ->add('categories', 'entity', array('class' => 'BardisCMS\PageBundle\Entity\Category', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Associated Categories', 'required' => false))
+                ->add('categories', 'entity', array('class' => 'BardisCMS\CategoryBundle\Entity\Category', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Associated Categories', 'required' => false))
                 ->add('tags', 'entity', array('class' => 'BardisCMS\PageBundle\Entity\Tag', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Associated Tags', 'required' => false))                
                 ->setHelps(array(
                     'tags'          => 'Select the associated tags',

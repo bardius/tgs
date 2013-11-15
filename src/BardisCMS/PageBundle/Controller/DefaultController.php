@@ -139,14 +139,14 @@ class DefaultController extends Controller
         {
             if($extraParams[1] == 'all')
             {
-                $selectedCategories[] = null;//$this->getDoctrine()->getRepository('PageBundle:Category')->findAll();
+                $selectedCategories[] = null;//$this->getDoctrine()->getRepository('CategoryBundle:Category')->findAll();
             }
             else
             {
                 $categories = explode(',', $extraParams[1]);
                 foreach($categories as $category)
                 {
-                    $selectedCategories[] = $this->getDoctrine()->getRepository('PageBundle:Category')->findOneByTitle(urldecode($category));
+                    $selectedCategories[] = $this->getDoctrine()->getRepository('CategoryBundle:Category')->findOneByTitle(urldecode($category));
                 }
             }
         }
@@ -169,7 +169,7 @@ class DefaultController extends Controller
         
         if(empty($selectedCategoriesArray[0]))
         {
-            $selectedCategoriesArray = $this->getDoctrine()->getRepository('PageBundle:Category')->findAll();
+            $selectedCategoriesArray = $this->getDoctrine()->getRepository('CategoryBundle:Category')->findAll();
         }
         
         foreach($selectedCategoriesArray as $selectedCategoriesEntity)

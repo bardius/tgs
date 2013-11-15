@@ -28,7 +28,7 @@ class FilterResultsForm extends AbstractType
         );
         
         $builder->add('categories', 'entity', array(
-            'class' => 'BardisCMS\PageBundle\Entity\Category', 
+            'class' => 'BardisCMS\CategoryBundle\Entity\Category', 
             'property' => 'title', 
             'expanded' => true, 
             'multiple' => true, 

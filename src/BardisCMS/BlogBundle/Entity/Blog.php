@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 use BardisCMS\PageBundle\Entity\ContentBlock;
-use BardisCMS\PageBundle\Entity\Category;
+use BardisCMS\CategoryBundle\Entity\Category;
 use BardisCMS\PageBundle\Entity\Tag;
 
 
@@ -114,7 +114,7 @@ class Blog
     protected $introclass = null;
 
     /**
-    * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Category", inversedBy="blogs", cascade={"persist"})
+    * @ORM\ManyToMany(targetEntity="BardisCMS\CategoryBundle\Entity\Category", inversedBy="blogs", cascade={"persist"})
     * @ORM\JoinTable(name="blogs_categories")
     */
     protected $categories;
@@ -562,10 +562,10 @@ class Blog
     /**
      * Add categories
      *
-     * @param \BardisCMS\PageBundle\Entity\Category $categories
+     * @param \BardisCMS\CategoryBundle\Entity\Category $categories
      * @return Blog
      */
-    public function addCategory(\BardisCMS\PageBundle\Entity\Category $categories)
+    public function addCategory(\BardisCMS\CategoryBundle\Entity\Category $categories)
     {
         $this->categories[] = $categories;
     
@@ -575,9 +575,9 @@ class Blog
     /**
      * Remove categories
      *
-     * @param \BardisCMS\PageBundle\Entity\Category $categories
+     * @param \BardisCMS\CategoryBundle\Entity\Category $categories
      */
-    public function removeCategory(\BardisCMS\PageBundle\Entity\Category $categories)
+    public function removeCategory(\BardisCMS\CategoryBundle\Entity\Category $categories)
     {
         $this->categories->removeElement($categories);
     }

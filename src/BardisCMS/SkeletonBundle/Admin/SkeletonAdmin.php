@@ -46,7 +46,7 @@ class SkeletonAdmin extends Admin
                 ->add('date', 'date', array('widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'attr' => array('class' => 'datepicker'), 'label' => 'Publish Date', 'required' => true))
 		->add('author',  'entity', array('class' => 'Application\Sonata\UserBundle\Entity\User', 'property' => 'username', 'expanded' => false, 'multiple' => false, 'label' => 'Author', 'data' => $loggedUser->getUsername(), 'required' => true))
                 ->add('alias', null, array('attr' => array('class' => 'pageAliasField'), 'label' => 'Skeleton Page Alias', 'required' => false))
-                ->add('categories',  'entity', array('class' => 'BardisCMS\PageBundle\Entity\Category', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Add to Category', 'required' => true))
+                ->add('categories',  'entity', array('class' => 'BardisCMS\CategoryBundle\Entity\Category', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Add to Category', 'required' => true))
                 ->add('tags',  'entity', array('class' => 'BardisCMS\PageBundle\Entity\Tag', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Associated Tags', 'required' => false))
                 ->add('pagetype', 'choice', array('choices' => $pagetypeChoices, 'preferred_choices' => array($prefPagetypeChoice), 'label' => 'Skeleton Page Type', 'required' => true))              
                 ->add('showPageTitle', 'choice', array('choices' => array('0' => 'Hide Title', '1' => 'Show Title'), 'preferred_choices' => array('1'), 'label' => 'Title Display', 'required' => true))

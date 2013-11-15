@@ -7,7 +7,7 @@ use Application\Sonata\MediaBundle\Entity\Media;
 use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use BardisCMS\PageBundle\Entity\ContentBlock;
-use BardisCMS\PageBundle\Entity\Category;
+use BardisCMS\CategoryBundle\Entity\Category;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 
@@ -107,7 +107,7 @@ class Page
     protected $introclass = null;
 
     /**
-    * @ORM\ManyToMany(targetEntity="Category", inversedBy="pages", cascade={"persist"})
+    * @ORM\ManyToMany(targetEntity="BardisCMS\CategoryBundle\Entity\Category", inversedBy="pages", cascade={"persist"})
     * @ORM\JoinTable(name="pages_categories")
     */
     protected $categories;
@@ -575,10 +575,10 @@ class Page
     /**
      * Add categories
      *
-     * @param BardisCMS\PageBundle\Entity\Category $categories
+     * @param BardisCMS\CategoryBundle\Entity\Category $categories
      * @return Page
      */
-    public function addCategory(\BardisCMS\PageBundle\Entity\Category $categories)
+    public function addCategory(\BardisCMS\CategoryBundle\Entity\Category $categories)
     {
         $this->categories[] = $categories;
         return $this;
@@ -587,9 +587,9 @@ class Page
     /**
      * Remove categories
      *
-     * @param BardisCMS\PageBundle\Entity\Category $categories
+     * @param BardisCMS\CategoryBundle\Entity\Category $categories
      */
-    public function removeCategory(\BardisCMS\PageBundle\Entity\Category $categories)
+    public function removeCategory(\BardisCMS\CategoryBundle\Entity\Category $categories)
     {
         $this->categories->removeElement($categories);
     }
@@ -639,10 +639,10 @@ class Page
     /**
      * Add categories
      *
-     * @param BardisCMS\PageBundle\Entity\Category $categories
+     * @param BardisCMS\CategoryBundle\Entity\Category $categories
      * @return Page
      */
-    public function addCategories(\BardisCMS\PageBundle\Entity\Category $categories)
+    public function addCategories(\BardisCMS\CategoryBundle\Entity\Category $categories)
     {
         $this->categories[] = $categories;
         return $this;
@@ -651,9 +651,9 @@ class Page
     /**
      * Remove categories
      *
-     * @param BardisCMS\PageBundle\Entity\Category $categories
+     * @param BardisCMS\CategoryBundle\Entity\Category $categories
      */
-    public function removeCategories(\BardisCMS\PageBundle\Entity\Category $categories)
+    public function removeCategories(\BardisCMS\CategoryBundle\Entity\Category $categories)
     {
         $this->categories->removeElement($categories);
     }

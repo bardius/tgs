@@ -218,9 +218,9 @@ sonata_admin:
            sonata_categories:
               label: Categories - Tags
               items:
-                  - sonata.admin.categories
-                  - sonata.admin.recipecategories
-                  - sonata.admin.productcategories
+                 # - sonata.admin.categories
+                 # - sonata.admin.recipecategories
+                 # - sonata.admin.productcategories
                   - sonata.admin.tags
                   - sonata.admin.recipetags
                   - sonata.admin.producttags
