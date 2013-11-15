@@ -17,7 +17,7 @@ This file is part of the BardisCMS.
             <div class="mediaPreviewHolder">
                 <h4>Existing Image</h4>
                 <p class="imagePreview">
-                    Preview image: <a class="imageLink" href="{% path value.id, 'big' %}" target="_blank">{% thumbnail value.id, 'small' %}</a>
+                    Preview image: <a class="imageLink" href="{% path value.id, 'big' %}" target="_blank">{% thumbnail value.id, 'adminthumb' %}</a>
                 </p>
 		{{ block('form_widget') }}
 		<p>Remove image/media</p>
@@ -84,9 +84,9 @@ This file is part of the BardisCMS.
 {% spaceless %}
 	<fieldset id="block_{{ child.ordering.vars.value }}" class="sonata-ba-fielset-collapsed ui-state-default" style="float: left;padding: 10px;margin: 10px 0; background-color: #EEE; border: 1px solid #666;clear: left;">
 		<legend style="margin: 0;">
-			<a title="expand/collapse" class="sonata-ba-collapsed" href="">
-				Content Block: {{ child.title.vars.value }}
-			</a>
+		    <span title="expand/collapse" class="sonata-ba-collapsed" href="">
+			Content Block: {{ child.title.vars.value }}
+		    </span>
 		</legend>
 		<div class="sonata-collection-row sonata-ba-collapsed-fields" style="float: left;padding: 10px;margin: 10px 0; background-color: #EEE; border: 1px solid #666;">
 			<span style="display: none;">{{ form_label(child) }}</span>

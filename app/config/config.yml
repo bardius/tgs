@@ -254,10 +254,11 @@ sonata_media:
                 - sonata.media.provider.file
 
             formats:
-                small:    { width: 213 , height: 254 , quality: 100 }
-                medium:   { width: 452 , height: 254 , quality: 100 }
-                big:      { width: 470 , height: 318 , quality: 100 }
-                original: { quality: 100 }                
+                adminthumb: { width: 70 , height: 70 , quality: 80 }
+                small:			{ width: 213 , height: 254 , quality: 80 }
+                medium:			{ width: 452 , height: 254 , quality: 80 }
+                big:				{ width: 470 , height: 318 , quality: 80 }
+                original:		{ quality: 80 }                
         
         intro:
             providers:
@@ -265,65 +266,70 @@ sonata_media:
                 - sonata.media.provider.image
 
             formats:
-                small:    { width: 213 , height: 254 , quality: 100 }
-                blog:     { width: 227 , height: 205 , quality: 100 }
-                medium:   { width: 452 , height: 254 , quality: 100 }
-                big:      { width: 470 , height: 318 , quality: 100 }
-                original: { quality: 100 }  
+                adminthumb: { width: 70 , height: 70 , quality: 80 }
+                small:			{ width: 213 , height: 254 , quality: 80 }
+                blog:				{ width: 227 , height: 205 , quality: 80 }
+                medium:			{ width: 452 , height: 254 , quality: 80 }
+                big:				{ width: 470 , height: 318 , quality: 80 }
+                original:		{ quality: 80 }  
         
         bgimage:
             providers:
                 - sonata.media.provider.image
 
             formats:
-                small:      { width: 224 , height: 206 , quality: 100 }
+                adminthumb: { width: 70 , height: 70 , quality: 80 }
+                small:      { width: 224 , height: 206 , quality: 80 }
                 mobile:     { width: 768 , height: 300 , quality: 80 }
-                medium:     { width: 310 , height: 318 , quality: 100 }
-                big:        { width: 1388 , height: 257 , quality: 100 }
+                medium:     { width: 310 , height: 318 , quality: 80 }
+                big:        { width: 1388 , height: 257 , quality: 80 }
                 slide:      { width: 1388 , height: 394 , quality: 80 }
-                original:   { quality: 100 }        
+                original:   { quality: 80 }        
         
         recipe:
             providers:
                 - sonata.media.provider.image
 
             formats:
-                xsmall:     { width: 191 , height: 176 , quality: 100 }
-                small:      { width: 224 , height: 206 , quality: 100 }
-                medium:     { width: 310 , height: 318 , quality: 100 }
-                big:        { width: 307 , height: 356 , quality: 100 }
-                original:   { quality: 100 }  
+                adminthumb: { width: 70 , height: 70 , quality: 80 }
+                xsmall:     { width: 191 , height: 176 , quality: 80 }
+                small:      { width: 224 , height: 206 , quality: 80 }
+                medium:     { width: 310 , height: 318 , quality: 80 }
+                big:        { width: 307 , height: 356 , quality: 80 }
+                original:   { quality: 80 }  
                 
         product:
             providers:
                 - sonata.media.provider.image
 
             formats:
-                xsmall:     { width: 66 , height: 112 , quality: 100 }
-                small:      { width: 152 , height: 260, quality: 100 }
-                medium:     { width: 226 , height: 385, quality: 100 }
-                big:        { width: 306 , height: 522 , quality: 100 }
-                original:   { quality: 100 }
+                adminthumb: { width: 70 , height: 70 , quality: 80 }
+                xsmall:     { width: 66 , height: 112 , quality: 80 }
+                small:      { width: 152 , height: 260, quality: 80 }
+                medium:     { width: 226 , height: 385, quality: 80 }
+                big:        { width: 306 , height: 522 , quality: 80 }
+                original:   { quality: 80 }
                 
         productlist:
             providers:
                 - sonata.media.provider.image
 
             formats:
-                small:      { width: 226 , height: 260 , quality: 100 }
-                medium:     { width: 226 , height: 260 , quality: 100 }
-                big:        { width: 226 , height: 260 , quality: 100 }
-                original:   { quality: 100 }              
+                adminthumb: { width: 70 , height: 70 , quality: 80 }
+                small:      { width: 226 , height: 260 , quality: 80 }
+                medium:     { width: 226 , height: 260 , quality: 80 }
+                big:        { width: 226 , height: 260 , quality: 80 }
+                original:   { quality: 80 }              
         
         icons:
             providers:
                 - sonata.media.provider.image
 
             formats:
-                small:    { width: 46 , height: 46 , quality: 100}
-                medium:   { width: 66 , height: 66 , quality: 100}
-                big:      { width: 86 , height: 86 , quality: 100}
-                original: { quality: 100 } 
+                small:    { width: 46 , height: 46 , quality: 80}
+                medium:   { width: 66 , height: 66 , quality: 80}
+                big:      { width: 86 , height: 86 , quality: 80}
+                original: { quality: 80 } 
 
     cdn:
         server:
