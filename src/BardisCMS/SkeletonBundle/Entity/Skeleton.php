@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 use BardisCMS\PageBundle\Entity\ContentBlock;
 use BardisCMS\CategoryBundle\Entity\Category;
-use BardisCMS\PageBundle\Entity\Tag;
+use BardisCMS\TagBundle\Entity\Tag;
 
 
 /**
@@ -114,7 +114,7 @@ class Skeleton
     protected $categories;
 
     /**
-    * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Tag", inversedBy="skeletons", cascade={"persist"})
+    * @ORM\ManyToMany(targetEntity="BardisCMS\TagBundle\Entity\Tag", inversedBy="skeletons", cascade={"persist"})
     * @ORM\JoinTable(name="skeletons_tags")
     */
     protected $tags;
@@ -567,10 +567,10 @@ class Skeleton
     /**
      * Add tags
      *
-     * @param \BardisCMS\PageBundle\Entity\Tag $tags
+     * @param \BardisCMS\TagBundle\Entity\Tag $tags
      * @return Skeleton
      */
-    public function addTag(\BardisCMS\PageBundle\Entity\Tag $tags)
+    public function addTag(\BardisCMS\TagBundle\Entity\Tag $tags)
     {
         $this->tags[] = $tags;
     
@@ -580,9 +580,9 @@ class Skeleton
     /**
      * Remove tags
      *
-     * @param \BardisCMS\PageBundle\Entity\Tag $tags
+     * @param \BardisCMS\TagBundle\Entity\Tag $tags
      */
-    public function removeTag(\BardisCMS\PageBundle\Entity\Tag $tags)
+    public function removeTag(\BardisCMS\TagBundle\Entity\Tag $tags)
     {
         $this->tags->removeElement($tags);
     }

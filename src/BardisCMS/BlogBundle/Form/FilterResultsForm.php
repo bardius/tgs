@@ -18,7 +18,7 @@ class FilterResultsForm extends AbstractType
     {
         
         $builder->add('tags', 'entity', array(
-            'class' => 'BardisCMS\PageBundle\Entity\Tag', 
+            'class' => 'BardisCMS\TagBundle\Entity\Tag', 
             'property' => 'title', 
             'expanded' => true, 
             'multiple' => true, 

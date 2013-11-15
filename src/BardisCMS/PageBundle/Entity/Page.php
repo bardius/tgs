@@ -113,7 +113,7 @@ class Page
     protected $categories;
 
     /**
-    * @ORM\ManyToMany(targetEntity="Tag", inversedBy="pages", cascade={"persist"})
+    * @ORM\ManyToMany(targetEntity="BardisCMS\TagBundle\Entity\Tag", inversedBy="pages", cascade={"persist"})
     * @ORM\JoinTable(name="pages_tags")
     */
     protected $tags;
@@ -607,10 +607,10 @@ class Page
     /**
      * Add tags
      *
-     * @param BardisCMS\PageBundle\Entity\Tag $tags
+     * @param BardisCMS\TagBundle\Entity\Tag $tags
      * @return Page
      */
-    public function addTag(\BardisCMS\PageBundle\Entity\Tag $tags)
+    public function addTag(\BardisCMS\TagBundle\Entity\Tag $tags)
     {
         $this->tags[] = $tags;
         return $this;
@@ -619,9 +619,9 @@ class Page
     /**
      * Remove tags
      *
-     * @param BardisCMS\PageBundle\Entity\Tag $tags
+     * @param BardisCMS\TagBundle\Entity\Tag $tags
      */
-    public function removeTag(\BardisCMS\PageBundle\Entity\Tag $tags)
+    public function removeTag(\BardisCMS\TagBundle\Entity\Tag $tags)
     {
         $this->tags->removeElement($tags);
     }

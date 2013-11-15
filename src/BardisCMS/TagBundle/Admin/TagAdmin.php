@@ -1,12 +1,12 @@
 <?php
 /*
- * Page Bundle
+ * Tag Bundle
  * This file is part of the BardisCMS.
  *
  * (c) George Bardis <george@bardis.info>
  *
  */
-namespace BardisCMS\PageBundle\Admin;
+namespace BardisCMS\TagBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -17,16 +17,16 @@ use Sonata\AdminBundle\Route\RouteCollection;
 use Form\Type;
 
 
-class TagsAdmin extends Admin
+class TagAdmin extends Admin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {   
                 
         // Getting the container parameters set in the config file that exist
-        $pageSettings = $this->getConfigurationPool()->getContainer()->getParameter('page_settings');
+        $tagSettings = $this->getConfigurationPool()->getContainer()->getParameter('tag_settings');
         
         // Setting up the available tag categories and preffered choice
-        $tagcategoriesChoices       = $pageSettings['tagcategories'];
+        $tagcategoriesChoices       = $tagSettings['tagcategories'];
         
         $formMapper
             ->with('Tag Details', array('collapsed' => false))
@@ -46,10 +46,10 @@ class TagsAdmin extends Admin
     {
                 
         // Getting the container parameters set in the config file that exist
-        $pageSettings = $this->getConfigurationPool()->getContainer()->getParameter('page_settings');
+        $tagSettings = $this->getConfigurationPool()->getContainer()->getParameter('tag_settings');
         
         // Setting up the available tag categories and preffered choice
-        $tagcategoriesChoices       = $pageSettings['tagcategories'];
+        $tagcategoriesChoices       = $tagSettings['tagcategories'];
         
         $datagridMapper
             ->add('title')

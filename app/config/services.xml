@@ -11,13 +11,22 @@
               <argument>PageBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.category" class="BardisCMS\CategoryBundle\Admin\CategoryAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Category" label="Manage Category" />
+      <service id="sonata.admin.categories" class="BardisCMS\CategoryBundle\Admin\CategoryAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Category" label="Manage Categories" />
           <argument />
           <argument>BardisCMS\CategoryBundle\Entity\Category</argument>
           <argument>CategoryBundle:CategoryAdmin</argument>
           <call method="setTranslationDomain">
               <argument>CategoryBundle</argument>
+          </call>
+      </service>
+      <service id="sonata.admin.tags" class="BardisCMS\TagBundle\Admin\TagAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Tag" label="Manage Tags" />
+          <argument />
+          <argument>BardisCMS\TagBundle\Entity\Tag</argument>
+          <argument>TagBundle:TagAdmin</argument>
+          <call method="setTranslationDomain">
+              <argument>TagBundle</argument>
           </call>
       </service>
       <service id="sonata.admin.blogs" class="BardisCMS\BlogBundle\Admin\BlogAdmin">
@@ -72,15 +81,6 @@
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
               <argument>ProductBundle</argument>
-          </call>
-      </service>
-      <service id="sonata.admin.tags" class="BardisCMS\PageBundle\Admin\TagsAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Tags" label="Manage Tags" />
-          <argument />
-          <argument>BardisCMS\PageBundle\Entity\Tag</argument>
-          <argument>SonataAdminBundle:CRUD</argument>
-          <call method="setTranslationDomain">
-              <argument>PageBundle</argument>
           </call>
       </service>
       <service id="sonata.admin.recipetags" class="BardisCMS\RecipeBundle\Admin\RecipeTagsAdmin">

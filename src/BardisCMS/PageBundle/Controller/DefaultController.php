@@ -119,14 +119,14 @@ class DefaultController extends Controller
         {
             if($extraParams[0] == 'all')
             {
-                $selectedTags[] = null;//$this->getDoctrine()->getRepository('PageBundle:Tag')->findAll();
+                $selectedTags[] = null;//$this->getDoctrine()->getRepository('TagBundle:Tag')->findAll();
             }
             else
             {
                 $tags = explode(',', $extraParams[0]);
                 foreach($tags as $tag)
                 {
-                    $selectedTags[] = $this->getDoctrine()->getRepository('PageBundle:Tag')->findOneByTitle(urldecode($tag));
+                    $selectedTags[] = $this->getDoctrine()->getRepository('TagBundle:Tag')->findOneByTitle(urldecode($tag));
                 }
             }
         }
@@ -189,7 +189,7 @@ class DefaultController extends Controller
         
         if(empty($selectedTagsArray[0]))
         {
-            $selectedTagsArray = $this->getDoctrine()->getRepository('PageBundle:Tag')->findAll();
+            $selectedTagsArray = $this->getDoctrine()->getRepository('TagBundle:Tag')->findAll();
         }
         
         foreach($selectedTagsArray as $selectedTagEntity)

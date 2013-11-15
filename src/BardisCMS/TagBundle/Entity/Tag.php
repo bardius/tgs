@@ -1,6 +1,12 @@
 <?php
-
-namespace BardisCMS\PageBundle\Entity;
+/*
+ * Tag Bundle
+ * This file is part of the BardisCMS.
+ *
+ * (c) George Bardis <george@bardis.info>
+ *
+ */
+namespace BardisCMS\TagBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use BardisCMS\PageBundle\Entity\Page;
@@ -9,7 +15,7 @@ use Application\Sonata\MediaBundle\Entity\Media;
 
 
 /**
- * BardisCMS\PageBundle\Entity\Tag
+ * BardisCMS\TagBundle\Entity\Tag
  *
  * @ORM\Table(name="tags")
  * @ORM\Entity
@@ -29,7 +35,7 @@ class Tag
     protected $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */ 
     protected $tagCategory = null;
 
@@ -40,7 +46,7 @@ class Tag
     protected $tagIcon;
 
    /**
-    * @ORM\ManyToMany(targetEntity="Page", mappedBy="tags", cascade={"persist"})
+    * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Page", mappedBy="tags", cascade={"persist"})
     */
     protected $pages;
 
@@ -207,6 +213,12 @@ class Tag
      */
     public function __toString()
     {
-        return $this->getTitle();
+		$tagToString = $this->getTitle();
+		
+		if($tagToString === null){
+			$catToString = 'New Tag';
+		}
+		
+		return $tagToString;
     }
 }

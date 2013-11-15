@@ -1,16 +1,16 @@
 <?php
 /*
- * Page Bundle
+ * Tag Bundle
  * This file is part of the BardisCMS.
  *
  * (c) George Bardis <george@bardis.info>
  *
  */
 
-namespace BardisCMS\PageBundle;
+namespace BardisCMS\TagBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class PageBundle extends Bundle
+class TagBundle extends Bundle
 {
 }

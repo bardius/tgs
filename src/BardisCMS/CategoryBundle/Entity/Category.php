@@ -205,6 +205,12 @@ class Category
      */
 	public function __toString()
     {
-        return $this->getTitle();
+		$catToString = $this->getTitle();
+		
+		if($catToString === null){
+			$catToString = 'New category';
+		}
+		
+		return $catToString;
     }
 }

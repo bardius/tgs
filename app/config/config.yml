@@ -142,7 +142,6 @@ sonata_block:
         sonata.admin.contentblocks:
         sonata.user.admin.user:
         sonata.admin.settings:
-        sonata.admin.category:
 
 sonata_cache:
     caches:
@@ -218,9 +217,9 @@ sonata_admin:
            sonata_categories:
               label: Categories - Tags
               items:
-                 # - sonata.admin.categories
-                 # - sonata.admin.recipecategories
-                 # - sonata.admin.productcategories
+                  - sonata.admin.categories
+                  - sonata.admin.recipecategories
+                  - sonata.admin.productcategories
                   - sonata.admin.tags
                   - sonata.admin.recipetags
                   - sonata.admin.producttags
@@ -242,10 +241,7 @@ sonata_admin:
               items:
                   - sonata.media.admin.media
                   - sonata.media.admin.gallery
-           sonata_testing:
-              label: Test Functionality
-              items:
-                  - sonata.admin.category
+                  
 
 sonata_media:
     default_context: default
@@ -388,9 +384,6 @@ page:
         homepage:           Homepage
         sitemap:            Sitemap
     
-    tagcategories:
-        generic:       Generic Tags
-    
     mediasizes:
         original:   Original
         small:      Small
@@ -412,6 +405,13 @@ page:
         large-6:      50%
         large-8:      66%
         large-9:      75%
+       
+tag:        
+    loadservices: true
+    
+    tagcategories:
+        generic:       Generic Tags
+        special:       Special Tags
 
 menu:
     actions:
