@@ -85,6 +85,12 @@ class Settings
      * @ORM\Column(type="integer", length=8)
      */ 
     protected $blogItemsPerPage = 10;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */ 
+    protected $activateSettings = true;
+
     
     
 
@@ -374,6 +380,30 @@ class Settings
         return $this->blogItemsPerPage;
     }
     
+    
+
+    /**
+     * Set activateSettings
+     *
+     * @param boolean $activateSettings
+     * @return Settings
+     */
+    public function setActivateSettings($activateSettings)
+    {
+        $this->activateSettings = $activateSettings;
+    
+        return $this;
+    }
+
+    /**
+     * Get activateSettings
+     *
+     * @return boolean 
+     */
+    public function getActivateSettings()
+    {
+        return $this->activateSettings;
+    }    
     
     public function __toString()
     {

@@ -23,7 +23,8 @@ class LoadSettings
  
     public function loadSettings()
     {
-        $settings = $this->em->getRepository('SettingsBundle:Settings')->findAll();
+        //$settings = $this->em->getRepository('SettingsBundle:Settings')->findAll();
+	$settings = $this->em->getRepository('SettingsBundle:Settings')->findOneByActivateSettings(true);
         
         if(empty($settings))
         {
@@ -31,7 +32,7 @@ class LoadSettings
         }
         else
         {
-            return $settings[0];            
+            return $settings;            
         }
     }
 }
