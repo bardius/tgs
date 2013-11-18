@@ -51,7 +51,7 @@
 				<header class="row header">
 					<div id="logo" class="columns small-12 large-3">
 						<h1 class="logo">
-							<a href="{{ url('PageBundle_home', { 'alias': 'home' }) }}" title="{% block siteLogoTitle %}Page Title{% endblock %}">
+							<a href="{{ url('PageBundle_index', { 'alias': 'index' }) }}" title="{% block siteLogoTitle %}Page Title{% endblock %}">
 								<img src="{% block sitelogoImage %}{{ app.request.uriForPath('/images/site_assets/siteLogo.png') }}{% endblock %}" alt="{% block siteLogoKeywords %}Site Keywords{% endblock %}" />
 								<span class="inv">{% block siteLogoDescription %}Page Description{% endblock %}</span>
 							</a>

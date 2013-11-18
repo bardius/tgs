@@ -21,7 +21,7 @@
                 {% media imageBlock.imageFile.id, contentBlock.mediaSize with {'alt': contentBlock.title, 'title': '' } %}
                 {% endfor %}
                 {% endif %}
-            {% elseif contentBlock.contentType == 'file' %}
+            {% elseif contentBlock.contentType == 'file' and contentBlock.fileFile.id is defined %}
                 <p>Download file: <a class="fileLink" href="{{ path('sonata_media_download', {'id': contentBlock.fileFile.id}) }}" target="_blank">{{ contentBlock.fileFile.name }}</a></p>
             {% elseif contentBlock.contentType == 'youtube' and contentBlock.youtube.id is defined %}
                 <div class="flex-video">

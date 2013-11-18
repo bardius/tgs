@@ -350,21 +350,27 @@ sonata_media:
             generator:  sonata.media.generator.default
             thumbnail:  sonata.media.thumbnail.format
 
-        image:
+        image:          
+            service:    sonata.media.provider.image
             resizer:    sonata.media.resizer.bardiscms # sonata.media.resizer.square # sonata.media.resizer.simple
             filesystem: sonata.media.filesystem.local
             cdn:        sonata.media.cdn.server
             generator:  sonata.media.generator.default
             thumbnail:  sonata.media.thumbnail.format
+            allowed_extensions: ['jpg', 'png', 'jpeg']
+            allowed_mime_types: ['image/pjpeg', 'image/jpeg', 'image/png', 'image/x-png']
 
-        youtube:
+        youtube:           
+            service:    sonata.media.provider.youtube
             resizer:    sonata.media.resizer.bardiscms # sonata.media.resizer.square # sonata.media.resizer.simple
             filesystem: sonata.media.filesystem.local
             cdn:        sonata.media.cdn.server
             generator:  sonata.media.generator.default
             thumbnail:  sonata.media.thumbnail.format
+            html5:			true
 
         vimeo:
+            service:    sonata.media.provider.vimeo
             resizer:    sonata.media.resizer.bardiscms # sonata.media.resizer.square # sonata.media.resizer.simple
             filesystem: sonata.media.filesystem.local
             cdn:        sonata.media.cdn.server

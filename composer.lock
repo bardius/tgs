@@ -118,7 +118,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -567,12 +567,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "2925fea7bd88b935586a0d4b426acb36e8fcc42f"
+                "reference": "3529cd4282b3966707f4a5dc67a992fba6c687dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/2925fea7bd88b935586a0d4b426acb36e8fcc42f",
-                "reference": "2925fea7bd88b935586a0d4b426acb36e8fcc42f",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/3529cd4282b3966707f4a5dc67a992fba6c687dd",
+                "reference": "3529cd4282b3966707f4a5dc67a992fba6c687dd",
                 "shasum": ""
             },
             "require": {
@@ -635,7 +635,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2013-11-14 11:36:52"
+            "time": "2013-11-16 18:52:09"
         },
         {
             "name": "facebook/php-sdk",
