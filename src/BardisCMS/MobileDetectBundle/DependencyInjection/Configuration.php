@@ -1,12 +1,12 @@
 <?php
 /*
- * Settings Bundle
+ * MobileDetect Bundle
  * This file is part of the BardisCMS.
  *
  * (c) George Bardis <george@bardis.info>
  *
  */
-namespace BardisCMS\SettingsBundle\DependencyInjection;
+namespace BardisCMS\MobileDetectBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -24,7 +24,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('settings');
+        $rootNode = $treeBuilder->root('mobile_detect');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for

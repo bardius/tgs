@@ -223,8 +223,8 @@ class DefaultController extends Controller {
 	// Get the required data to display to the correct view depending on pagetype
 	// @TODO: refactor that to be a case switch in stead of conditional if 
 	public function renderPage($page, $id, $publishStates, $extraParams, $currentpage, $totalpageitems, $linkUrlParams) {
-		// Check if mobile content should be served
-		$serveMobile = $this->isMobile();
+		// Check if mobile content should be served		
+        $serveMobile = $this->get('bardiscms_mobile_detect.device_detection')->testMobile();
 
 		// Render category list page type
 		if ($page->getPagetype() == 'category_page') {
@@ -515,61 +515,4 @@ class DefaultController extends Controller {
 		}
 		return ($introItemA->getPageOrder() < $introItemB->getPageOrder()) ? -1 : 1;
 	}
-
-	// Check for mobile 
-	public function isMobile() {
-		// Get user agent
-		$useragent = strtolower($_SERVER['HTTP_USER_AGENT']);
-		$mobile_ua = substr($useragent, 0, 4);
-
-		$mobile_agents = array(
-			'w3c ', 'acs-', 'alav', 'alca', 'amoi', 'audi', 'avan', 'benq', 'bird', 'blac',
-			'blaz', 'brew', 'cell', 'cldc', 'cmd-', 'dang', 'doco', 'eric', 'hipt', 'inno',
-			'ipaq', 'java', 'jigs', 'kddi', 'keji', 'leno', 'lg-c', 'lg-d', 'lg-g', 'lge-',
-			'maui', 'maxo', 'midp', 'mits', 'mmef', 'mobi', 'mot-', 'moto', 'mwbp', 'nec-',
-			'newt', 'noki', 'palm', 'pana', 'pant', 'phil', 'play', 'port', 'prox',
-			'qwap', 'sage', 'sams', 'sany', 'sch-', 'sec-', 'send', 'seri', 'sgh-', 'shar',
-			'sie-', 'siem', 'smal', 'smar', 'sony', 'sph-', 'symb', 't-mo', 'teli', 'tim-',
-			'tosh', 'tsm-', 'upg1', 'upsi', 'vk-v', 'voda', 'wap-', 'wapa', 'wapi', 'wapp',
-			'wapr', 'webc', 'winw', 'winw', 'xda ', 'xda-');
-
-		// Count successful tests
-		$tablet_browser = 0;
-		$mobile_browser = 0;
-
-		// Start the testing
-		if (in_array($mobile_ua, $mobile_agents)) {
-			$mobile_browser++;
-		}
-
-		if (preg_match('/(tablet|ipad|playbook)|(android(?!.*(mobi|opera mini)))/i', $useragent)) {
-			$tablet_browser++;
-		}
-
-		if (preg_match('/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android|iemobile)/i', $useragent)) {
-			$mobile_browser++;
-		}
-
-		if ((strpos(strtolower($_SERVER['HTTP_ACCEPT']), 'application/vnd.wap.xhtml+xml') > 0) or ((isset($_SERVER['HTTP_X_WAP_PROFILE']) or isset($_SERVER['HTTP_PROFILE'])))) {
-			$mobile_browser++;
-		}
-
-		if (strpos($useragent, 'opera mini') > 0) {
-			$mobile_browser++;
-
-			//Check for tablets on opera mini alternative headers
-			$stock_ua = strtolower(isset($_SERVER['HTTP_X_OPERAMINI_PHONE_UA']) ? $_SERVER['HTTP_X_OPERAMINI_PHONE_UA'] : (isset($_SERVER['HTTP_DEVICE_STOCK_UA']) ? $_SERVER['HTTP_DEVICE_STOCK_UA'] : ''));
-			if (preg_match('/(tablet|ipad|playbook)|(android(?!.*mobile))/i', $stock_ua)) {
-				$tablet_browser++;
-			}
-		}
-		// For tablet and mobile detections use the line below
-		// if ($tablet_browser > 0 || $mobile_browser > 0) {
-		if ($mobile_browser > 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
 }
