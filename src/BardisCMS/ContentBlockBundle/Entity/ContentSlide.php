@@ -1,14 +1,21 @@
 <?php
+/*
+ * ContentBlock Bundle
+ * This file is part of the BardisCMS.
+ *
+ * (c) George Bardis <george@bardis.info>
+ *
+ */
 
-namespace BardisCMS\PageBundle\Entity;
+namespace BardisCMS\ContentBlockBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Application\Sonata\MediaBundle\Entity\Media;
-use BardisCMS\PageBundle\Entity\ContentBlock;
+use BardisCMS\ContentBlockBundle\Entity\ContentBlock;
 
 
 /**
- * BardisCMS\PageBundle\Entity\ContentSlide
+ * BardisCMS\ContentBlockBundle\Entity\ContentSlide
  *
  * @ORM\Table(name="content_slides")
  * @ORM\Entity

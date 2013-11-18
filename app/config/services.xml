@@ -101,13 +101,13 @@
               <argument>ProductBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.contentblocks" class="BardisCMS\PageBundle\Admin\ContentBlockAdmin">
+      <service id="sonata.admin.contentblocks" class="BardisCMS\ContentBlockBundle\Admin\ContentBlockAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Content Blocks" label="Manage Content Blocks" />
           <argument />
-          <argument>BardisCMS\PageBundle\Entity\ContentBlock</argument>
+          <argument>BardisCMS\ContentBlockBundle\Entity\ContentBlock</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
-              <argument>PageBundle</argument>
+              <argument>ContentBlockBundle</argument>
           </call>
       </service>
       <service id="sonata.admin.settings" class="BardisCMS\SettingsBundle\Admin\SettingsAdmin">
@@ -119,7 +119,7 @@
               <argument>SettingsBundle</argument>
           </call>
       </service>
-      <service id="sonata.media.resizer.bardiscms" class="BardisCMS\PageBundle\Media\Resizer\BardisCMSResizer">
+      <service id="sonata.media.resizer.bardiscms" class="BardisCMS\ContentBlockBundle\Media\Resizer\BardisCMSResizer">
             <tag name="sonata.media.resizer" />
             <argument type="service" id="sonata.media.adapter.image.gd" />
       </service> 

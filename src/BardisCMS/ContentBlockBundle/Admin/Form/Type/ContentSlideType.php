@@ -1,12 +1,12 @@
 <?php
 /*
- * Page Bundle
+ * ContentBlock Bundle
  * This file is part of the BardisCMS.
  *
  * (c) George Bardis <george@bardis.info>
  *
  */
-namespace BardisCMS\PageBundle\Admin\Form\Type;
+namespace BardisCMS\ContentBlockBundle\Admin\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,9 +14,9 @@ use Sonata\AdminBundle\Form\EventListener\ResizeFormListener;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use BardisCMS\PageBundle\Entity\ContentImage;
+use BardisCMS\ContentBlockBundle\Entity\ContentSlide;
 
-class ContentImageType extends AbstractType
+class ContentSlideType extends AbstractType
 {
     /**
      * {@inheritDoc}
@@ -24,8 +24,9 @@ class ContentImageType extends AbstractType
     public function buildForm(FormBuilderInterface $formBuilder, array $options)
     {                  
         $formBuilder
-            ->add('imageOrder', 'text', array('attr' => array('class' => 'imageOrderField'), 'label' => 'Image Ordering', 'required' => true))
-            ->add('imageFile', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'default', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Image File', 'required' => true))
+            ->add('imageLinkTitle', 'text', array('attr' => array('class' => 'imageLinkTitle'), 'label' => 'Link Title', 'required' => true))
+            ->add('imageLinkURL', 'text', array('attr' => array('class' => 'imageLinkURL'), 'label' => 'Link URL', 'required' => true))
+            ->add('imageFile', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'bgimage', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Image File', 'required' => true))
         ;
     }
 
@@ -35,7 +36,7 @@ class ContentImageType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {      
         $optionsNormalizer = function (Options $options, $value) {
-            $value = 'BardisCMS\PageBundle\Entity\ContentImage';
+            $value = 'BardisCMS\ContentBlockBundle\Entity\ContentSlide';
 
             return $value;
         };
@@ -50,7 +51,7 @@ class ContentImageType extends AbstractType
      */
     public function getName()
     {
-        return 'contentimage';
+        return 'contentslide';
     }
 
 }

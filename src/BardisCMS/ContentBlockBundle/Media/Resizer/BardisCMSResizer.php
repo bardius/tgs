@@ -1,12 +1,12 @@
 <?php
 /*
- * Page Bundle
+ * ContentBlock Bundle
  * This file is part of the BardisCMS.
  *
  * (c) George Bardis <george@bardis.info>
  *
  */
-namespace BardisCMS\PageBundle\Media\Resizer;
+namespace BardisCMS\ContentBlockBundle\Media\Resizer;
 
 use Imagine\Image\ImagineInterface;
 use Imagine\Image\Box;

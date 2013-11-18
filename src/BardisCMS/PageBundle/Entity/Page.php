@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Application\Sonata\MediaBundle\Entity\Media;
 use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
-use BardisCMS\PageBundle\Entity\ContentBlock;
+use BardisCMS\ContentBlockBundle\Entity\ContentBlock;
 use BardisCMS\CategoryBundle\Entity\Category;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
@@ -125,35 +125,35 @@ class Page
 
    
     /**
-     * @ORM\ManyToMany(targetEntity="ContentBlock", inversedBy="maincontents", cascade={"all"}, orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="maincontents", cascade={"all"}, orphanRemoval=true)
      * @ORM\JoinTable(name="maincontent_blocks")
      **/
     protected $maincontentblocks;
 
    
     /**
-     * @ORM\ManyToMany(targetEntity="ContentBlock", inversedBy="bannercontents", cascade={"all"}, orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="bannercontents", cascade={"all"}, orphanRemoval=true)
      * @ORM\JoinTable(name="bannercontent_blocks")
      **/
     protected $bannercontentblocks;
 
    
     /**
-     * @ORM\ManyToMany(targetEntity="ContentBlock", inversedBy="secondarycontents", cascade={"all"}, orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="secondarycontents", cascade={"all"}, orphanRemoval=true)
      * @ORM\JoinTable(name="secondarycontent_blocks")
      **/
     protected $secondarycontentblocks;
 
    
     /**
-     * @ORM\ManyToMany(targetEntity="ContentBlock", inversedBy="extracontents", cascade={"all"}, orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="extracontents", cascade={"all"}, orphanRemoval=true)
      * @ORM\JoinTable(name="extracontent_blocks")
      **/
     protected $extracontentblocks;
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="ContentBlock", inversedBy="modalcontents", cascade={"all"}, orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="modalcontents", cascade={"all"}, orphanRemoval=true)
      * @ORM\JoinTable(name="modalcontent_blocks")
      **/
     protected $modalcontentblocks;
@@ -162,10 +162,10 @@ class Page
     public function __construct() {
         $this->modalcontentblocks 		= new \Doctrine\Common\Collections\ArrayCollection();
         $this->extracontentblocks 		= new \Doctrine\Common\Collections\ArrayCollection();
-        $this->secondarycontentblocks   = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->secondarycontentblocks		= new \Doctrine\Common\Collections\ArrayCollection();
         $this->maincontentblocks 		= new \Doctrine\Common\Collections\ArrayCollection();
         $this->bannercontentblocks 		= new \Doctrine\Common\Collections\ArrayCollection();
-		$this->date                     = new \DateTime();
+	$this->date				= new \DateTime();
     }
 
 
@@ -447,10 +447,10 @@ class Page
     /**
      * Add maincontentblocks
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $maincontentblocks
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $maincontentblocks
      * @return Page
      */
-    public function addMaincontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $maincontentblocks)
+    public function addMaincontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $maincontentblocks)
     {
         $this->maincontentblocks[] = $maincontentblocks;
         return $this;
@@ -459,9 +459,9 @@ class Page
     /**
      * Remove maincontentblocks
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $maincontentblocks
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $maincontentblocks
      */
-    public function removeMaincontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $maincontentblocks)
+    public function removeMaincontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $maincontentblocks)
     {
         $this->maincontentblocks->removeElement($maincontentblocks);
     }
@@ -479,10 +479,10 @@ class Page
     /**
      * Add secondarycontentblocks
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $secondarycontentblocks
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $secondarycontentblocks
      * @return Page
      */
-    public function addSecondarycontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $secondarycontentblocks)
+    public function addSecondarycontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $secondarycontentblocks)
     {
         $this->secondarycontentblocks[] = $secondarycontentblocks;
         return $this;
@@ -491,9 +491,9 @@ class Page
     /**
      * Remove secondarycontentblocks
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $secondarycontentblocks
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $secondarycontentblocks
      */
-    public function removeSecondarycontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $secondarycontentblocks)
+    public function removeSecondarycontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $secondarycontentblocks)
     {
         $this->secondarycontentblocks->removeElement($secondarycontentblocks);
     }
@@ -511,10 +511,10 @@ class Page
     /**
      * Add extracontentblocks
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $extracontentblocks
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $extracontentblocks
      * @return Page
      */
-    public function addExtracontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $extracontentblocks)
+    public function addExtracontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $extracontentblocks)
     {
         $this->extracontentblocks[] = $extracontentblocks;
         return $this;
@@ -523,9 +523,9 @@ class Page
     /**
      * Remove extracontentblocks
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $extracontentblocks
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $extracontentblocks
      */
-    public function removeExtracontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $extracontentblocks)
+    public function removeExtracontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $extracontentblocks)
     {
         $this->extracontentblocks->removeElement($extracontentblocks);
     }
@@ -543,10 +543,10 @@ class Page
     /**
      * Add modalcontentblocks
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $modalcontentblocks
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $modalcontentblocks
      * @return Page
      */
-    public function addModalcontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $modalcontentblocks)
+    public function addModalcontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $modalcontentblocks)
     {
         $this->modalcontentblocks[] = $modalcontentblocks;
         return $this;
@@ -555,9 +555,9 @@ class Page
     /**
      * Remove modalcontentblocks
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $modalcontentblocks
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $modalcontentblocks
      */
-    public function removeModalcontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $modalcontentblocks)
+    public function removeModalcontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $modalcontentblocks)
     {
         $this->modalcontentblocks->removeElement($modalcontentblocks);
     }
@@ -734,10 +734,10 @@ class Page
     /**
      * Add bannercontentblocks
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $bannercontentblocks
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $bannercontentblocks
      * @return Page
      */
-    public function addBannercontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $bannercontentblocks)
+    public function addBannercontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $bannercontentblocks)
     {
         $this->bannercontentblocks[] = $bannercontentblocks;
     
@@ -747,9 +747,9 @@ class Page
     /**
      * Remove bannercontentblocks
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $bannercontentblocks
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $bannercontentblocks
      */
-    public function removeBannercontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $bannercontentblocks)
+    public function removeBannercontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $bannercontentblocks)
     {
         $this->bannercontentblocks->removeElement($bannercontentblocks);
     }

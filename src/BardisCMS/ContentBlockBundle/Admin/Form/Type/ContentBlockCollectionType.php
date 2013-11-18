@@ -1,12 +1,12 @@
 <?php
 /*
- * Page Bundle
+ * ContentBlock Bundle
  * This file is part of the BardisCMS.
  *
  * (c) George Bardis <george@bardis.info>
  *
  */
-namespace BardisCMS\PageBundle\Admin\Form\Type;
+namespace BardisCMS\ContentBlockBundle\Admin\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type;

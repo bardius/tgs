@@ -1,13 +1,13 @@
 <?php
 /*
- * Page Bundle
+ * ContentBlock Bundle
  * This file is part of the BardisCMS.
  *
  * (c) George Bardis <george@bardis.info>
  *
  */
 
-namespace BardisCMS\PageBundle\Admin;
+namespace BardisCMS\ContentBlockBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -16,7 +16,7 @@ use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Form\Type;
-use BardisCMS\PageBundle\Admin\Form\EventListener\AddContentTypeFieldSubscriber;
+use BardisCMS\ContentBlockBundle\Admin\Form\EventListener\AddContentTypeFieldSubscriber;
 use Symfony\Component\Form\FormBuilderInterface;
 
 
@@ -26,19 +26,20 @@ class ContentBlockAdmin extends Admin
     {   
         
         // Getting the container parameters set in the config file that exist
-        $pageSettings = $this->getConfigurationPool()->getContainer()->getParameter('page_settings');
+        $contentblockSettings = $this->getConfigurationPool()->getContainer()->getParameter('contentblock_settings');
         
         // Setting up the available content types and preffered choice
-        $contentTypeChoices            = $pageSettings['contenttypes'];
+        $contentTypeChoices            = $contentblockSettings['contenttypes'];
         reset($contentTypeChoices);
         $prefContentTypeChoice         = key($contentTypeChoices);
         
         // Setting up the available content sizes and preffered choice
-        $sizeclassChoices            = $pageSettings['contentsizes'];
+        $sizeclassChoices            = $contentblockSettings['contentsizes'];
         reset($sizeclassChoices);
         $prefSizeclassChoice         = key($sizeclassChoices);
         
-        $mediasizes = $pageSettings['mediasizes'];
+	// Setting up the available media sizes
+        $mediasizes		     = $contentblockSettings['mediasizes'];
         
         $subscriber = new AddContentTypeFieldSubscriber($formMapper->getFormBuilder()->getFormFactory(), $mediasizes);
         $formMapper->getFormBuilder()->addEventSubscriber($subscriber);
@@ -64,10 +65,10 @@ class ContentBlockAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         // Getting the container parameters set in the config file that exist
-        $pageSettings = $this->getConfigurationPool()->getContainer()->getParameter('page_settings');
+        $pageSettings = $this->getConfigurationPool()->getContainer()->getParameter('contentblock_settings');
         
         // Setting up the available page types and preffered choice
-        $contentTypeChoices            = $pageSettings['contenttypes'];
+        $contentTypeChoices            = $contentblockSettings['contenttypes'];
         
         $datagridMapper
             ->add('title')
@@ -89,12 +90,8 @@ class ContentBlockAdmin extends Admin
             ->addIdentifier('contentTypeAsString', null, array('sortable' => false, 'label' => 'Content Type'))
             ->add('_action', 'actions', array( 
                     'actions' => array(  
-                        'edit' => array(
-                            'template' => 'PageBundle:Admin:edit.html.twig'
-                        ),
-                        'delete' => array(
-                            'template' => 'PageBundle:Admin:delete.html.twig'
-                        )
+                        'edit' => array(),
+                        'delete' => array()
                     )
                 ))
         ;

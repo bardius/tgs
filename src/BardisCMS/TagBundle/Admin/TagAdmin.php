@@ -65,12 +65,8 @@ class TagAdmin extends Admin
             ->addIdentifier('tagIcon')
             ->add('_action', 'actions', array( 
                     'actions' => array(  
-                        'edit' => array(
-                            'template' => 'PageBundle:Admin:edit.html.twig'
-                        ),
-                        'delete' => array(
-                            'template' => 'PageBundle:Admin:delete.html.twig'
-                        )
+                        'edit' => array(),
+                        'delete' => array()
                     )
                 ))
         ;

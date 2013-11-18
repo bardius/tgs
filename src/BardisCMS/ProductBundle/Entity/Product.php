@@ -8,7 +8,7 @@ use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
-use BardisCMS\PageBundle\Entity\ContentBlock;
+use BardisCMS\ContentBlockBundle\Entity\ContentBlock;
 use BardisCMS\ProductBundle\Entity\ProductCategory;
 use BardisCMS\ProductBundle\Entity\ProductTag;
 
@@ -203,21 +203,21 @@ class Product
     protected $displayInRange;
    
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\ContentBlock", inversedBy="product_maincontents", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="product_maincontents", cascade={"persist"})
      * @ORM\JoinTable(name="product_maincontent_blocks")
      **/
     protected $maincontentblocks;
 
    
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\ContentBlock", inversedBy="product_secondarycontents", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="product_secondarycontents", cascade={"persist"})
      * @ORM\JoinTable(name="product_secondarycontent_blocks")
      **/
     protected $secondarycontentblocks;
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\ContentBlock", inversedBy="product_modalcontents", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="product_modalcontents", cascade={"persist"})
      * @ORM\JoinTable(name="product_modalcontent_blocks")
      **/
     protected $modalcontentblocks;
@@ -1053,10 +1053,10 @@ class Product
     /**
      * Add maincontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $maincontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $maincontentblocks
      * @return Products
      */
-    public function addMaincontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $maincontentblocks)
+    public function addMaincontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $maincontentblocks)
     {
         $this->maincontentblocks[] = $maincontentblocks;
     
@@ -1066,9 +1066,9 @@ class Product
     /**
      * Remove maincontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $maincontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $maincontentblocks
      */
-    public function removeMaincontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $maincontentblocks)
+    public function removeMaincontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $maincontentblocks)
     {
         $this->maincontentblocks->removeElement($maincontentblocks);
     }
@@ -1086,10 +1086,10 @@ class Product
     /**
      * Add secondarycontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $secondarycontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $secondarycontentblocks
      * @return Products
      */
-    public function addSecondarycontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $secondarycontentblocks)
+    public function addSecondarycontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $secondarycontentblocks)
     {
         $this->secondarycontentblocks[] = $secondarycontentblocks;
     
@@ -1099,9 +1099,9 @@ class Product
     /**
      * Remove secondarycontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $secondarycontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $secondarycontentblocks
      */
-    public function removeSecondarycontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $secondarycontentblocks)
+    public function removeSecondarycontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $secondarycontentblocks)
     {
         $this->secondarycontentblocks->removeElement($secondarycontentblocks);
     }
@@ -1119,10 +1119,10 @@ class Product
     /**
      * Add modalcontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $modalcontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $modalcontentblocks
      * @return Products
      */
-    public function addModalcontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $modalcontentblocks)
+    public function addModalcontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $modalcontentblocks)
     {
         $this->modalcontentblocks[] = $modalcontentblocks;
     
@@ -1132,9 +1132,9 @@ class Product
     /**
      * Remove modalcontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $modalcontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $modalcontentblocks
      */
-    public function removeModalcontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $modalcontentblocks)
+    public function removeModalcontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $modalcontentblocks)
     {
         $this->modalcontentblocks->removeElement($modalcontentblocks);
     }

@@ -1,14 +1,21 @@
 <?php
+/*
+ * ContentBlock Bundle
+ * This file is part of the BardisCMS.
+ *
+ * (c) George Bardis <george@bardis.info>
+ *
+ */
 
-namespace BardisCMS\PageBundle\Entity;
+namespace BardisCMS\ContentBlockBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Application\Sonata\MediaBundle\Entity\Media;
-use BardisCMS\PageBundle\Entity\ContentBlock;
+use BardisCMS\ContentBlockBundle\Entity\ContentBlock;
 
 
 /**
- * BardisCMS\PageBundle\Entity\ContentImage
+ * BardisCMS\ContentBlockBundle\Entity\ContentImage
  *
  * @ORM\Table(name="content_images")
  * @ORM\Entity
@@ -79,10 +86,10 @@ class ContentImage
     /**
      * Set contentblock
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $contentblock
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $contentblock
      * @return ContentImage
      */
-    public function setContentblock(\BardisCMS\PageBundle\Entity\ContentBlock $contentblock = null)
+    public function setContentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $contentblock = null)
     {
         $this->contentblock = $contentblock;
         return $this;
@@ -91,7 +98,7 @@ class ContentImage
     /**
      * Get contentblock
      *
-     * @return BardisCMS\PageBundle\Entity\ContentBlock 
+     * @return BardisCMS\ContentBlockBundle\Entity\ContentBlock 
      */
     public function getContentblock()
     {
@@ -101,10 +108,10 @@ class ContentImage
     /**
      * Set contentblock_id
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $contentblockId
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $contentblockId
      * @return ContentImage
      */
-    public function setContentblockId(\BardisCMS\PageBundle\Entity\ContentBlock $contentblockId = null)
+    public function setContentblockId(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $contentblockId = null)
     {
         $this->contentblock_id = $contentblockId;
         return $this;
@@ -113,7 +120,7 @@ class ContentImage
     /**
      * Get contentblock_id
      *
-     * @return BardisCMS\PageBundle\Entity\ContentBlock 
+     * @return BardisCMS\ContentBlockBundle\Entity\ContentBlock 
      */
     public function getContentblockId()
     {
@@ -123,10 +130,10 @@ class ContentImage
     /**
      * Add contentblocks
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $contentblocks
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $contentblocks
      * @return ContentImage
      */
-    public function addContentblock(\BardisCMS\PageBundle\Entity\ContentBlock $contentblocks)
+    public function addContentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $contentblocks)
     {
         $this->contentblocks[] = $contentblocks;
         return $this;
@@ -135,9 +142,9 @@ class ContentImage
     /**
      * Remove contentblocks
      *
-     * @param BardisCMS\PageBundle\Entity\ContentBlock $contentblocks
+     * @param BardisCMS\ContentBlockBundle\Entity\ContentBlock $contentblocks
      */
-    public function removeContentblock(\BardisCMS\PageBundle\Entity\ContentBlock $contentblocks)
+    public function removeContentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $contentblocks)
     {
         $this->contentblocks->removeElement($contentblocks);
     }

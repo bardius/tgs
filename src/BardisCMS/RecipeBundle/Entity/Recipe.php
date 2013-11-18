@@ -8,7 +8,7 @@ use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
-use BardisCMS\PageBundle\Entity\ContentBlock;
+use BardisCMS\ContentBlockBundle\Entity\ContentBlock;
 use BardisCMS\RecipeBundle\Entity\RecipeCategory;
 use BardisCMS\RecipeBundle\Entity\RecipeTag;
 
@@ -164,35 +164,35 @@ class Recipe
 
    
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\ContentBlock", inversedBy="recipe_maincontents", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="recipe_maincontents", cascade={"persist"})
      * @ORM\JoinTable(name="recipe_maincontent_blocks")
      **/
     protected $maincontentblocks;
 
    
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\ContentBlock", inversedBy="recipe_secondarycontents", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="recipe_secondarycontents", cascade={"persist"})
      * @ORM\JoinTable(name="recipe_secondarycontent_blocks")
      **/
     protected $secondarycontentblocks;
 
    
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\ContentBlock", inversedBy="recipe_extracontents", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="recipe_extracontents", cascade={"persist"})
      * @ORM\JoinTable(name="recipe_extracontent_blocks")
      **/
     protected $extracontentblocks;
 
    
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\ContentBlock", inversedBy="recipe_bannercontents", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="recipe_bannercontents", cascade={"persist"})
      * @ORM\JoinTable(name="recipe_bannercontent_blocks")
      **/
     protected $bannercontentblocks;
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\ContentBlock", inversedBy="recipe_modalcontents", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="recipe_modalcontents", cascade={"persist"})
      * @ORM\JoinTable(name="recipe_modalcontent_blocks")
      **/
     protected $modalcontentblocks;
@@ -722,10 +722,10 @@ class Recipe
     /**
      * Add maincontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $maincontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $maincontentblocks
      * @return Recipe
      */
-    public function addMaincontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $maincontentblocks)
+    public function addMaincontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $maincontentblocks)
     {
         $this->maincontentblocks[] = $maincontentblocks;
     
@@ -735,9 +735,9 @@ class Recipe
     /**
      * Remove maincontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $maincontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $maincontentblocks
      */
-    public function removeMaincontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $maincontentblocks)
+    public function removeMaincontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $maincontentblocks)
     {
         $this->maincontentblocks->removeElement($maincontentblocks);
     }
@@ -755,10 +755,10 @@ class Recipe
     /**
      * Add bannercontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $bannercontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $bannercontentblocks
      * @return Recipe
      */
-    public function addBannercontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $bannercontentblocks)
+    public function addBannercontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $bannercontentblocks)
     {
         $this->bannercontentblocks[] = $bannercontentblocks;
     
@@ -768,9 +768,9 @@ class Recipe
     /**
      * Remove bannercontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $bannercontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $bannercontentblocks
      */
-    public function removeBannercontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $bannercontentblocks)
+    public function removeBannercontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $bannercontentblocks)
     {
         $this->bannercontentblocks->removeElement($bannercontentblocks);
     }
@@ -788,10 +788,10 @@ class Recipe
     /**
      * Add modalcontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $modalcontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $modalcontentblocks
      * @return Recipe
      */
-    public function addModalcontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $modalcontentblocks)
+    public function addModalcontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $modalcontentblocks)
     {
         $this->modalcontentblocks[] = $modalcontentblocks;
     
@@ -801,9 +801,9 @@ class Recipe
     /**
      * Remove modalcontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $modalcontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $modalcontentblocks
      */
-    public function removeModalcontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $modalcontentblocks)
+    public function removeModalcontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $modalcontentblocks)
     {
         $this->modalcontentblocks->removeElement($modalcontentblocks);
     }
@@ -913,10 +913,10 @@ class Recipe
     /**
      * Add secondarycontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $secondarycontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $secondarycontentblocks
      * @return Recipe
      */
-    public function addSecondarycontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $secondarycontentblocks)
+    public function addSecondarycontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $secondarycontentblocks)
     {
         $this->secondarycontentblocks[] = $secondarycontentblocks;
     
@@ -926,9 +926,9 @@ class Recipe
     /**
      * Remove secondarycontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $secondarycontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $secondarycontentblocks
      */
-    public function removeSecondarycontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $secondarycontentblocks)
+    public function removeSecondarycontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $secondarycontentblocks)
     {
         $this->secondarycontentblocks->removeElement($secondarycontentblocks);
     }
@@ -946,10 +946,10 @@ class Recipe
     /**
      * Add extracontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $extracontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $extracontentblocks
      * @return Recipe
      */
-    public function addExtracontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $extracontentblocks)
+    public function addExtracontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $extracontentblocks)
     {
         $this->extracontentblocks[] = $extracontentblocks;
     
@@ -959,9 +959,9 @@ class Recipe
     /**
      * Remove extracontentblocks
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentBlock $extracontentblocks
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $extracontentblocks
      */
-    public function removeExtracontentblock(\BardisCMS\PageBundle\Entity\ContentBlock $extracontentblocks)
+    public function removeExtracontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $extracontentblocks)
     {
         $this->extracontentblocks->removeElement($extracontentblocks);
     }

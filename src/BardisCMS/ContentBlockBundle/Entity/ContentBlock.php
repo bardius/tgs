@@ -1,20 +1,27 @@
 <?php
+/*
+ * ContentBlock Bundle
+ * This file is part of the BardisCMS.
+ *
+ * (c) George Bardis <george@bardis.info>
+ *
+ */
 
-namespace BardisCMS\PageBundle\Entity;
+namespace BardisCMS\ContentBlockBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use BardisCMS\PageBundle\Entity\Page;
 use BardisCMS\BlogBundle\Entity\Blog;
 use BardisCMS\RecipeBundle\Entity\Recipe;
 use BardisCMS\ProductBundle\Entity\Product;
-use BardisCMS\PageBundle\Entity\ContentImage;
-use BardisCMS\PageBundle\Entity\ContentSlide;
+use BardisCMS\ContentBlockBundle\Entity\ContentImage;
+use BardisCMS\ContentBlockBundle\Entity\ContentSlide;
 use Application\Sonata\MediaBundle\Entity\Media;
 use Doctrine\Common\Collections\ArrayCollection;
 
 
 /**
- * BardisCMS\PageBundle\Entity\Page
+ * BardisCMS\ContentBlockBundle\Entity\ContentBlock
  *
  * @ORM\Table(name="content_blocks")
  * @ORM\Entity
@@ -79,7 +86,7 @@ class ContentBlock
     protected $contentType;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Page", mappedBy="maincontentblocks", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Page", mappedBy="maincontentblocks", cascade={"persist"})
      **/
     protected $maincontents;
     
@@ -99,7 +106,7 @@ class ContentBlock
     protected $product_maincontents;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Page", mappedBy="secondarycontentblocks", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Page", mappedBy="secondarycontentblocks", cascade={"persist"})
      **/
     protected $secondarycontents;
     
@@ -114,7 +121,7 @@ class ContentBlock
     protected $product_secondarycontents;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Page", mappedBy="extracontentblocks", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Page", mappedBy="extracontentblocks", cascade={"persist"})
      **/
     protected $extracontents;
     
@@ -124,7 +131,7 @@ class ContentBlock
     protected $recipe_extracontents;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Page", mappedBy="modalcontentblocks", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Page", mappedBy="modalcontentblocks", cascade={"persist"})
      **/
     protected $modalcontents;
     
@@ -144,7 +151,7 @@ class ContentBlock
     protected $product_modalcontents;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Page", mappedBy="bannercontentblocks", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Page", mappedBy="bannercontentblocks", cascade={"persist"})
      **/
     protected $bannercontents;
     
@@ -748,10 +755,10 @@ class ContentBlock
     /**
      * Add imageFiles
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentImage $imageFiles
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentImage $imageFiles
      * @return ContentBlock
      */
-    public function addImageFile(\BardisCMS\PageBundle\Entity\ContentImage $imageFiles)
+    public function addImageFile(\BardisCMS\ContentBlockBundle\Entity\ContentImage $imageFiles)
     {
         $this->imageFiles[] = $imageFiles;
     
@@ -761,9 +768,9 @@ class ContentBlock
     /**
      * Remove imageFiles
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentImage $imageFiles
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentImage $imageFiles
      */
-    public function removeImageFile(\BardisCMS\PageBundle\Entity\ContentImage $imageFiles)
+    public function removeImageFile(\BardisCMS\ContentBlockBundle\Entity\ContentImage $imageFiles)
     {
         $this->imageFiles->removeElement($imageFiles);
     }
@@ -781,10 +788,10 @@ class ContentBlock
     /**
      * Set slide
      *
-     * @param \BardisCMS\PageBundle\Entity\ContentSlide $slide
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentSlide $slide
      * @return ContentBlock
      */
-    public function setSlide(\BardisCMS\PageBundle\Entity\ContentSlide $slide = null)
+    public function setSlide(\BardisCMS\ContentBlockBundle\Entity\ContentSlide $slide = null)
     {
         $this->slide = $slide;
     
@@ -794,7 +801,7 @@ class ContentBlock
     /**
      * Get slide
      *
-     * @return \BardisCMS\PageBundle\Entity\ContentSlide 
+     * @return \BardisCMS\ContentBlockBundle\Entity\ContentSlide 
      */
     public function getSlide()
     {

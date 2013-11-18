@@ -23,7 +23,7 @@ twig:
     strict_variables: %kernel.debug%
     form:
       resources:
-        - 'PageBundle:Form:fields.html.twig'
+        - 'ContentBlockBundle:Form:fields.html.twig'
     
 parameters:
     
@@ -192,10 +192,10 @@ sonata_admin:
     dashboard:
         blocks:
             # display a dashboard block
-            - { position: left, type: sonata.admin.block.admin_list, settings: { groups: [sonata_pages, sonata_contentblocks, sonata_medias] } }
+            - { position: left, type: sonata.admin.block.admin_list, settings: { groups: [sonata_pages, sonata_categories, sonata_tags] } }
             
             # display a dashboard block
-            - { position: right, type: sonata.admin.block.admin_list, settings: { groups: [sonata_menus, sonata_categories, sonata_settings, sonata_users] } }
+            - { position: right, type: sonata.admin.block.admin_list, settings: { groups: [sonata_settings, sonata_menus, sonata_users, sonata_contentblocks, sonata_medias] } }
             
             # Customize this part to add new block configuration
             #- { position: right, type: sonata.block.service.text, settings: { content: "<h2>Welcome to the Sonata Admin</h2> <p>This is a <code>sonata.block.service.text</code> from the Block Bundle, you can create and add new block in these area by configuring the <code>sonata_admin</code> section.</p> <br /> For instance, here a RSS feed parser (<code>sonata.block.service.rss</code>):"} }
@@ -215,11 +215,14 @@ sonata_admin:
               items:
                   - sonata.admin.menus
            sonata_categories:
-              label: Categories - Tags
+              label: Categories
               items:
                   - sonata.admin.categories
                   - sonata.admin.recipecategories
                   - sonata.admin.productcategories
+           sonata_tags:
+              label: Tags
+              items:
                   - sonata.admin.tags
                   - sonata.admin.recipetags
                   - sonata.admin.producttags
@@ -395,6 +398,15 @@ page:
         small:      Small
         medium:     Medium
         big:        Big
+
+content_block:        
+    loadservices: true
+    
+    mediasizes:
+        original:   Original
+        small:      Small
+        medium:     Medium
+        big:        Big
         
     contenttypes:
         html:       Text/HTML
@@ -418,6 +430,9 @@ tag:
     tagcategories:
         generic:       Generic Tags
         special:       Special Tags
+       
+category:        
+    loadservices: false
 
 menu:
     actions:

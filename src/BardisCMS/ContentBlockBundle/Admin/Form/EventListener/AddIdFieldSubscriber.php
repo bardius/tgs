@@ -1,12 +1,12 @@
 <?php
 /*
- * Page Bundle
+ * ContentBlock Bundle
  * This file is part of the BardisCMS.
  *
  * (c) George Bardis <george@bardis.info>
  *
  */
-namespace BardisCMS\PageBundle\Admin\Form\EventListener;
+namespace BardisCMS\ContentBlockBundle\Admin\Form\EventListener;
 
 use Symfony\Component\Form\Event\DataEvent;
 use Symfony\Component\Form\FormFactoryInterface;

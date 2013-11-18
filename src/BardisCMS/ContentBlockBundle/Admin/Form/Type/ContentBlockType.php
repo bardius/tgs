@@ -1,12 +1,12 @@
 <?php
 /*
- * Page Bundle
+ * ContentBlock Bundle
  * This file is part of the BardisCMS.
  *
  * (c) George Bardis <george@bardis.info>
  *
  */
-namespace BardisCMS\PageBundle\Admin\Form\Type;
+namespace BardisCMS\ContentBlockBundle\Admin\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,9 +14,9 @@ use Sonata\AdminBundle\Form\EventListener\ResizeFormListener;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use BardisCMS\PageBundle\Admin\Form\EventListener\AddIdFieldSubscriber;
-use BardisCMS\PageBundle\Entity\ContentBlock;
-use BardisCMS\PageBundle\Admin\Form\EventListener\AddContentTypeFieldSubscriber;
+use BardisCMS\ContentBlockBundle\Admin\Form\EventListener\AddIdFieldSubscriber;
+use BardisCMS\ContentBlockBundle\Entity\ContentBlock;
+use BardisCMS\ContentBlockBundle\Admin\Form\EventListener\AddContentTypeFieldSubscriber;
 
 class ContentBlockType extends AbstractType
 {
@@ -70,7 +70,7 @@ class ContentBlockType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {   
         $optionsNormalizer = function (Options $options, $value) {
-            $value = 'BardisCMS\PageBundle\Entity\ContentBlock';
+            $value = 'BardisCMS\ContentBlockBundle\Entity\ContentBlock';
 
             return $value;
         };

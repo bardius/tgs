@@ -1,12 +1,12 @@
 <?php
 /*
- * Page Bundle
+ * ContentBlock Bundle
  * This file is part of the BardisCMS.
  *
  * (c) George Bardis <george@bardis.info>
  *
  */
-namespace BardisCMS\PageBundle\DependencyInjection;
+namespace BardisCMS\ContentBlockBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
@@ -26,7 +26,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('page');
+        $rootNode = $treeBuilder->root('content_block');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
@@ -35,20 +35,26 @@ class Configuration implements ConfigurationInterface
             ->children()                                        
                 ->booleanNode('loadservices')->defaultFalse()->end()
                 
-                ->arrayNode('pagetypes')
-                    ->isRequired()
-                    ->requiresAtLeastOneElement()
-                    ->useAttributeAsKey('name')
-                        ->prototype('scalar')->defaultValue(null)->end()
-                    ->end()
-                
                 ->arrayNode('mediasizes')
                     ->isRequired()
                     ->requiresAtLeastOneElement()
                     ->useAttributeAsKey('name')
                         ->prototype('scalar')->defaultValue(null)->end()
                     ->end()
-		
+                
+                ->arrayNode('contenttypes')
+                    ->isRequired()
+                    ->requiresAtLeastOneElement()
+                    ->useAttributeAsKey('name')
+                        ->prototype('scalar')->defaultValue(null)->end()
+                    ->end()
+                
+                ->arrayNode('contentsizes')
+                    ->isRequired()
+                    ->requiresAtLeastOneElement()
+                    ->useAttributeAsKey('name')
+                        ->prototype('scalar')->defaultValue(null)->end()
+                    ->end()
             ->end();
 
         return $treeBuilder;

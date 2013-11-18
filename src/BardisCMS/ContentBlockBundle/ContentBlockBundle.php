@@ -1,17 +1,17 @@
 <?php
 /*
- * Page Bundle
+ * ContentBlock Bundle
  * This file is part of the BardisCMS.
  *
  * (c) George Bardis <george@bardis.info>
  *
  */
 
-namespace BardisCMS\PageBundle;
+namespace BardisCMS\ContentBlockBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class PageBundle extends Bundle
+class ContentBlockBundle extends Bundle
 {
     
 }
