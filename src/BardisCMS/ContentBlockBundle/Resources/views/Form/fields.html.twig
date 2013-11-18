@@ -55,20 +55,6 @@ This file is part of the BardisCMS.
     {% endif %}
 {% endblock sonata_media_type_widget %}
 
-{# Overrides for the contact form fields row etc #}
-{% block form_row %}
-{% spaceless %}
-    <div class="control-group">
-        {{ form_label(form) }}
-        <div class="controls sonata-ba-field sonata-ba-field-standard-natural">
-            {{ form_errors(form) }}
-            {{ form_widget(form) }}
-        </div>
-    </div>
-{% endspaceless %}
-{% endblock form_row %}
-
-
 {% block contentblockcollection_widget_row %}
 {% spaceless %}
 	<fieldset id="block_{{ child.ordering.vars.value }}" class="sonata-ba-fielset-collapsed ui-state-default" style="float: left;padding: 10px;margin: 10px 0; background-color: #EEE; border: 1px solid #666;clear: left;">

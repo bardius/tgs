@@ -24,6 +24,7 @@ twig:
     form:
       resources:
         - 'ContentBlockBundle:Form:fields.html.twig'
+        - 'PageBundle:Form:fields.html.twig'
     
 parameters:
     

@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Page Bundle
  * This file is part of the BardisCMS.
@@ -6,6 +7,7 @@
  * (c) George Bardis <george@bardis.info>
  *
  */
+
 namespace BardisCMS\PageBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
@@ -13,16 +15,18 @@ use Doctrine\ORM\EntityRepository;
 
 class PageRepository extends EntityRepository
 {
-    
+    // Function to retrieve the pages of a category with pagination
     public function getCategoryItems($categoryIds, $currentPageId, $publishStates, $currentpage, $totalpageitems)
     {        
         $pageList = null;
         
         if(!empty($categoryIds))
         {
+	    // Initalize the query builder variables
             $qb         = $this->_em->createQueryBuilder();            
             $countqb    = $this->_em->createQueryBuilder();
             
+	    // The query to get the page items for the current paginated listing page
             $qb->select('DISTINCT p')
                 ->from('PageBundle:Page', 'p')
                 ->innerJoin('p.categories', 'c')
@@ -40,7 +44,8 @@ class PageRepository extends EntityRepository
                 ->setParameter('categorypagePageType', 'category_page')
                 ->setParameter('currentPage', $currentPageId)
             ;
-                
+            
+	    // The query to get the total page items count
             $countqb->select('COUNT(DISTINCT p.id)')
                 ->from('PageBundle:Page', 'p')
                 ->innerJoin('p.categories', 'c')
@@ -60,23 +65,26 @@ class PageRepository extends EntityRepository
             ;
             
             $totalResultsCount = intval($countqb->getQuery()->getSingleScalarResult()); 
-        
+	    
+	    // Get the paginated results
             $pageList = $this->getPaginatedResults($qb, $totalResultsCount, $currentpage, $totalpageitems);
         }
         
         return  $pageList;
     } 
     
-    
+    // Function to retrieve the pages of tag/category combination with pagination
     public function getTaggedCategoryItems($categoryIds, $currentPageId, $publishStates, $currentpage, $totalpageitems, $tagIds)
     {
         $pageList = null;
         
         if(!empty($categoryIds))
         {
+	    // Initalize the query builder variables
             $qb         = $this->_em->createQueryBuilder();            
             $countqb    = $this->_em->createQueryBuilder();
-            
+	    
+            // The query to get the page items for the current paginated listing page
             $qb->select('DISTINCT p')
                 ->from('PageBundle:Page', 'p')
                 ->innerJoin('p.categories', 'c')
@@ -97,7 +105,8 @@ class PageRepository extends EntityRepository
                 ->setParameter('categorypagePageType', 'category_page')
                 ->setParameter('currentPage', $currentPageId)
             ;
-                
+            
+	    // The query to get the total page items count
             $countqb->select('COUNT(DISTINCT p.id)')
                 ->from('PageBundle:Page', 'p')
                 ->innerJoin('p.categories', 'c')
@@ -120,23 +129,26 @@ class PageRepository extends EntityRepository
             ;
             
             $totalResultsCount = intval($countqb->getQuery()->getSingleScalarResult());    
-                    
+            
+	    // Get the paginated results
             $pageList = $this->getPaginatedResults($qb, $totalResultsCount, $currentpage, $totalpageitems);
         }
             
         return  $pageList;
     } 
     
-    
+    // Function to retrieve the pages of a tag with pagination
     public function getTaggedItems($tagIds, $currentPageId, $publishStates, $currentpage, $totalpageitems)
     {   
         $pageList = null;
         
         if(!empty($tagIds))
         {
+	    // Initalize the query builder variables
             $qb         = $this->_em->createQueryBuilder();            
             $countqb    = $this->_em->createQueryBuilder();
             
+	    // The query to get the page items for the current paginated listing page
             $qb->select('DISTINCT p')
                 ->from('PageBundle:Page', 'p')
                 ->innerJoin('p.tags', 't')
@@ -154,7 +166,8 @@ class PageRepository extends EntityRepository
                 ->setParameter('categorypagePageType', 'category_page')
                 ->setParameter('currentPage', $currentPageId)
             ;
-              
+	    
+            // The query to get the total page items count  
             $countqb->select('COUNT(DISTINCT p.id)')
                 ->from('PageBundle:Page', 'p')
                 ->innerJoin('p.tags', 't')
@@ -174,18 +187,21 @@ class PageRepository extends EntityRepository
             ;
             
             $totalResultsCount = intval($countqb->getQuery()->getSingleScalarResult()); 
-        
+	    
+	    // Get the paginated results
             $pageList = $this->getPaginatedResults($qb, $totalResultsCount, $currentpage, $totalpageitems);
         }
             
         return  $pageList;
     }  
     
-    
+    // Function to retrieve the pages of the homepage category
     public function getHomepageItems($categoryIds, $currentPageId, $publishStates)
-    {            
+    {   
+	// Initalize the query builder variables
         $qb = $this->_em->createQueryBuilder();
         
+	// The query to get the page items for the homepage page
         $qb->select('DISTINCT p')
             ->from('PageBundle:Page', 'p')
             ->innerJoin('p.categories', 'c')
@@ -199,17 +215,20 @@ class PageRepository extends EntityRepository
             ->setParameter('publishState', $publishStates)
             ->setParameter('currentPage', $currentPageId)
         ;
-                    
+        
+	// Get the results
         $pages = $qb->getQuery()->getResult();
         
         return  $pages;
     }    
     
-    
+    // Function to retrieve a page list for sitemap
     public function getSitemapList($publishStates)
-    {            
+    {   
+	// Initalize the query builder variables
         $qb = $this->_em->createQueryBuilder();
-            
+        
+	// The query to get all page items
         $qb->select('DISTINCT p')
             ->from('PageBundle:Page', 'p')
             ->where(
@@ -218,19 +237,20 @@ class PageRepository extends EntityRepository
             ->orderBy('p.id', 'ASC')
             ->setParameter('publishState', $publishStates)
         ;
-                    
+        
+	// Get the results
         $sitemapList = $qb->getQuery()->getResult();
         
         return  $sitemapList;
     }
     
-    
+    // Function to define what page items will be returned for each paginated listing page
     public function getPaginatedResults($qb, $totalResultsCount, $currentpage, $totalpageitems)
     {
         $pages      = null;
         $totalPages = 1;
         
-        // Get paginated results
+        // Calculate and set he starting and endin page item to retrieve
         if ((isset($currentpage)) && (isset($totalpageitems))) {
             if ($totalpageitems > 0) {    
                 $startingItem   = (intval($currentpage) * $totalpageitems);
@@ -238,9 +258,13 @@ class PageRepository extends EntityRepository
                 $qb->setMaxResults($totalpageitems);
             }
         }
-            
+        
+	// Get paginated results
         $pages      = $qb->getQuery()->getResult();
-        $totalPages = ceil($totalResultsCount / $totalpageitems); 
+	// Get the tiotal pagination pages
+        $totalPages = ceil($totalResultsCount / $totalpageitems);
+	
+	// Set the page items and pagination to be returned
         $pageList   = array('pages' => $pages, 'totalPages' => $totalPages);
         
         return  $pageList;

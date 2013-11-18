@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * Page Bundle
+ * This file is part of the BardisCMS.
+ *
+ * (c) George Bardis <george@bardis.info>
+ *
+ */
+
 namespace BardisCMS\PageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -816,6 +824,7 @@ class Page
     */
     public function getPublishStateAsString()
     {
+	// Defining the string values of the publish states
         switch($this->getPublishState()){
             case(0): return "Unpublished";
             case(1): return "Published";
@@ -830,6 +839,7 @@ class Page
     */
     public function getPagetypeAsString()
     {
+	// Defining the string values of the page types
         switch($this->getPagetype()){
             case('one_columned'):   return "One Column Page";
             case('two_columned'):   return "Two Column Page";

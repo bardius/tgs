@@ -13,7 +13,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class FilterResultsForm extends AbstractType
 {
-    
+    // Creating the filters form and the fields
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         
@@ -40,6 +40,7 @@ class FilterResultsForm extends AbstractType
     
     public function getName()
     {
+	// Define the name of the form to call it for rendering
         return 'filterresultsform';
     }    
 }

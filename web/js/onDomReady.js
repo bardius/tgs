@@ -28,6 +28,9 @@
 			
 			// Start the foundation Javascript Plugins
 			$(document).foundation();
+			
+			// Start the AJAX based contact form
+			CMS.foundationConfig.contactForm();
 		},
 				
 		dropdownConfig : function(){
@@ -96,7 +99,33 @@
 				before_slide_change: function(){},
 				after_slide_change: function(){}*/
 		  });			
+	    },
+		    
+	    contactForm : function(){
+		if($("#contactForm").length > 0){
+		    
+		    $("#contactForm #contactFormBtn").click(function(e){
+			e.preventDefault();
+			
+			var formData = $("#contactForm").serializeArray();
+			var formAction = $("#contactForm").attr("action");
+		        
+			$.post(formAction, formData, function(responce){
+			
+			    $(".formError").remove();			
+			    $("label.error").removeClass('error');
+			
+			    if(responce.error === false){
+			        $(".contentBlock.contact h3").html(responce.message);
+			    }
+			    else{
+			        $('<p class="formError round alert label alert-error">' + responce.message + '</p>').hide().insertAfter("#contactFormBtn");
+				$('.formError').fadeIn(200);
+			    }
+			});
+		    });
 		}
+	    }
     };
 
 })(window.CMS = window.CMS || {}, jQuery);
