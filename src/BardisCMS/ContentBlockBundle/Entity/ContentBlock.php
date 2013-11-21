@@ -126,6 +126,11 @@ class ContentBlock
     protected $extracontents;
     
     /**
+     * @ORM\ManyToMany(targetEntity="BardisCMS\BlogBundle\Entity\Blog", mappedBy="extracontentblocks", cascade={"persist"})
+     **/
+    protected $blog_extracontents;
+    
+    /**
      * @ORM\ManyToMany(targetEntity="BardisCMS\RecipeBundle\Entity\Recipe", mappedBy="extracontentblocks", cascade={"persist"})
      **/
     protected $recipe_extracontents;
@@ -204,11 +209,12 @@ class ContentBlock
     public function __construct()
     {
         $this->maincontents                 = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->blog_maincontents            = new \Doctrine\Common\Collections\ArrayCollection();
         $this->secondarycontents            = new \Doctrine\Common\Collections\ArrayCollection();
         $this->extracontents                = new \Doctrine\Common\Collections\ArrayCollection();
         $this->modalcontents                = new \Doctrine\Common\Collections\ArrayCollection();
         $this->bannercontents               = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->blog_maincontents            = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->blog_extracontents            = new \Doctrine\Common\Collections\ArrayCollection();
         $this->blog_modalcontents           = new \Doctrine\Common\Collections\ArrayCollection();
         $this->blog_bannercontents          = new \Doctrine\Common\Collections\ArrayCollection();
         $this->imagefiles                   = new \Doctrine\Common\Collections\ArrayCollection();
@@ -522,39 +528,6 @@ class ContentBlock
     }
 
     /**
-     * Add blog_maincontents
-     *
-     * @param \BardisCMS\BlogBundle\Entity\Blog $blogMaincontents
-     * @return ContentBlock
-     */
-    public function addBlogMaincontent(\BardisCMS\BlogBundle\Entity\Blog $blogMaincontents)
-    {
-        $this->blog_maincontents[] = $blogMaincontents;
-    
-        return $this;
-    }
-
-    /**
-     * Remove blog_maincontents
-     *
-     * @param \BardisCMS\BlogBundle\Entity\Blog $blogMaincontents
-     */
-    public function removeBlogMaincontent(\BardisCMS\BlogBundle\Entity\Blog $blogMaincontents)
-    {
-        $this->blog_maincontents->removeElement($blogMaincontents);
-    }
-
-    /**
-     * Get blog_maincontents
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getBlogMaincontents()
-    {
-        return $this->blog_maincontents;
-    }
-
-    /**
      * Add secondarycontents
      *
      * @param \BardisCMS\PageBundle\Entity\Page $secondarycontents
@@ -651,6 +624,72 @@ class ContentBlock
     public function getModalcontents()
     {
         return $this->modalcontents;
+    }
+
+    /**
+     * Add blog_extracontents
+     *
+     * @param \BardisCMS\BlogBundle\Entity\Blog $blogExtracontents
+     * @return ContentBlock
+     */
+    public function addBlogExtracontent(\BardisCMS\BlogBundle\Entity\Blog $blogExtracontents)
+    {
+        $this->blog_extracontents[] = $blogExtracontents;
+    
+        return $this;
+    }
+
+    /**
+     * Remove blog_extracontents
+     *
+     * @param \BardisCMS\BlogBundle\Entity\Blog $blogExtracontents
+     */
+    public function removeBlogExtracontent(\BardisCMS\BlogBundle\Entity\Blog $blogExtracontents)
+    {
+        $this->blog_extracontents->removeElement($blogExtracontents);
+    }
+
+    /**
+     * Get blog_extracontents
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBlogExtracontents()
+    {
+        return $this->blog_extracontents;
+    }
+
+    /**
+     * Add blog_maincontents
+     *
+     * @param \BardisCMS\BlogBundle\Entity\Blog $blogMaincontents
+     * @return ContentBlock
+     */
+    public function addBlogMaincontent(\BardisCMS\BlogBundle\Entity\Blog $blogMaincontents)
+    {
+        $this->blog_maincontents[] = $blogMaincontents;
+    
+        return $this;
+    }
+
+    /**
+     * Remove blog_maincontents
+     *
+     * @param \BardisCMS\BlogBundle\Entity\Blog $blogMaincontents
+     */
+    public function removeBlogMaincontent(\BardisCMS\BlogBundle\Entity\Blog $blogMaincontents)
+    {
+        $this->blog_maincontents->removeElement($blogMaincontents);
+    }
+
+    /**
+     * Get blog_maincontents
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBlogMaincontents()
+    {
+        return $this->blog_maincontents;
     }
 
     /**

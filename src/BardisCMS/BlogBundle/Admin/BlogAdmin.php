@@ -116,11 +116,11 @@ class BlogAdmin extends Admin
                 $formMapper  
                         ->with('Page Contents', array('collapsed' => true))
                             ->add('maincontentblocks','contentblockcollection', array('attr' => array('class' => 'maincontentblocks'), 'label' => 'Contents above the Blog List')) 
-                            ->add('bannercontentblocks','contentblockcollection', array('attr' => array('class' => 'bannercontentblocks'), 'label' => 'Contents bellow the Blog List'))
+                            ->add('extracontentblocks','contentblockcollection', array('attr' => array('class' => 'extracontentblocks'), 'label' => 'Contents bellow the Blog List'))
                             ->add('modalcontentblocks','contentblockcollection', array('attr' => array('class' => 'modalcontentblocks'), 'label' => 'Modal Windows Contents')) 
                             ->setHelps(array(
                                 'maincontentblocks'     => 'Select the contents in the order you want them to appear above the blog list',
-                                'bannercontentblocks'   => 'Select the contents in the order you want them to appear bellow the blog list',
+                                'extracontentblocks'   => 'Select the contents in the order you want them to appear bellow the blog list',
                                 'modalcontentblocks'    => 'Select the contents in the order you want them to appear in the modal windows'
                             )) 
                         ->end() 

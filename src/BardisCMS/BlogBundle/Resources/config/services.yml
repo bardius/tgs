@@ -2,6 +2,3 @@ parameters:
 #    blog.example.class: BardisCMS\BlogBundle\Example
 
 services:
-
-
-

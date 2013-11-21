@@ -16,11 +16,11 @@ class DefaultControllerTest extends WebTestCase {
 
     public function testAliasAction() {
 	
-	$client = static::createClient();
+		$client = static::createClient();
 
-	$crawler = $client->request('GET', '/index');
+		$crawler = $client->request('GET', '/index');
 
-	$this->assertTrue($crawler->filter('html:contains("Homepage")')->count() > 0);
+		$this->assertTrue($crawler->filter('html:contains("Homepage")')->count() > 0);
     }
 
 }

@@ -1,15 +1,30 @@
 {% if page.showPageTitle == 1 %}
-<div class="six columns pageSummary">
+<div class="large-12 mobile-12 columns pageSummary">
     <h2>{{ page.title }}</h2>
-    <span class="date"><span class="day">{{ page.date|date("d") }}</span><span class="month">{{ page.date|date("M") }}</span></span>
+    <p class="date">
+		Date Posted:  
+		<span class="day">{{ page.date|date("d") }}</span> <span class="month">{{ page.date|date("M") }}</span>
+	</p>
+	<p class="tagList">
+		Tags: 
+		{% for title in page.tags %}
+			<a class="tag" href="{{ app.request.getBaseURL() }}/blog/tagged/{{ title|url_encode() }}" title="{{ title }}">
+				{{ title }} 
+            </a> 
+        {% endfor %} 
+    </p>
 </div>
 {% endif %}
 {% if page.bannercontentblocks|length > 0 %}
-<div class="twelve columns pageDescription">
-    {% include 'BlogBundle:Contents:bannercontentblocks.html.twig' %}
+<div class="large-12 mobile-12 columns pageDescription">
+	<div class="row">
+		{% include 'BlogBundle:Contents:bannercontentblocks.html.twig' %}
+	<div>
 </div>
 {% endif %}
-<div class="twelve column pageText">
-    {% include 'BlogBundle:Contents:maincontentblocks.html.twig' %}
+<div class="large-12 mobile-12 columns pageText">
+	<div class="row">
+		{% include 'BlogBundle:Contents:maincontentblocks.html.twig' %}
+	</div>
 </div>
 {% include 'BlogBundle:Contents:smo_share.html.twig' %}

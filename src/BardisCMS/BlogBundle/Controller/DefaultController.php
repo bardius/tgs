@@ -10,7 +10,7 @@ namespace BardisCMS\BlogBundle\Controller;
 
 use BardisCMS\BlogBundle\Entity\Blog;
 use BardisCMS\PageBundle\Entity\Page;
-use BardisCMS\BlogBundle\Form\FilterResultsForm;
+use BardisCMS\BlogBundle\Form\FilterBlogPostsForm;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -287,7 +287,7 @@ class DefaultController extends Controller
         }      
         else if ($page->getPagetype() == 'blog_filtered_list')
         {          
-            $filterForm     = $this->createForm(new FilterResultsForm());                
+            $filterForm     = $this->createForm(new FilterBlogPostsForm());                
             $filterData     = $this->getRequestedFilters($extraParams);
             $tagIds         = $this->getTagFilterIds($filterData['tags']->toArray());           
             $categoryIds    = $this->getCategoryFilterIds($filterData['categories']->toArray());
@@ -341,12 +341,12 @@ class DefaultController extends Controller
     }
     
     // Get and format the filtering arguments to use with the actions 
-    public function filterPagesAction(Request $request) 
+    public function filterBlogPostsAction(Request $request) 
     {
         
         $filterTags         = 'all';
         $filterCategories   = 'all'; 
-        $filterForm         = $this->createForm(new FilterResultsForm());
+        $filterForm         = $this->createForm(new FilterBlogPostsForm());
         $filterData         = null;
         
         if ($request->getMethod() == 'POST') {

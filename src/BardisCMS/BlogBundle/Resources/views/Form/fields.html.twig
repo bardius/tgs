@@ -1,0 +1,18 @@
+{#
+This file is part of the BardisCMS.
+(c) George Bardis <george@bardis.info>
+#}
+
+
+{# Overrides for the comments form fields row etc #}
+{% block form_row %}
+{% spaceless %}
+    <div class="control-group">
+        {{ form_label(form) }}
+        <div class="controls sonata-ba-field sonata-ba-field-standard-natural">
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock form_row %}

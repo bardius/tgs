@@ -1,3 +1,5 @@
+# Starting the routing of the pages based on predefined paths
+
 PageBundle_tagged_full:
     pattern:   /tagged/{extraParams}/{currentpage}/{totalpageitems}/
     defaults:  { _controller: PageBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
@@ -54,6 +56,9 @@ PageBundle_sitemapxsl:
     pattern:  /sitemap.xsl
     defaults: { _controller: PageBundle:Default:sitemapxsl, _format: xml }
     
+# Starting the routing of the pages based on alias
+# index is the alias of the homepage (amend if different)
+
 PageBundle_page_full:
     pattern:   /{alias}/{currentpage}/{totalpageitems}/{extraParams}/
     defaults:  { _controller: PageBundle:Default:alias, alias: index, extraParams: all, currentpage: 0, totalpageitems: 0}
@@ -68,23 +73,23 @@ PageBundle_page_noslash:
         currentpage: \d+
         totalpageitems: \d+
     
-PageBundle_page_onlypage_slash:
+PageBundle_page_only_pagin_slash:
     pattern:   /{alias}/{currentpage}/{totalpageitems}/
     defaults:  { _controller: PageBundle:Default:alias, alias: index, extraParams: all, currentpage: 0, totalpageitems: 0}
     requirements:
         currentpage: \d+
     
-PageBundle_page_onlypage:
+PageBundle_page_only_pagin:
     pattern:   /{alias}/{currentpage}/{totalpageitems}
     defaults:  { _controller: PageBundle:Default:alias, alias: index, extraParams: all, currentpage: 0, totalpageitems: 0}
     requirements:
         currentpage: \d+
     
-PageBundle_page_onlypage_slash:
+PageBundle_page_only_page_slash:
     pattern:   /{alias}/{currentpage}/
     defaults:  { _controller: PageBundle:Default:alias, alias: index, extraParams: all, currentpage: 0, totalpageitems: 0}
     
-PageBundle_page_onlypage:
+PageBundle_page_only_page:
     pattern:   /{alias}/{currentpage}
     defaults:  { _controller: PageBundle:Default:alias, alias: index, extraParams: all, currentpage: 0, totalpageitems: 0}
     

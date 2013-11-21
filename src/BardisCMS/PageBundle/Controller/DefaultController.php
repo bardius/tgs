@@ -12,7 +12,7 @@ namespace BardisCMS\PageBundle\Controller;
 
 use BardisCMS\PageBundle\Entity\Page;
 use BardisCMS\PageBundle\Form\ContactForm;
-use BardisCMS\PageBundle\Form\FilterResultsForm;
+use BardisCMS\PageBundle\Form\FilterPagesForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -244,7 +244,7 @@ class DefaultController extends Controller {
 		}
 		// Render tag list page type
 		else if ($page->getPagetype() == 'page_tag_list') {
-			$filterForm = $this->createForm(new FilterResultsForm());
+			$filterForm = $this->createForm(new FilterPagesForm());
 			$filterData = $this->getRequestedFilters($extraParams);
 			$tagIds = $this->getTagFilterIds($filterData['tags']->toArray());
 			$categoryIds = $this->getCategoryFilterIds($filterData['categories']->toArray());
@@ -440,7 +440,7 @@ class DefaultController extends Controller {
 		$filterCategories = 'all';
 
 		// Create the filters form
-		$filterForm = $this->createForm(new FilterResultsForm());
+		$filterForm = $this->createForm(new FilterPagesForm());
 		$filterData = null;
 
 		// If the filter form has been submited

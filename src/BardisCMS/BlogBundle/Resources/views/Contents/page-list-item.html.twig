@@ -1,23 +1,53 @@
-<div class="twelve columns {{ pageItem.pagetype }}Item {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %}">
-    <span class="date"><span class="day">{{ pageItem.date|date("d") }}</span><span class="month">{{ pageItem.date|date("M") }}</span></span>
-    {% if pageItem.introimage.id is defined %}
-    <div class="column five mobile-four">
-    <a href="{{ app.request.getBaseURL() }}/blog/{{ pageItem.alias }}" title="{{ pageItem.title }}" class="readMoreImage">
-        {% media pageItem.introimage.id, 'blog' with {'alt': pageItem.title, 'title': ''} %}
-    </a>
-    </div>
-    <div class="column seven mobile-five introItemText">
-    {% else %}
-    <div class="column twelve mobile-nine introItemText">
-    {% endif %}
-        <h4>
-            <a href="{{ app.request.getBaseURL() }}/blog/{{ pageItem.alias }}" title="{{ pageItem.title }}">
-                {{ pageItem.title }}
-            </a>
-        </h4>        
-        {% if pageItem.introtext is not null %}
-        {{ pageItem.introtext|raw }}
-        {% endif %}
-        <a class="readMore" href="{{ app.request.getBaseURL() }}/blog/{{ pageItem.alias }}" title="More">More</a>
-    </div>
+<div class="large-12 small-12 columns {{ pageItem.pagetype }}Item {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %}">
+	<div class="row">
+		{% if pageItem.introimage.id is defined %}
+		<div class="columns large-5 small-3">
+			{% if pageItem.alias is not null %}
+			<a href="{{ app.request.getBaseURL() }}/blog/{{ pageItem.alias }}" title="{{ pageItem.title }}" class="readMoreImage">
+			{% else %}
+			<a href="{{ url('BlogBundle_showPage', { 'id': pageItem.id }) }}" title="{{ pageItem.title }}" class="readMoreImage">
+			{% endif %}
+				{% media pageItem.introimage.id, 'blog' with {'alt': pageItem.title, 'title': ''} %}
+			</a>
+		</div>
+		<div class="columns large-7 small-9 introItemText">
+		{% else %}
+		<div class="large-12 small-12 columns introItemText">
+		{% endif %}
+			<h3>	
+				{% if pageItem.alias is not null %}
+				<a href="{{ app.request.getBaseURL() }}/blog/{{ pageItem.alias }}" title="{{ pageItem.title }}">
+				{% else %}
+				<a href="{{ url('BlogBundle_showPage', { 'id': pageItem.id }) }}" title="{{ pageItem.title }}">
+				{% endif %}
+					{{ pageItem.title }}
+				</a>
+			</h3>
+			{% if pageItem.tags is not null %}
+			<p class="date">
+				Date Posted: 
+				<span class="day">{{ pageItem.date|date("d") }}</span>
+				<span class="month">{{ pageItem.date|date("M") }}</span>
+			</p>
+			<p class="tagList">
+				Tags: 
+				{% for title in pageItem.tags %}
+				<a class="tag" href="{{ app.request.getBaseURL() }}/blog/tagged/{{ title|url_encode() }}" title="{{ title }}">
+					{{ title }}          
+				</a> 
+				{% endfor %} 
+			</p>
+			{% endif %}
+			{% if pageItem.introtext is not null %}
+			{{ pageItem.introtext|raw }}
+			{% endif %}
+			{% if pageItem.alias is not null %}
+			<a href="{{ app.request.getBaseURL() }}/blog/{{ pageItem.alias }}" class="readMore" title="Read more">
+			{% else %}
+			<a href="{{ url('BlogBundle_showPage', { 'id': pageItem.id }) }}" class="readMore" title="Read more">
+			{% endif %}
+				<span>Read more</span>
+			</a>
+		</div>
+	</div>
 </div>

@@ -17,7 +17,7 @@
 {% block body_start %}
     <div class="topBg">
         <div class="row">
-            <div class="column large-12 small-12 topBgImg {% if page.pagetype == 'homepage' %}homepageTopBgImg{% else %}pageTopBgImg{% endif %}" {% if page.bgimage is not empty %}style="background-image: url({% path page.bgimage.id,  'big' %});"{% endif %}>            
+            <div class="columns large-12 small-12 topBgImg {% if page.pagetype == 'homepage' %}homepageTopBgImg{% else %}pageTopBgImg{% endif %}" {% if page.bgimage is not empty %}style="background-image: url({% path page.bgimage.id,  'big' %});"{% endif %}>            
             </div>
         </div>
     </div>
@@ -225,7 +225,7 @@
 		<div class="large-12 small-12 columns {{ page.pagetype }}List">
 			<div class="row">
             {% if page.pagetype == 'page_tag_list' %} 
-                    {% include 'PageBundle:Contents:filterResultsFormHolder.html.twig' %}
+                    {% include 'PageBundle:Contents:filterPagesFormHolder.html.twig' %}
             {% endif %}
 				<div class="large-12 small-12 columns categoryListing">
 					<div class="row">
