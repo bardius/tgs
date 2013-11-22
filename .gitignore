@@ -12,6 +12,7 @@
 ######################
 .DS_Store
 .DS_Store?
+*.DS_Store
 .Trashes
 Icon?
 ehthumbs.db
@@ -44,5 +45,9 @@ parameters.yml
 /web/foundation/.sass-cache/vendor/
 /web/foundation/sass/.sass-cache/
 vendor/
+/web/bower_components/*
+/#web/stylesheets/*
+
+
 
 

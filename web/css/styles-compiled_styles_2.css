@@ -1,13 +1,13 @@
 /* -----------------------------------------
    Foundation Styles Overrides
 ----------------------------------------- */
-/* line 17, ../sass/styles.scss */
+/* line 17, ../scss/styles.scss */
 iframe {
   left: 0;
-  border: none!important;
+  border: none !important;
 }
 
-/* line 28, ../sass/styles.scss */
+/* line 28, ../scss/styles.scss */
 .inv {
   position: absolute;
   font-size: 0.5em;
@@ -15,37 +15,37 @@ iframe {
   left: -9999px;
 }
 
-/* line 35, ../sass/styles.scss */
+/* line 35, ../scss/styles.scss */
 img {
   border: none;
 }
 
-/* line 39, ../sass/styles.scss */
+/* line 39, ../scss/styles.scss */
 strong {
   font-size: inherit;
   line-height: inherit;
   font-weight: bold;
 }
 
-/* line 45, ../sass/styles.scss */
+/* line 45, ../scss/styles.scss */
 table {
   font-size: inherit;
   float: left;
-  border-spacing: 0!important;
-  border-collapse: collapse!important;
+  border-spacing: 0 !important;
+  border-collapse: collapse !important;
 }
 
-/* line 52, ../sass/styles.scss */
+/* line 52, ../scss/styles.scss */
 td {
   text-align: center;
 }
 
-/* line 56, ../sass/styles.scss */
+/* line 56, ../scss/styles.scss */
 .clearBoth {
   clear: both;
 }
 
-/* line 60, ../sass/styles.scss */
+/* line 60, ../scss/styles.scss */
 .hidden {
   display: none;
 }
@@ -53,27 +53,27 @@ td {
 /*-------------------------------------------
     Website Body / Backgrounds
   -----------------------------------------*/
-/* line 68, ../sass/styles.scss */
+/* line 68, ../scss/styles.scss */
 body {
   min-height: 100%;
   width: 100%;
 }
 
-/* line 73, ../sass/styles.scss */
+/* line 73, ../scss/styles.scss */
 .superWrapper {
   width: 100%;
   min-height: 100%;
   min-width: 320px;
 }
 
-/* line 79, ../sass/styles.scss */
+/* line 79, ../scss/styles.scss */
 .wrapper {
   width: 100%;
   overflow: hidden;
   position: relative;
 }
 
-/* line 85, ../sass/styles.scss */
+/* line 85, ../scss/styles.scss */
 .pageContents {
   min-height: 300px;
 }
@@ -81,30 +81,30 @@ body {
 /*-------------------------------------------
     Website Logo / Header
   -----------------------------------------*/
-/* line 94, ../sass/styles.scss */
+/* line 94, ../scss/styles.scss */
 header {
   overflow: visible;
   position: relative;
   background-color: #CCC;
 }
 
-/* line 100, ../sass/styles.scss */
+/* line 100, ../scss/styles.scss */
 #logo {
   position: relative;
   z-index: 98;
 }
-/* line 104, ../sass/styles.scss */
+/* line 104, ../scss/styles.scss */
 #logo .logo {
   float: left;
   display: block;
   margin: 0;
 }
-/* line 110, ../sass/styles.scss */
+/* line 110, ../scss/styles.scss */
 #logo a {
   display: block;
   width: 100%;
 }
-/* line 115, ../sass/styles.scss */
+/* line 115, ../scss/styles.scss */
 #logo img {
   display: block;
   max-width: 100%;
@@ -113,7 +113,7 @@ header {
 /*-------------------------------------------
     Navigation Menu Styles
   -----------------------------------------*/
-/* line 125, ../sass/styles.scss */
+/* line 125, ../scss/styles.scss */
 .top-bar {
   margin: 10px 0;
   background-color: #000;
@@ -128,30 +128,30 @@ header {
 /* -----------------------------------------
    Filter form styles
 ----------------------------------------- */
-/* line 142, ../sass/styles.scss */
+/* line 142, ../scss/styles.scss */
 #filterResultsFormHolder {
   margin-top: 28px;
   position: relative;
   padding-bottom: 68px;
 }
 
-/* line 148, ../sass/styles.scss */
+/* line 148, ../scss/styles.scss */
 #filterResultsFormHolder h3 {
   display: none;
 }
 
-/* line 152, ../sass/styles.scss */
+/* line 152, ../scss/styles.scss */
 #filterResultsFormHolder form {
   margin: 0;
 }
 
-/* line 156, ../sass/styles.scss */
+/* line 156, ../scss/styles.scss */
 #filterResultsFormHolder .control-group {
   width: 100%;
   float: left;
 }
 
-/* line 161, ../sass/styles.scss */
+/* line 161, ../scss/styles.scss */
 #filterResultsFormHolder label {
   font-size: 16px;
   line-height: 20px;
@@ -161,7 +161,7 @@ header {
   cursor: default;
 }
 
-/* line 170, ../sass/styles.scss */
+/* line 170, ../scss/styles.scss */
 #filterResultsFormHolder .controls label {
   font-size: 0.9285em;
   font-size: 0.9285rem;
@@ -173,7 +173,7 @@ header {
   margin-bottom: 0;
 }
 
-/* line 181, ../sass/styles.scss */
+/* line 181, ../scss/styles.scss */
 #filterResultsForm .formBtns {
   float: none;
   position: absolute;
@@ -182,13 +182,13 @@ header {
   width: 25%;
 }
 
-/* line 189, ../sass/styles.scss */
+/* line 189, ../scss/styles.scss */
 #filterResultsForm .formBtns .checkAllBox {
   float: left;
   margin-top: 4px;
 }
 
-/* line 194, ../sass/styles.scss */
+/* line 194, ../scss/styles.scss */
 #filterResultsForm #filterResultsBtn {
   float: right;
   background: url(../images/site_assets/indexSlideArrow.png) no-repeat 80% 50% #0a3982;
@@ -203,16 +203,16 @@ header {
   text-align: left;
   text-transform: uppercase;
   border: none;
-  font-weight: normal!important;
+  font-weight: normal !important;
 }
 
-/* line 211, ../sass/styles.scss */
+/* line 211, ../scss/styles.scss */
 #filterResultsForm #filterResultsBtn:hover {
   cursor: pointer;
   background: url(../images/site_assets/indexSlideArrow.png) no-repeat 80% 50% #011a48;
 }
 
-/* line 216, ../sass/styles.scss */
+/* line 216, ../scss/styles.scss */
 #filterResultsForm .checkAllBox label {
   font-size: 0.9285em;
   font-size: 0.9285rem;
@@ -224,19 +224,19 @@ header {
   margin-bottom: 0;
 }
 
-/* line 227, ../sass/styles.scss */
+/* line 227, ../scss/styles.scss */
 .customCheckBox input {
   display: none;
 }
 
-/* line 231, ../sass/styles.scss */
+/* line 231, ../scss/styles.scss */
 .lt-ie9 #filterResultsForm .customCheckBox input {
   display: inline-block;
   float: left;
   clear: left;
 }
 
-/* line 237, ../sass/styles.scss */
+/* line 237, ../scss/styles.scss */
 .customCheckBox input + label {
   padding: 3px 3px 3px 22px;
   padding: 3px 3px 3px 1.6rem;
@@ -248,14 +248,14 @@ header {
   float: left;
 }
 
-/* line 248, ../sass/styles.scss */
+/* line 248, ../scss/styles.scss */
 .lt-ie9 .customCheckBox input + label {
   display: inline-block;
   float: left;
   clear: none;
 }
 
-/* line 254, ../sass/styles.scss */
+/* line 254, ../scss/styles.scss */
 .customCheckBox input + label:after {
   content: '\00a0';
   font-size: 14px;
@@ -284,12 +284,12 @@ header {
   text-align: center;
 }
 
-/* line 282, ../sass/styles.scss */
+/* line 282, ../scss/styles.scss */
 .lt-ie9 .customCheckBox input + label:after {
   display: none;
 }
 
-/* line 286, ../sass/styles.scss */
+/* line 286, ../scss/styles.scss */
 .customCheckBox input:checked + label:after {
   content: '\2714';
   color: #FFF;
@@ -304,7 +304,7 @@ header {
 /* -----------------------------------------
    Google Map
 ----------------------------------------- */
-/* line 318, ../sass/styles.scss */
+/* line 318, ../scss/styles.scss */
 #map_canvas {
   width: 95%;
   height: 100%;
@@ -314,7 +314,7 @@ header {
 /* -----------------------------------------
    Footer Styles
 ----------------------------------------- */
-/* line 328, ../sass/styles.scss */
+/* line 328, ../scss/styles.scss */
 footer {
   background: #CCC;
 }
@@ -323,67 +323,67 @@ footer {
    Media Queries for mobile / tablets responsivenes
 ----------------------------------------------------- */
 @media only screen and (device-width: 320px) and (orientation: portrait) {
-  /* line 338, ../sass/styles.scss */
+  /* line 338, ../scss/styles.scss */
   html {
-    font-size: 10px!important;
+    font-size: 10px !important;
   }
 }
 @media only screen and (device-width: 320px) and (orientation: landscape) {
-  /* line 345, ../sass/styles.scss */
+  /* line 345, ../scss/styles.scss */
   html {
-    font-size: 11px!important;
+    font-size: 11px !important;
   }
 }
 @media only screen and (max-width: 380px) {
-  /* line 353, ../sass/styles.scss */
+  /* line 353, ../scss/styles.scss */
   html {
-    font-size: 10px!important;
+    font-size: 10px !important;
   }
 }
 @media only screen and (max-width: 498px) {
-  /* line 360, ../sass/styles.scss */
+  /* line 360, ../scss/styles.scss */
   html {
-    font-size: 10px!important;
+    font-size: 10px !important;
   }
 }
 @media only screen and (max-width: 766px) and (min-width: 499px) {
-  /* line 367, ../sass/styles.scss */
+  /* line 367, ../scss/styles.scss */
   html {
-    font-size: 12px!important;
+    font-size: 12px !important;
   }
 }
 @media only screen and (max-width: 767px) {
-  /* line 375, ../sass/styles.scss */
+  /* line 375, ../scss/styles.scss */
   html {
-    font-size: 13px!important;
+    font-size: 13px !important;
   }
 }
 @media only screen and (device-width: 768px) and (orientation: portrait) {
-  /* line 382, ../sass/styles.scss */
+  /* line 382, ../scss/styles.scss */
   html {
-    font-size: 12px!important;
+    font-size: 12px !important;
   }
 }
 @media only screen and (device-width: 768px) and (orientation: landscape) {
-  /* line 389, ../sass/styles.scss */
+  /* line 389, ../scss/styles.scss */
   html {
-    font-size: 13px!important;
+    font-size: 13px !important;
   }
 }
 @media only screen and (max-width: 959px) and (min-width: 768px) {
-  /* line 396, ../sass/styles.scss */
+  /* line 396, ../scss/styles.scss */
   html {
-    font-size: 13px!important;
+    font-size: 13px !important;
   }
 }
 @media only screen and (min-width: 960px) {
-  /* line 402, ../sass/styles.scss */
+  /* line 402, ../scss/styles.scss */
   html {
-    font-size: 14px!important;
+    font-size: 14px !important;
   }
 }
 @media print {
-  /* line 408, ../sass/styles.scss */
+  /* line 408, ../scss/styles.scss */
   div:not(.reveal-modal) {
     display: inherit !important;
   }

@@ -435,7 +435,7 @@ tag:
 category:        
     loadservices: false
 
-menu:
+menu:      
     actions:
         none:       None
         showPage:   Show Page

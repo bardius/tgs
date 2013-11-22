@@ -33,15 +33,21 @@
 
     {% block stylesheets %}{% endblock %}
 
-    {% javascripts filter='?yui_js' output='js/modernizr.js' 'js/vendor/custom.modernizr.js' %}
+    {% javascripts filter='?yui_js' output='js/modernizr.js' 'bower_components/modernizr/modernizr.js' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
-    {% javascripts filter='?yui_js' output='js/jquery.min.js' 'js/vendor/jquery.js' %}
+    {% javascripts filter='?yui_js' output='js/jquery.min.js' 'bower_components/jquery/jquery.js' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
-
-		<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
+		<script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+		<![endif]-->
+		
 	</head>
 
 	<body>
@@ -74,23 +80,7 @@
 				{% endblock %}
 
 				{% javascripts filter='?yui_js' output='js/js-compiled.js'
-					'js/foundation/foundation.js'
-					'js/foundation/foundation.abide.js'
-					'js/foundation/foundation.alerts.js'
-					'js/foundation/foundation.clearing.js'
-					'js/foundation/foundation.alerts.js'
-					'js/foundation/foundation.cookie.js'
-					'js/foundation/foundation.dropdown.js'
-					'js/foundation/foundation.forms.js'
-					'js/foundation/foundation.interchange.js'
-					'js/foundation/foundation.joyride.js'
-					'js/foundation/foundation.magellan.js'
-					'js/foundation/foundation.orbit.js'
-					'js/foundation/foundation.placeholder.js'
-					'js/foundation/foundation.reveal.js'
-					'js/foundation/foundation.section.js'
-					'js/foundation/foundation.tooltips.js'
-					'js/foundation/foundation.topbar.js'
+					'bower_components/foundation/js/foundation.min.js'
 					'js/onDomReady.js'
 				%}
 

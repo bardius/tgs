@@ -1,4 +1,4 @@
-<nav class="top-bar contain-to-grid">
+<nav class="top-bar contain-to-grid" data-topbar>
 	<ul class="title-area">
 		<li class="name"></li>
 		<li class="toggle-topbar menu-icon">
@@ -8,6 +8,6 @@
 		</li>
 	</ul>
 	<section class="top-bar-section">	
-{{ knp_menu_render('main', {'template': 'MenuBundle:Menu:knp_menu.html.twig'}) }}
+{{ knp_menu_render('main', {'template': 'MenuBundle:Menu:knp_menu.html.twig', 'depth': null, 'currentAsLink': true, 'currentClass': 'active', 'ancestorClass': 'active active_ancestor', 'compressed': false, 'allow_safe_labels': false }) }}
 	</section>
 </nav>
