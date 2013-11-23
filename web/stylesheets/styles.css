@@ -4,7 +4,7 @@
 /* line 17, ../scss/styles.scss */
 iframe {
   left: 0;
-  border: none !important;
+  border: none!important;
 }
 
 /* line 28, ../scss/styles.scss */
@@ -31,8 +31,8 @@ strong {
 table {
   font-size: inherit;
   float: left;
-  border-spacing: 0 !important;
-  border-collapse: collapse !important;
+  border-spacing: 0!important;
+  border-collapse: collapse!important;
 }
 
 /* line 52, ../scss/styles.scss */
@@ -203,7 +203,7 @@ header {
   text-align: left;
   text-transform: uppercase;
   border: none;
-  font-weight: normal !important;
+  font-weight: normal!important;
 }
 
 /* line 211, ../scss/styles.scss */
@@ -325,61 +325,61 @@ footer {
 @media only screen and (device-width: 320px) and (orientation: portrait) {
   /* line 338, ../scss/styles.scss */
   html {
-    font-size: 10px !important;
+    font-size: 10px!important;
   }
 }
 @media only screen and (device-width: 320px) and (orientation: landscape) {
   /* line 345, ../scss/styles.scss */
   html {
-    font-size: 11px !important;
+    font-size: 11px!important;
   }
 }
 @media only screen and (max-width: 380px) {
   /* line 353, ../scss/styles.scss */
   html {
-    font-size: 10px !important;
+    font-size: 10px!important;
   }
 }
 @media only screen and (max-width: 498px) {
   /* line 360, ../scss/styles.scss */
   html {
-    font-size: 10px !important;
+    font-size: 10px!important;
   }
 }
 @media only screen and (max-width: 766px) and (min-width: 499px) {
   /* line 367, ../scss/styles.scss */
   html {
-    font-size: 12px !important;
+    font-size: 12px!important;
   }
 }
 @media only screen and (max-width: 767px) {
   /* line 375, ../scss/styles.scss */
   html {
-    font-size: 13px !important;
+    font-size: 13px!important;
   }
 }
 @media only screen and (device-width: 768px) and (orientation: portrait) {
   /* line 382, ../scss/styles.scss */
   html {
-    font-size: 12px !important;
+    font-size: 12px!important;
   }
 }
 @media only screen and (device-width: 768px) and (orientation: landscape) {
   /* line 389, ../scss/styles.scss */
   html {
-    font-size: 13px !important;
+    font-size: 13px!important;
   }
 }
 @media only screen and (max-width: 959px) and (min-width: 768px) {
   /* line 396, ../scss/styles.scss */
   html {
-    font-size: 13px !important;
+    font-size: 13px!important;
   }
 }
 @media only screen and (min-width: 960px) {
   /* line 402, ../scss/styles.scss */
   html {
-    font-size: 14px !important;
+    font-size: 14px!important;
   }
 }
 @media print {

@@ -1,8 +1,8 @@
 
-Symfony2 CMS Docs and Ideas
+Symfony2 CMS Docs (current v 2.2.10)
 ==============================================
 
-This is a symfony2 based CMS on its second version. 
+This is a Symfony2 based CMS on its second version. 
 A lot Of improvements have to be done to provide cleaner coding and flexibility.
 
 At the moment custom made PageBundle, MenuBundle and SettingBundle are required.
@@ -11,12 +11,46 @@ SkeletonBundle is a basic structured with simple functionalities so it can be cl
 The settings bundle can be omitted if you load the required settings variables from config.yml and change the service that provides
 the other bundles with the variables to seeks the hard-coded ones but i see no reason why you would want to do that.
 
-Extra optimisation must be done in all bundles.
+Extra optimization must be done in all bundles.
 
 The CMS required four 3 pages to exist to work. These are the homepage, the 404 page and the tagged page (if there a tags and filtered results)
 For each new content bundle the tagged page must exists.
 
-You can find the requirments for Symfony2 here http://symfony.com/doc/2.0/reference/requirements.html
+You can find the requirements for Symfony2 here http://symfony.com/doc/2.0/reference/requirements.html
+
+
+Installation
+---------------------------------------------
+
+Due to the use of the Zurb Foundation Framework 5 (version 1.0.1) the need for the following is unavoidable unless you do not need the framework at all.
+
+We need to install NodeJs, Node Packaged Modules, Ruby, compass, sass, foundation gems and GIT and bower dependency manager if they are not already installed to the system.
+More information can be found below at their official web sites:
+
+http://git-scm.com/downloads				(GIT)
+http://nodejs.org/							(NodeJs)
+https://npmjs.org/							(Node Packaged Modules)
+http://www.rubyinstaller.org/				(Ruby)
+https://github.com/bower/bower				(Bower)
+http://sass-lang.com/install				(Sass)
+http://compass-style.org/install/			(Compass)
+http://foundation.zurb.com/docs/sass.html	(Foundation 5 - Sass)
+
+The command line steps are:
+
+npm install -g bower
+gem update --system
+gem install sass
+gem install compass
+
+gem install foundation
+
+Navigate in your /web folder via Git bash and run
+bower install
+
+In case you are behind a firewall and connection to git is refused force https for all git connections with running this in your bash
+git config --global url."https://".insteadOf git://
+
 
 
 Deployment

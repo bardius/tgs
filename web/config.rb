@@ -1,5 +1,4 @@
 # Require any additional compass plugins here.
-# git config --global url."https://".insteadOf git://
 add_import_path "bower_components/foundation/scss"
 
 # Set this to the root of your project when deployed:
