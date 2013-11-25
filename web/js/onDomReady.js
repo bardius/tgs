@@ -59,6 +59,8 @@
 					e.preventDefault();
 
 					var formData = $("#contactForm").serializeArray();
+					formData.push({name: "isAjax", value: "true"});
+					
 					var formAction = $("#contactForm").attr("action");
 
 					$.post(formAction, formData, function(responce) {
@@ -66,11 +68,26 @@
 						$(".formError").remove();
 						$("label.error").removeClass('error');
 
-						if (responce.error === false) {
-							$(".contentBlock.contact h3").html(responce.message);
+						if (responce.hasErrors === false) {
+							$(".contentBlock.contact h3").html(responce.formMessage);
 						}
 						else {
-							$('<p class="formError round alert label alert-error">' + responce.message + '</p>').hide().insertAfter("#contactFormBtn");
+							if (responce.errors !== null) {
+								
+								var errorArray = responce.errors;
+								console.log(errorArray);
+								
+								$.each(errorArray, function(key, val) {
+									console.log(key);
+									console.log(val[0]);
+									// find type of input, return validation
+									$('#contactform_' + key).addClass('error');
+									$('#contactform_' + key).after($('<small class="formError error">' + val[0] + '</small>').hide());	
+								});
+							}
+							
+							$('<small class="formError error">' + responce.formMessage + '</small>').hide().insertAfter("#contactFormBtn");
+							
 							$('.formError').fadeIn(200);
 						}
 					});

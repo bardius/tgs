@@ -11,7 +11,7 @@
 namespace BardisCMS\PageBundle\Controller;
 
 use BardisCMS\PageBundle\Entity\Page;
-use BardisCMS\PageBundle\Form\ContactForm;
+use BardisCMS\PageBundle\Form\Type\ContactFormType;
 use BardisCMS\PageBundle\Form\FilterPagesForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -289,7 +289,7 @@ class DefaultController extends Controller {
 		}
 		// Render contact page type
 		else if ($page->getPagetype() == 'contact') {
-			return $this->contactForm($this->getRequest(), $page);
+			return $this->ContactForm($this->getRequest(), $page);
 		}
 
 		// Render normal page type
@@ -351,22 +351,21 @@ class DefaultController extends Controller {
 	// Get the contact form page
 	public function contactForm(Request $request, $page) {
 		// Load the settings from the setting bundle
-		$websiteTitle = '';
-		$settings = $this->get('bardiscms_settings.load_settings')->loadSettings();
-		
+		$settings = $this->get('bardiscms_settings.load_settings')->loadSettings();		
 		if (is_object($settings)) {		
 			$websiteTitle = $settings->getWebsiteTitle();
 		}
-
-		$email = array();
-		$ajaxForm = true;
-
+		else{
+			$websiteTitle = '';			
+		}
+		$successMgs = '';		
+		$ajaxForm = $request->get('isAjax');
+		if(!isset($ajaxForm) || !$ajaxForm){
+			$ajaxForm = false;			
+		}
+		
 		// Create the form
-		$form = $this->createForm(new ContactForm(), $email);
-
-		// Add the form fields
-		$emailConstraint = new Email();
-		$emailConstraint->message = 'Please enter a valid email address';
+		$form = $this->createForm(new ContactFormType());
 
 		// If the page has been submited
 		if ($request->getMethod() == 'POST') {
@@ -375,62 +374,86 @@ class DefaultController extends Controller {
 			$form->bind($request);
 
 			if ($form->isValid()) {
-
 				// Get the field values
 				$emailData = $form->getData();
 
-				// Validate the data
-				$errorList = $this->get('validator')->validateValue(
-						$emailData['email'], $emailConstraint
-				);
-
 				// If data is valid send the email with the twig email template set in the views
-				if (count($errorList) == 0) {
-					$message = \Swift_Message::newInstance()
-							->setSubject('Enquiry from ' . $websiteTitle . ' website: ' . $emailData['firstname'] . ' ' . $emailData['surname'])
-							->setFrom($emailData['email'])
-							->setTo($settings->getEmailRecepient())
-							->setBody($this->renderView('PageBundle:Email:contactFormEmail.txt.twig', array('sender' => $emailData['firstname'] . ' ' . $emailData['surname'], 'mailData' => $emailData['comment'])));
+				$message = \Swift_Message::newInstance()
+						->setSubject('Enquiry from ' . $websiteTitle . ' website: ' . $emailData['firstname'] . ' ' . $emailData['surname'])
+						->setFrom($emailData['email'])
+						->setTo($settings->getEmailRecepient())
+						->setBody($this->renderView('PageBundle:Email:contactFormEmail.txt.twig', array('sender' => $emailData['firstname'] . ' ' . $emailData['surname'], 'mailData' => $emailData['comment'])));
 
+				// The responce for the user upon successful submission
+				$successMsg = 'Thank you for contacting us, we will be in touch soon';
+				$formMessage = $successMsg;
+				$errorList = array();
+				$formhasErrors = false;
 
-					// The responce for the user upon successful submission
-					$formMessage = 'Thank you for contacting us, we will be in touch soon';
-					$formhasErrors = false;
-
-					// Send the email with php swift mailerand catch errors
-					try {
-						$this->get('mailer')->send($message);
-					} catch (\Swift_TransportException $exception) {
-						// The responce for the user upon unsuccessful mailer send
-						$formMessage = $exception->getMessage();
-						$formhasErrors = true;
-					}
-				}
-				// The responce for the user upon unsuccessful submission
-				else {
-					$formMessage = $errorList[0]->getMessage();
+				// Send the email with php swift mailerand catch errors
+				/*try {
+					$this->get('mailer')->send($message);
+				} catch (\Swift_TransportException $exception) {
+					// The responce for the user upon unsuccessful mailer send
+					$formMessage = $exception->getMessage();
 					$formhasErrors = true;
-				}
-
-				// Return the responce to the user
-				if ($ajaxForm) {
-					$ajaxFormData = array(
-						'message' => $formMessage,
-						'error' => $formhasErrors
-					);
-					$ajaxFormResponce = new Response(json_encode($ajaxFormData));
-					$ajaxFormResponce->headers->set('Content-Type', 'application/json');
-
-					return $ajaxFormResponce;
-				} else {
-					return $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'form' => $form->createView(), 'ajaxform' => $ajaxForm, 'formMessage' => $formMessage));
-				}
+				}*/
 			}
-		}
+			else {
+				// Validate the data and get errors
+				$successMsg = '';
+				$errorList = $this->getFormErrorMessages($form);
+				$formMessage = 'There was an error submitting your form. Please try again.';
+				$formhasErrors = true;
+			}
+			
+			// Return the responce to the user
+			if ($ajaxForm) {
+				
+				$ajaxFormData = array(
+					'errors'		=> $errorList,
+					'formMessage'	=> $formMessage, 
+					'hasErrors'		=> $formhasErrors
+				);
+				
+				$ajaxFormResponce = new Response(json_encode($ajaxFormData));
+				$ajaxFormResponce->headers->set('Content-Type', 'application/json');
+
+				return $ajaxFormResponce;
+			}
+			else {
+				return $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'form' => $form->createView(), 'ajaxform' => $ajaxForm, 'formMessage' => $formMessage));
+			}
+		}		
 		// If the form has not been submited yet
 		else {
 			return $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'form' => $form->createView(), 'ajaxform' => $ajaxForm));
 		}
+	}
+	
+	// Get the error messages of the contact form assosiated with their fields in an array
+	private function getFormErrorMessages(\Symfony\Component\Form\Form $form) {
+		
+		$errors = array();
+		
+		foreach ($form->getErrors() as $key => $error) {
+			$template = $error->getMessageTemplate();
+			$parameters = $error->getMessageParameters();
+
+			foreach ($parameters as $var => $value) {
+				$template = str_replace($var, $value, $template);
+			}
+
+			$errors[$key] = $template;
+		}
+		if ($form->count()) {
+			foreach ($form as $child) {
+				if (!$child->isValid()) {
+					$errors[$child->getName()] = $this->getFormErrorMessages($child);
+				}
+			}
+		}
+		return $errors;
 	}
 
 	// Get and format the filtering arguments to use with the actions 

@@ -34,7 +34,7 @@ http://www.rubyinstaller.org/				(Ruby)
 https://github.com/bower/bower				(Bower)
 http://sass-lang.com/install				(Sass)
 http://compass-style.org/install/			(Compass)
-http://foundation.zurb.com/docs/sass.html	(Foundation 5 - Sass)
+http://foundation.zurb.com/docs/sass.html	(Foundation 5 - Sass based)
 
 The command line steps are:
 

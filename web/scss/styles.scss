@@ -3,7 +3,7 @@
 ----------------------------------------- */
 
 header, nav, article, footer, address, 
-section, aside, hgroup, figure{ 
+section, aside, hgroup, figure{
 	
 }
 
@@ -30,6 +30,10 @@ a:hover{
     font-size: 0.5em; 
     font-size: 0.5rem; 
     left: -9999px;
+}
+
+.hidden{
+	display:none!important;
 }
 
 img{ 
@@ -124,7 +128,6 @@ header{
 
 .top-bar{
 	margin:10px 0;
-    background-color:#000;    
 }
 
 /*-------------------------------------------
