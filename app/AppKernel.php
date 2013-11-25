@@ -43,6 +43,7 @@ class AppKernel extends Kernel
             new BardisCMS\TagBundle\TagBundle(),
             new BardisCMS\ContentBlockBundle\ContentBlockBundle(),
             new BardisCMS\MobileDetectBundle\MobileDetectBundle(),
+            new BardisCMS\CommentBundle\CommentBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

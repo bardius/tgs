@@ -145,7 +145,7 @@ class DefaultController extends Controller
                 $categories = explode(',', $extraParams[1]);
                 foreach($categories as $category)
                 {
-                    $selectedCategories[] = $this->getDoctrine()->getRepository('PageBundle:Category')->findOneByTitle(urldecode($category));
+                    $selectedCategories[] = $this->getDoctrine()->getRepository('CategoryBundle:Category')->findOneByTitle(urldecode($category));
                 }
             }
         }
@@ -168,7 +168,7 @@ class DefaultController extends Controller
         
         if(empty($selectedCategoriesArray[0]))
         {
-            $selectedCategoriesArray = $this->getDoctrine()->getRepository('PageBundle:Category')->findAll();
+            $selectedCategoriesArray = $this->getDoctrine()->getRepository('CategoryBundle:Category')->findAll();
         }
         
         foreach($selectedCategoriesArray as $selectedCategoriesEntity)
@@ -318,6 +318,8 @@ class DefaultController extends Controller
             return $this->render('BlogBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages,  'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems));
         }
         
+		$postComments = $this->getPostComments($id);
+		
         return $this->render('BlogBundle:Default:page.html.twig', array('page' => $page));
     }
     
@@ -415,5 +417,17 @@ class DefaultController extends Controller
         }   
         
         return $filterTags;
+    }    
+    
+    // Get the approved comments for the blog post
+    public function getPostComments($blogPostId){
+		
+		$comments = null;
+		$comments = $this->getDoctrine()->getRepository('CommentBundle:Comment')->getCommentsForBlogPost($blogPostId);
+		
+		// continue from
+		// http://tutorial.symblog.co.uk/docs/extending-the-model-blog-comments.html
+        
+        return $comments;
     }
 }

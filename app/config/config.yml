@@ -486,6 +486,8 @@ recipe:
 blog:        
     loadservices: true
     
+    comments: true
+    
     pagetypes:
         blog_article:         Blog Article
         blog_cat_page:        Blog Category Page

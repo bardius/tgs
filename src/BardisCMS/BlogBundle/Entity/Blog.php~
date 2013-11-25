@@ -719,40 +719,6 @@ class Blog {
 		return $this->extracontentblocks;
 	}
 
-    /**
-     * Add comments
-     *
-     * @param \BardisCMS\CommentBundle\Entity\Comment $comments
-     *
-     * @return Blog
-     */
-    public function addComment(\BardisCMS\CommentBundle\Entity\Comment $comments)
-    {
-        $this->comments[] = $comments;
-    
-        return $this;
-    }
-
-    /**
-     * Remove comments
-     *
-     * @param \BardisCMS\CommentBundle\Entity\Comment $comments
-     */
-    public function removeComment(\BardisCMS\CommentBundle\Entity\Comment $comments)
-    {
-        $this->comments->removeElement($comments);
-    }
-
-    /**
-     * Get comments
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getComments()
-    {
-        return $this->comments;
-    }
-
 	/**
 	 * toString Title
 	 *
@@ -790,4 +756,5 @@ class Blog {
 			default: return $this->getPagetype();
 		}
 	}
+
 }

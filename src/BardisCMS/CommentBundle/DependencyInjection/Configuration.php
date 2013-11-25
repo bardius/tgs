@@ -1,6 +1,12 @@
 <?php
-
-namespace BardisCMS\BlogBundle\DependencyInjection;
+/*
+ * Comment Bundle
+ * This file is part of the BardisCMS.
+ *
+ * (c) George Bardis <george@bardis.info>
+ *
+ */
+namespace BardisCMS\CommentBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
@@ -20,7 +26,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('blog');
+        $rootNode = $treeBuilder->root('category');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
@@ -28,22 +34,6 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()                                        
                 ->booleanNode('loadservices')->defaultFalse()->end()
-				
-                ->booleanNode('comments')->defaultFalse()->end()
-                
-                ->arrayNode('pagetypes')
-                    ->isRequired()
-                    ->requiresAtLeastOneElement()
-                    ->useAttributeAsKey('name')
-                        ->prototype('scalar')->defaultValue(null)->end()
-                    ->end() 
-                
-                ->arrayNode('mediasizes')
-                    ->isRequired()
-                    ->requiresAtLeastOneElement()
-                    ->useAttributeAsKey('name')
-                        ->prototype('scalar')->defaultValue(null)->end()
-                    ->end()
             ->end();
 
         return $treeBuilder;
