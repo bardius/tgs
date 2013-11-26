@@ -143,6 +143,7 @@ sonata_block:
         sonata.admin.contentblocks:
         sonata.user.admin.user:
         sonata.admin.settings:
+        sonata.admin.comments:
 
 sonata_cache:
     caches:
@@ -193,7 +194,7 @@ sonata_admin:
     dashboard:
         blocks:
             # display a dashboard block
-            - { position: left, type: sonata.admin.block.admin_list, settings: { groups: [sonata_pages, sonata_categories, sonata_tags] } }
+            - { position: left, type: sonata.admin.block.admin_list, settings: { groups: [sonata_pages, sonata_categories, sonata_tags, sonata_comments] } }
             
             # display a dashboard block
             - { position: right, type: sonata.admin.block.admin_list, settings: { groups: [sonata_settings, sonata_menus, sonata_users, sonata_contentblocks, sonata_medias] } }
@@ -231,6 +232,10 @@ sonata_admin:
               label: Content Blocks
               items:
                   - sonata.admin.contentblocks
+           sonata_comments:
+              label: Comments
+              items:
+                  - sonata.admin.comments
            sonata_settings:
               label: Settings
               items:
@@ -521,6 +526,12 @@ product:
         small:      Small
         medium:     Medium
         big:        Big
+        
+comment:    
+    loadservices: true
+    
+    commenttypes:
+        Blog:       Blog Comments
         
 #skeleton:        
 #    loadservices: true

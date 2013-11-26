@@ -1210,6 +1210,17 @@ class ContentBlock
     {
         return $this->product_bannercontents;
     }
+	
+	
+    public function __toString()
+    {
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
+		}
+		else{
+			return (string)'New Conetnt Block';
+		}
+    }
     
     /**
     * toString PublishState

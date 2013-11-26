@@ -54,12 +54,17 @@ class Comment
      * @ORM\Column(type="datetime")
      */
     protected $created;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */ 
+    protected $commentType;
 	
 	/**
      * @ORM\ManyToOne(targetEntity="BardisCMS\BlogBundle\Entity\Blog", inversedBy="comments")
      * @ORM\JoinColumn(name="blog_id", referencedColumnName="id")
      */
-    protected $blogpost;
+    protected $blogPost;
 	
 
     public function __construct()
@@ -201,26 +206,90 @@ class Comment
     }
 
     /**
-     * Set blogpost
+     * Set commentType
      *
-     * @param \BardisCMS\BlogBundle\Entity\Blog $blogpost
+     * @param string $title
+     * @return Comment
+     */
+    public function setCommentType($commentType)
+    {
+        $this->commentType = $commentType;
+        return $this;
+    }
+
+    /**
+     * Get commentType
+     *
+     * @return string 
+     */
+    public function getCommentType()
+    {
+        return $this->commentType;
+    }
+
+    /**
+     * Set blogPost
+     *
+     * @param \BardisCMS\BlogBundle\Entity\Blog $blogPost
      *
      * @return Comment
      */
-    public function setBlogpost(\BardisCMS\BlogBundle\Entity\Blog $blogpost = null)
+    public function setBlogPost(\BardisCMS\BlogBundle\Entity\Blog $blogPost = null)
     {
-        $this->blogpost = $blogpost;
+        $this->blogPost = $blogPost;
     
         return $this;
     }
 
     /**
-     * Get blogpost
+     * Get blogPost
      *
      * @return \BardisCMS\BlogBundle\Entity\Blog 
      */
-    public function getBlogpost()
+    public function getBlogPost()
     {
-        return $this->blogpost;
+        return $this->blogPost;
+    }
+    
+    /**
+    * toString
+    *
+    * @return string 
+    */	
+    public function __toString()
+    {
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
+		}
+		else{
+			return (string)'New Comment';
+		}
+    }
+    
+    /**
+    * toString Approved
+    *
+    * @return string 
+    */
+    public function getApprovedAsString()
+    {
+        switch($this->getApproved()){
+            case('0'):  return "Unpublished";
+            case('1'):  return "Approved";
+            default:    return $this->getApproved(); 
+        }
+    }
+    
+    /**
+    * toString commentType
+    *
+    * @return string 
+    */
+    public function getCommentTypeAsString()
+    {
+        switch($this->getCommentType()){
+            case('Blog'):       return "Blog Post";
+            default:            return $this->getCommentType(); 
+        }
     }
 }

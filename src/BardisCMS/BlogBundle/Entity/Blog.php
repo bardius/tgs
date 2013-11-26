@@ -163,7 +163,7 @@ class Blog {
 	protected $extracontentblocks;
 	
 	 /**
-     * @ORM\OneToMany(targetEntity="BardisCMS\CommentBundle\Entity\Comment", mappedBy="blogpost")
+     * @ORM\OneToMany(targetEntity="BardisCMS\CommentBundle\Entity\Comment", mappedBy="blogPost")
      */
     protected $comments;
 	
@@ -758,9 +758,15 @@ class Blog {
 	 *
 	 * @return string 
 	 */
-	public function __toString() {
-		return (string) $this->getTitle();
-	}
+    public function __toString()
+    {
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
+		}
+		else{
+			return (string)'New Blog Page/Post';
+		}
+    }
 
 	/**
 	 * toString PublishState

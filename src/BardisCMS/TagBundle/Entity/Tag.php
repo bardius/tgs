@@ -213,12 +213,11 @@ class Tag
      */
     public function __toString()
     {
-		$tagToString = $this->getTitle();
-		
-		if($tagToString === null){
-			$catToString = 'New Tag';
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
 		}
-		
-		return $tagToString;
+		else{
+			return (string)'New Tag';
+		}
     }
 }

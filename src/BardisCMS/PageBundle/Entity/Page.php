@@ -751,9 +751,15 @@ class Page {
 	 *
 	 * @return string 
 	 */
-	public function __toString() {
-		return (string) $this->getTitle();
-	}
+    public function __toString()
+    {
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
+		}
+		else{
+			return (string)'New Page';
+		}
+    }
 
 	/**
 	 * toString PublishState

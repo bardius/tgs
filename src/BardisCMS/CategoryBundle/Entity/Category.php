@@ -203,14 +203,13 @@ class Category
      *
      * @return string 
      */
-	public function __toString()
+    public function __toString()
     {
-		$catToString = $this->getTitle();
-		
-		if($catToString === null){
-			$catToString = 'New category';
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
 		}
-		
-		return $catToString;
+		else{
+			return (string)'New Category';
+		}
     }
 }

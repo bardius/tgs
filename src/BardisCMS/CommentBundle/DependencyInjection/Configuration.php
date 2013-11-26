@@ -34,6 +34,13 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()                                        
                 ->booleanNode('loadservices')->defaultFalse()->end()
+                
+                ->arrayNode('commenttypes')
+                    ->isRequired()
+                    ->requiresAtLeastOneElement()
+                    ->useAttributeAsKey('name')
+                        ->prototype('scalar')->defaultValue(null)->end()
+                    ->end()
             ->end();
 
         return $treeBuilder;

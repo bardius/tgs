@@ -703,7 +703,12 @@ class Skeleton
      */
     public function __toString()
     {
-        return (string)$this->getTitle();
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
+		}
+		else{
+			return (string)'New Skeleton Item';
+		}
     }
     
     /**
