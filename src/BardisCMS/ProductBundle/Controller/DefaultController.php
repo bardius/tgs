@@ -433,7 +433,7 @@ class DefaultController extends Controller
         
         if ($request->getMethod() == 'POST') {
             
-            $filterForm->bindRequest($request);
+            $filterForm->bind($request);
             $filterData = $filterForm->getData();
             
             $selectedTagsCategoriesArray    = array($filterData['tagssugar_type'], $filterData['tagsexcellent'], $filterData['tagsbody']);

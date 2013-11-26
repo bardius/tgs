@@ -52,19 +52,24 @@ return b.length>0?b:"replace"},object:function(a){var b=this.parse_data_attr(a),
 			});
 			
 			// Start the AJAX based contact form
-			CMS.foundationConfig.contactForm();
+			CMS.foundationConfig.ajaxSubmittedForm('#contactform', '#contactFormBtn');
+			CMS.foundationConfig.ajaxSubmittedForm('#add_comment_form', '#submitCommentBtn');
 		},
 		    
-	    contactForm: function() {
-			if ($("#contactForm").length > 0) {
+	    ajaxSubmittedForm: function(formId, formSubmitBtnId) {
+			
+			var formElement = $(formId);
+			var btnElement = $(formSubmitBtnId);
+			
+			if (formElement.length > 0) {
 
-				$("#contactForm #contactFormBtn").click(function(e) {
+				btnElement.on('click', function(e) {
 					e.preventDefault();
 
-					var formData = $("#contactForm").serializeArray();
+					var formData = formElement.serializeArray();
 					formData.push({name: "isAjax", value: "true"});
 					
-					var formAction = $("#contactForm").attr("action");
+					var formAction = formElement.attr("action");
 
 					$.post(formAction, formData, function(responce) {
 
@@ -72,24 +77,25 @@ return b.length>0?b:"replace"},object:function(a){var b=this.parse_data_attr(a),
 						$("label.error").removeClass('error');
 
 						if (responce.hasErrors === false) {
-							$(".contentBlock.contact h3").html(responce.formMessage);
+							formElement.trigger("reset");
+							formElement.html('<p>' + responce.formMessage + '</p>');
 						}
 						else {
 							if (responce.errors !== null) {
 								
 								var errorArray = responce.errors;
-								console.log(errorArray);
 								
 								$.each(errorArray, function(key, val) {
 									console.log(key);
+									console.log(formId + '_' + key);
 									console.log(val[0]);
 									// find type of input, return validation
-									$('#contactform_' + key).addClass('error');
-									$('#contactform_' + key).after($('<small class="formError error">' + val[0] + '</small>').hide());	
+									$(formId + '_' + key).addClass('error');
+									$(formId + '_' + key).after($('<small class="formError error">' + val[0] + '</small>').hide());	
 								});
 							}
 							
-							$('<small class="formError error">' + responce.formMessage + '</small>').hide().insertAfter("#contactFormBtn");
+							$('<small class="formError error">' + responce.formMessage + '</small>').hide().insertAfter(btnElement);
 							
 							$('.formError').fadeIn(200);
 						}

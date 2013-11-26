@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 15, 2013 at 05:53 PM
+-- Generation Time: Nov 26, 2013 at 04:06 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `acl_classes`
 --
 
+DROP TABLE IF EXISTS `acl_classes`;
 CREATE TABLE IF NOT EXISTS `acl_classes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `class_type` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
@@ -39,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `acl_classes` (
 -- Table structure for table `acl_entries`
 --
 
+DROP TABLE IF EXISTS `acl_entries`;
 CREATE TABLE IF NOT EXISTS `acl_entries` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `class_id` int(10) unsigned NOT NULL,
@@ -65,6 +67,7 @@ CREATE TABLE IF NOT EXISTS `acl_entries` (
 -- Table structure for table `acl_object_identities`
 --
 
+DROP TABLE IF EXISTS `acl_object_identities`;
 CREATE TABLE IF NOT EXISTS `acl_object_identities` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `parent_object_identity_id` int(10) unsigned DEFAULT NULL,
@@ -82,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `acl_object_identities` (
 -- Table structure for table `acl_object_identity_ancestors`
 --
 
+DROP TABLE IF EXISTS `acl_object_identity_ancestors`;
 CREATE TABLE IF NOT EXISTS `acl_object_identity_ancestors` (
   `object_identity_id` int(10) unsigned NOT NULL,
   `ancestor_id` int(10) unsigned NOT NULL,
@@ -96,6 +100,7 @@ CREATE TABLE IF NOT EXISTS `acl_object_identity_ancestors` (
 -- Table structure for table `acl_security_identities`
 --
 
+DROP TABLE IF EXISTS `acl_security_identities`;
 CREATE TABLE IF NOT EXISTS `acl_security_identities` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `identifier` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
@@ -110,6 +115,7 @@ CREATE TABLE IF NOT EXISTS `acl_security_identities` (
 -- Table structure for table `bannercontent_blocks`
 --
 
+DROP TABLE IF EXISTS `bannercontent_blocks`;
 CREATE TABLE IF NOT EXISTS `bannercontent_blocks` (
   `page_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -133,6 +139,7 @@ INSERT INTO `bannercontent_blocks` (`page_id`, `contentblock_id`) VALUES
 -- Table structure for table `blogs`
 --
 
+DROP TABLE IF EXISTS `blogs`;
 CREATE TABLE IF NOT EXISTS `blogs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `author` int(11) DEFAULT NULL,
@@ -158,14 +165,15 @@ CREATE TABLE IF NOT EXISTS `blogs` (
   UNIQUE KEY `UNIQ_F41BCA7097AB4E12` (`bgimage`),
   UNIQUE KEY `UNIQ_F41BCA704A73D32C` (`introvideo`),
   KEY `IDX_F41BCA70BDAFD8C8` (`author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `blogs`
 --
 
 INSERT INTO `blogs` (`id`, `author`, `introimage`, `bgimage`, `introvideo`, `date`, `title`, `alias`, `pageOrder`, `showPageTitle`, `publishState`, `pageclass`, `description`, `keywords`, `introtext`, `intromediasize`, `introclass`, `pagetype`) VALUES
-(1, NULL, NULL, NULL, NULL, '2013-08-10', 'fdfadfa', '122', 99, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, 'blog_article');
+(1, 5, NULL, NULL, NULL, '2013-11-20', 'Test Blog post', 'test-blog-post', 99, 1, 1, NULL, NULL, NULL, '<p>test blog post into text</p>', NULL, NULL, 'blog_article'),
+(2, 5, NULL, NULL, NULL, '2013-11-21', 'Blog Homepage', 'articles', 99, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'blog_home');
 
 -- --------------------------------------------------------
 
@@ -173,6 +181,7 @@ INSERT INTO `blogs` (`id`, `author`, `introimage`, `bgimage`, `introvideo`, `dat
 -- Table structure for table `blogs_categories`
 --
 
+DROP TABLE IF EXISTS `blogs_categories`;
 CREATE TABLE IF NOT EXISTS `blogs_categories` (
   `blog_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
@@ -181,12 +190,20 @@ CREATE TABLE IF NOT EXISTS `blogs_categories` (
   KEY `IDX_9DB3BC9712469DE2` (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `blogs_categories`
+--
+
+INSERT INTO `blogs_categories` (`blog_id`, `category_id`) VALUES
+(1, 1);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `blogs_tags`
 --
 
+DROP TABLE IF EXISTS `blogs_tags`;
 CREATE TABLE IF NOT EXISTS `blogs_tags` (
   `blog_id` int(11) NOT NULL,
   `tag_id` int(11) NOT NULL,
@@ -195,12 +212,20 @@ CREATE TABLE IF NOT EXISTS `blogs_tags` (
   KEY `IDX_B21862B8BAD26311` (`tag_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `blogs_tags`
+--
+
+INSERT INTO `blogs_tags` (`blog_id`, `tag_id`) VALUES
+(1, 1);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `blog_bannercontent_blocks`
 --
 
+DROP TABLE IF EXISTS `blog_bannercontent_blocks`;
 CREATE TABLE IF NOT EXISTS `blog_bannercontent_blocks` (
   `blog_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -209,12 +234,42 @@ CREATE TABLE IF NOT EXISTS `blog_bannercontent_blocks` (
   KEY `IDX_BBBD848542ADBAC2` (`contentblock_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `blog_bannercontent_blocks`
+--
+
+INSERT INTO `blog_bannercontent_blocks` (`blog_id`, `contentblock_id`) VALUES
+(2, 28);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog_extracontent_blocks`
+--
+
+DROP TABLE IF EXISTS `blog_extracontent_blocks`;
+CREATE TABLE IF NOT EXISTS `blog_extracontent_blocks` (
+  `blog_id` int(11) NOT NULL,
+  `contentblock_id` int(11) NOT NULL,
+  PRIMARY KEY (`blog_id`,`contentblock_id`),
+  KEY `IDX_D0FE99C6DAE07E97` (`blog_id`),
+  KEY `IDX_D0FE99C642ADBAC2` (`contentblock_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `blog_extracontent_blocks`
+--
+
+INSERT INTO `blog_extracontent_blocks` (`blog_id`, `contentblock_id`) VALUES
+(2, 29);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `blog_maincontent_blocks`
 --
 
+DROP TABLE IF EXISTS `blog_maincontent_blocks`;
 CREATE TABLE IF NOT EXISTS `blog_maincontent_blocks` (
   `blog_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -223,12 +278,21 @@ CREATE TABLE IF NOT EXISTS `blog_maincontent_blocks` (
   KEY `IDX_1FB7CF4E42ADBAC2` (`contentblock_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `blog_maincontent_blocks`
+--
+
+INSERT INTO `blog_maincontent_blocks` (`blog_id`, `contentblock_id`) VALUES
+(1, 25),
+(2, 27);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `blog_modalcontent_blocks`
 --
 
+DROP TABLE IF EXISTS `blog_modalcontent_blocks`;
 CREATE TABLE IF NOT EXISTS `blog_modalcontent_blocks` (
   `blog_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -243,6 +307,7 @@ CREATE TABLE IF NOT EXISTS `blog_modalcontent_blocks` (
 -- Table structure for table `categories`
 --
 
+DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -250,7 +315,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `categoryIcon` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_3AF34668AD0F3245` (`categoryIcon`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `categories`
@@ -258,8 +323,36 @@ CREATE TABLE IF NOT EXISTS `categories` (
 
 INSERT INTO `categories` (`id`, `title`, `categoryClass`, `categoryIcon`) VALUES
 (1, 'Homepage', 'featured-item', NULL),
-(2, 'Sample Category', NULL, NULL),
-(3, 'Test category', 'Testcategory', NULL);
+(2, 'Sample Category', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `blog_id` int(11) DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `comment` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `approved` tinyint(1) NOT NULL,
+  `created` datetime NOT NULL,
+  `commentType` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bottrap` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_5F9E962ADAE07E97` (`blog_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `blog_id`, `title`, `username`, `comment`, `approved`, `created`, `commentType`, `bottrap`) VALUES
+(1, 1, 'Test comment', 'tester', '<p>test commentest commentest commentest commentest commentest commentest comment</p>', 1, '2013-11-20 00:00:00', 'Blog', ''),
+(2, 1, 'Test comment 2', 'tester 2', '<p>tester 2vtester 2tester 2tester 2tester 2tester 2tester 2tester 2tester 2</p>', 1, '2013-11-26 00:00:00', 'Blog', '');
 
 -- --------------------------------------------------------
 
@@ -267,6 +360,7 @@ INSERT INTO `categories` (`id`, `title`, `categoryClass`, `categoryIcon`) VALUES
 -- Table structure for table `content_blocks`
 --
 
+DROP TABLE IF EXISTS `content_blocks`;
 CREATE TABLE IF NOT EXISTS `content_blocks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `slide` int(11) DEFAULT NULL,
@@ -289,7 +383,7 @@ CREATE TABLE IF NOT EXISTS `content_blocks` (
   UNIQUE KEY `UNIQ_A6DBE5D44E850E4D` (`fileFile`),
   UNIQUE KEY `UNIQ_A6DBE5D47316E1A3` (`vimeo`),
   UNIQUE KEY `UNIQ_A6DBE5D4F0789934` (`youtube`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `content_blocks`
@@ -313,7 +407,14 @@ INSERT INTO `content_blocks` (`id`, `slide`, `vimeo`, `youtube`, `title`, `publi
 (16, NULL, NULL, NULL, 'Sample Panel', 1, 'page', 1, 3, 'panel', 'large-12', NULL, NULL, 'html', '<p>Proin pellentesque auctor mauris eu dictum. Aenean fermentum, velit non sollicitudin pellentesque, arcu augue hendrerit dolor, id accumsan libero lorem adipiscing urna. Aenean cursus nisl eget nunc mollis tempus.</p>', NULL),
 (17, NULL, NULL, NULL, 'Sample Homepage Bellow Content', 1, 'page', 1, 2, NULL, 'large-12', NULL, NULL, 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
 (18, NULL, NULL, NULL, 'Sample Contact Form', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'contact', NULL, NULL),
-(19, NULL, NULL, NULL, 'Sample Test Block', 1, 'page', 1, 3, NULL, 'large-12', NULL, NULL, 'html', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porttitor mattis turpis quis dignissim. Nunc eget mauris at urna sollicitudin facilisis vitae ut lacus. Aliquam malesuada quam sed turpis faucibus pharetra. Etiam vel pellentesque sem, vel dictum massa. Donec laoreet rhoncus velit, id accumsan purus molestie vehicula. Aliquam aliquet, erat eget condimentum ornare, sapien nisl hendrerit sapien, eget vulputate urna quam eget leo. Sed ligula dui, dignissim et neque eu, commodo elementum diam. Nunc massa leo, rhoncus eget gravida ut, malesuada vel massa. In et mauris sit amet nisi tempus malesuada. Mauris tempor, arcu ac hendrerit cursus, velit orci ullamcorper tellus, ut convallis est lorem eget tortor. Sed lobortis fringilla augue vitae tempor.</p>\r\n<p>Donec faucibus elementum laoreet. Duis malesuada massa justo, sed pellentesque tellus placerat a. Sed in vulputate odio. Quisque euismod eleifend ante in dictum. Fusce semper, arcu sit amet bibendum viverra, nulla quam pharetra ligula, in porta risus erat ac ipsum. Morbi ornare purus sed sapien tincidunt aliquet. Proin blandit sapien vitae est suscipit, nec pretium eros posuere. Proin ultricies purus sagittis risus rutrum, sed gravida felis sodales. Quisque elit diam, feugiat nec suscipit eget, tempor id odio. Curabitur fringilla suscipit metus eget molestie. Donec hendrerit posuere quam a congue. Maecenas consectetur turpis non magna luctus, et lacinia eros malesuada. Donec eu mattis lacus. Nam a quam adipiscing, sollicitudin dui non, fermentum nisl. Aenean eget mi enim. Fusce vitae purus magna.</p>', NULL);
+(20, NULL, NULL, NULL, 'decoupled text', 1, 'page', 1, 0, NULL, 'large-12', NULL, NULL, 'html', '<p>ghgdhgdgdhdhd</p>', NULL),
+(21, NULL, NULL, NULL, 'decoupled image', 1, 'page', 1, 2, NULL, 'large-6', 'small', NULL, 'image', NULL, NULL),
+(24, NULL, 28, NULL, 'decoupled vimoe', 1, 'page', 1, 3, NULL, 'large-12', 'original', NULL, 'vimeo', NULL, NULL),
+(25, NULL, NULL, NULL, 'Text blog text', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'html', '<p>test blog content text</p>\r\n<p>test blog content text</p>\r\n<p>test blog content text</p>\r\n<p>test blog content text</p>\r\n<p>test blog content text</p>\r\n<p>test blog content text</p>\r\n<p>test blog content text</p>', NULL),
+(26, NULL, NULL, NULL, 'new test text', 1, 'page', 1, 5, NULL, 'large-6', NULL, NULL, 'html', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porttitor mattis turpis quis dignissim. Nunc eget mauris at urna sollicitudin facilisis vitae ut lacus. Aliquam malesuada quam sed turpis faucibus pharetra. Etiam vel pellentesque sem, vel dictum massa. Donec laoreet rhoncus velit, id a.</p>', NULL),
+(27, NULL, NULL, NULL, 'Test blog home text', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'html', '<p>dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgdfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgdfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgdfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs</p>', NULL),
+(28, NULL, NULL, NULL, 'text blog home below text', 1, 'page', 1, 2, NULL, 'large-12', NULL, NULL, 'html', '<p>dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgdfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgdfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgdfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs</p>', NULL),
+(29, NULL, NULL, NULL, 'test below blog', 1, 'page', 1, 2, NULL, 'large-12', NULL, NULL, 'html', '<p>dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgdfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgdfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgdfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs dfgfsgs dfgfsgsdfgfsgsdfgfsgsdfgfsgs</p>', NULL);
 
 -- --------------------------------------------------------
 
@@ -321,6 +422,7 @@ INSERT INTO `content_blocks` (`id`, `slide`, `vimeo`, `youtube`, `title`, `publi
 -- Table structure for table `content_blocks_images`
 --
 
+DROP TABLE IF EXISTS `content_blocks_images`;
 CREATE TABLE IF NOT EXISTS `content_blocks_images` (
   `contentblock_id` int(11) NOT NULL,
   `contentimage_id` int(11) NOT NULL,
@@ -338,7 +440,8 @@ INSERT INTO `content_blocks_images` (`contentblock_id`, `contentimage_id`) VALUE
 (4, 4),
 (8, 5),
 (8, 6),
-(15, 7);
+(15, 7),
+(21, 8);
 
 -- --------------------------------------------------------
 
@@ -346,13 +449,14 @@ INSERT INTO `content_blocks_images` (`contentblock_id`, `contentimage_id`) VALUE
 -- Table structure for table `content_images`
 --
 
+DROP TABLE IF EXISTS `content_images`;
 CREATE TABLE IF NOT EXISTS `content_images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `imagefile` int(11) DEFAULT NULL,
   `imageOrder` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8829CEC6991EFFB9` (`imagefile`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `content_images`
@@ -363,7 +467,8 @@ INSERT INTO `content_images` (`id`, `imagefile`, `imageOrder`) VALUES
 (4, 12, 2),
 (5, 13, 1),
 (6, 15, 2),
-(7, 16, 1);
+(7, 16, 1),
+(8, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -371,6 +476,7 @@ INSERT INTO `content_images` (`id`, `imagefile`, `imageOrder`) VALUES
 -- Table structure for table `content_slides`
 --
 
+DROP TABLE IF EXISTS `content_slides`;
 CREATE TABLE IF NOT EXISTS `content_slides` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `imagefile` int(11) DEFAULT NULL,
@@ -386,6 +492,7 @@ CREATE TABLE IF NOT EXISTS `content_slides` (
 -- Table structure for table `extracontent_blocks`
 --
 
+DROP TABLE IF EXISTS `extracontent_blocks`;
 CREATE TABLE IF NOT EXISTS `extracontent_blocks` (
   `page_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -400,6 +507,7 @@ CREATE TABLE IF NOT EXISTS `extracontent_blocks` (
 -- Table structure for table `fos_user_group`
 --
 
+DROP TABLE IF EXISTS `fos_user_group`;
 CREATE TABLE IF NOT EXISTS `fos_user_group` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -414,6 +522,7 @@ CREATE TABLE IF NOT EXISTS `fos_user_group` (
 -- Table structure for table `fos_user_user`
 --
 
+DROP TABLE IF EXISTS `fos_user_user`;
 CREATE TABLE IF NOT EXISTS `fos_user_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -470,7 +579,7 @@ CREATE TABLE IF NOT EXISTS `fos_user_user` (
 --
 
 INSERT INTO `fos_user_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `created_at`, `updated_at`, `date_of_birth`, `firstname`, `lastname`, `website`, `biography`, `gender`, `locale`, `timezone`, `phone`, `facebook_uid`, `facebook_name`, `facebook_data`, `twitter_uid`, `twitter_name`, `twitter_data`, `gplus_uid`, `gplus_name`, `gplus_data`, `token`, `two_step_code`, `bakeFrequency`, `sex`, `bakeChoises`, `age`, `children`, `campaign`) VALUES
-(5, 'administrator', 'administrator', 'sss@sss.fr', 'sss@sss.fr', 1, '9jhl6ucm3wo4w4kc80w4444kw08s4sg', 'gK/EOnx7yyY4iQTeta/8Pp87E6DW2IMmUe4fiweTZDQ7cjKSvZgeFtFQoNk3HHcGtXwDFzHbzujCu85mGeC1ww==', '2013-11-15 17:49:40', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL, '2013-08-16 23:14:39', '2013-11-15 17:49:40', NULL, NULL, NULL, NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, NULL, NULL, 'N;', NULL, NULL, NULL);
+(5, 'administrator', 'administrator', 'sss@sss.fr', 'sss@sss.fr', 1, '9jhl6ucm3wo4w4kc80w4444kw08s4sg', 'gK/EOnx7yyY4iQTeta/8Pp87E6DW2IMmUe4fiweTZDQ7cjKSvZgeFtFQoNk3HHcGtXwDFzHbzujCu85mGeC1ww==', '2013-11-26 16:05:10', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL, '2013-08-16 23:14:39', '2013-11-26 16:05:10', NULL, NULL, NULL, NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, NULL, NULL, 'N;', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -478,6 +587,7 @@ INSERT INTO `fos_user_user` (`id`, `username`, `username_canonical`, `email`, `e
 -- Table structure for table `fos_user_user_group`
 --
 
+DROP TABLE IF EXISTS `fos_user_user_group`;
 CREATE TABLE IF NOT EXISTS `fos_user_user_group` (
   `user_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
@@ -492,6 +602,7 @@ CREATE TABLE IF NOT EXISTS `fos_user_user_group` (
 -- Table structure for table `maincontent_blocks`
 --
 
+DROP TABLE IF EXISTS `maincontent_blocks`;
 CREATE TABLE IF NOT EXISTS `maincontent_blocks` (
   `page_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -510,10 +621,13 @@ INSERT INTO `maincontent_blocks` (`page_id`, `contentblock_id`) VALUES
 (3, 5),
 (3, 7),
 (3, 8),
-(3, 19),
+(3, 26),
 (4, 12),
 (5, 14),
-(10, 18);
+(10, 18),
+(11, 20),
+(11, 21),
+(11, 24);
 
 -- --------------------------------------------------------
 
@@ -521,10 +635,11 @@ INSERT INTO `maincontent_blocks` (`page_id`, `contentblock_id`) VALUES
 -- Table structure for table `media__gallery`
 --
 
+DROP TABLE IF EXISTS `media__gallery`;
 CREATE TABLE IF NOT EXISTS `media__gallery` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `context` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `context` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `default_format` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -538,6 +653,7 @@ CREATE TABLE IF NOT EXISTS `media__gallery` (
 -- Table structure for table `media__gallery_media`
 --
 
+DROP TABLE IF EXISTS `media__gallery_media`;
 CREATE TABLE IF NOT EXISTS `media__gallery_media` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `gallery_id` int(11) DEFAULT NULL,
@@ -557,6 +673,7 @@ CREATE TABLE IF NOT EXISTS `media__gallery_media` (
 -- Table structure for table `media__media`
 --
 
+DROP TABLE IF EXISTS `media__media`;
 CREATE TABLE IF NOT EXISTS `media__media` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -573,14 +690,14 @@ CREATE TABLE IF NOT EXISTS `media__media` (
   `content_size` int(11) DEFAULT NULL,
   `copyright` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `author_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `context` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `context` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cdn_is_flushable` tinyint(1) DEFAULT NULL,
   `cdn_flush_at` datetime DEFAULT NULL,
   `cdn_status` int(11) DEFAULT NULL,
   `updated_at` datetime NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table `media__media`
@@ -601,7 +718,8 @@ INSERT INTO `media__media` (`id`, `name`, `description`, `enabled`, `provider_na
 (20, 'cookie-monster-cupcake.jpg', NULL, 0, 'sonata.media.provider.image', 1, 'c7f0dd5ca7c9311b567ba77b2cc1cddaa5861f83.jpeg', '{"filename":"bardis.jpg"}', 420, 420, NULL, 'image/jpeg', 47158, NULL, NULL, 'intro', NULL, NULL, NULL, '2013-11-15 16:03:48', '2013-11-15 16:03:31'),
 (21, 'bardis.jpg', NULL, 0, 'sonata.media.provider.image', 1, 'd62231f29630670623bd22f1a93f67e13330d2bb.jpeg', '{"filename":"bardis.jpg"}', 420, 420, NULL, 'image/jpeg', 47158, NULL, NULL, 'intro', NULL, NULL, NULL, '2013-11-15 16:03:48', '2013-11-15 16:03:48'),
 (22, 'thumb_8_intro_original.jpeg', NULL, 0, 'sonata.media.provider.image', 1, '3d6599532cdb652482d9525a1a0c039c42b58c7f.jpeg', '{"filename":"thumb_8_intro_original.jpeg"}', 622, 415, NULL, 'image/jpeg', 19140, NULL, NULL, 'intro', NULL, NULL, NULL, '2013-11-15 16:06:29', '2013-11-15 16:06:29'),
-(23, 'Hydrangeas.jpg', NULL, 0, 'sonata.media.provider.image', 1, 'c9b12055a194e26bc553ca965766227c2bbf70dd.jpeg', '{"filename":"Hydrangeas.jpg"}', 1024, 768, NULL, 'image/jpeg', 595284, NULL, NULL, 'icons', NULL, NULL, NULL, '2013-11-15 17:51:11', '2013-11-15 17:51:11');
+(23, 'Hydrangeas.jpg', NULL, 0, 'sonata.media.provider.image', 1, 'c9b12055a194e26bc553ca965766227c2bbf70dd.jpeg', '{"filename":"Hydrangeas.jpg"}', 1024, 768, NULL, 'image/jpeg', 595284, NULL, NULL, 'icons', NULL, NULL, NULL, '2013-11-15 17:51:11', '2013-11-15 17:51:11'),
+(28, 'inFORM - Interacting With a Dynamic Shape Display', 'inFORM is a Dynamic Shape Display that can render 3D content physically, so users can interact with digital information in a tangible way. inFORM can also interact with the physical world around it, for example moving objects on the table''s surface. Remote participants in a video conference can be displayed physically, allowing for a strong sense of presence and the ability to interact physically at a distance. inFORM is a step toward our vision of Radical Atoms: http://tangible.media.mit.edu/vision/\n\nhttp://tangible.media.mit.edu/project/inform/', 0, 'sonata.media.provider.vimeo', 1, '79179138', '{"type":"video","version":"1.0","provider_name":"Vimeo","provider_url":"https:\\/\\/vimeo.com\\/","title":"inFORM - Interacting With a Dynamic Shape Display","author_name":"Tangible Media Group","author_url":"http:\\/\\/vimeo.com\\/tangiblemedia","is_plus":"1","html":"<iframe src=\\"\\/\\/player.vimeo.com\\/video\\/79179138\\" width=\\"1280\\" height=\\"720\\" frameborder=\\"0\\" title=\\"inFORM - Interacting With a Dynamic Shape Display\\" webkitallowfullscreen mozallowfullscreen allowfullscreen><\\/iframe>","width":1280,"height":720,"duration":221,"description":"inFORM is a Dynamic Shape Display that can render 3D content physically, so users can interact with digital information in a tangible way. inFORM can also interact with the physical world around it, for example moving objects on the table''s surface. Remote participants in a video conference can be displayed physically, allowing for a strong sense of presence and the ability to interact physically at a distance. inFORM is a step toward our vision of Radical Atoms: http:\\/\\/tangible.media.mit.edu\\/vision\\/\\n\\nhttp:\\/\\/tangible.media.mit.edu\\/project\\/inform\\/","thumbnail_url":"http:\\/\\/b.vimeocdn.com\\/ts\\/454\\/838\\/454838853_1280.jpg","thumbnail_width":1280,"thumbnail_height":720,"video_id":79179138}', 1280, 720, '221', 'video/x-flv', NULL, NULL, 'Tangible Media Group', 'default', NULL, NULL, NULL, '2013-11-18 13:57:29', '2013-11-18 13:57:29');
 
 -- --------------------------------------------------------
 
@@ -609,6 +727,7 @@ INSERT INTO `media__media` (`id`, `name`, `description`, `enabled`, `provider_na
 -- Table structure for table `menu_items`
 --
 
+DROP TABLE IF EXISTS `menu_items`;
 CREATE TABLE IF NOT EXISTS `menu_items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `page` int(11) DEFAULT NULL,
@@ -632,7 +751,7 @@ CREATE TABLE IF NOT EXISTS `menu_items` (
   KEY `IDX_70B2CA2AC0155143` (`blog`),
   KEY `IDX_70B2CA2ADA88B137` (`recipe`),
   KEY `IDX_70B2CA2AD34A04AD` (`product`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `menu_items`
@@ -647,7 +766,9 @@ INSERT INTO `menu_items` (`id`, `page`, `blog`, `recipe`, `product`, `title`, `m
 (6, 7, NULL, NULL, NULL, 'Sample Category', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 99, NULL, NULL),
 (7, 8, NULL, NULL, NULL, 'Sample Tag List', 'Page', 'showPage', NULL, 0, '0', 'Footer Menu', 1, 99, NULL, NULL),
 (8, 9, NULL, NULL, NULL, 'Sample Filter Page', 'Page', 'showPage', NULL, 0, '0', 'Footer Menu', 1, 99, NULL, NULL),
-(9, 10, NULL, NULL, NULL, 'Sample Contact', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 99, NULL, NULL);
+(9, 10, NULL, NULL, NULL, 'Sample Contact', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 99, NULL, NULL),
+(10, NULL, 1, NULL, NULL, 'Test Blog Post', 'Blog', 'showPage', NULL, 0, '0', 'Footer Menu', 1, 99, NULL, NULL),
+(11, NULL, 2, NULL, NULL, 'Blog Home', 'Blog', 'showPage', NULL, 0, '0', 'Footer Menu', 1, 99, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -655,6 +776,7 @@ INSERT INTO `menu_items` (`id`, `page`, `blog`, `recipe`, `product`, `title`, `m
 -- Table structure for table `modalcontent_blocks`
 --
 
+DROP TABLE IF EXISTS `modalcontent_blocks`;
 CREATE TABLE IF NOT EXISTS `modalcontent_blocks` (
   `page_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -676,6 +798,7 @@ INSERT INTO `modalcontent_blocks` (`page_id`, `contentblock_id`) VALUES
 -- Table structure for table `pages`
 --
 
+DROP TABLE IF EXISTS `pages`;
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `author` int(11) DEFAULT NULL,
@@ -699,14 +822,14 @@ CREATE TABLE IF NOT EXISTS `pages` (
   UNIQUE KEY `UNIQ_2074E575F3890D5F` (`introimage`),
   UNIQUE KEY `UNIQ_2074E57597AB4E12` (`bgimage`),
   KEY `IDX_2074E575BDAFD8C8` (`author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `pages`
 --
 
 INSERT INTO `pages` (`id`, `author`, `introimage`, `bgimage`, `date`, `title`, `alias`, `pageOrder`, `showPageTitle`, `publishState`, `pageclass`, `description`, `keywords`, `introtext`, `intromediasize`, `introclass`, `pagetype`) VALUES
-(1, NULL, NULL, NULL, '2013-08-09', 'Homepage', 'home', 99, 0, 1, NULL, 'description', 'keyword', NULL, 'original', NULL, 'homepage'),
+(1, 5, NULL, NULL, '2013-08-09', 'Homepage', 'index', 99, 0, 1, NULL, 'description', 'keyword', NULL, 'original', NULL, 'homepage'),
 (2, NULL, NULL, NULL, '2013-08-10', '404 - Page Not Found', '404', 99, 1, 1, NULL, NULL, NULL, NULL, 'original', NULL, 'one_columned'),
 (3, 5, 22, NULL, '2013-08-12', 'Sample page', 'sample-page', 1, 1, 1, 'sample-page', NULL, NULL, '<p>Sample Intro Text Sample Intro Text Sample Intro Text Sample Intro Text</p>', 'original', NULL, 'one_columned'),
 (4, NULL, 8, NULL, '2013-08-12', 'Sample Page Two Columns', 'sample-page-two-columns', 2, 1, 1, NULL, NULL, NULL, '<p>Sample Intro Text Sample Intro Text Sample Intro Text Sample Intro Text</p>', 'original', NULL, 'two_columned'),
@@ -715,7 +838,8 @@ INSERT INTO `pages` (`id`, `author`, `introimage`, `bgimage`, `date`, `title`, `
 (7, NULL, NULL, NULL, '2013-08-14', 'Sample Category Page', 'sample-category-page', 99, 1, 1, NULL, NULL, NULL, NULL, 'original', NULL, 'category_page'),
 (8, NULL, NULL, NULL, '2013-08-15', 'Sample Tag Listing', 'sample-tag-listing', 99, 1, 1, NULL, NULL, NULL, NULL, 'original', NULL, 'category_page'),
 (9, NULL, NULL, NULL, '2013-08-15', 'Filter Results', 'tagged', 99, 1, 1, NULL, NULL, NULL, NULL, 'original', NULL, 'page_tag_list'),
-(10, NULL, NULL, NULL, '2013-08-15', 'Sample Contact Page', 'sample-contact-page', 99, 1, 1, NULL, NULL, NULL, NULL, 'original', NULL, 'contact');
+(10, NULL, NULL, NULL, '2013-08-15', 'Sample Contact Page', 'sample-contact-page', 99, 1, 1, NULL, NULL, NULL, NULL, 'original', NULL, 'contact'),
+(11, 5, NULL, NULL, '2013-11-18', 'New test decoupled', 'new-test-decoupled', 99, 1, 1, NULL, NULL, NULL, NULL, 'original', NULL, 'one_columned');
 
 -- --------------------------------------------------------
 
@@ -723,6 +847,7 @@ INSERT INTO `pages` (`id`, `author`, `introimage`, `bgimage`, `date`, `title`, `
 -- Table structure for table `pages_categories`
 --
 
+DROP TABLE IF EXISTS `pages_categories`;
 CREATE TABLE IF NOT EXISTS `pages_categories` (
   `page_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
@@ -749,6 +874,7 @@ INSERT INTO `pages_categories` (`page_id`, `category_id`) VALUES
 -- Table structure for table `pages_tags`
 --
 
+DROP TABLE IF EXISTS `pages_tags`;
 CREATE TABLE IF NOT EXISTS `pages_tags` (
   `page_id` int(11) NOT NULL,
   `tag_id` int(11) NOT NULL,
@@ -773,6 +899,7 @@ INSERT INTO `pages_tags` (`page_id`, `tag_id`) VALUES
 -- Table structure for table `products`
 --
 
+DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `author` int(11) DEFAULT NULL,
@@ -831,6 +958,7 @@ INSERT INTO `products` (`id`, `author`, `introimage`, `introvideo`, `bgimage`, `
 -- Table structure for table `products_categories`
 --
 
+DROP TABLE IF EXISTS `products_categories`;
 CREATE TABLE IF NOT EXISTS `products_categories` (
   `product_id` int(11) NOT NULL,
   `productcategory_id` int(11) NOT NULL,
@@ -845,6 +973,7 @@ CREATE TABLE IF NOT EXISTS `products_categories` (
 -- Table structure for table `products_tags`
 --
 
+DROP TABLE IF EXISTS `products_tags`;
 CREATE TABLE IF NOT EXISTS `products_tags` (
   `product_id` int(11) NOT NULL,
   `producttag_id` int(11) NOT NULL,
@@ -859,6 +988,7 @@ CREATE TABLE IF NOT EXISTS `products_tags` (
 -- Table structure for table `product_categories`
 --
 
+DROP TABLE IF EXISTS `product_categories`;
 CREATE TABLE IF NOT EXISTS `product_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -874,6 +1004,7 @@ CREATE TABLE IF NOT EXISTS `product_categories` (
 -- Table structure for table `product_maincontent_blocks`
 --
 
+DROP TABLE IF EXISTS `product_maincontent_blocks`;
 CREATE TABLE IF NOT EXISTS `product_maincontent_blocks` (
   `product_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -888,6 +1019,7 @@ CREATE TABLE IF NOT EXISTS `product_maincontent_blocks` (
 -- Table structure for table `product_modalcontent_blocks`
 --
 
+DROP TABLE IF EXISTS `product_modalcontent_blocks`;
 CREATE TABLE IF NOT EXISTS `product_modalcontent_blocks` (
   `product_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -902,6 +1034,7 @@ CREATE TABLE IF NOT EXISTS `product_modalcontent_blocks` (
 -- Table structure for table `product_secondarycontent_blocks`
 --
 
+DROP TABLE IF EXISTS `product_secondarycontent_blocks`;
 CREATE TABLE IF NOT EXISTS `product_secondarycontent_blocks` (
   `product_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -916,6 +1049,7 @@ CREATE TABLE IF NOT EXISTS `product_secondarycontent_blocks` (
 -- Table structure for table `product_tags`
 --
 
+DROP TABLE IF EXISTS `product_tags`;
 CREATE TABLE IF NOT EXISTS `product_tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -933,6 +1067,7 @@ CREATE TABLE IF NOT EXISTS `product_tags` (
 -- Table structure for table `recipes`
 --
 
+DROP TABLE IF EXISTS `recipes`;
 CREATE TABLE IF NOT EXISTS `recipes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `author` int(11) DEFAULT NULL,
@@ -981,6 +1116,7 @@ INSERT INTO `recipes` (`id`, `author`, `introimage`, `introvideo`, `recipeimage`
 -- Table structure for table `recipes_categories`
 --
 
+DROP TABLE IF EXISTS `recipes_categories`;
 CREATE TABLE IF NOT EXISTS `recipes_categories` (
   `recipe_id` int(11) NOT NULL,
   `recipecategory_id` int(11) NOT NULL,
@@ -995,6 +1131,7 @@ CREATE TABLE IF NOT EXISTS `recipes_categories` (
 -- Table structure for table `recipes_tags`
 --
 
+DROP TABLE IF EXISTS `recipes_tags`;
 CREATE TABLE IF NOT EXISTS `recipes_tags` (
   `recipe_id` int(11) NOT NULL,
   `recipetag_id` int(11) NOT NULL,
@@ -1009,6 +1146,7 @@ CREATE TABLE IF NOT EXISTS `recipes_tags` (
 -- Table structure for table `recipe_bannercontent_blocks`
 --
 
+DROP TABLE IF EXISTS `recipe_bannercontent_blocks`;
 CREATE TABLE IF NOT EXISTS `recipe_bannercontent_blocks` (
   `recipe_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -1023,6 +1161,7 @@ CREATE TABLE IF NOT EXISTS `recipe_bannercontent_blocks` (
 -- Table structure for table `recipe_categories`
 --
 
+DROP TABLE IF EXISTS `recipe_categories`;
 CREATE TABLE IF NOT EXISTS `recipe_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -1038,6 +1177,7 @@ CREATE TABLE IF NOT EXISTS `recipe_categories` (
 -- Table structure for table `recipe_extracontent_blocks`
 --
 
+DROP TABLE IF EXISTS `recipe_extracontent_blocks`;
 CREATE TABLE IF NOT EXISTS `recipe_extracontent_blocks` (
   `recipe_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -1052,6 +1192,7 @@ CREATE TABLE IF NOT EXISTS `recipe_extracontent_blocks` (
 -- Table structure for table `recipe_maincontent_blocks`
 --
 
+DROP TABLE IF EXISTS `recipe_maincontent_blocks`;
 CREATE TABLE IF NOT EXISTS `recipe_maincontent_blocks` (
   `recipe_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -1066,6 +1207,7 @@ CREATE TABLE IF NOT EXISTS `recipe_maincontent_blocks` (
 -- Table structure for table `recipe_modalcontent_blocks`
 --
 
+DROP TABLE IF EXISTS `recipe_modalcontent_blocks`;
 CREATE TABLE IF NOT EXISTS `recipe_modalcontent_blocks` (
   `recipe_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -1080,6 +1222,7 @@ CREATE TABLE IF NOT EXISTS `recipe_modalcontent_blocks` (
 -- Table structure for table `recipe_secondarycontent_blocks`
 --
 
+DROP TABLE IF EXISTS `recipe_secondarycontent_blocks`;
 CREATE TABLE IF NOT EXISTS `recipe_secondarycontent_blocks` (
   `recipe_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -1094,10 +1237,11 @@ CREATE TABLE IF NOT EXISTS `recipe_secondarycontent_blocks` (
 -- Table structure for table `recipe_tags`
 --
 
+DROP TABLE IF EXISTS `recipe_tags`;
 CREATE TABLE IF NOT EXISTS `recipe_tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `tagCategory` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `tagCategory` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tagIcon` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_10A7CEF98913051D` (`tagIcon`)
@@ -1109,6 +1253,7 @@ CREATE TABLE IF NOT EXISTS `recipe_tags` (
 -- Table structure for table `secondarycontent_blocks`
 --
 
+DROP TABLE IF EXISTS `secondarycontent_blocks`;
 CREATE TABLE IF NOT EXISTS `secondarycontent_blocks` (
   `page_id` int(11) NOT NULL,
   `contentblock_id` int(11) NOT NULL,
@@ -1132,6 +1277,7 @@ INSERT INTO `secondarycontent_blocks` (`page_id`, `contentblock_id`) VALUES
 -- Table structure for table `settings`
 --
 
+DROP TABLE IF EXISTS `settings`;
 CREATE TABLE IF NOT EXISTS `settings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `metaDescription` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -1146,6 +1292,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `emailRecepient` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `itemsPerPage` int(11) NOT NULL,
   `blogItemsPerPage` int(11) NOT NULL,
+  `activateSettings` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
@@ -1153,8 +1300,8 @@ CREATE TABLE IF NOT EXISTS `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `metaDescription`, `metaKeywords`, `fromTitle`, `websiteTitle`, `websiteAuthor`, `useWebsiteAuthor`, `enableGoogleAnalytics`, `googleAnalyticsId`, `emailSender`, `emailRecepient`, `itemsPerPage`, `blogItemsPerPage`) VALUES
-(1, 'Default Meta Description', 'Default Meta Keywords', 'Owner', 'Website Title', 'Author', 1, 0, NULL, 'email@cms.com', 'email@cms.com', 2, 2);
+INSERT INTO `settings` (`id`, `metaDescription`, `metaKeywords`, `fromTitle`, `websiteTitle`, `websiteAuthor`, `useWebsiteAuthor`, `enableGoogleAnalytics`, `googleAnalyticsId`, `emailSender`, `emailRecepient`, `itemsPerPage`, `blogItemsPerPage`, `activateSettings`) VALUES
+(1, 'Default Meta Description', 'Default Meta Keywords', 'Owner', 'Website Title', 'Author', 1, 0, NULL, 'george@bardis.info', 'george@bardis.info', 2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -1162,10 +1309,11 @@ INSERT INTO `settings` (`id`, `metaDescription`, `metaKeywords`, `fromTitle`, `w
 -- Table structure for table `tags`
 --
 
+DROP TABLE IF EXISTS `tags`;
 CREATE TABLE IF NOT EXISTS `tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `tagCategory` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `tagCategory` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tagIcon` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_6FBC94268913051D` (`tagIcon`)
@@ -1241,6 +1389,13 @@ ALTER TABLE `blog_bannercontent_blocks`
   ADD CONSTRAINT `FK_BBBD8485DAE07E97` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`) ON DELETE CASCADE;
 
 --
+-- Constraints for table `blog_extracontent_blocks`
+--
+ALTER TABLE `blog_extracontent_blocks`
+  ADD CONSTRAINT `FK_D0FE99C642ADBAC2` FOREIGN KEY (`contentblock_id`) REFERENCES `content_blocks` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_D0FE99C6DAE07E97` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `blog_maincontent_blocks`
 --
 ALTER TABLE `blog_maincontent_blocks`
@@ -1259,6 +1414,12 @@ ALTER TABLE `blog_modalcontent_blocks`
 --
 ALTER TABLE `categories`
   ADD CONSTRAINT `FK_3AF34668AD0F3245` FOREIGN KEY (`categoryIcon`) REFERENCES `media__media` (`id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `FK_5F9E962ADAE07E97` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`);
 
 --
 -- Constraints for table `content_blocks`

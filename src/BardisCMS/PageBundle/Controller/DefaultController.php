@@ -391,13 +391,13 @@ class DefaultController extends Controller {
 				$formhasErrors = false;
 
 				// Send the email with php swift mailerand catch errors
-				/*try {
+				try {
 					$this->get('mailer')->send($message);
 				} catch (\Swift_TransportException $exception) {
 					// The responce for the user upon unsuccessful mailer send
 					$formMessage = $exception->getMessage();
 					$formhasErrors = true;
-				}*/
+				}
 			}
 			else {
 				// Validate the data and get errors

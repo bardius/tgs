@@ -66,6 +66,10 @@ media:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #    prefix:   /_internal
 
+CommentBundle:
+    resource: "@CommentBundle/Resources/config/routing.yml"
+    prefix:   /
+
 RecipeBundle:
     resource: "@RecipeBundle/Resources/config/routing.yml"
     prefix:   /

@@ -13,6 +13,11 @@ namespace BardisCMS\CommentBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use BardisCMS\BlogBundle\Entity\Blog;
 
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\Blank;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+
 
 /**
  * BardisCMS\CommentBundle\Entity\Comment
@@ -59,6 +64,11 @@ class Comment
      * @ORM\Column(type="string", length=255)
      */ 
     protected $commentType;
+
+    /**
+     * @ORM\Column(type="string", length=1, nullable=true)
+     */ 
+    protected $bottrap = null;
 	
 	/**
      * @ORM\ManyToOne(targetEntity="BardisCMS\BlogBundle\Entity\Blog", inversedBy="comments")
@@ -228,6 +238,28 @@ class Comment
     }
 
     /**
+     * Set bottrap
+     *
+     * @param string $title
+     * @return Comment
+     */
+    public function setBottrap($bottrap)
+    {
+        $this->bottrap = $bottrap;
+        return $this;
+    }
+
+    /**
+     * Get bottrap
+     *
+     * @return string 
+     */
+    public function getBottrap()
+    {
+        return $this->bottrap;
+    }
+
+    /**
      * Set blogPost
      *
      * @param \BardisCMS\BlogBundle\Entity\Blog $blogPost
@@ -291,5 +323,41 @@ class Comment
             case('Blog'):       return "Blog Post";
             default:            return $this->getCommentType(); 
         }
+    }	
+	
+	// Adding the validation restrictions
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('title',
+			new NotBlank(array('message' => 'Title should not be blank.'))		
+        );
+		
+        $metadata->addPropertyConstraint('title',
+            new Length(array('min' => 2, 'max' => 150))			
+        );
+		
+        $metadata->addPropertyConstraint('username',
+			new NotBlank(array('message' => 'Name should not be blank.'))
+        );
+		
+        $metadata->addPropertyConstraint('username',
+            new Length(array('min' => 2, 'max' => 150))			
+        );
+		
+        $metadata->addPropertyConstraint('comment',
+			new NotBlank(array('message' => 'Comment should not be blank.'))
+        );
+		
+        $metadata->addPropertyConstraint('comment',
+			new Length(array('min' => 2, 'max' => 1000))
+        );
+		
+        $metadata->addPropertyConstraint('bottrap',
+			new Blank(array('message' => 'Bot Trap should be blank.'))		
+        );
+		
+        $metadata->addPropertyConstraint('bottrap',
+            new Length(array('max' => 1))			
+        );
     }
 }

@@ -43,7 +43,7 @@ class CommentAdmin extends Admin
             ->with('Comment Details', array('collapsed' => false))
                 ->add('title', null, array('label' => 'Comment Title', 'required' => true))
                 ->add('username', null, array('label' => 'Username / Name of the commentator', 'required' => true))
-                ->add('comment', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced'), 'label' => 'Comment', 'required' => false))
+                ->add('comment', 'textarea', array('label' => 'Comment', 'required' => true))
                 ->add('approved', 'choice', array('choices' => array('0' => 'Hide', '1' => 'Show'), 'preferred_choices' => array('1'), 'label' => 'Approve Comment', 'required' => true))
 				->add('created', 'date', array('widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'attr' => array('class' => 'datepicker'), 'label' => 'Created Date', 'required' => true))
 				->add('commentType', 'choice', array('choices' => $commentTypeChoice, 'preferred_choices' => array($prefCommentTypeChoice), 'label' => 'Comment Type', 'required' => true))

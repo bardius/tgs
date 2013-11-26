@@ -20,56 +20,56 @@ class ContactFormType extends AbstractType {
     // Creating the contact form and the fields
     public function buildForm(FormBuilderInterface $builder, array $options) {
 	
-	$builder->add('firstname', 'text', array(
-	    'label' => 'First Name',
-		'required' => true,
-	    'attr' => array(
-			'placeholder' => '',
-			'title' => 'Please enter your First Name',
-			'maxLength' => 50
-	    ))
-	);
+		$builder->add('firstname', 'text', array(
+			'label' => 'First Name',
+			'required' => true,
+			'attr' => array(
+				'placeholder' => '',
+				'title' => 'Please enter your First Name',
+				'maxLength' => 50
+			))
+		);
 
-	$builder->add('surname', 'text', array(
-	    'label' => 'Surname',
-		'required' => true,
-	    'attr' => array(
-			'placeholder' => '',
-			'title' => 'Please enter your Surname',
-			'maxLength' => 50
-	    ))
-	);
+		$builder->add('surname', 'text', array(
+			'label' => 'Surname',
+			'required' => true,
+			'attr' => array(
+				'placeholder' => '',
+				'title' => 'Please enter your Surname',
+				'maxLength' => 50
+			))
+		);
 
-	$builder->add('email', 'email', array(
-	    'label' => 'Email',
-		'required' => true,
-	    'attr' => array(
-			'placeholder' => '',
-			'title' => 'Please enter a valid email address',
-			'maxLength' => 150
-	    ))
-	);
+		$builder->add('email', 'email', array(
+			'label' => 'Email',
+			'required' => true,
+			'attr' => array(
+				'placeholder' => '',
+				'title' => 'Please enter a valid email address',
+				'maxLength' => 150
+			))
+		);
 
-	$builder->add('comment', 'textarea', array(
-	    'label' => 'Comment / Question',
-		'required' => true,
-	    'attr' => array(
-			'placeholder' => '',
-			'title' => 'Please enter your Comment / Question',
-			'maxLength' => 1000,
-			'cols' => 70,
-            'rows' => 8,
-	    ))
-	);
-	
-	$builder->add('bottrap', 'text', array(
-	    'label' => 'Bot trap',
-		'required' => false,
-	    'attr' => array(
-			'placeholder' => '',
-			'maxLength' => 1
-	    ))
-	);
+		$builder->add('comment', 'textarea', array(
+			'label' => 'Comment / Question',
+			'required' => true,
+			'attr' => array(
+				'placeholder' => '',
+				'title' => 'Please enter your Comment / Question',
+				'maxLength' => 1000,
+				'cols' => 70,
+				'rows' => 8,
+			))
+		);
+
+		$builder->add('bottrap', 'text', array(
+			'label' => 'Bot trap',
+			'required' => false,
+			'attr' => array(
+				'placeholder' => '',
+				'maxLength' => 1
+			))
+		);
 	
     }
 	

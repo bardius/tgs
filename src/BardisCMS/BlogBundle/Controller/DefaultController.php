@@ -12,6 +12,9 @@ use BardisCMS\BlogBundle\Entity\Blog;
 use BardisCMS\PageBundle\Entity\Page;
 use BardisCMS\BlogBundle\Form\FilterBlogPostsForm;
 
+use BardisCMS\CommentBundle\Entity\Comment;
+use BardisCMS\CommentBundle\Form\CommentType;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -317,10 +320,24 @@ class DefaultController extends Controller
             
             return $this->render('BlogBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages,  'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems));
         }
-        
-		$postComments = $this->getPostComments($id);
 		
-        return $this->render('BlogBundle:Default:page.html.twig', array('page' => $page));
+        $commentsEnabled = true;
+		
+		if($commentsEnabled){
+			// Retrieving the comments the views
+			$postComments = null;
+			$postComments = $this->getPostComments($id);
+
+			// Adding the form for new comment
+			$comment = new Comment();
+			$comment->setBlogPost($page);
+			$form = $this->createForm(new CommentType(), $comment);
+		
+			return $this->render('BlogBundle:Default:page.html.twig', array('page' => $page, 'form' => $form->createView(), 'comments' => $postComments));			
+		}
+		else{		
+			return $this->render('BlogBundle:Default:page.html.twig', array('page' => $page));			
+		}
     }
     
     
@@ -329,7 +346,7 @@ class DefaultController extends Controller
     {
         
         $page       = $this->getDoctrine()->getRepository('PageBundle:Page')->findOneByAlias('404');
-        $settings   = $this->get('badiscms_settings.load_settings')->loadSettings();
+        $settings   = $this->get('bardiscms_settings.load_settings')->loadSettings();
         
         // Check if page exists
         if (!$page) {
@@ -353,7 +370,7 @@ class DefaultController extends Controller
         
         if ($request->getMethod() == 'POST') {
             
-            $filterForm->bindRequest($request);
+            $filterForm->bind($request);
             $filterData = $filterForm->getData();
             
             $filterTags         = $this->getTagFilterTitles($filterData['tags']);     
@@ -424,9 +441,6 @@ class DefaultController extends Controller
 		
 		$comments = null;
 		$comments = $this->getDoctrine()->getRepository('CommentBundle:Comment')->getCommentsForBlogPost($blogPostId);
-		
-		// continue from
-		// http://tutorial.symblog.co.uk/docs/extending-the-model-blog-comments.html
         
         return $comments;
     }
