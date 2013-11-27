@@ -1,26 +1,68 @@
 
-Symfony2 CMS Docs (current v 2.2.10)
-==============================================
+Symfony2 BardisCMS Documentation (current v2.2.10)
+======================================================
 
-This is a Symfony2 based CMS on its second version. 
-A lot Of improvements have to be done to provide cleaner coding and flexibility.
+This is a Symfony2 based CMS based on version 2.2.10.
+You can find the requirements for Symfony2 here http://symfony.com/doc/2.2/reference/requirements.html
+You can find the documentation for Symfony2 here http://symfony.com/doc/2.2/book/index.html
 
-At the moment custom made PageBundle, MenuBundle and SettingBundle are required.
-SkeletonBundle is a basic structured with simple functionalities so it can be cloned to create new bundles for new content types.
+The CMS requires the existence of 3 pages to work. These are the homepage, the 404 page and the tagged page (if there are tags and filtered results).
 
-The settings bundle can be omitted if you load the required settings variables from config.yml and change the service that provides
-the other bundles with the variables to seeks the hard-coded ones but i see no reason why you would want to do that.
-
-Extra optimization must be done in all bundles.
-
-The CMS required four 3 pages to exist to work. These are the homepage, the 404 page and the tagged page (if there a tags and filtered results)
-For each new content bundle the tagged page must exists.
-
-You can find the requirements for Symfony2 here http://symfony.com/doc/2.0/reference/requirements.html
+SkeletonBundle is a basic structured bundle with simple functionalities (similar to normal pages) so it can be cloned to create new bundles for new content types.
 
 
-Installation
----------------------------------------------
+Deployment / Local Installation
+------------------------------------------------------
+
+You need to do a git clone of the git repo
+git clone
+
+Create the a new folder called uploads within your web directory if not existing (with write rights)
+
+Install composer http://getcomposer.org/download/
+http://getcomposer.org/Composer-Setup.exe
+
+Use packagist https://packagist.org/
+curl -s http://getcomposer.org/installer | php
+
+Setup your virtual host
+(see details bellow)
+
+Create the log folder that you added in the virtual host settings (if you did set one).
+
+Setup a database and provide the settings to the app/config/parameters.yml file(example bellow).
+Additionally in the same file you have to set the paths for sass, compass and java.
+This has to be done also for the production/development server.
+
+If you run mac OS with mamp remember to set properly your php date.timezone settings
+(http://stackoverflow.com/questions/6194003/timezone-with-symfony-2)
+
+You should find your php.ini  in /private/etc if it exists, otherwise:
+
+sudo cp /private/etc/php.ini.default /private/etc/php.ini
+
+Edit /private/etc/php.ini and set date.timezone.
+
+Change the memory limit in your php.ini to 512M 
+
+Set the intl PHP extension as enabled
+
+You need to run a composer install to get the vendor libraries files (composer update to get latest version)
+composer.phar install
+
+Run the CLI symphony2 commands
+
+php app/console cache:clear
+
+php app/console cache:warmup
+
+php app/console assets:install
+
+php app/console doctrine:schema:create
+
+php app/console doctrine:fixtures:load
+
+php app/console sonata:media:sync-thumbnails sonata.media.provider.image
 
 Due to the use of the Zurb Foundation Framework 5 (version 1.0.1) the need for the following is unavoidable unless you do not need the framework at all.
 
@@ -51,67 +93,15 @@ bower install
 In case you are behind a firewall and connection to git is refused force https for all git connections with running this in your bash
 git config --global url."https://".insteadOf git://
 
-php app/console doctrine:schema:create
-
-php app/console doctrine:fixtures:load
-
-php app/console sonata:media:sync-thumbnails sonata.media.provider.image
-
-
-
-Deployment
----------------------------------------------
-You need to do a git clone of the git repo
-
-git clone 
-
-Install composer http://getcomposer.org/download/
-
-Use packagist https://packagist.org/
-You need to run a composer install to get the vendor libraries files (composer update to get latest version)
-
-Install compass http://compass-style.org/install/
-
-Install the zurb foundation 3 http://foundation.zurb.com/docs/sass.html make sure you install the version 3 (4 is also available atm) of upgrade to version 4 for your new project
-you can also decide not to use compass, zurb foundation or sass preprocessor. This is your decision on how you want to handle front end development / framework, I suggest you upgrade
-to Zurb Foundation 4 or change to Twitter Boostrap if you prefer Less as preprocessor
-
-Setup your virtual host (see details bellow)
-
-Setup a database and provide the settings to the app/config/parameters.yml file(example bellow). Additionally in the same file you have to set the paths for sass,compass and java.
-This has to be done also for the production/development server.
-
-If you run mac OS with mamp remember to set properly your php date.timezone settings (http://stackoverflow.com/questions/6194003/timezone-with-symfony-2)
-
-You should find your php.ini  in /private/etc if it exists, otherwise:
-
-sudo cp /private/etc/php.ini.default /private/etc/php.ini
-
-Edit /private/etc/php.ini and set date.timezone.
-
-Change the memory limit in your php.ini to 1024M and have intl extension enabled
-
-Create the log folder that you added in the virtual host settings (if you did set one).
-
-Run symphony2 commands
-
-php app/console cache:clear
-
-php app/console cache:warmup
-
-php app/console doctrine:schema:update --force
-
-php app/console assets:install
+compass compile
 
 php app/console assetic:dump
 
-Create the a new folder called uploads within your web directory of get the uploads folder from the ci or live website.
-
-Your project should work now.
+Your project should work now and you can see your front end working.
 
 Login to /admin/dashboard
-Add a set of settings
-and you can see your front end working
+
+Alter your website settings
 
 
 
@@ -139,8 +129,6 @@ parameters:
     sass.bin:          C:\Program Files\Ruby193\bin\sass    #usr/bin/sass
     
     unix_socket:       ~ #for your db connection for mac users
-
-
 
 
 
@@ -210,8 +198,8 @@ Virtual Host Settings
 
 
 
-Updating to the ci server and the live server
----------------------------------------------
+Updating to the ci server and the live server (after initial deployment)
+-------------------------------------------------------------------------
 
 01. git pull
 02. php app/console cache:clear
@@ -220,21 +208,12 @@ Updating to the ci server and the live server
 
 For the production server the process is the same but you should use 
 php app/console cache:clear --env=prod
-php app/console assetic dump --env=prod
+php app/console assetic:dump --env=prod
 
 
 
-Known Bugs and required features
+Known Bugs
 ---------------------------------------------
-01. Need for proper ACL
-02. Expanded content blocks should not be draggable
-03. Query/Query responce Cashing on repocitory files
-04. Global content blocks to be used by more than one relation to page, blog etc items
-05. Code documentation
-06. Clean up and refactor code
-07. Multilanguage ability
-08. Ajax based backend
-09. Save correct (logged in) user on edit page
 
 
 
@@ -298,18 +277,24 @@ http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/index.html
 Symfony2 Cheatsheet
 http://www.symfony2cheatsheet.com/
 
-Sonata Admin, Sonata Media, Knp Menu and FOS User Bundle Documentation
+Sonata Admin Documentation
 http://sonata-project.org/bundles/admin/2-1/doc/index.html
+
+Sonata Media Documentation
 http://sonata-project.org/bundles/media/2-1/doc/index.html
+
+FOS User Bundle Documentation
 https://github.com/FriendsOfSymfony/FOSUserBundle
+
+Knp Menu Documentation
 http://knpbundles.com/KnpLabs/KnpMenuBundle
 
 Website with listing of available Symfony2 Bundles
 http://knpbundles.com/
 
-Tutorial on how to build a Blog in symfony2
+Tutorial on how to build a Blog in Symfony2
 http://tutorial.symblog.co.uk/
 
-Links to Front end Frameworks (Zurb and TwitteBoostrap)
+Links to Front end Frameworks (Zurb and Boostrap)
 http://bootstrap.braincrafted.com/
 http://foundation.zurb.com/
