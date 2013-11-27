@@ -1,8 +1,9 @@
 
-Symfony2 BardisCMS Documentation (current v2.2.10)
+Symfony2 BardisCMS Documentation v2.2.10
 ======================================================
 
 This is a Symfony2 based CMS based on version 2.2.10.  
+  
 You can find the requirements for Symfony2 here http://symfony.com/doc/2.2/reference/requirements.html  
 You can find the documentation for Symfony2 here http://symfony.com/doc/2.2/book/index.html  
   
@@ -16,18 +17,16 @@ Deployment / Local Installation
 
 Please follow the steps below for a complete new install.  
 
-1. You need to do a git clone of the git repo
-
-	git clone
+1. You need to do a git clone of the git repo  
+git clone
 
 2. Create the a new folder called uploads within your web directory if not existing (with write rights)
 
 3. Install composer  
 http://getcomposer.org/download/
 
-3. Install packagist (https://packagist.org)
-
-	curl -s http://getcomposer.org/installer | php
+3. Install packagist (https://packagist.org)  
+curl -s http://getcomposer.org/installer | php
 
 4. Setup your virtual host (see details in relevant section below).  
 Tip: Remember to create the log folder that you added in the virtual host settings (if you did set one).
@@ -39,18 +38,17 @@ Tip: Additionally in the same file you have to set the paths for sass, compass a
 
 7. Set the intl PHP extension as enabled if not already (Symfony2 requirement)
 
-8. Run a composer install to get the vendor libraries files (composer update to get latest version)
-
-	composer.phar install
+8. Run a composer install to get the vendor libraries files (composer update to get latest version)  
+composer.phar install
 
 9. Run the CLI symphony2 commands
 
-	php app/console cache:clear (to clear and warmup cache)
-	php app/console assets:install (to generate the bundle assets)
-	php app/console doctrine:schema:create (to create the database schema)
-	php app/console doctrine:fixtures:load (to load required/sample data to database)
-	php app/console sonata:media:sync-thumbnails sonata.media.provider.image (to generate the required by sample data images)
-	php app/console assetic:dump (to generate the assets for the front end)
+	* php app/console cache:clear (to clear and warmup cache)
+	* php app/console assets:install (to generate the bundle assets)
+	* php app/console doctrine:schema:create (to create the database schema)
+	* php app/console doctrine:fixtures:load (to load required/sample data to database)
+	* php app/console sonata:media:sync-thumbnails sonata.media.provider.image (to generate the required by sample data images)
+	* php app/console assetic:dump (to generate the assets for the front end)
 
  
 ### Front end Framework Setup ###
