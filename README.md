@@ -149,7 +149,8 @@ Here is a sample setup for your virtual host configuration
 		CustomLog c:/wamp/www/domainname/log/domainname-access_log custom env=!static
 		CustomLog c:/wamp/www/domainname/log/domainname-static_log custom env=static
 
-		# LogLevel  debug can be useful but any php warning will always and only appear in the 'error' level
+		# LogLevel debug can be useful but any php warnings
+		# will always and only appear in the 'error' level
 		LogLevel info
 		ErrorLog c:/wamp/www/domainname/log/domainname-error_log
 
@@ -196,15 +197,17 @@ Here is a sample setup for your virtual host configuration
 Updating to the ci server and the live server (after initial deployment)
 -------------------------------------------------------------------------
 
-01. git pull
-02. php app/console cache:clear
-03. php doctrine:schema:update --force
-04. php app/console assetic dump
+This can be done with simple steps in your SSH CLI
+
+	01. git pull
+	02. php app/console cache:clear
+	03. php doctrine:schema:update --force
+	04. php app/console assetic dump
 
 For the production server the process is the same but you should use
 
-php app/console cache:clear --env=prod
-php app/console assetic:dump --env=prod
+	php app/console cache:clear --env=prod
+	php app/console assetic:dump --env=prod
 
 
 
