@@ -67,6 +67,7 @@ php app/console sonata:media:sync-thumbnails sonata.media.provider.image
 Due to the use of the Zurb Foundation Framework 5 (version 1.0.1) the need for the following is unavoidable unless you do not need the framework at all.
 
 We need to install NodeJs, Node Packaged Modules, Ruby, compass, sass, foundation gems and GIT and bower dependency manager if they are not already installed to the system.
+
 More information can be found below at their official web sites:
 
 http://git-scm.com/downloads				(GIT)
@@ -206,7 +207,8 @@ Updating to the ci server and the live server (after initial deployment)
 03. php doctrine:schema:update --force
 04. php app/console assetic dump
 
-For the production server the process is the same but you should use 
+For the production server the process is the same but you should use
+
 php app/console cache:clear --env=prod
 php app/console assetic:dump --env=prod
 
@@ -253,29 +255,6 @@ Your new bundle should now work.
 
 Installed bundles
 ----------------------------------------------
-sonata-project admin bundle
-
-TinymceBundle (http://knpbundles.com/stfalcon/TinymceBundle)
-
-knplabs/knp-menu bundle
-
-SonataMediaBundle (http://knpbundles.com/sonata-project/SonataMediaBundle)
-
-friendsofsymfony user bundle 
-
-
-
-
-Useful Links and Documentation
-----------------------------------------------
-Symfony2 Documentation
-http://symfony.com/doc/current/index.html 
-
-Doctrine2 ORM Documentation
-http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/index.html
-
-Symfony2 Cheatsheet
-http://www.symfony2cheatsheet.com/
 
 Sonata Admin Documentation
 http://sonata-project.org/bundles/admin/2-1/doc/index.html
@@ -289,12 +268,47 @@ https://github.com/FriendsOfSymfony/FOSUserBundle
 Knp Menu Documentation
 http://knpbundles.com/KnpLabs/KnpMenuBundle
 
+TinymceBundle Documentation
+(http://knpbundles.com/stfalcon/TinymceBundle)
+
+
+
+
+Useful Links and Documentation
+----------------------------------------------
+
+Symfony2 Documentation
+
+http://symfony.com/doc/current/index.html 
+
+Doctrine2 ORM Documentation
+
+http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/index.html
+
+Symfony2 Cheatsheet
+
+http://www.symfony2cheatsheet.com/
+
 Website with listing of available Symfony2 Bundles
+
 http://knpbundles.com/
 
 Tutorial on how to build a Blog in Symfony2
+
 http://tutorial.symblog.co.uk/
 
 Links to Front end Frameworks (Zurb and Boostrap)
+
 http://bootstrap.braincrafted.com/
 http://foundation.zurb.com/
+
+NodeJs, Node Packaged Modules, Ruby, compass, sass, foundation gems and GIT and bower dependency manager
+
+http://git-scm.com/downloads				(GIT)
+http://nodejs.org/							(NodeJs)
+https://npmjs.org/							(Node Packaged Modules)
+http://www.rubyinstaller.org/				(Ruby)
+https://github.com/bower/bower				(Bower)
+http://sass-lang.com/install				(Sass)
+http://compass-style.org/install/			(Compass)
+http://foundation.zurb.com/docs/sass.html	(Foundation 5 - Sass based)
