@@ -1,5 +1,5 @@
 
-Symfony2 BardisCMS Documentation v2.2.10
+Symfony2 BardisCMS v2.2.10
 ======================================================
 
 This is a Symfony2 based CMS based on version 2.2.10.  
@@ -194,15 +194,17 @@ Here is a sample setup for your virtual host configuration
 
 
 
-Updating to the ci server and the live server (after initial deployment)
+Updating to the ci server and the live server  
+(after initial deployment)
 -------------------------------------------------------------------------
 
 This can be done with simple steps in your SSH CLI
 
-	01. git pull
-	02. php app/console cache:clear
-	03. php doctrine:schema:update --force
-	04. php app/console assetic dump
+	git pull
+	php app/console cache:clear
+	php doctrine:schema:update --force
+	php app/console assetic dump
+
 
 For the production server the process is the same but you should use
 
@@ -219,7 +221,7 @@ If you run mac OS with mamp remember to set properly your php date.timezone sett
 
 You should find your php.ini  in /private/etc if it exists, otherwise:
 
-sudo cp /private/etc/php.ini.default /private/etc/php.ini
+	sudo cp /private/etc/php.ini.default /private/etc/php.ini
 
 Edit /private/etc/php.ini and set date.timezone.
 
