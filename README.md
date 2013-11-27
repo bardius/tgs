@@ -193,9 +193,7 @@ Here is a sample setup for your virtual host configuration
 	</VirtualHost>
 
 
-
-Updating to the ci server and the live server  
-(after initial deployment)
+Updating to the ci server and the live server
 -------------------------------------------------------------------------
 
 This can be done with simple steps in your SSH CLI
