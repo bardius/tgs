@@ -96,94 +96,100 @@ Please Login to /admin/dashboard and alter your website settings and you are fin
 
 parameters.yml File example contents
 ---------------------------------------------
-parameters:
 
-    database_driver:   pdo_mysql
-    database_host:     localhost
-    database_port:     ~
-    database_name:     dbname
-    database_user:     root
-    database_password: ~
+Here is a sample setup for your parameters file
 
-    mailer_transport:  smtp
-    mailer_host:       localhost
-    mailer_user:       ~
-    mailer_password:   ~
+	parameters:
 
-    locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
-    
-    javapath:          C:\Program Files\Java\jre7\bin       #usr/bin/java
-    compass.bin:       C:\Program Files\Ruby193\bin\compass #usr/bin/compass
-    sass.bin:          C:\Program Files\Ruby193\bin\sass    #usr/bin/sass
-    
-    unix_socket:       ~ #for your db connection for mac users
+		database_driver:   pdo_mysql
+		database_host:     localhost
+		database_port:     ~
+		database_name:     dbname
+		database_user:     root
+		database_password: ~
+
+		mailer_transport:  smtp
+		mailer_host:       localhost
+		mailer_user:       ~
+		mailer_password:   ~
+
+		locale:            en
+		secret:            ThisTokenIsNotSoSecretChangeIt
+
+		javapath:          C:\Program Files\Java\jre7\bin       #usr/bin/java
+		compass.bin:       C:\Program Files\Ruby193\bin\compass #usr/bin/compass
+		sass.bin:          C:\Program Files\Ruby193\bin\sass    #usr/bin/sass
+
+		unix_socket:       ~ #for your db connection for mac users
 
 
 
 Virtual Host Settings
 ---------------------------------------------
-<VirtualHost *:80>
 
-    DocumentRoot "c:/wamp/www/domainname/web"
-    ServerName domainname.prod
-    ServerAlias domainname.test
-    ServerAlias domainname.dev
+Here is a sample setup for your virtual host configuration
 
-    # set some environment variables depending on host
-    SetEnvIfNoCase Host domainname\.prod domainname_env=prod
-    SetEnvIfNoCase Host domainname\.dev domainname_env=dev
-    SetEnvIfNoCase Host domainname\.test domainname_env=test
+	<VirtualHost *:80>
 
-    # consider a json formatted log string 
-    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"" custom
+		DocumentRoot "c:/wamp/www/domainname/web"
+		ServerName domainname.prod
+		ServerAlias domainname.test
+		ServerAlias domainname.dev
 
-    # remove image file noise from access logs
-    SetEnvIf Request_URI \.(jgp|gif|png|css|js) static
-    CustomLog c:/wamp/www/domainname/log/domainname-access_log custom env=!static
-    CustomLog c:/wamp/www/domainname/log/domainname-static_log custom env=static
+		# set some environment variables depending on host
+		SetEnvIfNoCase Host domainname\.prod domainname_env=prod
+		SetEnvIfNoCase Host domainname\.dev domainname_env=dev
+		SetEnvIfNoCase Host domainname\.test domainname_env=test
 
-    # LogLevel  debug can be useful but any php warning will always and only appear in the 'error' level
-    LogLevel info
-    ErrorLog c:/wamp/www/domainname/log/domainname-error_log
+		# consider a json formatted log string 
+		LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"" custom
 
-    # level 0 is off. Use only for debugging rewrite rules
-    RewriteLogLevel 0
-    RewriteLog c:/wamp/www/domainname/domainname-rewrite_log
+		# remove image file noise from access logs
+		SetEnvIf Request_URI \.(jgp|gif|png|css|js) static
+		CustomLog c:/wamp/www/domainname/log/domainname-access_log custom env=!static
+		CustomLog c:/wamp/www/domainname/log/domainname-static_log custom env=static
+
+		# LogLevel  debug can be useful but any php warning will always and only appear in the 'error' level
+		LogLevel info
+		ErrorLog c:/wamp/www/domainname/log/domainname-error_log
+
+		# level 0 is off. Use only for debugging rewrite rules
+		RewriteLogLevel 0
+		RewriteLog c:/wamp/www/domainname/domainname-rewrite_log
 
 
-    # for profiling information. Should not be used in production
-    Alias /xhprof_html /usr/local/share/php/share/pear/xhprof_html
+		# for profiling information. Should not be used in production
+		Alias /xhprof_html /usr/local/share/php/share/pear/xhprof_html
 
-    <Directory c:/wamp/www/domainname/web>
+		<Directory c:/wamp/www/domainname/web>
 
-        RewriteEngine On
+			RewriteEngine On
 
-        # use the environment variables above to select correct 
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteCond %{ENV:domainname_env} test
-        RewriteRule ^(.*)$ app_test.php [QSA,L]
+			# use the environment variables above to select correct 
+			RewriteCond %{REQUEST_FILENAME} !-f
+			RewriteCond %{ENV:domainname_env} test
+			RewriteRule ^(.*)$ app_test.php [QSA,L]
 
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteCond %{ENV:domainname_env} dev
-        RewriteRule ^(.*)$ app_dev.php [QSA,L]
+			RewriteCond %{REQUEST_FILENAME} !-f
+			RewriteCond %{ENV:domainname_env} dev
+			RewriteRule ^(.*)$ app_dev.php [QSA,L]
 
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteCond %{ENV:domainname_env} prod
-        RewriteRule ^(.*)$ app.php [QSA,L]
+			RewriteCond %{REQUEST_FILENAME} !-f
+			RewriteCond %{ENV:domainname_env} prod
+			RewriteRule ^(.*)$ app.php [QSA,L]
 
-        Options +Indexes
-        Order Allow,Deny
-        Allow from all
+			Options +Indexes
+			Order Allow,Deny
+			Allow from all
 
-        # this is best left to 'none' rather than 'All' to 
-        # avoid the apache process looking for htaccess files all the way 
-        # up the file system tree. in this configuration we avoid 5 stat calls 
-        AllowOverride none
-        
-    </Directory>
+			# this is best left to 'none' rather than 'All' to 
+			# avoid the apache process looking for htaccess files all the way 
+			# up the file system tree. in this configuration we avoid 5 stat calls 
+			AllowOverride none
 
-</VirtualHost>
+		</Directory>
+
+	</VirtualHost>
 
 
 
