@@ -17,7 +17,7 @@ Deployment / Local Installation
 Please follow the steps below for a complete new install.  
 
 1. You need to do a git clone of the git repo  
-git clone
+	git clone
 
 2. Create the a new folder called uploads within your web directory if not existing (with write rights)
 
@@ -25,7 +25,7 @@ git clone
 http://getcomposer.org/download/
 
 3. Install packagist (https://packagist.org)  
-curl -s http://getcomposer.org/installer | php
+	curl -s http://getcomposer.org/installer | php
 
 4. Setup your virtual host (see details in relevant section below).  
 Tip: Remember to create the log folder that you added in the virtual host settings (if you did set one).
@@ -38,15 +38,15 @@ Tip: Additionally in the same file you have to set the paths for sass, compass a
 7. Set the intl PHP extension as enabled if not already (Symfony2 requirement)
 
 8. Run a composer install to get the vendor libraries files (composer update to get latest version)  
-composer.phar install
+	composer.phar install
 
 9. Run the CLI symphony2 commands  
-php app/console cache:clear (to clear and warmup cache)  
-php app/console assets:install (to generate the bundle assets)  
-php app/console doctrine:schema:create (to create the database schema)  
-php app/console doctrine:fixtures:load (to load required/sample data to database)  
-php app/console sonata:media:sync-thumbnails sonata.media.provider.image (to generate the required by sample data images)  
-php app/console assetic:dump (to generate the assets for the front end)  
+	php app/console cache:clear (to clear and warmup cache)  
+	php app/console assets:install (to generate the bundle assets)  
+	php app/console doctrine:schema:create (to create the database schema)  
+	php app/console doctrine:fixtures:load (to load required/sample data to database)  
+	php app/console sonata:media:sync-thumbnails sonata.media.provider.image (to generate the required by sample data images)  
+	php app/console assetic:dump (to generate the assets for the front end)  
   
 ### Front end Framework Setup ###
 
@@ -64,17 +64,18 @@ http://foundation.zurb.com/docs/sass.html	(Foundation 5 - Sass based)
   
 The command line steps are:  
 
-1. npm install -g bower
-2. gem update --system
-3. gem install sass
-4. gem install compass
-5. gem install foundation
-6. Navigate in your /web folder via Git bash and run bower install  
+	1. npm install -g bower
+	2. gem update --system
+	3. gem install sass
+	4. gem install compass
+	5. gem install foundation
+6. Navigate in your /web folder via Git bash and run  
+	bower install  
 Tip: In case you are behind a firewall and connection to git is refused force https for all git connections with running this in your bash  
 git config --global url."https://".insteadOf git://
 
-7. compass compile
-8. php app/console assetic:dump  
+	7. compass compile
+	8. php app/console assetic:dump  
   
 
 Your project should work now and you can see your front end working.  
