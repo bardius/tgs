@@ -65,12 +65,26 @@ class ContentBlockFixtures extends AbstractFixture implements OrderedFixtureInte
         $contentSampleContact->setContentType('contact');
 		$manager->persist($contentSampleContact);
 		
+        $contentSampleBlog1 = new ContentBlock();
+        $contentSampleBlog1->setTitle('Sample Blog Content 1');
+        $contentSampleBlog1->setPublishedState(1);
+        $contentSampleBlog1->setAvailability('page');
+        $contentSampleBlog1->setShowTitle(1);
+        $contentSample1->setOrdering(1);
+        $contentSampleBlog1->setClassName('sampleClassname');
+        $contentSampleBlog1->setSizeClass('large-12');
+        $contentSampleBlog1->setIdName('sampleId');
+        $contentSampleBlog1->setContentType('html');
+		$contentSampleBlog1->setHtmlText('<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>');
+		$manager->persist($contentSampleBlog1);
+		
         $manager->flush();
 		
 		$this->addReference('contentSampleHome', $contentSampleHome);	
 		$this->addReference('contentSample1', $contentSample1);	
 		$this->addReference('contentSample2', $contentSample2);
 		$this->addReference('contentSampleContact', $contentSampleContact);	
+		$this->addReference('contentSampleBlog1', $contentSampleBlog1);
     }
 	
 	public function getOrder()

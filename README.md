@@ -51,6 +51,12 @@ bower install
 In case you are behind a firewall and connection to git is refused force https for all git connections with running this in your bash
 git config --global url."https://".insteadOf git://
 
+php app/console doctrine:schema:create
+
+php app/console doctrine:fixtures:load
+
+php app/console sonata:media:sync-thumbnails sonata.media.provider.image
+
 
 
 Deployment

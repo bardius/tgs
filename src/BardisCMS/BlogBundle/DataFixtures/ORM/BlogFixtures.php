@@ -49,9 +49,11 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $blog1->setShowPageTitle(1);
         $blog1->setPublishState(1);
         $blog1->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
+        $blog1->setIntroimage($manager->merge($this->getReference('introImage5')));
         $blog1->setPagetype('blog_article');
         $blog1->addCategory($manager->merge($this->getReference('categoryHome')));
         $blog1->addTag($manager->merge($this->getReference('tagSample1')));
+        $blog1->addMaincontentblock($manager->merge($this->getReference('contentSampleBlog1')));
 		$manager->persist($blog1);
 		
         $blog2 = new Blog();
@@ -62,6 +64,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $blog2->setShowPageTitle(1);
         $blog2->setPublishState(1);
         $blog2->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
+        $blog2->setIntroimage($manager->merge($this->getReference('introImage6')));
         $blog2->setPagetype('blog_article');
         $blog2->addCategory($manager->merge($this->getReference('categoryHome')));
         $blog2->addTag($manager->merge($this->getReference('tagSample2')));
@@ -75,6 +78,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $blog3->setShowPageTitle(1);
         $blog3->setPublishState(1);
         $blog3->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
+        $blog3->setIntroimage($manager->merge($this->getReference('introImage7')));
         $blog3->setPagetype('blog_article');
         $blog3->addCategory($manager->merge($this->getReference('categoryHome')));
         $blog3->addTag($manager->merge($this->getReference('tagSample2')));
@@ -88,6 +92,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $blog4->setShowPageTitle(1);
         $blog4->setPublishState(1);
         $blog4->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
+        $blog4->setIntroimage($manager->merge($this->getReference('introImage8')));
         $blog4->setPagetype('blog_article');
         $blog4->addCategory($manager->merge($this->getReference('categoryHome')));
         $blog4->addTag($manager->merge($this->getReference('tagSample1')));
@@ -105,7 +110,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
 	
 	public function getOrder()
     {
-        return 6;
+        return 7;
     }
 
 }
