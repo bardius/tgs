@@ -2,108 +2,83 @@
 Symfony2 BardisCMS Documentation (current v2.2.10)
 ======================================================
 
-This is a Symfony2 based CMS based on version 2.2.10.
-You can find the requirements for Symfony2 here http://symfony.com/doc/2.2/reference/requirements.html
-You can find the documentation for Symfony2 here http://symfony.com/doc/2.2/book/index.html
-
-The CMS requires the existence of 3 pages to work. These are the homepage, the 404 page and the tagged page (if there are tags and filtered results).
-
-SkeletonBundle is a basic structured bundle with simple functionalities (similar to normal pages) so it can be cloned to create new bundles for new content types.
-
+This is a Symfony2 based CMS based on version 2.2.10.  
+You can find the requirements for Symfony2 here http://symfony.com/doc/2.2/reference/requirements.html  
+You can find the documentation for Symfony2 here http://symfony.com/doc/2.2/book/index.html  
+  
+The CMS requires the existence of 3 pages to work. These are the homepage, the 404 page and the tagged page (if there are tags and filtered results).  
+  
+SkeletonBundle is a basic structured bundle with simple functionalities (similar to normal pages) so it can be cloned to create new bundles for new content types.  
+  
 
 Deployment / Local Installation
 ------------------------------------------------------
 
-You need to do a git clone of the git repo
+Please follow the steps below for a complete new install.  
+
+1. You need to do a git clone of the git repo  
 git clone
 
-Create the a new folder called uploads within your web directory if not existing (with write rights)
+2. Create the a new folder called uploads within your web directory if not existing (with write rights)
 
-Install composer http://getcomposer.org/download/
-http://getcomposer.org/Composer-Setup.exe
+3. Install composer  
+http://getcomposer.org/download/
 
-Use packagist https://packagist.org/
+3. Install packagist (https://packagist.org)  
 curl -s http://getcomposer.org/installer | php
 
-Setup your virtual host
-(see details bellow)
+4. Setup your virtual host (see details in relevant section below).  
+Tip: Remember to create the log folder that you added in the virtual host settings (if you did set one).
 
-Create the log folder that you added in the virtual host settings (if you did set one).
+5. Setup a database and provide the details to the app/config/parameters.yml file (see details in relevant section below).  
+Tip: Additionally in the same file you have to set the paths for sass, compass and java for each environment.
 
-Setup a database and provide the settings to the app/config/parameters.yml file(example bellow).
-Additionally in the same file you have to set the paths for sass, compass and java.
-This has to be done also for the production/development server.
+6. Change the memory limit in your php.ini to 512M if possible
 
-If you run mac OS with mamp remember to set properly your php date.timezone settings
-(http://stackoverflow.com/questions/6194003/timezone-with-symfony-2)
+7. Set the intl PHP extension as enabled if not already (Symfony2 requirement)
 
-You should find your php.ini  in /private/etc if it exists, otherwise:
-
-sudo cp /private/etc/php.ini.default /private/etc/php.ini
-
-Edit /private/etc/php.ini and set date.timezone.
-
-Change the memory limit in your php.ini to 512M 
-
-Set the intl PHP extension as enabled
-
-You need to run a composer install to get the vendor libraries files (composer update to get latest version)
+8. Run a composer install to get the vendor libraries files (composer update to get latest version)  
 composer.phar install
 
-Run the CLI symphony2 commands
+9. Run the CLI symphony2 commands  
+php app/console cache:clear (to clear and warmup cache)  
+php app/console assets:install (to generate the bundle assets)  
+php app/console doctrine:schema:create (to create the database schema)  
+php app/console doctrine:fixtures:load (to load required/sample data to database)  
+php app/console sonata:media:sync-thumbnails sonata.media.provider.image (to generate the required by sample data images)  
+php app/console assetic:dump (to generate the assets for the front end)  
+  
+### Front end Framework Setup ###
 
-php app/console cache:clear
+Due to the use of the Zurb Foundation Framework 5 (version 1.0.1) the need for the following steps is unavoidable unless you do not need the framework at all.  
+We need to install NodeJs, Node Packaged Modules, Ruby, compass, sass, foundation gems and GIT and bower dependency manager if they are not already installed to the system.  
+More information can be found below at their official web sites:  
+http://git-scm.com/downloads				(GIT)  
+http://nodejs.org/							(NodeJs)  
+https://npmjs.org/							(Node Packaged Modules)  
+http://www.rubyinstaller.org/				(Ruby)  
+https://github.com/bower/bower				(Bower)  
+http://sass-lang.com/install				(Sass)  
+http://compass-style.org/install/			(Compass)  
+http://foundation.zurb.com/docs/sass.html	(Foundation 5 - Sass based)  
+  
+The command line steps are:  
 
-php app/console cache:warmup
-
-php app/console assets:install
-
-php app/console doctrine:schema:create
-
-php app/console doctrine:fixtures:load
-
-php app/console sonata:media:sync-thumbnails sonata.media.provider.image
-
-Due to the use of the Zurb Foundation Framework 5 (version 1.0.1) the need for the following is unavoidable unless you do not need the framework at all.
-
-We need to install NodeJs, Node Packaged Modules, Ruby, compass, sass, foundation gems and GIT and bower dependency manager if they are not already installed to the system.
-
-More information can be found below at their official web sites:
-
-http://git-scm.com/downloads				(GIT)
-http://nodejs.org/							(NodeJs)
-https://npmjs.org/							(Node Packaged Modules)
-http://www.rubyinstaller.org/				(Ruby)
-https://github.com/bower/bower				(Bower)
-http://sass-lang.com/install				(Sass)
-http://compass-style.org/install/			(Compass)
-http://foundation.zurb.com/docs/sass.html	(Foundation 5 - Sass based)
-
-The command line steps are:
-
-npm install -g bower
-gem update --system
-gem install sass
-gem install compass
-
-gem install foundation
-
-Navigate in your /web folder via Git bash and run
-bower install
-
-In case you are behind a firewall and connection to git is refused force https for all git connections with running this in your bash
+1. npm install -g bower
+2. gem update --system
+3. gem install sass
+4. gem install compass
+5. gem install foundation
+6. Navigate in your /web folder via Git bash and run bower install  
+Tip: In case you are behind a firewall and connection to git is refused force https for all git connections with running this in your bash  
 git config --global url."https://".insteadOf git://
 
-compass compile
+7. compass compile
+8. php app/console assetic:dump  
+  
 
-php app/console assetic:dump
-
-Your project should work now and you can see your front end working.
-
-Login to /admin/dashboard
-
-Alter your website settings
-
+Your project should work now and you can see your front end working.  
+Please Login to /admin/dashboard and alter your website settings and you are finally set to go.
 
 
 parameters.yml File example contents
@@ -214,9 +189,17 @@ php app/console assetic:dump --env=prod
 
 
 
-Known Bugs
+Known Bugs / Issues / Extra Configuration
 ---------------------------------------------
 
+If you run mac OS with mamp remember to set properly your php date.timezone settings
+(http://stackoverflow.com/questions/6194003/timezone-with-symfony-2)
+
+You should find your php.ini  in /private/etc if it exists, otherwise:
+
+sudo cp /private/etc/php.ini.default /private/etc/php.ini
+
+Edit /private/etc/php.ini and set date.timezone.
 
 
 Skeleton Bundle Use instructions
@@ -305,10 +288,17 @@ http://foundation.zurb.com/
 NodeJs, Node Packaged Modules, Ruby, compass, sass, foundation gems and GIT and bower dependency manager
 
 http://git-scm.com/downloads				(GIT)
+
 http://nodejs.org/							(NodeJs)
+
 https://npmjs.org/							(Node Packaged Modules)
+
 http://www.rubyinstaller.org/				(Ruby)
+
 https://github.com/bower/bower				(Bower)
+
 http://sass-lang.com/install				(Sass)
+
 http://compass-style.org/install/			(Compass)
+
 http://foundation.zurb.com/docs/sass.html	(Foundation 5 - Sass based)
