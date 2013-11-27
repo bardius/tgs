@@ -16,7 +16,7 @@ Deployment / Local Installation
 
 Please follow the steps below for a complete new install.  
 
-1. You need to do a git clone of the git repo  
+1. You need to do a git clone of the git repo
 
 	git clone
 
@@ -25,7 +25,7 @@ Please follow the steps below for a complete new install.
 3. Install composer  
 http://getcomposer.org/download/
 
-3. Install packagist (https://packagist.org)  
+3. Install packagist (https://packagist.org)
 
 	curl -s http://getcomposer.org/installer | php
 
@@ -39,19 +39,20 @@ Tip: Additionally in the same file you have to set the paths for sass, compass a
 
 7. Set the intl PHP extension as enabled if not already (Symfony2 requirement)
 
-8. Run a composer install to get the vendor libraries files (composer update to get latest version)  
+8. Run a composer install to get the vendor libraries files (composer update to get latest version)
 
 	composer.phar install
 
 9. Run the CLI symphony2 commands
-	
+
 	php app/console cache:clear (to clear and warmup cache)  
 	php app/console assets:install (to generate the bundle assets)  
 	php app/console doctrine:schema:create (to create the database schema)  
 	php app/console doctrine:fixtures:load (to load required/sample data to database)  
 	php app/console sonata:media:sync-thumbnails sonata.media.provider.image (to generate the required by sample data images)  
 	php app/console assetic:dump (to generate the assets for the front end)
-  
+
+ 
 ### Front end Framework Setup ###
 
 Due to the use of the Zurb Foundation Framework 5 (version 1.0.1) the need for the following steps is unavoidable unless you do not need the framework at all. 
@@ -81,8 +82,7 @@ Navigate in your /web folder via Git bash and run
 
 	bower install  
 
-Tip: In case you are behind a firewall and connection to git is refused force https for all git connections with running this in your bash  
-git config --global url."https://".insteadOf git://
+Tip: In case you are behind a firewall and connection to git is refused force https for all git connections with running this in your bash git config --global url."https://".insteadOf git://
 
 	compass compile
 	php app/console assetic:dump  
