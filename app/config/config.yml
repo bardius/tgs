@@ -251,7 +251,7 @@ sonata_admin:
                   - sonata.media.admin.media
                   - sonata.media.admin.gallery
                   
-
+# cli  http://sonata-project.org/bundles/media/2-1/doc/reference/command_line.html
 sonata_media:
     default_context: default
     db_driver: doctrine_orm # or doctrine_mongodb
@@ -265,9 +265,9 @@ sonata_media:
 
             formats:
                 adminthumb: { width: 70 , height: 70 , quality: 80 }
-                small:			{ width: 213 , height: 254 , quality: 80 }
-                medium:			{ width: 452 , height: 254 , quality: 80 }
-                big:				{ width: 470 , height: 318 , quality: 80 }
+                small:			{ width: 188 , height: 263 , quality: 80 }
+                medium:			{ width: 394 , height: 263 , quality: 80 }
+                big:				{ width: 840 , height: 320 , quality: 80 }
                 original:		{ quality: 80 }                
         
         intro:
@@ -277,10 +277,10 @@ sonata_media:
 
             formats:
                 adminthumb: { width: 70 , height: 70 , quality: 80 }
-                small:			{ width: 213 , height: 254 , quality: 80 }
+                small:			{ width: 188 , height: 263 , quality: 80 }
                 blog:				{ width: 227 , height: 205 , quality: 80 }
-                medium:			{ width: 452 , height: 254 , quality: 80 }
-                big:				{ width: 470 , height: 318 , quality: 80 }
+                medium:			{ width: 394 , height: 263 , quality: 80 }
+                big:				{ width: 601 , height: 263 , quality: 80 }
                 original:		{ quality: 80 }  
         
         bgimage:
