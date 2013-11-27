@@ -22,6 +22,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $bloghome = new Blog();
         $bloghome->setDate(new \DateTime());
         $bloghome->setTitle('Blog Home');
+        $bloghome->setAuthor($manager->merge($this->getReference('admin')));
         $bloghome->setAlias('articles');
         $bloghome->setShowPageTitle(1);
         $bloghome->setPublishState(1);
@@ -32,6 +33,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $blogfiltered = new Blog();
         $blogfiltered->setDate(new \DateTime());
         $blogfiltered->setTitle('Blog Filtered Listing');
+        $blogfiltered->setAuthor($manager->merge($this->getReference('admin')));
         $blogfiltered->setAlias('tagged');
         $blogfiltered->setShowPageTitle(1);
         $blogfiltered->setPublishState(1);
@@ -42,41 +44,53 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $blog1 = new Blog();
         $blog1->setDate(new \DateTime());
         $blog1->setTitle('Test Blog Post 1');
+        $blog1->setAuthor($manager->merge($this->getReference('admin')));
         $blog1->setAlias('test-blog-post-1');
         $blog1->setShowPageTitle(1);
         $blog1->setPublishState(1);
         $blog1->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
         $blog1->setPagetype('blog_article');
+        $blog1->addCategory($manager->merge($this->getReference('categoryHome')));
+        $blog1->addTag($manager->merge($this->getReference('tagSample1')));
 		$manager->persist($blog1);
 		
         $blog2 = new Blog();
         $blog2->setDate(new \DateTime());
         $blog2->setTitle('Test Blog Post 2');
+        $blog2->setAuthor($manager->merge($this->getReference('admin')));
         $blog2->setAlias('test-blog-post-2');
         $blog2->setShowPageTitle(1);
         $blog2->setPublishState(1);
         $blog2->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
         $blog2->setPagetype('blog_article');
+        $blog2->addCategory($manager->merge($this->getReference('categoryHome')));
+        $blog2->addTag($manager->merge($this->getReference('tagSample2')));
 		$manager->persist($blog2);
 		
         $blog3 = new Blog();
         $blog3->setDate(new \DateTime());
         $blog3->setTitle('Test Blog Post 3');
+        $blog3->setAuthor($manager->merge($this->getReference('admin')));
         $blog3->setAlias('test-blog-post-3');
         $blog3->setShowPageTitle(1);
         $blog3->setPublishState(1);
         $blog3->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
         $blog3->setPagetype('blog_article');
+        $blog3->addCategory($manager->merge($this->getReference('categoryHome')));
+        $blog3->addTag($manager->merge($this->getReference('tagSample2')));
 		$manager->persist($blog3);
 		
         $blog4 = new Blog();
         $blog4->setDate(new \DateTime());
         $blog4->setTitle('Test Blog Post 4');
+        $blog4->setAuthor($manager->merge($this->getReference('admin')));
         $blog4->setAlias('test-blog-post-4');
         $blog4->setShowPageTitle(1);
         $blog4->setPublishState(1);
         $blog4->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
         $blog4->setPagetype('blog_article');
+        $blog4->addCategory($manager->merge($this->getReference('categoryHome')));
+        $blog4->addTag($manager->merge($this->getReference('tagSample1')));
 		$manager->persist($blog4);
 		
         $manager->flush();
@@ -91,7 +105,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
 	
 	public function getOrder()
     {
-        return 2;
+        return 6;
     }
 
 }

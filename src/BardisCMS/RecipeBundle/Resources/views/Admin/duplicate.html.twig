@@ -1,3 +1,6 @@
-<a href="{{ admin.generateObjectUrl('duplicate', object) }}" class="duplicate_link" title="{% trans from 'SonataAdminBundle' %}duplicate_edit{% endtrans %}">
-    <img src="{{ asset('bundles/sonataadmin/famfamfam/application_double.png') }}" alt="{% trans from 'SonataAdminBundle' %}duplicate_edit{% endtrans %}" />
-</a>
+{% if admin.hasRoute('duplicate') and admin.id(object) and admin.isGranted('EDIT', object)%}
+    <a class="btn sonata-action-element duplicate_link" href="{{ admin.generateObjectUrl('duplicate', object) }}" title="{{ 'Duplicate'|trans({}, 'SonataAdminBundle') }}">
+		<i class="icon-plus"></i>
+		{{ 'Duplicate'|trans({}, 'SonataAdminBundle') }}
+    </a>
+{% endif %}

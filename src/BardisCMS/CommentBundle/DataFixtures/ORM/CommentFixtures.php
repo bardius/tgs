@@ -55,7 +55,7 @@ class CommentFixtures extends AbstractFixture implements OrderedFixtureInterface
 	
 	public function getOrder()
     {
-        return 3;
+        return 7;
     }
 
 }

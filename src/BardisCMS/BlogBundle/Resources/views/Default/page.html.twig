@@ -77,7 +77,7 @@
 					</div>
                 </div>   
                 {% else %}
-                <div class="large-6 small-12 columns categoryListingItem categoryListingItem{{ loop.index0 }} {% if loop.index0 is odd %}clearBoth{% endif %}">
+                <div class="large-6 small-12 columns categoryListingItem categoryListingItem{{ loop.index0 }} {% if loop.index0 is odd %}{% endif %}">
 					<div class="row">
 						{% include 'BlogBundle:Contents:page-list-item.html.twig' %}
 					</div>

@@ -65,9 +65,9 @@ class ContentBlockAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         // Getting the container parameters set in the config file that exist
-        $pageSettings = $this->getConfigurationPool()->getContainer()->getParameter('contentblock_settings');
+        $contentblockSettings = $this->getConfigurationPool()->getContainer()->getParameter('contentblock_settings');
         
-        // Setting up the available page types and preffered choice
+        // Setting up the available content types and preffered choice
         $contentTypeChoices            = $contentblockSettings['contenttypes'];
         
         $datagridMapper
