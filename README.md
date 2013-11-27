@@ -42,18 +42,18 @@ Tip: Additionally in the same file you have to set the paths for sass, compass a
 composer.phar install
 
 9. Run the CLI symphony2 commands  
-* php app/console cache:clear  
-(to clear and warmup cache)
-* php app/console assets:install  
-(to generate the bundle assets)
-* php app/console doctrine:schema:create  
-(to create the database schema)
-* php app/console doctrine:fixtures:load  
-(to load required/sample data to database)
-* php app/console sonata:media:sync-thumbnails sonata.media.provider.image  
-(to generate the required by sample data images)
-* php app/console assetic:dump  
-(to generate the assets for the front end)
+	* php app/console cache:clear  
+	(to clear and warmup cache)
+	* php app/console assets:install  
+	(to generate the bundle assets)
+	* php app/console doctrine:schema:create  
+	(to create the database schema)
+	* php app/console doctrine:fixtures:load  
+	(to load required/sample data to database)
+	* php app/console sonata:media:sync-thumbnails sonata.media.provider.image  
+	(to generate the required by sample data images)
+	* php app/console assetic:dump  
+	(to generate the assets for the front end)
 
  
 ### Front end Framework Setup ###
