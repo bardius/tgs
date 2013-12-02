@@ -1218,7 +1218,7 @@ class ContentBlock
 			return (string)$this->getTitle();			
 		}
 		else{
-			return (string)'New Conetnt Block';
+			return (string)'New Content Block';
 		}
     }
     
