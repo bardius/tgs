@@ -3,7 +3,7 @@ parameters:
 
 services:
             
-  recipe.form.productfiltersform:
+  destination.form.productfiltersform:
     class: BardisCMS\ProductBundle\Form\ProductFiltersFormType        
     arguments: ["@doctrine.orm.entity_manager"]        
     tags:

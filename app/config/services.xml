@@ -38,13 +38,13 @@
               <argument>BlogBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.recipes" class="BardisCMS\RecipeBundle\Admin\RecipeAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Recipe" label="Manage Recipe Pages" />
+      <service id="sonata.admin.destination" class="BardisCMS\DestinationBundle\Admin\DestinationAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Destination" label="Manage Destination Pages" />
           <argument />
-          <argument>BardisCMS\RecipeBundle\Entity\Recipe</argument>
-          <argument>RecipeBundle:RecipeAdmin</argument>
+          <argument>BardisCMS\DestinationBundle\Entity\Destination</argument>
+          <argument>DestinationBundle:DestinationAdmin</argument>
           <call method="setTranslationDomain">
-              <argument>RecipeBundle</argument>
+              <argument>DestinationBundle</argument>
           </call>
       </service>
       <service id="sonata.admin.products" class="BardisCMS\ProductBundle\Admin\ProductAdmin">
@@ -65,13 +65,13 @@
               <argument>MenuBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.recipecategories" class="BardisCMS\RecipeBundle\Admin\RecipeCategoriesAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Recipe Categories" label="Manage Recipe Categories" />
+      <service id="sonata.admin.destinationcategories" class="BardisCMS\DestinationBundle\Admin\DestinationCategoriesAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Destination Categories" label="Manage Destination Categories" />
           <argument />
-          <argument>BardisCMS\RecipeBundle\Entity\RecipeCategory</argument>
+          <argument>BardisCMS\DestinationBundle\Entity\DestinationCategory</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
-              <argument>RecipeBundle</argument>
+              <argument>DestinationBundle</argument>
           </call>
       </service>
       <service id="sonata.admin.productcategories" class="BardisCMS\ProductBundle\Admin\ProductCategoriesAdmin">
@@ -83,13 +83,13 @@
               <argument>ProductBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.recipetags" class="BardisCMS\RecipeBundle\Admin\RecipeTagsAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Recipe Tags" label="Manage Recipe Tags" />
+      <service id="sonata.admin.destinationtags" class="BardisCMS\DestinationBundle\Admin\DestinationTagsAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Destination Tags" label="Manage Destination Tags" />
           <argument />
-          <argument>BardisCMS\RecipeBundle\Entity\RecipeTag</argument>
+          <argument>BardisCMS\DestinationBundle\Entity\DestinationTag</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
-              <argument>RecipeBundle</argument>
+              <argument>DestinationBundle</argument>
           </call>
       </service>
       <service id="sonata.admin.producttags" class="BardisCMS\ProductBundle\Admin\ProductTagsAdmin">

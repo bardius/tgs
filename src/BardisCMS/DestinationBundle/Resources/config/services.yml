@@ -1,0 +1,10 @@
+parameters:
+#    skeleton.example.class: BardisCMS\SkeletonBundle\Example
+
+services:
+            
+  destination.form.destinationfiltersform:
+    class: BardisCMS\DestinationBundle\Form\DestinationFiltersFormType        
+    arguments: ["@doctrine.orm.entity_manager"]        
+    tags:
+      - { name: form.type, alias: destinationfiltersform }

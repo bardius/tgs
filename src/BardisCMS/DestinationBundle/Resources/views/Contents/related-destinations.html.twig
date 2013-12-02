@@ -1,16 +1,15 @@
 {% if relateddestinations %}
 <div class="twelve columns relatedDestinationList">
-    <div class="column twelve mobile-nine">
-        <h3>Delicious in these destinations</h3>
+    <div class="column twelve">
+        <h3>More destinations to whet your appetite</h3>
     </div>
-    <div class="column twelve mobile-nine relatedDestinationItems">
     {% for relateddestination in relateddestinations if relateddestination.destinationimage.id is defined %}
-    <div class="column relatedDestinationItem destination_articleItem four mobile-four {% if loop.index0 == 2 %}hide-for-small{% endif %}">
+    <div class="column relatedDestinationItem destination_articleItem three mobile-four">
         <a href="{{ url('DestinationBundle_page_normal', { 'alias': relateddestination.alias }) }}" title="{{ relateddestination.title }}">
             {% if relateddestination.destinationimage.id is defined %}
-            {% media relateddestination.destinationimage.id, 'xsmall' with {'alt': relateddestination.title, 'title': ''} %}
+            {% media relateddestination.destinationimage.id, 'small' with {'alt': relateddestination.title, 'title': ''} %}
             {% else %}
-            <img src="/images/site_assets/defaultDestinationSmallTh.jpg" alt="{{ relateddestination.title }}" />
+            <img src="/images/site_assets/defaultDestinationThumb.jpg" alt="{{ relateddestination.title }}" />
             {% endif %}
             <div class="relatedItemText {{ relateddestination.product.pageclass }}">
                 <h5 class="title"><span>{{ relateddestination.title }}</span></h5>
@@ -21,6 +20,5 @@
         </a>
     </div>
     {% endfor %}
-    </div>
 </div>
-{% endif %}
+{% endif %} 

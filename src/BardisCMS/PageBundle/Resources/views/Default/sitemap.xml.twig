@@ -14,10 +14,10 @@
         <loc>{{ url('ProductBundle_page_normal', { 'alias': sitemapItem.alias }) }}</loc>               
         {% elseif sitemapItem.pagetype == 'product_home' %}
         <loc>{{ url('ProductBundle_home') }}</loc>          
-        {% elseif sitemapItem.pagetype == 'recipe_article' or sitemapItem.pagetype == 'recipe_cat_page' or sitemapItem.pagetype == 'recipe_filtered_list'%}
-        <loc>{{ url('RecipeBundle_page_normal', { 'alias': sitemapItem.alias }) }}</loc>               
-        {% elseif sitemapItem.pagetype == 'recipe_home' %}
-        <loc>{{ url('RecipeBundle_home') }}</loc>                
+        {% elseif sitemapItem.pagetype == 'destination_article' or sitemapItem.pagetype == 'destination_cat_page' or sitemapItem.pagetype == 'destination_filtered_list'%}
+        <loc>{{ url('DestinationBundle_page_normal', { 'alias': sitemapItem.alias }) }}</loc>               
+        {% elseif sitemapItem.pagetype == 'destination_home' %}
+        <loc>{{ url('DestinationBundle_home') }}</loc>                
         {% elseif sitemapItem.pagetype == 'homepage' %}
         <loc>{{ url('PageBundle_home') }}</loc>          
         {% else %}

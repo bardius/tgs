@@ -70,8 +70,8 @@ CommentBundle:
     resource: "@CommentBundle/Resources/config/routing.yml"
     prefix:   /
 
-RecipeBundle:
-    resource: "@RecipeBundle/Resources/config/routing.yml"
+DestinationBundle:
+    resource: "@DestinationBundle/Resources/config/routing.yml"
     prefix:   /
 
 ProductBundle:

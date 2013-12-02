@@ -44,10 +44,10 @@ class Menu
     protected $blog;
 	
     /**
-     * @ORM\ManyToOne(targetEntity="BardisCMS\RecipeBundle\Entity\Recipe")
-     * @ORM\JoinColumn(name="recipe", referencedColumnName="id", onDelete="SET NULL")
+     * @ORM\ManyToOne(targetEntity="BardisCMS\DestinationBundle\Entity\Destination")
+     * @ORM\JoinColumn(name="destination", referencedColumnName="id", onDelete="SET NULL")
      */
-    protected $recipe;
+    protected $destination;
 	
     /**
      * @ORM\ManyToOne(targetEntity="BardisCMS\ProductBundle\Entity\Product")
@@ -356,31 +356,31 @@ class Menu
     }
     
     /**
-     * Set recipe
+     * Set destination
      *
-     * @param BardisCMS\RecipeBundle\Entity\Recipe $recipe
+     * @param BardisCMS\DestinationBundle\Entity\Destination $destination
      * @return Menu
      */
-    public function setRecipe(\BardisCMS\RecipeBundle\Entity\Recipe $recipe = null)
+    public function setDestination(\BardisCMS\DestinationBundle\Entity\Destination $destination = null)
     {
-        $this->recipe = $recipe;
+        $this->destination = $destination;
         return $this;
     }
 
     /**
-     * Get recipe
+     * Get destination
      *
-     * @return BardisCMS\RecipeBundle\Entity\Recipe 
+     * @return BardisCMS\DestinationBundle\Entity\Destination 
      */
-    public function getRecipe()
+    public function getDestination()
     {
-        return $this->recipe;
+        return $this->destination;
     }
     
     /**
      * Set product
      *
-     * @param BardisCMS\RecipeBundle\Entity\Product $product
+     * @param BardisCMS\DestinationBundle\Entity\Product $product
      * @return Menu
      */
     public function setProduct(\BardisCMS\ProductBundle\Entity\Product $product = null)
@@ -392,7 +392,7 @@ class Menu
     /**
      * Get product
      *
-     * @return BardisCMS\RecipeBundle\Entity\Product 
+     * @return BardisCMS\DestinationBundle\Entity\Product 
      */
     public function getProduct()
     {
@@ -496,7 +496,7 @@ class Menu
             case('Page'):       return "Page";
             case('Blog'):       return "Blog Page";
             case('Product'):    return "Product Page";
-            case('Recipe'):     return "Recipe Page";
+            case('Destination'):     return "Destination Page";
             case('http'):       return "External URL";
             case('url'):        return "Internal URL";
             case('seperator'):  return "Seperator";

@@ -12,7 +12,7 @@ namespace BardisCMS\ContentBlockBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use BardisCMS\PageBundle\Entity\Page;
 use BardisCMS\BlogBundle\Entity\Blog;
-use BardisCMS\RecipeBundle\Entity\Recipe;
+use BardisCMS\DestinationBundle\Entity\Destination;
 use BardisCMS\ProductBundle\Entity\Product;
 use BardisCMS\ContentBlockBundle\Entity\ContentImage;
 use BardisCMS\ContentBlockBundle\Entity\ContentSlide;
@@ -96,9 +96,9 @@ class ContentBlock
     protected $blog_maincontents;
     
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\RecipeBundle\Entity\Recipe", mappedBy="maincontentblocks", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\DestinationBundle\Entity\Destination", mappedBy="maincontentblocks", cascade={"persist"})
      **/
-    protected $recipe_maincontents;
+    protected $destination_maincontents;
     
     /**
      * @ORM\ManyToMany(targetEntity="BardisCMS\ProductBundle\Entity\Product", mappedBy="maincontentblocks", cascade={"persist"})
@@ -111,9 +111,9 @@ class ContentBlock
     protected $secondarycontents;
     
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\RecipeBundle\Entity\Recipe", mappedBy="secondarycontentblocks", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\DestinationBundle\Entity\Destination", mappedBy="secondarycontentblocks", cascade={"persist"})
      **/
-    protected $recipe_secondarycontents;
+    protected $destination_secondarycontents;
     
     /**
      * @ORM\ManyToMany(targetEntity="BardisCMS\ProductBundle\Entity\Product", mappedBy="secondarycontentblocks", cascade={"persist"})
@@ -131,9 +131,9 @@ class ContentBlock
     protected $blog_extracontents;
     
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\RecipeBundle\Entity\Recipe", mappedBy="extracontentblocks", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\DestinationBundle\Entity\Destination", mappedBy="extracontentblocks", cascade={"persist"})
      **/
-    protected $recipe_extracontents;
+    protected $destination_extracontents;
     
     /**
      * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Page", mappedBy="modalcontentblocks", cascade={"persist"})
@@ -146,9 +146,9 @@ class ContentBlock
     protected $blog_modalcontents;
     
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\RecipeBundle\Entity\Recipe", mappedBy="modalcontentblocks", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\DestinationBundle\Entity\Destination", mappedBy="modalcontentblocks", cascade={"persist"})
      **/
-    protected $recipe_modalcontents;
+    protected $destination_modalcontents;
     
     /**
      * @ORM\ManyToMany(targetEntity="BardisCMS\ProductBundle\Entity\Product", mappedBy="modalcontentblocks", cascade={"persist"})
@@ -166,9 +166,9 @@ class ContentBlock
     protected $blog_bannercontents;
     
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\RecipeBundle\Entity\Recipe", mappedBy="bannercontentblocks", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\DestinationBundle\Entity\Destination", mappedBy="bannercontentblocks", cascade={"persist"})
      **/
-    protected $recipe_bannercontents;
+    protected $destination_bannercontents;
 
     /**
      * @ORM\ManyToMany(targetEntity="ContentImage", inversedBy="contentblocks", cascade={"all"}, orphanRemoval=true)
@@ -218,11 +218,11 @@ class ContentBlock
         $this->blog_modalcontents           = new \Doctrine\Common\Collections\ArrayCollection();
         $this->blog_bannercontents          = new \Doctrine\Common\Collections\ArrayCollection();
         $this->imagefiles                   = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->recipe_maincontents          = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->recipe_secondarycontents     = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->recipe_extracontents         = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->recipe_modalcontents         = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->recipe_bannercontents        = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->destination_maincontents          = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->destination_secondarycontents     = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->destination_extracontents         = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->destination_modalcontents         = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->destination_bannercontents        = new \Doctrine\Common\Collections\ArrayCollection();
         $this->product_maincontents         = new \Doctrine\Common\Collections\ArrayCollection();
         $this->product_secondarycontents    = new \Doctrine\Common\Collections\ArrayCollection();
         $this->product_modalcontents        = new \Doctrine\Common\Collections\ArrayCollection();
@@ -915,36 +915,36 @@ class ContentBlock
     {
         return $this->youtube;
     }/**
-     * Add recipe_maincontents
+     * Add destination_maincontents
      *
-     * @param \BardisCMS\RecipeBundle\Entity\Recipe $recipeMaincontents
+     * @param \BardisCMS\DestinationBundle\Entity\Destination $eMaincontents
      * @return ContentBlock
      */
-    public function addRecipeMaincontent(\BardisCMS\RecipeBundle\Entity\Recipe $recipeMaincontents)
+    public function addDestinationMaincontent(\BardisCMS\DestinationBundle\Entity\Destination $eMaincontents)
     {
-        $this->recipe_maincontents[] = $recipeMaincontents;
+        $this->destination_maincontents[] = $eMaincontents;
     
         return $this;
     }
 
     /**
-     * Remove recipe_maincontents
+     * Remove destination_maincontents
      *
-     * @param \BardisCMS\RecipeBundle\Entity\Recipe $recipeMaincontents
+     * @param \BardisCMS\DestinationBundle\Entity\Destination $eMaincontents
      */
-    public function removeRecipeMaincontent(\BardisCMS\RecipeBundle\Entity\Recipe $recipeMaincontents)
+    public function removeDestinationMaincontent(\BardisCMS\DestinationBundle\Entity\Destination $eMaincontents)
     {
-        $this->recipe_maincontents->removeElement($recipeMaincontents);
+        $this->destination_maincontents->removeElement($eMaincontents);
     }
 
     /**
-     * Get recipe_maincontents
+     * Get destination_maincontents
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getRecipeMaincontents()
+    public function getDestinationMaincontents()
     {
-        return $this->recipe_maincontents;
+        return $this->destination_maincontents;
     }
 
     /**
@@ -981,36 +981,36 @@ class ContentBlock
     }
 
     /**
-     * Add recipe_secondarycontents
+     * Add destination_secondarycontents
      *
-     * @param \BardisCMS\RecipeBundle\Entity\Recipe $recipeSecondarycontents
+     * @param \BardisCMS\DestinationBundle\Entity\Destination $eSecondarycontents
      * @return ContentBlock
      */
-    public function addRecipeSecondarycontent(\BardisCMS\RecipeBundle\Entity\Recipe $recipeSecondarycontents)
+    public function addDestinationSecondarycontent(\BardisCMS\DestinationBundle\Entity\Destination $eSecondarycontents)
     {
-        $this->recipe_secondarycontents[] = $recipeSecondarycontents;
+        $this->destination_secondarycontents[] = $eSecondarycontents;
     
         return $this;
     }
 
     /**
-     * Remove recipe_secondarycontents
+     * Remove destination_secondarycontents
      *
-     * @param \BardisCMS\RecipeBundle\Entity\Recipe $recipeSecondarycontents
+     * @param \BardisCMS\DestinationBundle\Entity\Destination $eSecondarycontents
      */
-    public function removeRecipeSecondarycontent(\BardisCMS\RecipeBundle\Entity\Recipe $recipeSecondarycontents)
+    public function removeDestinationSecondarycontent(\BardisCMS\DestinationBundle\Entity\Destination $eSecondarycontents)
     {
-        $this->recipe_secondarycontents->removeElement($recipeSecondarycontents);
+        $this->destination_secondarycontents->removeElement($eSecondarycontents);
     }
 
     /**
-     * Get recipe_secondarycontents
+     * Get destination_secondarycontents
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getRecipeSecondarycontents()
+    public function getDestinationSecondarycontents()
     {
-        return $this->recipe_secondarycontents;
+        return $this->destination_secondarycontents;
     }
 
     /**
@@ -1047,69 +1047,69 @@ class ContentBlock
     }
 
     /**
-     * Add recipe_extracontents
+     * Add destination_extracontents
      *
-     * @param \BardisCMS\RecipeBundle\Entity\Recipe $recipeExtracontents
+     * @param \BardisCMS\DestinationBundle\Entity\Destination $eExtracontents
      * @return ContentBlock
      */
-    public function addRecipeExtracontent(\BardisCMS\RecipeBundle\Entity\Recipe $recipeExtracontents)
+    public function addDestinationExtracontent(\BardisCMS\DestinationBundle\Entity\Destination $eExtracontents)
     {
-        $this->recipe_extracontents[] = $recipeExtracontents;
+        $this->destination_extracontents[] = $eExtracontents;
     
         return $this;
     }
 
     /**
-     * Remove recipe_extracontents
+     * Remove destination_extracontents
      *
-     * @param \BardisCMS\RecipeBundle\Entity\Recipe $recipeExtracontents
+     * @param \BardisCMS\DestinationBundle\Entity\Destination $eExtracontents
      */
-    public function removeRecipeExtracontent(\BardisCMS\RecipeBundle\Entity\Recipe $recipeExtracontents)
+    public function removeDestinationExtracontent(\BardisCMS\DestinationBundle\Entity\Destination $eExtracontents)
     {
-        $this->recipe_extracontents->removeElement($recipeExtracontents);
+        $this->destination_extracontents->removeElement($eExtracontents);
     }
 
     /**
-     * Get recipe_extracontents
+     * Get destination_extracontents
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getRecipeExtracontents()
+    public function getDestinationExtracontents()
     {
-        return $this->recipe_extracontents;
+        return $this->destination_extracontents;
     }
 
     /**
-     * Add recipe_modalcontents
+     * Add destination_modalcontents
      *
-     * @param \BardisCMS\RecipeBundle\Entity\Recipe $recipeModalcontents
+     * @param \BardisCMS\DestinationBundle\Entity\Destination $eModalcontents
      * @return ContentBlock
      */
-    public function addRecipeModalcontent(\BardisCMS\RecipeBundle\Entity\Recipe $recipeModalcontents)
+    public function addDestinationModalcontent(\BardisCMS\DestinationBundle\Entity\Destination $eModalcontents)
     {
-        $this->recipe_modalcontents[] = $recipeModalcontents;
+        $this->destination_modalcontents[] = $eModalcontents;
     
         return $this;
     }
 
     /**
-     * Remove recipe_modalcontents
+     * Remove destination_modalcontents
      *
-     * @param \BardisCMS\RecipeBundle\Entity\Recipe $recipeModalcontents
+     * @param \BardisCMS\DestinationBundle\Entity\Destination $eModalcontents
      */
-    public function removeRecipeModalcontent(\BardisCMS\RecipeBundle\Entity\Recipe $recipeModalcontents)
+    public function removeDestinationModalcontent(\BardisCMS\DestinationBundle\Entity\Destination $eModalcontents)
     {
-        $this->recipe_modalcontents->removeElement($recipeModalcontents);
+        $this->destination_modalcontents->removeElement($eModalcontents);
     }
 
     /**
-     * Get recipe_modalcontents
+     * Get destination_modalcontents
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getRecipeModalcontents()
+    public function getDestinationModalcontents()
     {
-        return $this->recipe_modalcontents;
+        return $this->destination_modalcontents;
     }
 
     /**
@@ -1146,36 +1146,36 @@ class ContentBlock
     }
 
     /**
-     * Add recipe_bannercontents
+     * Add destination_bannercontents
      *
-     * @param \BardisCMS\RecipeBundle\Entity\Recipe $recipeBannercontents
+     * @param \BardisCMS\DestinationBundle\Entity\Destination $eBannercontents
      * @return ContentBlock
      */
-    public function addRecipeBannercontent(\BardisCMS\RecipeBundle\Entity\Recipe $recipeBannercontents)
+    public function addDestinationBannercontent(\BardisCMS\DestinationBundle\Entity\Destination $eBannercontents)
     {
-        $this->recipe_bannercontents[] = $recipeBannercontents;
+        $this->destination_bannercontents[] = $eBannercontents;
     
         return $this;
     }
 
     /**
-     * Remove recipe_bannercontents
+     * Remove destination_bannercontents
      *
-     * @param \BardisCMS\RecipeBundle\Entity\Recipe $recipeBannercontents
+     * @param \BardisCMS\DestinationBundle\Entity\Destination $eBannercontents
      */
-    public function removeRecipeBannercontent(\BardisCMS\RecipeBundle\Entity\Recipe $recipeBannercontents)
+    public function removeDestinationBannercontent(\BardisCMS\DestinationBundle\Entity\Destination $eBannercontents)
     {
-        $this->recipe_bannercontents->removeElement($recipeBannercontents);
+        $this->destination_bannercontents->removeElement($eBannercontents);
     }
 
     /**
-     * Get recipe_bannercontents
+     * Get destination_bannercontents
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getRecipeBannercontents()
+    public function getDestinationBannercontents()
     {
-        return $this->recipe_bannercontents;
+        return $this->destination_bannercontents;
     }
 
     /**

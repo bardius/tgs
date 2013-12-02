@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManager;
 use BardisCMS\PageBundle\Entity\Page;
 use BardisCMS\BlogBundle\Entity\Blog;
-use BardisCMS\RecipeBundle\Entity\Recipe;
+use BardisCMS\DestinationBundle\Entity\Destination;
 
 class MenuBuilder {
 
@@ -152,7 +152,7 @@ class MenuBuilder {
 						break;
 
 					case 'Blog':
-					case 'Recipe':
+					case 'Destination':
 					case 'Product':
 						$pageFunction = $menuItem->$getPageFunction();
 

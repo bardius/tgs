@@ -37,7 +37,7 @@ parameters:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ PageBundle, BlogBundle, RecipeBundle, ProductBundle, FOSUserBundle ]
+    bundles:        [ PageBundle, BlogBundle, DestinationBundle, ProductBundle, FOSUserBundle ]
     java:           %javapath%
     
     filters:
@@ -132,12 +132,12 @@ sonata_block:
         sonata.admin.pages:
         sonata.admin.menus: 
         sonata.admin.blogs:
-        sonata.admin.recipies:
+        sonata.admin.destinations:
         sonata.admin.products:
         sonata.admin.categories:
         sonata.admin.tags:
-        sonata.admin.recipecategories:
-        sonata.admin.recipetags:
+        sonata.admin.destinationcategories:
+        sonata.admin.destinationtags:
         sonata.admin.productcategories:
         sonata.admin.producttags:
         sonata.admin.contentblocks:
@@ -210,7 +210,7 @@ sonata_admin:
               items:
                   - sonata.admin.pages
                   - sonata.admin.blogs
-                  - sonata.admin.recipes
+                  - sonata.admin.destination
                   - sonata.admin.products
            sonata_menus:
               label: Menus
@@ -220,13 +220,13 @@ sonata_admin:
               label: Categories
               items:
                   - sonata.admin.categories
-                  - sonata.admin.recipecategories
+                  - sonata.admin.destinationcategories
                   - sonata.admin.productcategories
            sonata_tags:
               label: Tags
               items:
                   - sonata.admin.tags
-                  - sonata.admin.recipetags
+                  - sonata.admin.destinationtags
                   - sonata.admin.producttags
            sonata_contentblocks:
               label: Content Blocks
@@ -296,7 +296,7 @@ sonata_media:
                 slide:      { width: 1388 , height: 394 , quality: 80 }
                 original:   { quality: 80 }        
         
-        recipe:
+        destination:
             providers:
                 - sonata.media.provider.image
 
@@ -449,7 +449,7 @@ menu:
         Page:       Page
         Blog:       Blog Page
         Product:    Product Page
-        Recipe:     Recipe Page
+        Destination:     Destination Page
         http:       External URL
         url:        Internal URL
         seperator:  Seperator
@@ -468,14 +468,14 @@ menu:
         0:      Unpublished
         1:      Published
         
-recipe:        
+destination:        
     loadservices: true
     
     pagetypes:
-        recipe_article:         Recipe Article
-        recipe_cat_page:        Recipe Category Page
-        recipe_filtered_list:   Recipe Filter Results
-        recipe_home:            Recipe Homepage
+        destination_article:         Destination Article
+        destination_cat_page:        Destination Category Page
+        destination_filtered_list:   Destination Filter Results
+        destination_home:            Destination Homepage
     
     tagcategories:
         occasions:          Occasions

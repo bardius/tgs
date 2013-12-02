@@ -151,7 +151,7 @@ class ProductAdmin extends Admin
                         ->with('Page Specific Information', array('collapsed' => true))
                             ->add('showPageTitle', 'choice', array('choices' => array('0' => 'Hide Title', '1' => 'Show Title'), 'preferred_choices' => array('1'), 'label' => 'Title Display', 'required' => true))
                             ->add('summary', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced'), 'label' => 'Product Description', 'required' => false))
-                            ->add('bgimage', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'bgimage', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Recipe Top Background Image', 'required' => false))
+                            ->add('bgimage', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'bgimage', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Destination Top Background Image', 'required' => false))
                             ->add('topArrowText', null, array('label' => 'Top Arrow Text', 'required' => false))
                             ->add('featuredProduct', 'entity', array('class' => 'BardisCMS\ProductBundle\Entity\Product', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Featured Product', 'attr' => array('class' => 'autoCompleteItems autoCompleteProduct'), 'required' => false))
                             ->add('pageclass', null, array('label' => 'Product Page CSS Class', 'required' => false))

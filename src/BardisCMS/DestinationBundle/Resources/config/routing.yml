@@ -1,0 +1,100 @@
+DestinationBundle_tagged_full:
+    pattern:   /destination/tagged/{extraParams}/{currentpage}/{totalpageitems}/
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    requirements:
+        currentpage: \d+
+        totalpageitems: \d+
+    
+DestinationBundle_tagged_noslash:
+    pattern:   /destination/tagged/{extraParams}/{currentpage}/{totalpageitems}
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    requirements:
+        currentpage: \d+
+        totalpageitems: \d+
+    
+DestinationBundle_tagged_onlypage_slash:
+    pattern:   /destination/tagged/{extraParams}/{currentpage}/
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    requirements:
+        currentpage: \d+
+    
+DestinationBundle_tagged_onlypage:
+    pattern:   /destination/tagged/{extraParams}/{currentpage}
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    requirements:
+        currentpage: \d+
+    
+DestinationBundle_tagged_onlytag_slash:
+    pattern:   /destination/tagged/{extraParams}/
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    
+DestinationBundle_tagged_onlytag:
+    pattern:   /destination/tagged/{extraParams}
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    
+DestinationBundle_tagged_slash:
+    pattern:   /destination/tagged/
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0} 
+    
+DestinationBundle_tagged:
+    pattern:   /destination/tagged
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    
+DestinationBundle_filtered:
+    pattern:  /destination/filterPages/
+    defaults: { _controller: DestinationBundle:Default:filterPages }
+
+DestinationBundle_page_full_slash:
+    pattern:   /destination/{alias}/{currentpage}/{totalpageitems}/{extraParams}/
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0}
+    requirements:
+        currentpage: \d+
+        totalpageitems: \d+
+    
+DestinationBundle_page_full:
+    pattern:   /destination/{alias}/{currentpage}/{totalpageitems}/{extraParams}
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0}
+    requirements:
+        currentpage: \d+
+        totalpageitems: \d+
+
+DestinationBundle_page_only_pagin_slash:
+    pattern:   /destination/{alias}/{currentpage}/{totalpageitems}/
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0}
+    requirements:
+        currentpage: \d+
+    
+DestinationBundle_page_only_pagin:
+    pattern:   /destination/{alias}/{currentpage}/{totalpageitems}
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0}
+    requirements:
+        currentpage: \d+
+    
+DestinationBundle_page_only_page_slash:
+    pattern:   /destination/{alias}/{currentpage}/
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0 }
+    
+DestinationBundle_page_only_page:
+    pattern:   /destination/{alias}/{currentpage}
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0 }
+        
+DestinationBundle_page_normal_slash:
+    pattern:   /destination/{alias}/
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0 }
+        
+DestinationBundle_page_normal:
+    pattern:   /destination/{alias}
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0 }
+        
+DestinationBundle_home_slash:
+    pattern:   /destination/
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: list, tags: all, currentpage: 0, totalpageitems: 0 }
+        
+DestinationBundle_home:
+    pattern:   /destination
+    defaults:  { _controller: DestinationBundle:Default:alias, alias: list, tags: all, currentpage: 0, totalpageitems: 0 }
+    
+DestinationBundle_showPage:
+    pattern:  /destination/showPage/{id}
+    defaults: { _controller: DestinationBundle:Default:showPage }
+

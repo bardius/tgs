@@ -53,8 +53,8 @@ class AddMenuTypeFieldSubscriber implements EventSubscriberInterface
                 $form->add($this->factory->createNamed('blog', 'entity', null, array('class' => 'BardisCMS\BlogBundle\Entity\Blog', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Blog Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteBlogs'), 'required' => false)));
                 $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('label' => 'Extra URL Params', 'required' => false)));
                 break;
-            case 'Recipe':
-                $form->add($this->factory->createNamed('recipe', 'entity', null, array('class' => 'BardisCMS\RecipeBundle\Entity\Recipe', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Recipe Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteRecipe'), 'required' => false)));
+            case 'Destination':
+                $form->add($this->factory->createNamed('destination', 'entity', null, array('class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Destination Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteDestination'), 'required' => false)));
                 $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('label' => 'Extra URL Params', 'required' => false)));
                 break;
             case 'Product':

@@ -1,16 +1,15 @@
 <?php
 /*
- * Product Bundle
+ * Destination Bundle
  * This file is part of the BardisCMS.
  *
  * (c) George Bardis <george@bardis.info>
  *
  */
-namespace BardisCMS\ProductBundle\Controller;
+namespace BardisCMS\DestinationBundle\Controller;
 
-use BardisCMS\ProductBundle\Entity\Product;
+use BardisCMS\DestinationBundle\Entity\Destination;
 use BardisCMS\PageBundle\Entity\Page;
-use BardisCMS\ProductBundle\Form\FilterResultsForm;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,11 +18,11 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     
-    // Get the Product page id based on alias from route
+    // Get the Destination page id based on alias from route
     public function aliasAction($alias, $extraParams = null, $currentpage = 0, $totalpageitems = 0) 
     {
 
-        $page = $this->getDoctrine()->getRepository('ProductBundle:Product')->findOneByAlias($alias);
+        $page = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->findOneByAlias($alias);
         
         if (!$page) {
             return $this->render404Page();
@@ -40,7 +39,7 @@ class DefaultController extends Controller
     {   
         
         // Get data to display
-        $page       = $this->getDoctrine()->getRepository('ProductBundle:Product')->find($id);        
+        $page       = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->find($id);        
         $userRole   = $this->getLoggedUserHighestRole();        
         $settings   = $this->get('bardiscms_settings.load_settings')->loadSettings();
         
@@ -126,7 +125,7 @@ class DefaultController extends Controller
                 $tags = explode(',', urldecode($extraParams[0]));
                 foreach($tags as $tag)
                 {
-                    $selectedTagObject = $this->getDoctrine()->getRepository('ProductBundle:ProductTag')->findOneByTitle(urldecode($tag));
+                    $selectedTagObject = $this->getDoctrine()->getRepository('DestinationBundle:DestinationTag')->findOneByTitle(urldecode($tag));
                     
                     $tagCategoryName = $selectedTagObject->getTagCategory();
 
@@ -134,7 +133,7 @@ class DefaultController extends Controller
                     {
                         if (!array_key_exists('tags'.$tagCategoryName, $selectedTags))
                         {
-                            $selectedTags['tags'.$tagCategoryName] = array();                            
+                            $selectedTags['tags'.$tagCategoryName] = array();
                         }
 
                         $selectedTags['tags'.$tagCategoryName][] = $selectedTagObject;                   
@@ -149,7 +148,7 @@ class DefaultController extends Controller
         
         if (isset($extraParams[1]))
         {
-            if($extraParams[1] == 'all'|| $extraParams[1] == 'Homepage')
+            if($extraParams[1] == 'all' || $extraParams[1] == 'Homepage')
             {
                 $selectedCategories[] = null;
             }
@@ -158,14 +157,14 @@ class DefaultController extends Controller
                 $categories = explode(',', urldecode($extraParams[1]));
                 foreach($categories as $category)
                 {
-                    $selectedCategories[] = $this->getDoctrine()->getRepository('ProductBundle:ProductCategory')->findOneByTitle(urldecode($category));
+                    $selectedCategories[] = $this->getDoctrine()->getRepository('DestinationBundle:DestinationCategory')->findOneByTitle(urldecode($category));
                 }
             }
         }
         else
         {
             $selectedCategories[] = null;
-        }
+        }        
         
         $filterParams = array();
         
@@ -194,12 +193,15 @@ class DefaultController extends Controller
         
         if(empty($selectedCategoriesArray[0]))
         {
-            $selectedCategoriesArray = $this->getDoctrine()->getRepository('ProductBundle:ProductCategory')->findAll();
+            $selectedCategoriesArray = $this->getDoctrine()->getRepository('DestinationBundle:DestinationCategory')->findAll();
         }
         
         foreach($selectedCategoriesArray as $selectedCategoriesEntity)
         {
-            $categoryIds[] = $selectedCategoriesEntity->getId();     
+            if($selectedCategoriesEntity != null)
+            {
+                $categoryIds[] = $selectedCategoriesEntity->getId();     
+            }
         }
         
         return $categoryIds;
@@ -210,11 +212,11 @@ class DefaultController extends Controller
     public function getTagFilterIds($selectedTagsArray)
     {       
         
-        $tagIds = array();      
+        $tagIds = array();  
         
         if(empty($selectedTagsArray[0]))
         {
-            $selectedTagsArray = $this->getDoctrine()->getRepository('ProductBundle:ProductTag')->findAll();
+            $selectedTagsArray = $this->getDoctrine()->getRepository('DestinationBundle:DestinationTag')->findAll();
         }
         
         foreach($selectedTagsArray as $selectedTagEntity)
@@ -292,12 +294,12 @@ class DefaultController extends Controller
     public function renderPage($page, $id, $publishStates, $extraParams, $currentpage, $totalpageitems, $linkUrlParams)
     {
                         
-        if ($page->getPagetype() == 'product_cat_page')
+        if ($page->getPagetype() == 'destination_cat_page')
         {            
-            $tagIds         = $page->getTags()->toArray();
+            $tagIds         = $page->getTags()->toArray();           
             $categoryIds    = $page->getCategories()->toArray();
             
-            $filterForm     = $this->createForm('productfiltersform');               
+            $filterForm     = $this->createForm('destinationfiltersform');               
             $filterData     = $this->getRequestedFilters($extraParams);
             
             foreach($tagIds as $key => $tag)
@@ -328,26 +330,27 @@ class DefaultController extends Controller
             
             if(!empty($tagIds) && !empty($categoryIds))
             {                
-                $pageList = $this->getDoctrine()->getRepository('ProductBundle:Product')->getTaggedCategoryItems($categoryIds, $id, $publishStates, $currentpage, $totalpageitems, $tagIds);                
+                $pageList = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getTaggedCategoryItems($categoryIds, $id, $publishStates, $currentpage, $totalpageitems, $tagIds);                
             }
             if(!empty($tagIds) && empty($categoryIds))
             {                
-                $pageList = $this->getDoctrine()->getRepository('ProductBundle:Product')->getTaggedItems($tagIds, $id, $publishStates, $currentpage, $totalpageitems);                
+                $pageList = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getTaggedItems($tagIds, $id, $publishStates, $currentpage, $totalpageitems);                
             }
             else
             {
-                $pageList = $this->getDoctrine()->getRepository('ProductBundle:Product')->getCategoryItems($categoryIds, $id, $publishStates, $currentpage, $totalpageitems);
+                $pageList = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getCategoryItems($categoryIds, $id, $publishStates, $currentpage, $totalpageitems);
             }
             
             $pages      = $pageList['pages'];
             $totalPages = $pageList['totalPages'];
             
-            return $this->render('ProductBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
+            return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
         }      
-        else if ($page->getPagetype() == 'product_filtered_list')
-        {          
-            $filterForm     = $this->createForm('productfiltersform');                
+        else if ($page->getPagetype() == 'destination_filtered_list')
+        {               
+            $filterForm     = $this->createForm('destinationfiltersform');                
             $filterData     = $this->getRequestedFilters($extraParams);
+            
             $tagIds         = array();            
             $categoryIds    = array();
             
@@ -366,41 +369,40 @@ class DefaultController extends Controller
             
             if(!empty($categoryIds))
             {                
-                $pageList = $this->getDoctrine()->getRepository('ProductBundle:Product')->getTaggedCategoryItems($categoryIds, $id, $publishStates, $currentpage, $totalpageitems, $tagIds);                
+                $pageList = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getTaggedCategoryItems($categoryIds, $id, $publishStates, $currentpage, $totalpageitems, $tagIds);                
             }
             else
             {            
-                $pageList  = $this->getDoctrine()->getRepository('ProductBundle:Product')->getTaggedItems($tagIds, $id, $publishStates, $currentpage, $totalpageitems);
+                $pageList  = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getTaggedItems($tagIds, $id, $publishStates, $currentpage, $totalpageitems);
             }
             
             $pages      = $pageList['pages'];
             $totalPages = $pageList['totalPages'];
             
-            return $this->render('ProductBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
+            return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
         }
-        else if ($page->getPagetype() == 'product_home')
-        {   
-            
-            $filterForm     = $this->createForm('productfiltersform');               
-            $filterData     = $this->getRequestedFilters($extraParams);            
-            $filterForm->setData($filterData); 
-            
-            $pageList = $this->getDoctrine()->getRepository('ProductBundle:Product')->getAllItems($id, $publishStates, $currentpage, $totalpageitems);
+        else if ($page->getPagetype() == 'destination_home')
+        {
+            //$pageList = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getAllItems($id, $publishStates, $currentpage, $totalpageitems);
+			$categoryIds = 2;
+            $pageList = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getDestinationHomeItems($categoryIds, $id, $publishStates, $currentpage, $totalpageitems);
             
             $pages      = $pageList['pages'];
             $totalPages = $pageList['totalPages'];
             
-            return $this->render('ProductBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages,  'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
+            //return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages,  'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
+			return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems));
         }
-        else if ($page->getPagetype() == 'product_article')
-        {   
-            $relatedDestinations = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getRelatedProductDestinations($id, $publishStates);
-            $rangeList      = $this->getDoctrine()->getRepository('ProductBundle:Product')->getRangeList($id, $publishStates);
-
-            return $this->render('ProductBundle:Default:page.html.twig', array('page' => $page, 'relateddestinations' => $relatedDestinations, 'rangelist' => $rangeList));
+        else if ($page->getPagetype() == 'destination_article')
+        {
+            $productId      = $page->getProduct();            
+            $relatedDestinations = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getRelatedDestinations($productId, $id, $publishStates);
+            
+            return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'relateddestinations' => $relatedDestinations));
+            
         }
         
-        return $this->render('ProductBundle:Default:page.html.twig', array('page' => $page));
+        return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page));
     }
     
     
@@ -428,15 +430,15 @@ class DefaultController extends Controller
         
         $filterTags         = 'all';
         $filterCategories   = 'all'; 
-        $filterForm         = $this->createForm('productfiltersform');
+        $filterForm         = $this->createForm('destinationfiltersform');
         $filterData         = null;
         
         if ($request->getMethod() == 'POST') {
             
             $filterForm->bind($request);
-            $filterData = $filterForm->getData();
+            $filterData = $filterForm->getData();        
             
-            $selectedTagsCategoriesArray    = array($filterData['tagssugar_type'], $filterData['tagsexcellent'], $filterData['tagsbody']);
+            $selectedTagsCategoriesArray    =  array($filterData['tagsoccasions'], $filterData['tagseveryday'], $filterData['tagsfavourites']);
             $filterTags                     = $this->getTagFilterTitles($selectedTagsCategoriesArray);
             $filterCategories               = $this->getCategoryFilterTitles($filterData['categories']);
         }
@@ -444,7 +446,7 @@ class DefaultController extends Controller
         $extraParams = urlencode($filterTags) . '|' . urlencode($filterCategories);
         
         $url = $this->get('router')->generate(
-            'ProductBundle_tagged_full',
+            'DestinationBundle_tagged_full',
             array('extraParams' => $extraParams),
             true
         );
