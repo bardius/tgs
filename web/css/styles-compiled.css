@@ -7749,7 +7749,7 @@ th.hide-for-touch {
 /* line 17, ../scss/styles.scss */
 iframe {
   left: 0;
-  border: none !important;
+  border: none!important;
 }
 
 /* line 28, ../scss/styles.scss */
@@ -7762,7 +7762,7 @@ iframe {
 
 /* line 35, ../scss/styles.scss */
 .hidden {
-  display: none !important;
+  display: none!important;
 }
 
 /* line 39, ../scss/styles.scss */
@@ -7781,8 +7781,8 @@ strong {
 table {
   font-size: inherit;
   float: left;
-  border-spacing: 0 !important;
-  border-collapse: collapse !important;
+  border-spacing: 0!important;
+  border-collapse: collapse!important;
 }
 
 /* line 56, ../scss/styles.scss */
@@ -7952,7 +7952,7 @@ header {
   text-align: left;
   text-transform: uppercase;
   border: none;
-  font-weight: normal !important;
+  font-weight: normal!important;
 }
 
 /* line 214, ../scss/styles.scss */
@@ -8065,6 +8065,7 @@ header {
 ----------------------------------------- */
 /* line 331, ../scss/styles.scss */
 footer {
+  margin-top: 30px;
   background: #CCC;
 }
 
@@ -8072,67 +8073,67 @@ footer {
    Media Queries for mobile / tablets responsivenes
 ----------------------------------------------------- */
 @media only screen and (device-width: 320px) and (orientation: portrait) {
-  /* line 341, ../scss/styles.scss */
+  /* line 342, ../scss/styles.scss */
   html {
-    font-size: 10px !important;
+    font-size: 10px!important;
   }
 }
 @media only screen and (device-width: 320px) and (orientation: landscape) {
-  /* line 348, ../scss/styles.scss */
+  /* line 349, ../scss/styles.scss */
   html {
-    font-size: 11px !important;
+    font-size: 11px!important;
   }
 }
 @media only screen and (max-width: 380px) {
-  /* line 356, ../scss/styles.scss */
+  /* line 357, ../scss/styles.scss */
   html {
-    font-size: 10px !important;
+    font-size: 10px!important;
   }
 }
 @media only screen and (max-width: 498px) {
-  /* line 363, ../scss/styles.scss */
+  /* line 364, ../scss/styles.scss */
   html {
-    font-size: 10px !important;
+    font-size: 10px!important;
   }
 }
 @media only screen and (max-width: 766px) and (min-width: 499px) {
-  /* line 370, ../scss/styles.scss */
+  /* line 371, ../scss/styles.scss */
   html {
-    font-size: 12px !important;
+    font-size: 12px!important;
   }
 }
 @media only screen and (max-width: 767px) {
-  /* line 378, ../scss/styles.scss */
+  /* line 379, ../scss/styles.scss */
   html {
-    font-size: 13px !important;
+    font-size: 13px!important;
   }
 }
 @media only screen and (device-width: 768px) and (orientation: portrait) {
-  /* line 385, ../scss/styles.scss */
+  /* line 386, ../scss/styles.scss */
   html {
-    font-size: 12px !important;
+    font-size: 12px!important;
   }
 }
 @media only screen and (device-width: 768px) and (orientation: landscape) {
-  /* line 392, ../scss/styles.scss */
+  /* line 393, ../scss/styles.scss */
   html {
-    font-size: 13px !important;
+    font-size: 13px!important;
   }
 }
 @media only screen and (max-width: 959px) and (min-width: 768px) {
-  /* line 399, ../scss/styles.scss */
+  /* line 400, ../scss/styles.scss */
   html {
-    font-size: 13px !important;
+    font-size: 13px!important;
   }
 }
 @media only screen and (min-width: 960px) {
-  /* line 405, ../scss/styles.scss */
+  /* line 406, ../scss/styles.scss */
   html {
-    font-size: 14px !important;
+    font-size: 14px!important;
   }
 }
 @media print {
-  /* line 411, ../scss/styles.scss */
+  /* line 412, ../scss/styles.scss */
   div:not(.reveal-modal) {
     display: inherit !important;
   }
