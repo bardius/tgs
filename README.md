@@ -239,7 +239,7 @@ The process for this is to:
 07. Change the bundles routing file to provide the required functional urls
 08. Alter the views
 09. Add the requested configuration values to the config.yml
-10. Add the bundle to the registered bundles list in AppKernel
+10. Add the bundle to the registered bundles list in AppKernel.php
 11. Clear cache
 12. Add the a service for the new bundle admin and add it to the sonata admin config
 13. Include the bundle routing file to the app routing
