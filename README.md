@@ -1,8 +1,8 @@
 
-Symfony2 BardisCMS v2.2.10
+Symfony2 BardisCMS v2.4.1
 ======================================================
 
-This is a Symfony2 based CMS based on version 2.2.10.  
+This is a Symfony2 based CMS based on version 2.4.1.  
   
 You can find the requirements for Symfony2 here http://symfony.com/doc/2.2/reference/requirements.html  
 You can find the documentation for Symfony2 here http://symfony.com/doc/2.2/book/index.html  

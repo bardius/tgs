@@ -9,13 +9,13 @@
 
 namespace BardisCMS\MenuBundle\Admin\Form\EventListener;
 
-
 use Symfony\Component\Form\Event\DataEvent;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\FormEvent;
 
 class AddMenuTypeFieldSubscriber implements EventSubscriberInterface
 {
@@ -33,7 +33,7 @@ class AddMenuTypeFieldSubscriber implements EventSubscriberInterface
         return array(FormEvents::PRE_SET_DATA => 'preSetData');
     }
 
-    public function preSetData(DataEvent $event)
+    public function preSetData(FormEvent $event)
     {
         $data = $event->getData();
         $form = $event->getForm();
@@ -50,26 +50,26 @@ class AddMenuTypeFieldSubscriber implements EventSubscriberInterface
         // check the menu type and presend the required field to enter page id
         switch ($data->getMenuType()) {
             case 'Blog':
-                $form->add($this->factory->createNamed('blog', 'entity', null, array('class' => 'BardisCMS\BlogBundle\Entity\Blog', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Blog Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteBlogs'), 'required' => false)));
-                $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('label' => 'Extra URL Params', 'required' => false)));
+                $form->add($this->factory->createNamed('blog', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\BlogBundle\Entity\Blog', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Blog Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteBlogs'), 'required' => false)));
+                $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('auto_initialize' => false, 'label' => 'Extra URL Params', 'required' => false)));
                 break;
             case 'Destination':
-                $form->add($this->factory->createNamed('destination', 'entity', null, array('class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Destination Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteDestination'), 'required' => false)));
-                $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('label' => 'Extra URL Params', 'required' => false)));
+                $form->add($this->factory->createNamed('destination', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Destination Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteDestination'), 'required' => false)));
+                $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('auto_initialize' => false, 'label' => 'Extra URL Params', 'required' => false)));
                 break;
             case 'Product':
-                $form->add($this->factory->createNamed('product', 'entity', null, array('class' => 'BardisCMS\ProductBundle\Entity\Product', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Product Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteProduct'), 'required' => false)));
-                $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('label' => 'Extra URL Params', 'required' => false)));
+                $form->add($this->factory->createNamed('product', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\ProductBundle\Entity\Product', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Product Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteProduct'), 'required' => false)));
+                $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('auto_initialize' => false, 'label' => 'Extra URL Params', 'required' => false)));
                 break;
             case 'Page':
-                $form->add($this->factory->createNamed('page', 'entity', null, array('class' => 'BardisCMS\PageBundle\Entity\Page', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Page', 'attr' => array('class' => 'autoCompleteItems autoCompletePages'), 'required' => false)));
-                $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('label' => 'Extra URL Params', 'required' => false)));
+                $form->add($this->factory->createNamed('page', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\PageBundle\Entity\Page', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Page', 'attr' => array('class' => 'autoCompleteItems autoCompletePages'), 'required' => false)));
+                $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('auto_initialize' => false, 'label' => 'Extra URL Params', 'required' => false)));
                 break;
             case 'http':
-                $form->add($this->factory->createNamed('externalUrl', 'text', null, array('label' => 'External URL', 'required' => false)));
+                $form->add($this->factory->createNamed('externalUrl', 'text', null, array('auto_initialize' => false, 'label' => 'External URL', 'required' => false)));
                 break;
             case 'url':
-                $form->add($this->factory->createNamed('externalUrl', 'text', null, array('label' => 'Page URL', 'required' => false)));
+                $form->add($this->factory->createNamed('externalUrl', 'text', null, array('auto_initialize' => false, 'label' => 'Page URL', 'required' => false)));
                 break;
             default:
         }
