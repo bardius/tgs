@@ -15,7 +15,7 @@
 
 
 {% block body_start %}
-    <div class="topBg {% if page.product is not empty and page.product.pageclass is not null %}{{ page.product.pageclass }}DestinationTopBg{% endif %}">
+    <div class="topBg {% if page.spots is not empty and page.spots.pageclass is not null %}{{ page.spots.pageclass }}DestinationTopBg{% endif %}">
         <div class="row">
             <div class="column twelve topBgImg destinationsTopBgImg {% if page.pagetype == 'destination_article' %}destinationArticleTopBgImg{% endif%}" {% if page.bgimage is not empty %}style="background-image: url({% path page.bgimage.id,  'big' %});"{% endif %}>            
             </div>
@@ -26,7 +26,7 @@
 {% block content %}
 <div class="twelve columns destinationPage {% if page.pagetype == 'destination_article' %}destinationArticlePage{% endif%}">
     {% if page.pagetype == 'destination_article' %}    
-        <div class="row destinationSummary {% if page.product is not empty and page.product.pageclass is not null %}{{ page.product.pageclass }}DestinationSummary{% endif %}">
+        <div class="row destinationSummary {% if page.spots is not empty and page.spots.pageclass is not null %}{{ page.spots.pageclass }}DestinationSummary{% endif %}">
             <div class="four column destinationImageHolder mobile-four">
                 {% if page.destinationimage.id is defined %}
                 {% media page.destinationimage.id,  'big' with {'alt': page.title, 'title': '' } %}
@@ -62,16 +62,18 @@
                 </ul>
             </div>
             
-            <div class="two column relatedProduct mobile-nine">
-                {% if page.product is not empty %}
-                <div class="relatedProductItem">
-                    <a class="relatedProductImage" href="{{ url('ProductBundle_page_normal', { 'alias': page.product.alias }) }}" title="View {{ page.product.title }}">
-                        {% media page.product.productimage.id,  'small' with {'alt': page.product.title, 'title': '' } %}
-                        <h4>{{ page.product.title }}</h4>
+            <div class="two column relatedSpot mobile-nine">
+                {% if page.spots is not empty %}
+                <div class="relatedSpotItem">
+                    <a class="relatedSpotImage" href="{{ url('SpotBundle_page_normal', { 'alias': page.spots.alias }) }}" title="View {{ page.spots.title }}">
+						{% if page.destinationimage.id is defined %}
+                        {% media page.spots.spotsimage.id,  'small' with {'alt': page.spots.title, 'title': '' } %}
+						{% endif %}
+                        <h4>{{ page.spots.title }}</h4>
                     </a>                
-                    <div class="productLinks">
-                        <a href="{{ url('ProductBundle_page_normal', { 'alias': page.product.alias }) }}" title="View {{ page.product.title }}">View</a>
-                        <a class="productBuyLink" href="http://tateandlyle.where-to-buy.co/Widgets/CrossDevicePartial/{{ page.product.manufacturersPartNo1 }}" title="Buy {{ page.product.title }} now">Buy</a>
+                    <div class="spotsLinks">
+                        <a href="{{ url('SpotBundle_page_normal', { 'alias': page.spots.alias }) }}" title="View {{ page.spots.title }}">View</a>
+                        <a class="spotsBuyLink" href="http://tateandlyle.where-to-buy.co/Widgets/CrossDevicePartial/{{ page.spots.manufacturersPartNo1 }}" title="Buy {{ page.spots.title }} now">Buy</a>
                     </div>  
                 </div>
                 {% endif %}

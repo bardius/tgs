@@ -104,7 +104,7 @@ class DestinationAdmin extends Admin
                             ->add('cooking', null, array('label' => 'Cooking Time', 'required' => false))
                             ->add('servings', null, array('label' => 'Total Servings', 'required' => false))
                             ->add('pageclass', null, array('label' => 'Destination Page CSS Class', 'required' => false))
-                            ->add('product', 'entity', array('class' => 'BardisCMS\ProductBundle\Entity\Product', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Related Product', 'attr' => array('class' => 'autoCompleteItems autoCompleteProduct'), 'required' => false))
+                            ->add('spots', 'entity', array('class' => 'BardisCMS\SpotBundle\Entity\Spot', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Related Spot', 'attr' => array('class' => 'autoCompleteItems autoCompleteSpot'), 'required' => false))
                         ->setHelps(array(
                                 'showPageTitle' => 'Hide / Show The title of the page',
                                 'summary'       => 'Set the Destination Description',
@@ -114,7 +114,7 @@ class DestinationAdmin extends Admin
                                 'cooking'       => 'Set the Cooking Time',
                                 'servings'      => 'Set the Total Servings',
                                 'pageclass'     => 'Set the Color CSS class for this Destination',
-                                'product'       => 'Select the related Product for this Destination'
+                                'spots'       => 'Select the related Spot for this Destination'
                         ))
                         ->end()
                         ->with('Destination Page Contents', array('collapsed' => true))
@@ -183,7 +183,7 @@ class DestinationAdmin extends Admin
             ->add('pagetype', 'doctrine_orm_string', array(), 'choice', array('choices' => $pagetypeChoices))
             ->add('categories')
             ->add('tags')
-            ->add('product')
+            ->add('spots')
             ->add('author')
             //->add('date', 'doctrine_orm_date_range', array('input_type' => 'date'));
         ;
@@ -198,7 +198,7 @@ class DestinationAdmin extends Admin
             ->addIdentifier('pagetypeAsString', null, array('sortable' => false, 'label' => 'Page Type'))
             ->addIdentifier('categories')
             ->addIdentifier('tags')
-            ->addIdentifier('product')
+            ->addIdentifier('spots')
             ->addIdentifier('pageOrder')
             ->addIdentifier('author')
             ->addIdentifier('date')

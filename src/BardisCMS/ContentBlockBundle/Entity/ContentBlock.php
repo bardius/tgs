@@ -1,4 +1,5 @@
 <?php
+
 /*
  * ContentBlock Bundle
  * This file is part of the BardisCMS.
@@ -13,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 use BardisCMS\PageBundle\Entity\Page;
 use BardisCMS\BlogBundle\Entity\Blog;
 use BardisCMS\DestinationBundle\Entity\Destination;
-use BardisCMS\ProductBundle\Entity\Product;
+use BardisCMS\SpotBundle\Entity\Spot;
 use BardisCMS\ContentBlockBundle\Entity\ContentImage;
 use BardisCMS\ContentBlockBundle\Entity\ContentSlide;
 use Application\Sonata\MediaBundle\Entity\Media;
@@ -101,9 +102,9 @@ class ContentBlock
     protected $destination_maincontents;
     
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\ProductBundle\Entity\Product", mappedBy="maincontentblocks", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\SpotBundle\Entity\Spot", mappedBy="maincontentblocks", cascade={"persist"})
      **/
-    protected $product_maincontents;
+    protected $spot_maincontents;
     
     /**
      * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Page", mappedBy="secondarycontentblocks", cascade={"persist"})
@@ -116,9 +117,9 @@ class ContentBlock
     protected $destination_secondarycontents;
     
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\ProductBundle\Entity\Product", mappedBy="secondarycontentblocks", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\SpotBundle\Entity\Spot", mappedBy="secondarycontentblocks", cascade={"persist"})
      **/
-    protected $product_secondarycontents;
+    protected $spot_secondarycontents;
     
     /**
      * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Page", mappedBy="extracontentblocks", cascade={"persist"})
@@ -151,9 +152,9 @@ class ContentBlock
     protected $destination_modalcontents;
     
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\ProductBundle\Entity\Product", mappedBy="modalcontentblocks", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BardisCMS\SpotBundle\Entity\Spot", mappedBy="modalcontentblocks", cascade={"persist"})
      **/
-    protected $product_modalcontents;
+    protected $spot_modalcontents;
     
     /**
      * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Page", mappedBy="bannercontentblocks", cascade={"persist"})
@@ -169,6 +170,11 @@ class ContentBlock
      * @ORM\ManyToMany(targetEntity="BardisCMS\DestinationBundle\Entity\Destination", mappedBy="bannercontentblocks", cascade={"persist"})
      **/
     protected $destination_bannercontents;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="BardisCMS\SpotBundle\Entity\Spot", mappedBy="bannercontentblocks", cascade={"persist"})
+     **/
+    protected $spot_bannercontents;
 
     /**
      * @ORM\ManyToMany(targetEntity="ContentImage", inversedBy="contentblocks", cascade={"all"}, orphanRemoval=true)
@@ -208,24 +214,25 @@ class ContentBlock
    
     public function __construct()
     {
-        $this->maincontents                 = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->secondarycontents            = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->extracontents                = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->modalcontents                = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->bannercontents               = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->blog_maincontents            = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->blog_extracontents            = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->blog_modalcontents           = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->blog_bannercontents          = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->imagefiles                   = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->destination_maincontents          = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->destination_secondarycontents     = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->destination_extracontents         = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->destination_modalcontents         = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->destination_bannercontents        = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->product_maincontents         = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->product_secondarycontents    = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->product_modalcontents        = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->maincontents						= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->secondarycontents				= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->extracontents					= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->modalcontents					= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->bannercontents					= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->blog_maincontents				= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->blog_extracontents				= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->blog_modalcontents				= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->blog_bannercontents				= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->imagefiles						= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->destination_maincontents         = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->destination_secondarycontents    = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->destination_extracontents        = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->destination_modalcontents        = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->destination_bannercontents       = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->spot_maincontents				= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->spot_secondarycontents			= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->spot_bannercontents				= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->spot_modalcontents				= new \Doctrine\Common\Collections\ArrayCollection();
     }
     
 
@@ -948,36 +955,36 @@ class ContentBlock
     }
 
     /**
-     * Add product_maincontents
+     * Add spot_maincontents
      *
-     * @param \BardisCMS\ProductBundle\Entity\Product $productMaincontents
+     * @param \BardisCMS\SpotBundle\Entity\Spot $spotMaincontents
      * @return ContentBlock
      */
-    public function addProductMaincontent(\BardisCMS\ProductBundle\Entity\Product $productMaincontents)
+    public function addSpotMaincontent(\BardisCMS\SpotBundle\Entity\Spot $spotMaincontents)
     {
-        $this->product_maincontents[] = $productMaincontents;
+        $this->spot_maincontents[] = $spotMaincontents;
     
         return $this;
     }
 
     /**
-     * Remove product_maincontents
+     * Remove spot_maincontents
      *
-     * @param \BardisCMS\ProductBundle\Entity\Product $productMaincontents
+     * @param \BardisCMS\SpotBundle\Entity\Spot $spotMaincontents
      */
-    public function removeProductMaincontent(\BardisCMS\ProductBundle\Entity\Product $productMaincontents)
+    public function removeSpotMaincontent(\BardisCMS\SpotBundle\Entity\Spot $spotMaincontents)
     {
-        $this->product_maincontents->removeElement($productMaincontents);
+        $this->spot_maincontents->removeElement($spotMaincontents);
     }
 
     /**
-     * Get product_maincontents
+     * Get spot_maincontents
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getProductMaincontents()
+    public function getSpotMaincontents()
     {
-        return $this->product_maincontents;
+        return $this->spot_maincontents;
     }
 
     /**
@@ -1014,36 +1021,36 @@ class ContentBlock
     }
 
     /**
-     * Add product_secondarycontents
+     * Add spot_secondarycontents
      *
-     * @param \BardisCMS\ProductBundle\Entity\Product $productSecondarycontents
+     * @param \BardisCMS\SpotBundle\Entity\Spot $spotSecondarycontents
      * @return ContentBlock
      */
-    public function addProductSecondarycontent(\BardisCMS\ProductBundle\Entity\Product $productSecondarycontents)
+    public function addSpotSecondarycontent(\BardisCMS\SpotBundle\Entity\Spot $spotSecondarycontents)
     {
-        $this->product_secondarycontents[] = $productSecondarycontents;
+        $this->spot_secondarycontents[] = $spotSecondarycontents;
     
         return $this;
     }
 
     /**
-     * Remove product_secondarycontents
+     * Remove spot_secondarycontents
      *
-     * @param \BardisCMS\ProductBundle\Entity\Product $productSecondarycontents
+     * @param \BardisCMS\SpotBundle\Entity\Spot $spotSecondarycontents
      */
-    public function removeProductSecondarycontent(\BardisCMS\ProductBundle\Entity\Product $productSecondarycontents)
+    public function removeSpotSecondarycontent(\BardisCMS\SpotBundle\Entity\Spot $spotSecondarycontents)
     {
-        $this->product_secondarycontents->removeElement($productSecondarycontents);
+        $this->spot_secondarycontents->removeElement($spotSecondarycontents);
     }
 
     /**
-     * Get product_secondarycontents
+     * Get spot_secondarycontents
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getProductSecondarycontents()
+    public function getSpotSecondarycontents()
     {
-        return $this->product_secondarycontents;
+        return $this->spot_secondarycontents;
     }
 
     /**
@@ -1113,36 +1120,36 @@ class ContentBlock
     }
 
     /**
-     * Add product_modalcontents
+     * Add spot_modalcontents
      *
-     * @param \BardisCMS\ProductBundle\Entity\Product $productModalcontents
+     * @param \BardisCMS\SpotBundle\Entity\Spot $spotModalcontents
      * @return ContentBlock
      */
-    public function addProductModalcontent(\BardisCMS\ProductBundle\Entity\Product $productModalcontents)
+    public function addSpotModalcontent(\BardisCMS\SpotBundle\Entity\Spot $spotModalcontents)
     {
-        $this->product_modalcontents[] = $productModalcontents;
+        $this->spot_modalcontents[] = $spotModalcontents;
     
         return $this;
     }
 
     /**
-     * Remove product_modalcontents
+     * Remove spot_modalcontents
      *
-     * @param \BardisCMS\ProductBundle\Entity\Product $productModalcontents
+     * @param \BardisCMS\SpotBundle\Entity\Spot $spotModalcontents
      */
-    public function removeProductModalcontent(\BardisCMS\ProductBundle\Entity\Product $productModalcontents)
+    public function removeSpotModalcontent(\BardisCMS\SpotBundle\Entity\Spot $spotModalcontents)
     {
-        $this->product_modalcontents->removeElement($productModalcontents);
+        $this->spot_modalcontents->removeElement($spotModalcontents);
     }
 
     /**
-     * Get product_modalcontents
+     * Get spot_modalcontents
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getProductModalcontents()
+    public function getSpotModalcontents()
     {
-        return $this->product_modalcontents;
+        return $this->spot_modalcontents;
     }
 
     /**
@@ -1179,36 +1186,36 @@ class ContentBlock
     }
 
     /**
-     * Add product_bannercontents
+     * Add spot_bannercontents
      *
-     * @param \BardisCMS\ProductBundle\Entity\Product $productBannercontents
+     * @param \BardisCMS\SpotBundle\Entity\Spot $spotBannercontents
      * @return ContentBlock
      */
-    public function addProductBannercontent(\BardisCMS\ProductBundle\Entity\Product $productBannercontents)
+    public function addSpotBannercontent(\BardisCMS\SpotBundle\Entity\Spot $spotBannercontents)
     {
-        $this->product_bannercontents[] = $productBannercontents;
+        $this->spot_bannercontents[] = $spotBannercontents;
     
         return $this;
     }
 
     /**
-     * Remove product_bannercontents
+     * Remove spot_bannercontents
      *
-     * @param \BardisCMS\ProductBundle\Entity\Product $productBannercontents
+     * @param \BardisCMS\SpotBundle\Entity\Spot $spotBannercontents
      */
-    public function removeProductBannercontent(\BardisCMS\ProductBundle\Entity\Product $productBannercontents)
+    public function removeSpotBannercontent(\BardisCMS\SpotBundle\Entity\Spot $spotBannercontents)
     {
-        $this->product_bannercontents->removeElement($productBannercontents);
+        $this->spot_bannercontents->removeElement($spotBannercontents);
     }
 
     /**
-     * Get product_bannercontents
+     * Get spot_bannercontents
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getProductBannercontents()
+    public function getSpotBannercontents()
     {
-        return $this->product_bannercontents;
+        return $this->spot_bannercontents;
     }
 	
 	

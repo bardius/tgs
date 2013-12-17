@@ -1,5 +1,5 @@
 {% if page.modalcontentblocks|length > 0 %}
-<div id="nutritionModal" class="reveal-modal medium {% if page.product.pageclass is defined %}{{ page.product.pageclass }}{% endif %}">
+<div id="nutritionModal" class="reveal-modal medium {% if page.spots.pageclass is defined %}{{ page.spots.pageclass }}{% endif %}">
     {% for contentBlock in page.modalcontentblocks|sort_by_attribute('ordering') %}
         <h3>Nutritional Information</h3>
         {% if contentBlock.publishedState == 1 %}
@@ -37,9 +37,9 @@
 </div>
 {% endif %}
 
-{% if page.product.manufacturersPartNo1 is defined %}
-<div id="buyNowModal" class="reveal-modal medium {% if page.product.pageclass is defined %}{{ page.product.pageclass }}{% endif %}">
-    <h3>Visit an online retailer to buy <span>{{ page.product.title }} ({{ page.product.packageSize1 }})</span> now</h3>
+{% if page.spots.manufacturersPartNo1 is defined %}
+<div id="buyNowModal" class="reveal-modal medium {% if page.spots.pageclass is defined %}{{ page.spots.pageclass }}{% endif %}">
+    <h3>Visit an online retailer to buy <span>{{ page.spots.title }} ({{ page.spots.packageSize1 }})</span> now</h3>
     <p class="notice">Tate & Lyle Sugars cannot guarantee stock availability</p>
     <div id="storelist">
         <img src="{{ app.request.basepath }}/images/site_assets/loading.gif" alt="loading..." />

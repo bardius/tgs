@@ -50,10 +50,10 @@ class Menu
     protected $destination;
 	
     /**
-     * @ORM\ManyToOne(targetEntity="BardisCMS\ProductBundle\Entity\Product")
-     * @ORM\JoinColumn(name="product", referencedColumnName="id", onDelete="SET NULL")
+     * @ORM\ManyToOne(targetEntity="BardisCMS\SpotBundle\Entity\Spot")
+     * @ORM\JoinColumn(name="spot", referencedColumnName="id", onDelete="SET NULL")
      */
-    protected $product;
+    protected $spot;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -378,25 +378,25 @@ class Menu
     }
     
     /**
-     * Set product
+     * Set spot
      *
-     * @param BardisCMS\DestinationBundle\Entity\Product $product
+     * @param BardisCMS\DestinationBundle\Entity\Spot $spot
      * @return Menu
      */
-    public function setProduct(\BardisCMS\ProductBundle\Entity\Product $product = null)
+    public function setSpot(\BardisCMS\SpotBundle\Entity\Spot $spot = null)
     {
-        $this->product = $product;
+        $this->spot = $spot;
         return $this;
     }
 
     /**
-     * Get product
+     * Get spot
      *
-     * @return BardisCMS\DestinationBundle\Entity\Product 
+     * @return BardisCMS\DestinationBundle\Entity\Spot 
      */
-    public function getProduct()
+    public function getSpot()
     {
-        return $this->product;
+        return $this->spot;
     }
 
     /**
@@ -493,14 +493,14 @@ class Menu
     public function getMenuTypeAsString()
     {
         switch($this->getMenuType()){
-            case('Page'):       return "Page";
-            case('Blog'):       return "Blog Page";
-            case('Product'):    return "Product Page";
-            case('Destination'):     return "Destination Page";
-            case('http'):       return "External URL";
-            case('url'):        return "Internal URL";
-            case('seperator'):  return "Seperator";
-            default:            return $this->getMenuType(); 
+            case('Page'):			return "Page";
+            case('Blog'):			return "Blog Page";
+            case('Spot'):			return "Spot Page";
+            case('Destination'):    return "Destination Page";
+            case('http'):			return "External URL";
+            case('url'):			return "Internal URL";
+            case('seperator'):		return "Seperator";
+            default:				return $this->getMenuType(); 
         }
     }
 }

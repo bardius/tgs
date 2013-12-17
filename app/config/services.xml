@@ -47,13 +47,13 @@
               <argument>DestinationBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.products" class="BardisCMS\ProductBundle\Admin\ProductAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Product" label="Manage Product Pages" />
+      <service id="sonata.admin.spots" class="BardisCMS\SpotBundle\Admin\SpotAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Spot" label="Manage Spot Pages" />
           <argument />
-          <argument>BardisCMS\ProductBundle\Entity\Product</argument>
-          <argument>ProductBundle:ProductAdmin</argument>
+          <argument>BardisCMS\SpotBundle\Entity\Spot</argument>
+          <argument>SpotBundle:SpotAdmin</argument>
           <call method="setTranslationDomain">
-              <argument>ProductBundle</argument>
+              <argument>SpotBundle</argument>
           </call>
       </service>
       <service id="sonata.admin.menus" class="BardisCMS\MenuBundle\Admin\MenuAdmin">
@@ -74,13 +74,13 @@
               <argument>DestinationBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.productcategories" class="BardisCMS\ProductBundle\Admin\ProductCategoriesAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Product Categories" label="Manage Product Categories" />
+      <service id="sonata.admin.spotdestinations" class="BardisCMS\SpotBundle\Admin\SpotDestinationsAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Spot Destinations" label="Manage Spot Destination" />
           <argument />
-          <argument>BardisCMS\ProductBundle\Entity\ProductCategory</argument>
+          <argument>BardisCMS\SpotBundle\Entity\SpotDestination</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
-              <argument>ProductBundle</argument>
+              <argument>SpotBundle</argument>
           </call>
       </service>
       <service id="sonata.admin.destinationtags" class="BardisCMS\DestinationBundle\Admin\DestinationTagsAdmin">
@@ -92,13 +92,13 @@
               <argument>DestinationBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.producttags" class="BardisCMS\ProductBundle\Admin\ProductTagsAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Product Tags" label="Manage Product Tags" />
+      <service id="sonata.admin.spotfilters" class="BardisCMS\SpotBundle\Admin\SpotFiltersAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Spot Filters" label="Manage Spot Filters" />
           <argument />
-          <argument>BardisCMS\ProductBundle\Entity\ProductTag</argument>
+          <argument>BardisCMS\SpotBundle\Entity\SpotFilter</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
-              <argument>ProductBundle</argument>
+              <argument>SpotBundle</argument>
           </call>
       </service>
       <service id="sonata.admin.contentblocks" class="BardisCMS\ContentBlockBundle\Admin\ContentBlockAdmin">

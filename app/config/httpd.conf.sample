@@ -27,7 +27,7 @@
     RewriteLog /home/domainname/log/domainname-rewrite_log
 
 
-    # for profiling information. Should not be used in production
+    # for profiling information. Should not be used in spotion
     Alias /xhprof_html /usr/local/share/php/share/pear/xhprof_html
 
     <Directory /home/domainname/symfony/web>

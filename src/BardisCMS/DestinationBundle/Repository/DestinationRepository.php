@@ -272,19 +272,19 @@ class DestinationRepository extends EntityRepository
         return  $pageList;
     }
     
-    public function getRelatedDestinations($productId, $currentPageId, $publishStates)
+    public function getRelatedDestinations($spotsId, $currentPageId, $publishStates)
     {   
         $relatedDestinations = null;
         
-        if(!empty($productId))
+        if(!empty($spotsId))
         {
             $qb = $this->_em->createQueryBuilder(); 
             
             $qb->select('DISTINCT p')
                 ->from('DestinationBundle:Destination', 'p')
-                ->innerJoin('p.product', 't')
+                ->innerJoin('p.spots', 't')
                 ->where($qb->expr()->andX(
-                    $qb->expr()->in('t.id', ':product'),
+                    $qb->expr()->in('t.id', ':spots'),
                     $qb->expr()->in('p.publishState', ':publishState'),
                     $qb->expr()->eq('p.pagetype', ':pagetype'),
                     $qb->expr()->neq('p.id', ':currentPage')
@@ -292,7 +292,7 @@ class DestinationRepository extends EntityRepository
                 ->orderBy('p.date', 'DESC')
                 ->setFirstResult(0)
                 ->setMaxResults(4)
-                ->setParameter('product', $productId)
+                ->setParameter('spots', $spotsId)
                 ->setParameter('publishState', $publishStates)
                 ->setParameter('pagetype', 'destination_article')
                 ->setParameter('currentPage', $currentPageId)
@@ -304,25 +304,25 @@ class DestinationRepository extends EntityRepository
         return  $relatedDestinations;
     }
     
-    public function getRelatedProductDestinations($productId, $publishStates)
+    public function getRelatedSpotDestinations($spotsId, $publishStates)
     {   
         
-        if(!empty($productId))
+        if(!empty($spotsId))
         {
             $qb = $this->_em->createQueryBuilder(); 
             
             $qb->select('DISTINCT p')
                 ->from('DestinationBundle:Destination', 'p')
-                ->innerJoin('p.product', 't')
+                ->innerJoin('p.spots', 't')
                 ->where($qb->expr()->andX(
-                    $qb->expr()->in('t.id', ':product'),
+                    $qb->expr()->in('t.id', ':spots'),
                     $qb->expr()->in('p.publishState', ':publishState'),
                     $qb->expr()->eq('p.pagetype', ':pagetype')
                 ))
                 ->orderBy('p.date', 'DESC')
                 ->setFirstResult(0)
                 ->setMaxResults(3)
-                ->setParameter('product', $productId)
+                ->setParameter('spots', $spotsId)
                 ->setParameter('publishState', $publishStates)
                 ->setParameter('pagetype', 'destination_article')
             ;

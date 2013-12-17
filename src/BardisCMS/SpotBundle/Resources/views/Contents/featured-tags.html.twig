@@ -1,0 +1,19 @@
+{% if page.spotFilters is not null %}
+<div class="twelve column featuredTags hide-for-small">
+    {% for tag in page.spotFilters if spotFilter.filterCategory == 'budjet' %}
+    {% if loop.index0 == 0 %}
+    <h4>Perfect for</h4>
+    <ul>
+    {% endif %}
+    {% if loop.index0 < 3 %}
+        <li class="tagIcon tagIcon{{ loop.index0 }}">
+        {% if spotFilter.filterIcon.id is not empty %}
+            <span class='tagImage'>{% media spotFilter.filterIcon.id, 'medium' with {'alt': filter.title, 'title': ''} %}</span>
+        {% endif %}
+        <span class='tagTitle'>{{ spotFilter.title }}</span>
+        </li>
+    {% endif %}
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}

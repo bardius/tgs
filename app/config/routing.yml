@@ -74,8 +74,8 @@ DestinationBundle:
     resource: "@DestinationBundle/Resources/config/routing.yml"
     prefix:   /
 
-ProductBundle:
-    resource: "@ProductBundle/Resources/config/routing.yml"
+SpotBundle:
+    resource: "@SpotBundle/Resources/config/routing.yml"
     prefix:   /
 
 BlogBundle:

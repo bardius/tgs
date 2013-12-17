@@ -236,8 +236,8 @@
 									{% include 'PageBundle:Contents:page-list-blog-item.html.twig' %}
 								{% elseif pageItem.pagetype == 'destination_home' or pageItem.pagetype == 'destination_article' %}
 									{% include 'PageBundle:Contents:page-list-destination-item.html.twig' %}
-								{% elseif pageItem.pagetype == 'product_home' or pageItem.pagetype == 'product_article' %}
-									{% include 'PageBundle:Contents:page-list-product-item.html.twig' %}
+								{% elseif pageItem.pagetype == 'spots_home' or pageItem.pagetype == 'spots_article' %}
+									{% include 'PageBundle:Contents:page-list-spots-item.html.twig' %}
 								{% else %}
 									{% include 'PageBundle:Contents:page-list-item.html.twig' %}                            
 								{% endif %}                            

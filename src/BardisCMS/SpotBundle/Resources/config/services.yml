@@ -1,0 +1,16 @@
+parameters:
+#    spot.example.class: BardisCMS\SpotBundle\Example
+
+services:
+            
+  spot.form.spotfiltersform:
+    class: BardisCMS\SpotBundle\Form\SpotFiltersFormType        
+    arguments: ["@doctrine.orm.entity_manager"]        
+    tags:
+      - { name: form.type, alias: spotfiltersform }
+            
+  spot.admin.form.type.spotattributes:
+    class: BardisCMS\SpotBundle\Admin\Form\Type\SpotAttributesType        
+    arguments:        
+    tags:
+      - { name: form.type, alias: spotattributes }

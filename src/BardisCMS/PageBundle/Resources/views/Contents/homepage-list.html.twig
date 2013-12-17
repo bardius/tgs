@@ -5,8 +5,8 @@
             {% set vars = {'urlPart': 'blog/'} %}
         {% elseif pageItem.pagetype == 'destination_home' or pageItem.pagetype == 'destination_cat_page' or pageItem.pagetype == 'destination_article' %}
             {% set vars = {'urlPart': 'destination/'} %}
-        {% elseif pageItem.pagetype == 'product_home' or pageItem.pagetype == 'product_cat_page' or pageItem.pagetype == 'product_article' %}
-            {% set vars = {'urlPart': 'product/'} %}
+        {% elseif pageItem.pagetype == 'spots_home' or pageItem.pagetype == 'spots_cat_page' or pageItem.pagetype == 'spots_article' %}
+            {% set vars = {'urlPart': 'spots/'} %}
         {% else %}
             {% set vars = {'urlPart': ''} %}
         {% endif %} 

@@ -153,7 +153,7 @@ class MenuBuilder {
 
 					case 'Blog':
 					case 'Destination':
-					case 'Product':
+					case 'Spot':
 						$pageFunction = $menuItem->$getPageFunction();
 
 						// If Link Action is not selected point to homepage else to alias or page id based route 

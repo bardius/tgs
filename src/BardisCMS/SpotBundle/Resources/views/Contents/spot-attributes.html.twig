@@ -1,0 +1,13 @@
+{% if page.spotAttributes is not null %}
+<div class="twelve column featuredTags hide-for-small">
+	
+    <h4>Seasons</h4>
+    {% for season in page.spotAttributes.season %}
+		{{ season }}<br />
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{#
+{{ dump(page.spotAttributes) }}
+#}

@@ -270,7 +270,7 @@ class DefaultController extends Controller {
 			$pages = array();
 			$blogpages = array();
 			$destinationpages = array();
-			$productpages = array();
+			$spotspages = array();
 
 			// Get the pages for the category id of homepage but take ou the current (homepage) page item from the results
 			$pages = $this->getDoctrine()->getRepository('PageBundle:Page')->getHomepageItems($categoryIds, $id, $publishStates);
@@ -278,14 +278,21 @@ class DefaultController extends Controller {
 
 			// @TODO: remove the hardcoded if for the homepage category of the other bundles (8)
 			$destinationpages = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getHomepageItems(8, $publishStates);
-			$productpages = $this->getDoctrine()->getRepository('ProductBundle:Product')->getHomepageItems(8, $publishStates);
+			$spotspages = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getHomepageItems(8, $publishStates);
 
-			$pages = array_merge($pages, $blogpages, $destinationpages, $productpages);
+			$pages = array_merge($pages, $blogpages, $destinationpages, $spotspages);
 
 			// Sort all the items based on custom sorting
 			usort($pages, array("BardisCMS\PageBundle\Controller\DefaultController", "sortHomepageItemsCompare"));
-
-			return $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'mobile' => $serveMobile));
+			
+			$response = $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'mobile' => $serveMobile));
+			
+			/*$cacheIsOn = true;
+			if($cacheIsOn){
+				$response->setMaxAge(3600);
+				$response->setPublic();				
+			}*/
+			return $response;
 		}
 		// Render contact page type
 		else if ($page->getPagetype() == 'contact') {
@@ -330,14 +337,14 @@ class DefaultController extends Controller {
 		$sitemapList = array();
 		$blogpages = array();
 		$destinationpages = array();
-		$productpages = array();
+		$spotspages = array();
 
 		$sitemapList = $this->getDoctrine()->getRepository('PageBundle:Page')->getSitemapList($publishStates);
 		$blogpages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getSitemapList($publishStates);
 		$destinationpages = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getSitemapList($publishStates);
-		$productpages = $this->getDoctrine()->getRepository('ProductBundle:Product')->getSitemapList($publishStates);
+		$spotspages = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getSitemapList($publishStates);
 
-		$sitemapList = array_merge($sitemapList, $blogpages, $destinationpages, $productpages);
+		$sitemapList = array_merge($sitemapList, $blogpages, $destinationpages, $spotspages);
 
 		return $this->render('PageBundle:Default:sitemap.xml.twig', array('sitemapList' => $sitemapList));
 	}

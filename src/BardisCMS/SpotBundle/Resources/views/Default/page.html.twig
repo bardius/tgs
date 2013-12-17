@@ -1,0 +1,94 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ page.pagetitle }}{% endblock %}
+{% block metaDescription %}{{ page.description }}{% endblock %}
+{% block metaKeywords %}{{ page.keywords }}{% endblock %}
+{% block metaAuthor %}{{ page.metaAuthor }}{% endblock %}
+
+{% block OgTitle %}{{ page.pagetitle }}{% endblock %}
+{% block OgSiteName %}{{ page.pagetitle }}{% endblock %}
+{% block metaOgDescription %}{{ page.description }}{% endblock %}
+
+{% block siteLogoTitle %}{{ page.pagetitle }}{% endblock %}
+{% block siteLogoKeywords %}{{ page.keywords }}{% endblock %}
+{% block siteLogoDescription %}{{ page.title }} {{ page.description }}{% endblock %}
+
+
+{% block body_start %}
+        <div class="row">
+            <div class="column large-12 small-12 topBgImg">            
+            </div>
+        </div>
+{% endblock %}
+
+{% block content %}
+<div class="twelve columns spotsPage {% if page.pageclass is not null %}{{ page.pageclass }}{% endif %}">
+    {% if page.pagetype == 'spot_article' %}    
+        <div class="row spotsSummary contentRow">
+            <div class="eight column spotsTopText mobile-six">
+                <h2>{{ page.title }}</h2>
+                {% if page.summary is not null %}
+                <div class="summary">{{ page.summary|raw }}</div>
+                {% endif %}
+            </div>
+            <div class="eight columns spotsExtras mobile-nine">
+                {% include 'SpotBundle:Contents:related-destinations.html.twig' %}
+            </div>
+            <div class="eight columns spotsExtras mobile-nine">
+                {% include 'SpotBundle:Contents:spot-attributes.html.twig' %}
+            </div>
+        </div>
+        {% if page.maincontentblocks is not empty %} 
+        <div class="row">
+            <div class="twelve columns pageText mobile-nine">
+                {% include 'SpotBundle:Contents:maincontentblocks.html.twig' %}
+            </div>
+        </div>
+        {% endif %}
+    {% elseif page.pagetype == 'spot_filtered_list' or page.pagetype == 'spot_home' %} 
+        <div class="row spotsListTop">
+            <div class="seven column">  
+                <h2>{{ page.title }}</h2>
+                {% if page.summary is not empty %} 
+                <div class="summary">{{ page.summary|raw }}</div>
+                {% endif %}  
+            </div>
+            <div class="five column hide-for-small">
+                
+            </div>
+        </div>
+        <div class="row {{ page.pagetype }}List spotsList">
+            <div class="twelve columns mobile-nine"> 
+                {% include 'SpotBundle:Contents:filterResultsFormHolder.html.twig' %}
+            </div>
+            {% if page.maincontentblocks is not empty %}
+            <div class="twelve columns pageText mobile-nine">
+                {% include 'SpotBundle:Contents:maincontentblocks.html.twig' %}
+            </div>
+            {% endif %}
+            <div class="twelve columns categoryListing mobile-nine">
+                {% if pages %}
+                    {% for pageItem in pages %}
+                        <div class="columns categoryListingItem three mobile-four">
+                            {% include 'SpotBundle:Contents:page-list-item.html.twig' %}
+                        </div>
+                    {% endfor %}
+                {% endif %} 
+            </div>
+        </div>
+        {% if page.pagetype == 'spot_filtered_list' %} 
+            {% include 'SpotBundle:Contents:tags-pagination.html.twig' %}
+        {% elseif page.pagetype == 'spot_home' %}
+            {% include 'SpotBundle:Contents:home_pagination.html.twig' %}
+        {% else %} 
+            {% include 'SpotBundle:Contents:pagination.html.twig' %}            
+        {% endif %} 
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block gAnalytics %}{% include 'PageBundle:Contents:ga.html.twig' %}{% endblock %}
+
+{% block modal %}
+    {% include 'SpotBundle:Contents:modalcontentblocks.html.twig' %}
+{% endblock %}

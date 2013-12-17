@@ -33,7 +33,7 @@ parameters:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ PageBundle, BlogBundle, DestinationBundle, ProductBundle, FOSUserBundle ]
+    bundles:        [ PageBundle, BlogBundle, DestinationBundle, SpotBundle, FOSUserBundle ]
     java:           %javapath%
     
     filters:
@@ -47,8 +47,6 @@ assetic:
             jar:    "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar.jar"
         yui_js:
             jar:    "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar.jar"
-        #closure:
-        #    jar: %kernel.root_dir%/Resources/java/compiler.jar
 
 # Doctrine Configuration
 doctrine:
@@ -128,13 +126,13 @@ sonata_block:
         sonata.admin.menus: 
         sonata.admin.blogs:
         sonata.admin.destinations:
-        sonata.admin.products:
+        sonata.admin.spots:
         sonata.admin.categories:
         sonata.admin.tags:
         sonata.admin.destinationcategories:
         sonata.admin.destinationtags:
-        sonata.admin.productcategories:
-        sonata.admin.producttags:
+        sonata.admin.spotdestinations:
+        sonata.admin.spotfilters:
         sonata.admin.contentblocks:
         sonata.user.admin.user:
         sonata.admin.settings:
@@ -206,7 +204,7 @@ sonata_admin:
                   - sonata.admin.pages
                   - sonata.admin.blogs
                   - sonata.admin.destination
-                  - sonata.admin.products
+                  - sonata.admin.spots
            sonata_menus:
               label: Menus
               items:
@@ -216,13 +214,13 @@ sonata_admin:
               items:
                   - sonata.admin.categories
                   - sonata.admin.destinationcategories
-                  - sonata.admin.productcategories
+                  - sonata.admin.spotdestinations
            sonata_tags:
               label: Tags
               items:
                   - sonata.admin.tags
                   - sonata.admin.destinationtags
-                  - sonata.admin.producttags
+                  - sonata.admin.spotfilters
            sonata_contentblocks:
               label: Content Blocks
               items:
@@ -303,7 +301,7 @@ sonata_media:
                 big:        { width: 307 , height: 356 , quality: 80 }
                 original:   { quality: 80 }  
                 
-        product:
+        spot:
             providers:
                 - sonata.media.provider.image
 
@@ -315,7 +313,7 @@ sonata_media:
                 big:        { width: 306 , height: 522 , quality: 80 }
                 original:   { quality: 80 }
                 
-        productlist:
+        spotlist:
             providers:
                 - sonata.media.provider.image
 
@@ -441,13 +439,13 @@ menu:
         showPage:   Show Page
     
     menutypes:
-        Page:       Page
-        Blog:       Blog Page
-        Product:    Product Page
-        Destination:     Destination Page
-        http:       External URL
-        url:        Internal URL
-        seperator:  Seperator
+        Page:					Page
+        Blog:					Blog Page
+        Spot:					Spot Page
+        Destination:  Destination Page
+        http:					External URL
+        url:					Internal URL
+        seperator:		Seperator
         
     menugroups:
         Main Menu:          Main Menu
@@ -473,9 +471,9 @@ destination:
         destination_home:            Destination Homepage
     
     tagcategories:
-        occasions:          Occasions
-        everyday:           Everyday
-        favourites:         Our Favourites
+        occasions:	Occasions
+        everyday:   Everyday
+        favourites: Our Favourites
    
     mediasizes:
         original:   Original
@@ -501,26 +499,25 @@ blog:
         big:        Big
         
         
-product:        
+spot:        
     loadservices: true
     
     pagetypes:
-        product_article:        Product Article
-        product_cat_page:       Product Category Page
-        product_filtered_list:  Product Filter Results
-        product_home:           Product Homepage
+        spot_article:        Spot Page
+        spot_filtered_list:  Spot Filter Results
+        spot_home:           Spot Home
     
-    tagcategories:
-        product_featured:   Perfect For Product
-        sugar_type:         Sugar type
-        excellent_for:      Excellent for
-        body:               Body
-   
-    mediasizes:
-        original:   Original
-        small:      Small
-        medium:     Medium
-        big:        Big
+    filtercategories:
+        amenities:      Amenities
+        budget:					Budget
+        experience:     Experience
+        lifestyle:			Lifestyle
+        season:         Season
+        sea_state:      Sea State
+        sport:					Sport
+        style:          Style
+        swell_length:   Swell Length
+        wind_force:     Wind Force
         
 comment:    
     loadservices: true

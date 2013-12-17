@@ -395,8 +395,8 @@ class DefaultController extends Controller
         }
         else if ($page->getPagetype() == 'destination_article')
         {
-            $productId      = $page->getProduct();            
-            $relatedDestinations = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getRelatedDestinations($productId, $id, $publishStates);
+            $spotsId      = $page->getSpots();            
+            $relatedDestinations = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getRelatedDestinations($spotsId, $id, $publishStates);
             
             return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'relateddestinations' => $relatedDestinations));
             

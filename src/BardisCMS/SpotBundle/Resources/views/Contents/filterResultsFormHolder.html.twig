@@ -1,0 +1,67 @@
+                    <div id="filterResultsFormHolder" class="columns large-12 small-12">
+						<div class="row panel">
+                        <h3>Filter our spots</h3>
+						
+                        <form name="filterResultsForm" id="filterResultsForm" action="/spot/filterPages/" method="post" {{ form_enctype(filterForm) }} class="filterForm">
+							
+                            <div class="columns large-12 small-12">  
+                                {{ form_row(filterForm.sport, { 'attr': {'class': 'customCheckBox'} }) }}
+                            </div>
+                              
+                            <div class="columns large-12 small-12">  
+                                {{ form_row(filterForm.destinations, { 'attr': {'class': 'customCheckBox'} }) }}
+                            </div>
+                              
+                            <div class="columns large-12 small-12">  
+                                {{ form_row(filterForm.budget, { 'attr': {'class': 'customCheckBox'} }) }}
+                            </div>
+                              
+                            <div class="columns large-12 small-12">  
+                                {{ form_row(filterForm.season, { 'attr': {'class': 'customCheckBox'} }) }}
+                            </div>
+                              
+                            <div class="columns large-12 small-12">  
+                                {{ form_row(filterForm.experience, { 'attr': {'class': 'customCheckBox'} }) }}
+                            </div>
+                              
+                            <div class="columns large-12 small-12">  
+                                {{ form_row(filterForm.style, { 'attr': {'class': 'customCheckBox'} }) }}
+                            </div
+                              
+                            <div class="columns large-12 small-12">  
+                                {{ form_row(filterForm.sea_state, { 'attr': {'class': 'customCheckBox'} }) }}
+                            </div>
+                              
+                            <div class="columns large-12 small-12">  
+                                {{ form_row(filterForm.wind_force, { 'attr': {'class': 'customCheckBox'} }) }}
+                            </div>
+                              
+                            <div class="columns large-12 small-12">  
+                                {{ form_row(filterForm.season, { 'attr': {'class': 'customCheckBox'} }) }}
+                            </div>
+                              
+                            <div class="columns large-12 small-12">  
+                                {{ form_row(filterForm.amenities, { 'attr': {'class': 'customCheckBox'} }) }}
+                            </div>
+                              
+                            <div class="columns large-12 small-12">  
+                                {{ form_row(filterForm.lifestyle, { 'attr': {'class': 'customCheckBox'} }) }}
+                            </div>
+                              
+                            <div class="columns large-12 small-12">  
+                                {{ form_rest(filterForm) }}
+                                {{ form_errors(filterForm) }}
+                            </div>
+                              
+                            <div class="formBtns columns large-12 small-12">
+                                <div class="control-group">
+                                    <input type="submit" id="filterResultsBtn" value="GO" />
+                                    <div class="customCheckBox checkAllBox">
+                                        <input class="checkAllBtn" type="checkbox" id="CheckAll" name="CheckAll" value="1" />
+                                        <label for="CheckAll">Show All</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                     </div>
+                     </div>

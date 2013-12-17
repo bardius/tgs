@@ -140,10 +140,10 @@ class Destination
     protected $servings = null;
 	
     /**
-     * @ORM\ManyToOne(targetEntity="BardisCMS\ProductBundle\Entity\Product")
-     * @ORM\JoinColumn(name="product", referencedColumnName="id", onDelete="SET NULL")
+     * @ORM\ManyToOne(targetEntity="BardisCMS\SpotBundle\Entity\Spot")
+     * @ORM\JoinColumn(name="spots", referencedColumnName="id", onDelete="SET NULL")
      */
-    protected $product;
+    protected $spots;
 
     /**
     * @ORM\ManyToMany(targetEntity="BardisCMS\DestinationBundle\Entity\DestinationCategory", inversedBy="destinations", cascade={"persist"})
@@ -888,26 +888,26 @@ class Destination
     }
 
     /**
-     * Set product
+     * Set spots
      *
-     * @param \BardisCMS\ProductBundle\Entity\Product $product
+     * @param \BardisCMS\SpotBundle\Entity\Spot $spots
      * @return Destination
      */
-    public function setProduct(\BardisCMS\ProductBundle\Entity\Product $product = null)
+    public function setSpots(\BardisCMS\SpotBundle\Entity\Spot $spots = null)
     {
-        $this->product = $product;
+        $this->spots = $spots;
     
         return $this;
     }
 
     /**
-     * Get product
+     * Get spots
      *
-     * @return \BardisCMS\ProductBundle\Entity\Product 
+     * @return \BardisCMS\SpotBundle\Entity\Spot 
      */
-    public function getProduct()
+    public function getSpots()
     {
-        return $this->product;
+        return $this->spots;
     }
 
     /**
@@ -987,7 +987,7 @@ class Destination
 			return (string)$this->getTitle();			
 		}
 		else{
-			return (string)'New Destination Page/Post';
+			return (string)'New Destination Page';
 		}
     }
     

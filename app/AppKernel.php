@@ -39,7 +39,7 @@ class AppKernel extends Kernel
             new BardisCMS\PageBundle\PageBundle(),
             new BardisCMS\BlogBundle\BlogBundle(),
             new BardisCMS\DestinationBundle\DestinationBundle(),
-            new BardisCMS\ProductBundle\ProductBundle(),
+            new BardisCMS\SpotBundle\SpotBundle(),
             new BardisCMS\CategoryBundle\CategoryBundle(),
             new BardisCMS\TagBundle\TagBundle(),
             new BardisCMS\ContentBlockBundle\ContentBlockBundle(),

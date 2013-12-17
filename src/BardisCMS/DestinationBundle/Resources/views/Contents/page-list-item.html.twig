@@ -5,7 +5,7 @@
         {% else %}
         <img src="/images/site_assets/defaultDestinationThumb.jpg" alt="{{ pageItem.title }}" />
         {% endif %}
-        <div class="relatedItemText  {% if pageItem.product.pageclass is defined %}{{ pageItem.product.pageclass }}{% endif %}">
+        <div class="relatedItemText  {% if pageItem.spots.pageclass is defined %}{{ pageItem.spots.pageclass }}{% endif %}">
             <h5 class="title"><span>{{ pageItem.title }}</span></h5>
             <span class="itemIcon preperation">{{ pageItem.preperation }}</span>
             <span class="itemIcon cooking">{{ pageItem.cooking }}</span>

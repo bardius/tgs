@@ -57,8 +57,8 @@ class AddMenuTypeFieldSubscriber implements EventSubscriberInterface
                 $form->add($this->factory->createNamed('destination', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Destination Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteDestination'), 'required' => false)));
                 $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('auto_initialize' => false, 'label' => 'Extra URL Params', 'required' => false)));
                 break;
-            case 'Product':
-                $form->add($this->factory->createNamed('product', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\ProductBundle\Entity\Product', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Product Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteProduct'), 'required' => false)));
+            case 'Spot':
+                $form->add($this->factory->createNamed('spot', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\SpotBundle\Entity\Spot', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Spot Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteSpot'), 'required' => false)));
                 $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('auto_initialize' => false, 'label' => 'Extra URL Params', 'required' => false)));
                 break;
             case 'Page':

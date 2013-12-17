@@ -1,0 +1,11 @@
+<div class="column twelve">
+    <h3>Our Range</h3>
+</div>
+{% for spots in rangelist if spots.spotsimage.id is defined %}
+        <div class="rangeSpot {% if spots.pageclass is not null %}{{ spots.pageclass }}{% endif %} column one mobile-one">
+            <a href="{{ url('SpotBundle_page_normal', { 'alias': spots.alias }) }}" title="{{ spots.title }}">
+                {% media spots.spotsimage.id, 'xsmall' with {'alt': spots.title, 'title': ''} %}
+                <span>{{ spots.title }}</span>
+            </a>
+        </div>
+{% endfor %}
