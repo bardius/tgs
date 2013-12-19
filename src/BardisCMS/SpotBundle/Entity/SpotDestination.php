@@ -48,7 +48,7 @@ class SpotDestination
     protected $spotdestinationIcon;
 
    /**
-    * @ORM\ManyToMany(targetEntity="BardisCMS\SpotBundle\Entity\Spot", mappedBy="spotdestinations", cascade={"all"})
+    * @ORM\ManyToMany(targetEntity="BardisCMS\SpotBundle\Entity\Spot", mappedBy="spotDestinations", cascade={"all"})
     */
     protected $spots;
 	
