@@ -106,19 +106,19 @@ class SpotAttribute
     protected $showers = 0;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */   
-    protected $accommodation = 0;
+     * @ORM\Column(type="array")
+     */  
+    protected $accommodation;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $budjet = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $budjet;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $spotType = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $spotType;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -131,24 +131,24 @@ class SpotAttribute
     protected $bottom = null;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $sports = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $sports;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $experiance = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $experience;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $style = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $style;
 
     /**
-     * @ORM\Column(type="boolean")
-     */   
-    protected $crowded = 0;
+     * @ORM\Column(type="array")
+     */  
+    protected $crowded;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -156,24 +156,24 @@ class SpotAttribute
     protected $dangers = null;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $windDirection = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $windDirection;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $bestWindDirection = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $bestWindDirection;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $windForce = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $windForce;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $relative = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $relative;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -181,34 +181,34 @@ class SpotAttribute
     protected $blowingTime = null;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $seaState = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $seaState;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $swellType = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $swellType;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $swellDirection = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $swellDirection;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $swellLength = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $swellLength;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $pointBreak = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $pointBreak;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $tide = null;
+     * @ORM\Column(type="array")
+     */  
+    protected $tide;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -240,7 +240,7 @@ class SpotAttribute
     /**
      * @ORM\Column(type="boolean")
      */   
-    protected $reastaurant = 0;
+    protected $restaurants = 0;
 
 
     public function __construct()
@@ -433,19 +433,6 @@ class SpotAttribute
     }
     
     /**
-    * toString Crowded
-    *
-    * @return string 
-    */
-    public function getCrowdedAsString()
-    {
-        switch($this->getCrowded()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
     * toString Nightlife
     *
     * @return string 
@@ -483,7 +470,6 @@ class SpotAttribute
             case(1): return "Yes";
         }
     }
-    
 
     /**
      * Get id
@@ -858,7 +844,7 @@ class SpotAttribute
     /**
      * Set accommodation
      *
-     * @param string $accommodation
+     * @param array $accommodation
      *
      * @return SpotAttribute
      */
@@ -872,7 +858,7 @@ class SpotAttribute
     /**
      * Get accommodation
      *
-     * @return string 
+     * @return array 
      */
     public function getAccommodation()
     {
@@ -882,7 +868,7 @@ class SpotAttribute
     /**
      * Set budjet
      *
-     * @param string $budjet
+     * @param array $budjet
      *
      * @return SpotAttribute
      */
@@ -896,7 +882,7 @@ class SpotAttribute
     /**
      * Get budjet
      *
-     * @return string 
+     * @return array 
      */
     public function getBudjet()
     {
@@ -906,7 +892,7 @@ class SpotAttribute
     /**
      * Set spotType
      *
-     * @param string $spotType
+     * @param array $spotType
      *
      * @return SpotAttribute
      */
@@ -920,7 +906,7 @@ class SpotAttribute
     /**
      * Get spotType
      *
-     * @return string 
+     * @return array 
      */
     public function getSpotType()
     {
@@ -978,7 +964,7 @@ class SpotAttribute
     /**
      * Set sports
      *
-     * @param string $sports
+     * @param array $sports
      *
      * @return SpotAttribute
      */
@@ -992,7 +978,7 @@ class SpotAttribute
     /**
      * Get sports
      *
-     * @return string 
+     * @return array 
      */
     public function getSports()
     {
@@ -1000,33 +986,33 @@ class SpotAttribute
     }
 
     /**
-     * Set experiance
+     * Set experience
      *
-     * @param string $experiance
+     * @param array $experience
      *
      * @return SpotAttribute
      */
-    public function setExperiance($experiance)
+    public function setExperience($experience)
     {
-        $this->experiance = $experiance;
+        $this->experience = $experience;
     
         return $this;
     }
 
     /**
-     * Get experiance
+     * Get experience
      *
-     * @return string 
+     * @return array 
      */
-    public function getExperiance()
+    public function getExperience()
     {
-        return $this->experiance;
+        return $this->experience;
     }
 
     /**
      * Set style
      *
-     * @param string $style
+     * @param array $style
      *
      * @return SpotAttribute
      */
@@ -1040,7 +1026,7 @@ class SpotAttribute
     /**
      * Get style
      *
-     * @return string 
+     * @return array 
      */
     public function getStyle()
     {
@@ -1050,7 +1036,7 @@ class SpotAttribute
     /**
      * Set crowded
      *
-     * @param boolean $crowded
+     * @param array $crowded
      *
      * @return SpotAttribute
      */
@@ -1064,7 +1050,7 @@ class SpotAttribute
     /**
      * Get crowded
      *
-     * @return boolean 
+     * @return array 
      */
     public function getCrowded()
     {
@@ -1098,7 +1084,7 @@ class SpotAttribute
     /**
      * Set windDirection
      *
-     * @param string $windDirection
+     * @param array $windDirection
      *
      * @return SpotAttribute
      */
@@ -1112,7 +1098,7 @@ class SpotAttribute
     /**
      * Get windDirection
      *
-     * @return string 
+     * @return array 
      */
     public function getWindDirection()
     {
@@ -1122,7 +1108,7 @@ class SpotAttribute
     /**
      * Set bestWindDirection
      *
-     * @param string $bestWindDirection
+     * @param array $bestWindDirection
      *
      * @return SpotAttribute
      */
@@ -1136,7 +1122,7 @@ class SpotAttribute
     /**
      * Get bestWindDirection
      *
-     * @return string 
+     * @return array 
      */
     public function getBestWindDirection()
     {
@@ -1146,7 +1132,7 @@ class SpotAttribute
     /**
      * Set windForce
      *
-     * @param string $windForce
+     * @param array $windForce
      *
      * @return SpotAttribute
      */
@@ -1160,7 +1146,7 @@ class SpotAttribute
     /**
      * Get windForce
      *
-     * @return string 
+     * @return array 
      */
     public function getWindForce()
     {
@@ -1170,7 +1156,7 @@ class SpotAttribute
     /**
      * Set relative
      *
-     * @param string $relative
+     * @param array $relative
      *
      * @return SpotAttribute
      */
@@ -1184,7 +1170,7 @@ class SpotAttribute
     /**
      * Get relative
      *
-     * @return string 
+     * @return array 
      */
     public function getRelative()
     {
@@ -1218,7 +1204,7 @@ class SpotAttribute
     /**
      * Set seaState
      *
-     * @param string $seaState
+     * @param array $seaState
      *
      * @return SpotAttribute
      */
@@ -1232,7 +1218,7 @@ class SpotAttribute
     /**
      * Get seaState
      *
-     * @return string 
+     * @return array 
      */
     public function getSeaState()
     {
@@ -1242,7 +1228,7 @@ class SpotAttribute
     /**
      * Set swellType
      *
-     * @param string $swellType
+     * @param array $swellType
      *
      * @return SpotAttribute
      */
@@ -1256,7 +1242,7 @@ class SpotAttribute
     /**
      * Get swellType
      *
-     * @return string 
+     * @return array 
      */
     public function getSwellType()
     {
@@ -1266,7 +1252,7 @@ class SpotAttribute
     /**
      * Set swellDirection
      *
-     * @param string $swellDirection
+     * @param array $swellDirection
      *
      * @return SpotAttribute
      */
@@ -1280,7 +1266,7 @@ class SpotAttribute
     /**
      * Get swellDirection
      *
-     * @return string 
+     * @return array 
      */
     public function getSwellDirection()
     {
@@ -1290,7 +1276,7 @@ class SpotAttribute
     /**
      * Set swellLength
      *
-     * @param string $swellLength
+     * @param array $swellLength
      *
      * @return SpotAttribute
      */
@@ -1304,7 +1290,7 @@ class SpotAttribute
     /**
      * Get swellLength
      *
-     * @return string 
+     * @return array 
      */
     public function getSwellLength()
     {
@@ -1314,7 +1300,7 @@ class SpotAttribute
     /**
      * Set pointBreak
      *
-     * @param string $pointBreak
+     * @param array $pointBreak
      *
      * @return SpotAttribute
      */
@@ -1328,7 +1314,7 @@ class SpotAttribute
     /**
      * Get pointBreak
      *
-     * @return string 
+     * @return array 
      */
     public function getPointBreak()
     {
@@ -1338,7 +1324,7 @@ class SpotAttribute
     /**
      * Set tide
      *
-     * @param string $tide
+     * @param array $tide
      *
      * @return SpotAttribute
      */
@@ -1352,7 +1338,7 @@ class SpotAttribute
     /**
      * Get tide
      *
-     * @return string 
+     * @return array 
      */
     public function getTide()
     {
@@ -1480,26 +1466,26 @@ class SpotAttribute
     }
 
     /**
-     * Set reastaurant
+     * Set restaurants
      *
-     * @param boolean $reastaurant
+     * @param boolean $restaurants
      *
      * @return SpotAttribute
      */
-    public function setReastaurant($reastaurant)
+    public function setRestaurants($restaurants)
     {
-        $this->reastaurant = $reastaurant;
+        $this->restaurants = $restaurants;
     
         return $this;
     }
 
     /**
-     * Get reastaurant
+     * Get restaurants
      *
      * @return boolean 
      */
-    public function getReastaurant()
+    public function getRestaurants()
     {
-        return $this->reastaurant;
+        return $this->restaurants;
     }
 }

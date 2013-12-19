@@ -857,4 +857,28 @@ class Spot
     {
         return $this->modalcontentblocks;
     }
+
+    /**
+     * Set spotAttributes
+     *
+     * @param \BardisCMS\SpotBundle\Entity\SpotAttribute $spotAttributes
+     *
+     * @return Spot
+     */
+    public function setSpotAttributes(\BardisCMS\SpotBundle\Entity\SpotAttribute $spotAttributes = null)
+    {
+        $this->spotAttributes = $spotAttributes;
+    
+        return $this;
+    }
+
+    /**
+     * Get spotAttributes
+     *
+     * @return \BardisCMS\SpotBundle\Entity\SpotAttribute 
+     */
+    public function getSpotAttributes()
+    {
+        return $this->spotAttributes;
+    }
 }

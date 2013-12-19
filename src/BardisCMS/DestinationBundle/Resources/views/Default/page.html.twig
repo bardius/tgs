@@ -41,27 +41,7 @@
                 </div>
             </div>
         </div>
-        <div class="row destinationFeatures">
-            <div class="schedule column six mobile-nine">
-                <ul>
-                    <li>
-                        <span class="title">Preparation</span>
-                        <span class="icon preperationIcon"></span>
-                        <span class="time">{{ page.preperation }}</span>                                
-                    </li>
-                    <li>
-                        <span class="title">Cooking</span>
-                        <span class="icon cookingIcon"></span>
-                        <span class="time">{{ page.cooking }}</span>                                
-                    </li>
-                    <li>
-                        <span class="title">Servings</span>
-                        <span class="icon servingsIcon"></span>
-                        <span class="time">{{ page.servings }}</span>                                
-                    </li>
-                </ul>
-            </div>
-            
+        <div class="row destinationFeatures">            
             <div class="two column relatedSpot mobile-nine">
                 {% if page.spots is not empty %}
                 <div class="relatedSpotItem">
@@ -73,7 +53,6 @@
                     </a>                
                     <div class="spotsLinks">
                         <a href="{{ url('SpotBundle_page_normal', { 'alias': page.spots.alias }) }}" title="View {{ page.spots.title }}">View</a>
-                        <a class="spotsBuyLink" href="http://tateandlyle.where-to-buy.co/Widgets/CrossDevicePartial/{{ page.spots.manufacturersPartNo1 }}" title="Buy {{ page.spots.title }} now">Buy</a>
                     </div>  
                 </div>
                 {% endif %}
@@ -82,9 +61,7 @@
         <div class="row contentRow">
             <div class="four columns mobile-nine push-eight clearBoth">
                 <div class="twelve columns ingredientsText">
-                    <h3 class="bigHeading">Ingredients</h3>
-                    {% include 'DestinationBundle:Contents:secondarycontentblocks.html.twig' %}
-                    <a class="convertionsBtn" href="{{ url('PageBundle_page', { 'alias': 'conversions' }) }}" title="Need help with conversions?">Need help with conversions?</a>                
+                    {% include 'DestinationBundle:Contents:secondarycontentblocks.html.twig' %}               
                 </div>
                 <div class="twelve columns  mobile-nine">
                     {% include 'DestinationBundle:Contents:smo_share.html.twig' %}
@@ -94,7 +71,7 @@
                 <h3 class="bigHeading">How to make this destination</h3>
                 {% include 'DestinationBundle:Contents:maincontentblocks.html.twig' %}
                 {% if page.modalcontentblocks|length > 0 %}
-                <a id="nutritionBtn" href="#" title="Nutritional information for this destination"><span>Nutritional information for this destination</span></a>
+                <a id="nutritionBtn" href="#" title="information for this destination"><span>information for this destination</span></a>
                 {% endif %}
             </div>
         </div>
@@ -108,22 +85,9 @@
                     {% if page.summary is not empty %}
                     <div class="summary">{{ page.summary|raw }}</div>
                     {% endif %}
-                </div>
-                <div class="five column featuredDestination hide-for-small">
-                    {% if page.cooking is not empty %}
-                    <span class="playfullCopy">{{ page.cooking|raw }}</span>
-                    {% endif %}
-                    {% if page.preperation is not empty %}
-                    <a href="{{ url('DestinationBundle_page_normal', { 'alias': page.preperation }) }}" title="Try our featured destination" class="featuredBtn moreBtn">Try our featured destination</a>   
-                    {% endif %}
-                </div>
+                </div>                
             </div>
 			<div class="row {{ page.pagetype }}List destinationList"> 
-			{% if page.pagetype != 'destination_home' %}           
-            <div class="twelve columns mobile-nine"> 
-                {% include 'DestinationBundle:Contents:filterResultsFormHolder.html.twig' %}
-            </div>
-			{% endif %}
             {% if page.maincontentblocks is not empty %}
             <div class="twelve columns pageText mobile-nine">
                 {% include 'DestinationBundle:Contents:maincontentblocks.html.twig' %}
