@@ -100,6 +100,10 @@
     width:780px;
 }
 
+.sonata-bc .form-horizontal .spotattributes .controls {
+    width:auto;
+}
+
 .sonata-ba-field-standard-natural input[type="text"], 
 .sonata-ba-field-standard-natural input[type="number"], 
 .sonata-ba-field-standard-natural .ui-combobox input{
