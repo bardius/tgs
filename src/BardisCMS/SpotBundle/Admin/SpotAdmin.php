@@ -94,13 +94,18 @@ class SpotAdmin extends Admin
                             ->add('summary', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced'), 'label' => 'Spot Description', 'required' => false))
                             ->add('spotOrder', null, array('label' => 'Spot Item Ordering', 'required' => false))
                             ->add('pageclass', null, array('label' => 'Spot Page CSS Class', 'required' => false))
+                            ->add('mapLongitude', null, array('label' => 'Spot Map Longitude', 'required' => false))
+                            ->add('mapLatitude', null, array('label' => 'Spot Map Latitude', 'required' => false))
+                            ->add('pageclass', null, array('label' => 'Spot Page CSS Class', 'required' => false))
 							->add('featuredSpot', 'choice', array('choices' => array('0' => 'No', '1' => 'Yes'), 'preferred_choices' => array('0'), 'label' => 'Featured Spot', 'required' => true))                
                         ->setHelps(array(
                                 'showPageTitle'         => 'Hide / Show The title of the page',
                                 'summary'               => 'Set the Spot Description',               
                                 'featuredSpot'          => 'Featured Spot is visible in homepage',                                
                                 'spotOrder'				=> 'Set the order of this Spot when listed amonst the rest',
-                                'pageclass'             => 'Set the Color CSS class for this Spot'
+                                'pageclass'             => 'Set the Color CSS class for this Spot',
+                                'mapLongitude'			=> 'Set Google map position Longitude',
+                                'mapLatitude'           => 'Set Google map position Latitude'
                         ))
                         ->end()                     
                         ->with('Spot Characteristics', array('collapsed' => true))

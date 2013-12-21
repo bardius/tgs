@@ -29,7 +29,7 @@ class SpotAttributesType extends AbstractType
 			'Hotel'		=> 'Hotel'		
 		);
 		
-		$this->budjetChoices = array(
+		$this->budgetChoices = array(
 			'Low'		=> 'Low',
 			'Medium'	=> 'Medium',
 			'High'		=> 'High'
@@ -41,11 +41,11 @@ class SpotAttributesType extends AbstractType
 		);
 		
 		$this->sportsChoices = array(
-			'surf'			=> 'surf',
-			'windsurf'		=> 'windsurf',
-			'kitesurf '		=> 'kitesurf ',
-			'wakeboard'		=> 'wakeboard',
-			'waterski '		=> 'waterski '
+			'Surf'			=> 'Surf',
+			'Windsurf'		=> 'Windsurf',
+			'Kitesurf'		=> 'Kitesurf',
+			'Wakeboard'		=> 'Wakeboard',
+			'Waterski'		=> 'Waterski'
 		);
 		
 		$this->experienceChoices = array(
@@ -56,12 +56,12 @@ class SpotAttributesType extends AbstractType
 		);
 		
 		$this->styleChoices = array(
-			'wave'			=> 'wave',
-			'freeride'		=> 'freeride',
-			'freestyle '	=> 'freestyle',
-			'wakestyle'		=> 'wakestyle',
-			'big jumps '	=> 'big jumps',
-			'formula'		=> 'formula'
+			'Wave'			=> 'Wave',
+			'Freeride'		=> 'Freeride',
+			'Freestyle'		=> 'Freestyle',
+			'Wakestyle'		=> 'Wakestyle',
+			'Big Jumps'		=> 'Big Jumps',
+			'Formula'		=> 'Formula'
 		);
 		
 		$this->crowdedChoices = array(
@@ -176,7 +176,8 @@ class SpotAttributesType extends AbstractType
 			'Summer'	=> 'Summer',
 			'Automn'	=> 'Automn',
 			'Winter'	=> 'Winter',
-			'Spring'	=> 'Spring'			
+			'Spring'	=> 'Spring',
+			'All'		=> 'All'			
 		);
 		
     }
@@ -205,7 +206,7 @@ class SpotAttributesType extends AbstractType
                 ->add('toilets', 'choice', array('empty_value' => false, 'choices' => array('0' => 'No', '1' => 'Yes'), 'label' => 'Toilets', 'required' => false))
                 ->add('showers', 'choice', array('empty_value' => false, 'choices' => array('0' => 'No', '1' => 'Yes'), 'label' => 'Showers', 'required' => false))
                 ->add('accommodation', 'choice', array('empty_value' => false, 'choices' => $this->accommodationChoices, 'label' => 'Accommodation', 'required' => false, 'multiple' => true, 'expanded' => true))  
-                ->add('budjet', 'choice', array('empty_value' => false, 'choices' => $this->budjetChoices, 'label' => 'Budjet', 'required' => false, 'multiple' => true, 'expanded' => true))  
+                ->add('budget', 'choice', array('empty_value' => false, 'choices' => $this->budgetChoices, 'label' => 'Budget', 'required' => false, 'multiple' => true, 'expanded' => true))  
                 ->add('spotType', 'choice', array('empty_value' => false, 'choices' => $this->spotTypeChoices, 'label' => 'Spot Type', 'required' => false, 'multiple' => true, 'expanded' => true))
                 ->add('shoreType', 'text', array('label' => 'Shore Type', 'required' => false))
                 ->add('bottom', 'text', array('label' => 'Bottom', 'required' => false))

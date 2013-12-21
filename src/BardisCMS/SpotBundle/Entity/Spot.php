@@ -90,6 +90,16 @@ class Spot
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $mapLatitude = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $mapLongitude = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
      */ 
     protected $description = null;
 
@@ -880,5 +890,53 @@ class Spot
     public function getSpotAttributes()
     {
         return $this->spotAttributes;
+    }
+
+    /**
+     * Set mapLatitude
+     *
+     * @param string $mapLatitude
+     *
+     * @return Spot
+     */
+    public function setMapLatitude($mapLatitude)
+    {
+        $this->mapLatitude = $mapLatitude;
+    
+        return $this;
+    }
+
+    /**
+     * Get mapLatitude
+     *
+     * @return string 
+     */
+    public function getMapLatitude()
+    {
+        return $this->mapLatitude;
+    }
+
+    /**
+     * Set mapLongitude
+     *
+     * @param string $mapLongitude
+     *
+     * @return Spot
+     */
+    public function setMapLongitude($mapLongitude)
+    {
+        $this->mapLongitude = $mapLongitude;
+    
+        return $this;
+    }
+
+    /**
+     * Get mapLongitude
+     *
+     * @return string 
+     */
+    public function getMapLongitude()
+    {
+        return $this->mapLongitude;
     }
 }

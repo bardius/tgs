@@ -1,0 +1,13 @@
+{% if relatedSpots is defined and relatedSpots is not null %}
+<div class="large-12 small-12 columns relatedSpots">
+    <h3>Nearby Spots</h3>
+</div>
+{% for spots in relatedSpots if spots.introimage.id is defined %}
+	<div class="relatedSpot {% if spots.pageclass is not null %}{{ spots.pageclass }}{% endif %} large-2 small-3">
+		<a href="{{ url('SpotBundle_page_normal', { 'alias': spots.alias }) }}" title="{{ spots.title }}">
+			{% media spots.introimage.id, 'small' with {'alt': spots.title, 'title': ''} %}
+			<span>{{ spots.title }}</span>
+		</a>
+    </div>
+{% endfor %}
+{% endif %}

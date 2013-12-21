@@ -303,35 +303,6 @@ class DestinationRepository extends EntityRepository
         
         return  $relatedDestinations;
     }
-    
-    public function getRelatedSpotDestinations($spotsId, $publishStates)
-    {   
-        
-        if(!empty($spotsId))
-        {
-            $qb = $this->_em->createQueryBuilder(); 
-            
-            $qb->select('DISTINCT p')
-                ->from('DestinationBundle:Destination', 'p')
-                ->innerJoin('p.spots', 't')
-                ->where($qb->expr()->andX(
-                    $qb->expr()->in('t.id', ':spots'),
-                    $qb->expr()->in('p.publishState', ':publishState'),
-                    $qb->expr()->eq('p.pagetype', ':pagetype')
-                ))
-                ->orderBy('p.date', 'DESC')
-                ->setFirstResult(0)
-                ->setMaxResults(3)
-                ->setParameter('spots', $spotsId)
-                ->setParameter('publishState', $publishStates)
-                ->setParameter('pagetype', 'destination_article')
-            ;
-                    
-            $relatedDestinations = $qb->getQuery()->getResult();
-        }
-        
-        return  $relatedDestinations;
-    }
 	
 	public function getDestinationHomeItems($categoryId, $currentPageId, $publishStates, $currentpage, $totalpageitems)
     {

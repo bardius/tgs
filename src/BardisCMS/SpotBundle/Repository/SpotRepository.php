@@ -26,7 +26,7 @@ class SpotRepository extends EntityRepository
             
             $qb->select('DISTINCT p')
                 ->from('SpotBundle:Spot', 'p')
-                ->innerJoin('p.spotdestinations', 'c')
+                ->innerJoin('p.spotDestinations', 'c')
                 ->where($qb->expr()->andX(
                     $qb->expr()->in('c.id', ':spotdestination'),
                     $qb->expr()->in('p.publishState', ':publishState'),
@@ -40,7 +40,7 @@ class SpotRepository extends EntityRepository
                 
             $countqb->select('COUNT(DISTINCT p.id)')
                 ->from('SpotBundle:Spot', 'p')
-                ->innerJoin('p.spotdestinations', 'c')
+                ->innerJoin('p.spotDestinations', 'c')
                 ->where($qb->expr()->andX(
                     $qb->expr()->in('c.id', ':spotdestination'),
                     $qb->expr()->in('p.publishState', ':publishState'),
@@ -71,8 +71,8 @@ class SpotRepository extends EntityRepository
             
             $qb->select('DISTINCT p')
                 ->from('SpotBundle:Spot', 'p')
-                ->innerJoin('p.spotdestinations', 'c')
-                ->innerJoin('p.spotfilters', 't')
+                ->innerJoin('p.spotDestinations', 'c')
+                ->innerJoin('p.spotFilters', 't')
                 ->where($qb->expr()->andX(
                     $qb->expr()->in('c.id', ':spotdestination'),
                     $qb->expr()->in('t.id', ':spotfilter'),
@@ -90,8 +90,8 @@ class SpotRepository extends EntityRepository
                 
             $countqb->select('COUNT(DISTINCT p.id)')
                 ->from('SpotBundle:Spot', 'p')
-                ->innerJoin('p.spotdestinations', 'c')
-                ->innerJoin('p.spotfilters', 't')
+                ->innerJoin('p.spotDestinations', 'c')
+                ->innerJoin('p.spotFilters', 't')
                 ->where($qb->expr()->andX(
                     $qb->expr()->in('c.id', ':spotdestination'),
                     $qb->expr()->in('t.id', ':spotfilter'),
@@ -126,7 +126,7 @@ class SpotRepository extends EntityRepository
             
             $qb->select('DISTINCT p')
                 ->from('SpotBundle:Spot', 'p')
-                ->innerJoin('p.spotfilters', 't')
+                ->innerJoin('p.spotFilters', 't')
                 ->where($qb->expr()->andX(
                     $qb->expr()->in('t.id', ':spotfilter'),
                     $qb->expr()->in('p.publishState', ':publishState'),
@@ -134,7 +134,7 @@ class SpotRepository extends EntityRepository
                     $qb->expr()->neq('p.id', ':currentPage')
                 ))
                 ->orderBy('p.spotOrder', 'ASC')
-                ->setParameter('spotfilters', $filterIds)
+                ->setParameter('spotFilters', $filterIds)
                 ->setParameter('publishState', $publishStates)
                 ->setParameter('pagetype', 'spot_article')
                 ->setParameter('currentPage', $currentPageId)
@@ -142,7 +142,7 @@ class SpotRepository extends EntityRepository
                 
             $countqb->select('COUNT(DISTINCT p.id)')
                 ->from('SpotBundle:Spot', 'p')
-                ->innerJoin('p.spotfilters', 't')
+                ->innerJoin('p.spotFilters', 't')
                 ->where($qb->expr()->andX(
                     $qb->expr()->in('t.id', ':spotfilter'),
                     $qb->expr()->in('p.publishState', ':publishState'),
@@ -150,7 +150,7 @@ class SpotRepository extends EntityRepository
                     $qb->expr()->neq('p.id', ':currentPage')
                 ))
                 ->orderBy('p.spotOrder', 'ASC')
-                ->setParameter('spotfilters', $filterIds)
+                ->setParameter('spotFilters', $filterIds)
                 ->setParameter('publishState', $publishStates)
                 ->setParameter('pagetype', 'spot_article')
                 ->setParameter('currentPage', $currentPageId)
@@ -264,26 +264,33 @@ class SpotRepository extends EntityRepository
         
         return  $pageList;
     }
-    
-    /*public function getSpotAttributes($currentPageId)
-    {
-        
-        if(!empty($currentPageId))
+	
+	
+    public function getRelatedSpots($spotdestinationIds, $currentPageId, $publishStates)
+    {   
+		$pages = null;
+		
+        if(!empty($spotdestinationIds))
         {
-            $qb = $this->_em->createQueryBuilder(); 
+            $qb = $this->_em->createQueryBuilder();
             
-            $qb->select('partial p.{id}, a')
+            $qb->select('DISTINCT p')
                 ->from('SpotBundle:Spot', 'p')
-                ->innerJoin('p.spotAttributes', 'a')
-                ->where(
-					$qb->expr()->in('p.id', ':currentPage')
-                )
+                ->innerJoin('p.spotDestinations', 'c')
+                ->where($qb->expr()->andX(
+                    $qb->expr()->in('c.id', ':spotdestination'),
+                    $qb->expr()->in('p.publishState', ':publishState'),
+                    $qb->expr()->neq('p.id', ':currentPage')
+                ))
+                ->orderBy('p.spotOrder', 'ASC')
+                ->setParameter('spotdestination', $spotdestinationIds)
+                ->setParameter('publishState', $publishStates)
                 ->setParameter('currentPage', $currentPageId)
             ;
-			
-			$attributes = $qb->getQuery()->getResult();
+
+			$pages = $qb->getQuery()->getResult();
         }
-	 
-        return  $attributes;
-    }  */
+            
+        return  $pages;
+    }  
 }

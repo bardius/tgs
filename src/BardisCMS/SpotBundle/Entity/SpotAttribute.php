@@ -113,7 +113,7 @@ class SpotAttribute
     /**
      * @ORM\Column(type="array")
      */  
-    protected $budjet;
+    protected $budget;
 
     /**
      * @ORM\Column(type="array")
@@ -866,27 +866,27 @@ class SpotAttribute
     }
 
     /**
-     * Set budjet
+     * Set budget
      *
-     * @param array $budjet
+     * @param array $budget
      *
      * @return SpotAttribute
      */
-    public function setBudjet($budjet)
+    public function setBudget($budget)
     {
-        $this->budjet = $budjet;
+        $this->budget = $budget;
     
         return $this;
     }
 
     /**
-     * Get budjet
+     * Get budget
      *
      * @return array 
      */
-    public function getBudjet()
+    public function getBudget()
     {
-        return $this->budjet;
+        return $this->budget;
     }
 
     /**

@@ -1,13 +1,269 @@
 {% if page.spotAttributes is not null %}
-<div class="twelve column featuredTags hide-for-small">
-	
-    <h4>Seasons</h4>
-    {% for season in page.spotAttributes.season %}
-		{{ season }}<br />
-    {% endfor %}
-    </ul>
-</div>
+<dl class="accordion" data-accordion>
+	<dd>
+		<a class="spotAttributeTitle" href="#accessTab">Access</a>	
+		<div id="accessTab" class="row spotAttributeRow content active">
+			<div class="columns large-2 small-12">
+				<h5>Nearest Airport</h5>
+				<span>{{ page.spotAttributes.nearestAirport }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Nearest Town</h5>
+				<span>{{ page.spotAttributes.nearestTown }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Public Transportation</h5>
+				<span>{{ page.spotAttributes.publicTransportation|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Access Problem</h5>
+				<span>{{ page.spotAttributes.accessProblem|booleanToString }}</span>
+			</div>
+		</div>
+	</dd>
+	<dd>
+		<a class="spotAttributeTitle" href="#amenitiesTab">Amenities/Facilities</a>	
+		<div id="amenitiesTab" class="row spotAttributeRow content">
+			<div class="columns large-2 small-12">
+				<h5>Surf Club</h5>
+				<span>{{ page.spotAttributes.surfClub|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Lessons</h5>
+				<span>{{ page.spotAttributes.lessons|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Rental</h5>
+				<span>{{ page.spotAttributes.rental|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Storage</h5>
+				<span>{{ page.spotAttributes.storage|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Repair</h5>
+				<span>{{ page.spotAttributes.repair|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Gearshop</h5>
+				<span>{{ page.spotAttributes.gearshop|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Rescue</h5>
+				<span>{{ page.spotAttributes.rescue|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Snacks And Drinks</h5>
+				<span>{{ page.spotAttributes.snacksAndDrinks|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Parking</h5>
+				<span>{{ page.spotAttributes.parking|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Toilets</h5>
+				<span>{{ page.spotAttributes.toilets|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Showers</h5>
+				<span>{{ page.spotAttributes.showers|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Accommodation</h5>
+				<span>
+				{% for accommodation in page.spotAttributes.accommodation %}
+					{{ accommodation }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Budget</h5>
+				<span>
+				{% for budget in page.spotAttributes.budget %}
+					{{ budget }}<br />
+				{% endfor %}
+				</span>
+			</div>
+		</div>
+	</dd>
+	<dd>
+		<a class="spotAttributeTitle" href="#characteristicsTab">Beach Characteristics</a>	
+		<div id="characteristicsTab" class="row spotAttributeRow content">
+			<div class="columns large-2 small-12">
+				<h5>Spot Type</h5>
+				<span>
+				{% for spotType in page.spotAttributes.spotType %}
+					{{ spotType }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Shore Type</h5>
+				<span>{{ page.spotAttributes.shoreType }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Bottom</h5>
+				<span>{{ page.spotAttributes.bottom }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Sports</h5>
+				<span>
+				{% for sports in page.spotAttributes.sports %}
+					{{ sports }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Experience</h5>
+				<span>
+				{% for experience in page.spotAttributes.experience %}
+					{{ experience }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Style</h5>
+				<span>
+				{% for style in page.spotAttributes.style %}
+					{{ style }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Crowded</h5>
+				<span>
+				{% for crowded in page.spotAttributes.crowded %}
+					{{ crowded }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Dangers</h5>
+				<span>{{ page.spotAttributes.dangers }}</span>
+			</div>
+		</div>
+	</dd>
+	<dd>
+		<a class="spotAttributeTitle" href="#conditionsTab">Winds/Swells/Water Conditions</a>	
+		<div id="conditionsTab" class="row spotAttributeRow content">
+			<div class="columns large-2 small-12">
+				<h5>Wind Direction</h5>
+				<span>
+				{% for windDirection in page.spotAttributes.windDirection %}
+					{{ windDirection }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Best Wind Direction</h5>
+				<span>
+				{% for bestWindDirection in page.spotAttributes.bestWindDirection %}
+					{{ bestWindDirection }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Wind Force</h5>
+				<span>
+				{% for windForce in page.spotAttributes.windForce %}
+					{{ windForce }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Relative</h5>
+				<span>
+				{% for relative in page.spotAttributes.relative %}
+					{{ relative }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Blowing Time</h5>
+				<span>{{ page.spotAttributes.blowingTime }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Sea State</h5>
+				<span>
+				{% for seaState in page.spotAttributes.seaState %}
+					{{ seaState }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Swell Type</h5>
+				<span>
+				{% for swellType in page.spotAttributes.swellType %}
+					{{ swellType }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Swell Direction</h5>
+				<span>
+				{% for swellDirection in page.spotAttributes.swellDirection %}
+					{{ swellDirection }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Swell Length</h5>
+				<span>
+				{% for swellLength in page.spotAttributes.swellLength %}
+					{{ swellLength }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Point Break</h5>
+				<span>
+				{% for pointBreak in page.spotAttributes.pointBreak %}
+					{{ pointBreak }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Tide</h5>
+				<span>
+				{% for tide in page.spotAttributes.tide %}
+					{{ tide }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Water Quality</h5>
+				<span>{{ page.spotAttributes.waterQuality }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Season</h5>
+				<span>
+				{% for season in page.spotAttributes.season %}
+					{{ season }}<br />
+				{% endfor %}
+				</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Sea Temperature</h5>
+				<span>{{ page.spotAttributes.seaTemperature }}</span>
+			</div>
+		</div>
+	</dd>
+	<dd>
+		<a class="spotAttributeTitle" href="#lifestyleTab">Lifestyle</a>	
+		<div id="lifestyleTab" class="row spotAttributeRow content">
+			<div class="columns large-2 small-12">
+				<h5>Nightlife</h5>
+				<span>{{ page.spotAttributes.nightlife|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Family</h5>
+				<span>{{ page.spotAttributes.family|booleanToString }}</span>
+			</div>
+			<div class="columns large-2 small-12">
+				<h5>Restaurants</h5>
+				<span>{{ page.spotAttributes.restaurants|booleanToString }}</span>
+			</div>
+		</div>
+	</dd>
+</dl>
 {% endif %}
-{#
-{{ dump(page.spotAttributes) }}
-#}

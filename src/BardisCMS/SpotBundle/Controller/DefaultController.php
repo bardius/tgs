@@ -396,9 +396,11 @@ class DefaultController extends Controller
         }
         else if ($page->getPagetype() == 'spot_article')
         {   
-            $relatedDestinations = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getRelatedSpotDestinations($id, $publishStates);
+            $relatedDestinations	= $page->getSpotDestinations();
+			$relatedDestinationsId	= $this->getCategoryFilterIds($page->getSpotDestinations());			
+            $relatedSpots			= $this->getDoctrine()->getRepository('SpotBundle:Spot')->getRelatedSpots($relatedDestinationsId, $id, $publishStates);
 			
-            return $this->render('SpotBundle:Default:page.html.twig', array('page' => $page, 'relateddestinations' => $relatedDestinations));
+            return $this->render('SpotBundle:Default:page.html.twig', array('page' => $page, 'relatedDestinations' => $relatedDestinations,  'relatedSpots' => $relatedSpots));
         }
         
         return $this->render('SpotBundle:Default:page.html.twig', array('page' => $page));

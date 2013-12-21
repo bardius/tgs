@@ -1,18 +1,7 @@
-{% if relateddestinations is not null %}
-<div class="twelve column featuredTags hide-for-small">
-    {% for destination in relateddestinations %}
-    {% if loop.index0 == 0 %}
-    <h4>Destinations</h4>
-    <ul>
-    {% endif %}
-    {% if loop.index0 < 3 %}
-        <li class="destinationIcon destinationIcon{{ loop.index0 }}">
-			<a href="{{ url('DestinationBundle_page_normal', { 'alias': destination.alias }) }}" title="{{ destination.title }}">
-				{{ destination.title }}
-			</a>
-        </li>
-    {% endif %}
-    {% endfor %}
-    </ul>
-</div>
+{% if relatedDestinations is defined and relatedDestinations is not null %}
+	{% for spot_destination in relatedDestinations %}
+		<a class="spotDestinationLink" href="{{ url('DestinationBundle_page_normal', { 'alias': spot_destination.destination.alias }) }}" title="{{ spot_destination.title }}">
+			{{ spot_destination.title }} 
+		</a>
+	{% endfor %}
 {% endif %}
