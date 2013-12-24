@@ -504,7 +504,6 @@ spot:
     
     pagetypes:
         spot_article:        Spot Page
-        spot_filtered_list:  Spot Filter Results
         spot_home:           Spot Home
     
     filtercategories:

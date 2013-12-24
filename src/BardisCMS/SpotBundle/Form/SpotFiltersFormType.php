@@ -166,25 +166,6 @@ class SpotFiltersFormType extends AbstractType
         return  $qb;
     }
     
-    
-    public function getFilterCategories()
-    {
-        
-        $filterTagsList = array();
-        $qb             = $this->entityManager->createQueryBuilder();  
-        
-        $qb->select('DISTINCT c')
-            ->from('SpotBundle:SpotDestination', 'c')
-            ->where($qb->expr()->andX(
-                    $qb->expr()->neq('c.id', ':homepageCategory')
-            ))
-            ->orderBy('c.title', 'DESC')
-            ->setParameter('homepageCategory', 8)
-        ;
-        
-        return  $qb;
-    }
-    
     public function getName()
     {
         return 'spotfiltersform';

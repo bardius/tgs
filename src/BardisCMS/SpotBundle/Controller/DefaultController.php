@@ -88,6 +88,7 @@ class DefaultController extends Controller
     
     
     // Get the user role ( @TODO: this is very simple ACL and has to be improved )
+	// TODO: This should be a service
     public function getLoggedUserHighestRole()
     {
         
@@ -106,130 +107,9 @@ class DefaultController extends Controller
     }
     
     
-    // Get the tags and / or categories for filtering from the request
-    // filters are like: tag1,tag2|category1,category1 and each argument
-    // is url encoded. If all is passed as argument value everything is fetched
-    // be aware that if a comma exists in the one of the values it will not work properly
-    public function getRequestedFilters($extraParams)
-    {
-        
-        $selectedTags       = array();
-        $selectedCategories = array();        
-        $extraParams        = explode('|', $extraParams);
-        
-        if (isset($extraParams[0]))
-        {
-            if($extraParams[0] == 'all')
-            {
-                $selectedTags[] = null;
-            }
-            else
-            {
-                $tags = explode(',', urldecode($extraParams[0]));
-                foreach($tags as $tag)
-                {
-                    $selectedTagObject = $this->getDoctrine()->getRepository('SpotBundle:SpotTag')->findOneByTitle(urldecode($tag));
-                    
-                    $tagCategoryName = $selectedTagObject->getTagCategory();
-
-                    if($tagCategoryName != null)
-                    {
-                        if (!array_key_exists('tags'.$tagCategoryName, $selectedTags))
-                        {
-                            $selectedTags['tags'.$tagCategoryName] = array();                            
-                        }
-
-                        $selectedTags['tags'.$tagCategoryName][] = $selectedTagObject;                   
-                    }         
-                }
-            }
-        }
-        else
-        {
-            $selectedTags[] = null;
-        }
-        
-        if (isset($extraParams[1]))
-        {
-            if($extraParams[1] == 'all'|| $extraParams[1] == 'Homepage')
-            {
-                $selectedCategories[] = null;
-            }
-            else
-            {
-                $categories = explode(',', urldecode($extraParams[1]));
-                foreach($categories as $category)
-                {
-                    $selectedCategories[] = $this->getDoctrine()->getRepository('SpotBundle:SpotDestination')->findOneByTitle(urldecode($category));
-                }
-            }
-        }
-        else
-        {
-            $selectedCategories[] = null;
-        }
-        
-        $filterParams = array();
-        
-        foreach($selectedTags as $tagCategory => $selectedTags){
-            if($selectedTags != null)
-            {
-                $filterParams[$tagCategory] = new \Doctrine\Common\Collections\ArrayCollection($selectedTags);
-            }
-            else
-            {
-                $filterParams['tags'] = new \Doctrine\Common\Collections\ArrayCollection();                
-            }
-        }
-                    
-        $filterParams['categories'] = new \Doctrine\Common\Collections\ArrayCollection($selectedCategories);
-        
-        return $filterParams;
-    }
-    
-    
-    // Get the ids of the filter categories
-    public function getCategoryFilterIds($selectedCategoriesArray)
-    {
-        
-        $categoryIds = array(); 
-        
-        if(empty($selectedCategoriesArray[0]))
-        {
-            $selectedCategoriesArray = $this->getDoctrine()->getRepository('SpotBundle:SpotDestination')->findAll();
-        }
-        
-        foreach($selectedCategoriesArray as $selectedCategoriesEntity)
-        {
-            $categoryIds[] = $selectedCategoriesEntity->getId();     
-        }
-        
-        return $categoryIds;
-    }
-    
-    
-    // Get the ids of the filter tags
-    public function getTagFilterIds($selectedTagsArray)
-    {       
-        
-        $tagIds = array();      
-        
-        if(empty($selectedTagsArray[0]))
-        {
-            $selectedTagsArray = $this->getDoctrine()->getRepository('SpotBundle:SpotTag')->findAll();
-        }
-        
-        foreach($selectedTagsArray as $selectedTagEntity)
-        {
-            $tagIds[] = $selectedTagEntity->getId();     
-        }
-        
-        return $tagIds;
-    }
-    
-    
     // Set the settings as defined from the service of the settings bundle
     // alternative could be to skip that bundle and use the config.yml
+	// TODO: This should be a service
     public function setSettings($settings, $page)
     {
         if(is_object($settings))
@@ -294,59 +174,7 @@ class DefaultController extends Controller
     public function renderPage($page, $id, $publishStates, $extraParams, $currentpage, $totalpageitems, $linkUrlParams)
     {
                         
-        if ($page->getPagetype() == 'spot_cat_page')
-        {            
-            $tagIds         = $page->getTags()->toArray();
-            $categoryIds    = $page->getCategories()->toArray();
-            
-            $filterForm     = $this->createForm('spotfiltersform');               
-            $filterData     = $this->getRequestedFilters($extraParams);
-            
-            foreach($tagIds as $key => $tag)
-            {
-                $tagCategoryName = 'tags'.$tag->getTagCategory();
-                
-                if (!array_key_exists($tagCategoryName, $filterData))
-                {
-                    $filterData[$tagCategoryName] = new \Doctrine\Common\Collections\ArrayCollection(); 
-                }
-                    
-                $filterData[$tagCategoryName]->set($key, $tag);
-            }
-            
-            foreach($categoryIds as $key => $category)
-            {
-                if($category->getTitle() != 'Homepage')
-                {
-                    $filterData['categories']->set($key, $category);
-                }
-                else
-                {
-                    unset($categoryIds[$key]);
-                }
-            }
-            
-            $filterForm->setData($filterData); 
-            
-            if(!empty($tagIds) && !empty($categoryIds))
-            {                
-                $pageList = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getTaggedCategoryItems($categoryIds, $id, $publishStates, $currentpage, $totalpageitems, $tagIds);                
-            }
-            if(!empty($tagIds) && empty($categoryIds))
-            {                
-                $pageList = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getTaggedItems($tagIds, $id, $publishStates, $currentpage, $totalpageitems);                
-            }
-            else
-            {
-                $pageList = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getCategoryItems($categoryIds, $id, $publishStates, $currentpage, $totalpageitems);
-            }
-            
-            $pages      = $pageList['pages'];
-            $totalPages = $pageList['totalPages'];
-            
-            return $this->render('SpotBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
-        }      
-        else if ($page->getPagetype() == 'spot_filtered_list')
+        if ($page->getPagetype() == 'spot_home')
         {          
             $filterForm     = $this->createForm('spotfiltersform');                
             $filterData     = $this->getRequestedFilters($extraParams);
@@ -354,7 +182,7 @@ class DefaultController extends Controller
             $categoryIds    = array();
             
             foreach($filterData as $filterDataType => $selectedFilter){
-                if($filterDataType == 'categories')
+                if($filterDataType == 'destinations')
                 {
                     $categoryIds = $this->getCategoryFilterIds($selectedFilter->toArray());                    
                 }
@@ -362,37 +190,22 @@ class DefaultController extends Controller
                 {
                    $tagIds = array_merge($tagIds, $this->getTagFilterIds($selectedFilter->toArray()));
                 }
-            }
-            
-            $filterForm->setData($filterData); 
+            }            
+            $filterForm->setData($filterData);
             
             if(!empty($categoryIds))
             {                
-                $pageList = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getTaggedCategoryItems($categoryIds, $id, $publishStates, $currentpage, $totalpageitems, $tagIds);                
+                $pageList = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getFilteredSpotDestinationItems($categoryIds, $id, $publishStates, $currentpage, $totalpageitems, $tagIds);        
             }
             else
             {            
-                $pageList  = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getTaggedItems($tagIds, $id, $publishStates, $currentpage, $totalpageitems);
+                $pageList  = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getFilteredItems($tagIds, $id, $publishStates, $currentpage, $totalpageitems);
             }
             
             $pages      = $pageList['pages'];
             $totalPages = $pageList['totalPages'];
             
             return $this->render('SpotBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
-        }
-        else if ($page->getPagetype() == 'spot_home')
-        {   
-            
-            $filterForm     = $this->createForm('spotfiltersform');               
-            $filterData     = $this->getRequestedFilters($extraParams);            
-            $filterForm->setData($filterData); 
-            
-            $pageList = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getAllItems($id, $publishStates, $currentpage, $totalpageitems);
-            
-            $pages      = $pageList['pages'];
-            $totalPages = $pageList['totalPages'];
-            
-            return $this->render('SpotBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages,  'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
         }
         else if ($page->getPagetype() == 'spot_article')
         {   
@@ -439,15 +252,27 @@ class DefaultController extends Controller
             $filterForm->bind($request);
             $filterData = $filterForm->getData();
             
-            $selectedTagsCategoriesArray    = array($filterData['tagssugar_type'], $filterData['tagsexcellent'], $filterData['tagsbody']);
-            $filterTags                     = $this->getTagFilterTitles($selectedTagsCategoriesArray);
-            $filterCategories               = $this->getCategoryFilterTitles($filterData['categories']);
+            $selectedTagsCategoriesArray = array(
+				$filterData['sport'], 
+				$filterData['budget'], 
+				$filterData['season'],
+				$filterData['experience'], 
+				$filterData['style'], 
+				$filterData['sea_state'], 
+				$filterData['wind_force'], 
+				$filterData['amenities'],
+				$filterData['lifestyle'],
+				$filterData['swell_length']
+			);
+			
+            $filterTags			= $this->getTagFilterTitles($selectedTagsCategoriesArray);
+            $filterCategories	= $this->getCategoryFilterTitles($filterData['destinations']);
         }
             
         $extraParams = urlencode($filterTags) . '|' . urlencode($filterCategories);
         
         $url = $this->get('router')->generate(
-            'SpotBundle_tagged_full',
+            'SpotBundle_tagged_onlypage_slash',
             array('extraParams' => $extraParams),
             true
         );
@@ -456,7 +281,133 @@ class DefaultController extends Controller
     }
     
     
+    // Get the tags and / or categories for filtering from the request
+    // filters are like: tag1,tag2|category1,category1 and each argument
+    // is url encoded. If all is passed as argument value everything is fetched
+    // be aware that if a comma exists in the one of the values it will not work properly
+	// TODO: This should be a data transformer??
+    public function getRequestedFilters($extraParams)
+    {
+        
+        $selectedTags       = array();
+        $selectedCategories = array();        
+        $extraParams        = explode('|', $extraParams);
+        
+        if (isset($extraParams[0]))
+        {
+            if($extraParams[0] == 'all')
+            {
+                $selectedTags[] = null;
+            }
+            else
+            {
+                $tags = explode(',', urldecode($extraParams[0]));
+                foreach($tags as $tag)
+                {
+                    $selectedTagObject = $this->getDoctrine()->getRepository('SpotBundle:SpotFilter')->findOneByTitle(urldecode($tag));
+                    
+                    $tagCategoryName = $selectedTagObject->getFilterCategory();
+
+                    if($tagCategoryName != null)
+                    {
+                        if (!array_key_exists($tagCategoryName, $selectedTags))
+                        {
+                            $selectedTags[$tagCategoryName] = array();                            
+                        }
+
+                        $selectedTags[$tagCategoryName][] = $selectedTagObject;                   
+                    }         
+                }
+            }
+        }
+        else
+        {
+            $selectedTags[] = null;
+        }
+        
+        if (isset($extraParams[1]))
+        {
+            if($extraParams[1] == 'all')
+            {
+                $selectedCategories[] = null;
+            }
+            else
+            {
+                $categories = explode(',', urldecode($extraParams[1]));
+                foreach($categories as $category)
+                {
+                    $selectedCategories[] = $this->getDoctrine()->getRepository('SpotBundle:SpotDestination')->findOneByTitle(urldecode($category));
+                }
+            }
+        }
+        else
+        {
+            $selectedCategories[] = null;
+        }
+        
+        $filterParams = array();
+        
+        foreach($selectedTags as $tagCategory => $selectedTags){
+            if($selectedTags != null)
+            {
+                $filterParams[$tagCategory] = new \Doctrine\Common\Collections\ArrayCollection($selectedTags);
+            }
+            else
+            {
+                $filterParams['tags'] = new \Doctrine\Common\Collections\ArrayCollection();                
+            }
+        }
+                    
+        $filterParams['destinations'] = new \Doctrine\Common\Collections\ArrayCollection($selectedCategories);
+        
+        return $filterParams;
+    }
+    
+    
+    // Get the ids of the filter categories
+	// TODO: merge with getTagFilterIds
+    public function getCategoryFilterIds($selectedCategoriesArray)
+    {
+        
+        $categoryIds = array(); 
+        
+        if(empty($selectedCategoriesArray[0]))
+        {
+            $selectedCategoriesArray = $this->getDoctrine()->getRepository('SpotBundle:SpotDestination')->findAll();
+        }
+        
+        foreach($selectedCategoriesArray as $selectedCategoriesEntity)
+        {
+            $categoryIds[] = $selectedCategoriesEntity->getId();     
+        }
+        
+        return $categoryIds;
+    }
+    
+    
+    // Get the ids of the filter tags
+	// TODO: merge with getCategoryFilterIds
+    public function getTagFilterIds($selectedTagsArray)
+    {       
+        
+        $tagIds = array();      
+        
+        if(empty($selectedTagsArray[0]))
+        {
+            $selectedTagsArray = $this->getDoctrine()->getRepository('SpotBundle:SpotFilter')->findAll();
+        }
+        
+        foreach($selectedTagsArray as $selectedTagEntity)
+        {
+            $tagIds[] = $selectedTagEntity->getId();     
+        }
+        
+        return $tagIds;
+    }
+    
+    
     // Get the titles of the filter categories
+	// TODO: merge with getTagFilterTitles
     public function getCategoryFilterTitles($selectedCategoriesArray)
     {
         
@@ -482,6 +433,7 @@ class DefaultController extends Controller
     
     
     // Get the titles of the filter tags
+	// TODO: merge with getCategoryFilterTitles
     public function getTagFilterTitles($selectedTagsCategoriesArray)
     {          
         $tags = array();

@@ -1,11 +1,10 @@
-<div class="twelve column {{ pageItem.pagetype }}Item {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %} ">
+<div class="columns large-6 small-12 {{ pageItem.pagetype }}Item {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %} ">
     <a href="{{ url('SpotBundle_page_normal', { 'alias': pageItem.alias }) }}" title="{{ pageItem.title }}">
         {% if pageItem.spotslistimage.id is defined %}
-        {% media pageItem.spotslistimage.id, 'medium' with {'alt': pageItem.title, 'title': ''} %}
+			{% media pageItem.spotslistimage.id, 'medium' with {'alt': pageItem.title, 'title': ''} %}
         {% endif %}
         <div class="spotsItemText {% if pageItem.pageclass is defined %}{{ pageItem.pageclass }}{% endif %}">
-            <h5 class="title"><span>{{ pageItem.title }}</span></h5>
-            {% include 'SpotBundle:Contents:listitem-featured-tags.html.twig' %}
+            <h5 class="title">{{ pageItem.title }}</h5>
         </div>
     </a>
 </div>

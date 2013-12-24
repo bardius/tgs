@@ -2,6 +2,10 @@
 
     $(function() {
 		CMS.foundationConfig.init();
+		
+		if($('#mapModal').length > 0){
+			CMS.siteConfig.mapInit();			
+		}
     });
     // END DOC READY
 
@@ -17,6 +21,63 @@
 	
     });
      */
+	CMS.siteConfig = {
+		map:			null,
+		mapKey:			'AIzaSyB8uoWbuhHNagbpi22tEeZYiT41toB171g',
+		mapLatitude:	$('#mapLat').val(),
+		mapLongitude:	$('#mapLong').val(),
+		markerTitle:	$('#mapTitle').val(),
+		mapCanvasId:	'map-canvas',
+		GMapScriptURL:	'http://maps.google.com/maps/api/js?sensor=false&key=',
+		
+		mapInit: function() {
+			$.getScript(CMS.siteConfig.GMapScriptURL + CMS.siteConfig.mapKey + "&callback=CMS.siteConfig.showMap");
+		},
+		
+		showMap: function() {
+	
+			var windowHeight	= $(window).height();		
+			var mapLatlng		= new google.maps.LatLng(CMS.siteConfig.mapLatitude, CMS.siteConfig.mapLongitude);		
+			var contentString	= '<h5>' + CMS.siteConfig.markerTitle + '</h5>';
+			
+			$('#' + CMS.siteConfig.mapCanvasId).css('height', (windowHeight / 2) + 'px');
+			
+			var mapOptions	= {
+				center:		mapLatlng,
+				mapTypeId:	google.maps.MapTypeId.ROADMAP,
+				zoom:		14
+			};
+			
+			var infowindow	= new google.maps.InfoWindow({ 
+				content: contentString
+			});
+			
+			CMS.siteConfig.map	= new google.maps.Map(document.getElementById(CMS.siteConfig.mapCanvasId), mapOptions);
+
+			var marker		= new google.maps.Marker({
+				position:	mapLatlng,
+				map:		CMS.siteConfig.map,
+				title:		CMS.siteConfig.markerTitle
+			});
+			
+			google.maps.event.addListener(marker, 'click', function() {
+				infowindow.open(CMS.siteConfig.map,marker);
+			});
+		 
+			google.maps.event.addDomListener(window, "resize", function() {
+				var newCenter = CMS.siteConfig.map.getCenter();
+				google.maps.event.trigger(CMS.siteConfig.map, "resize");
+				CMS.siteConfig.map.setCenter(newCenter); 
+			});
+			
+			$(document).on('opened', '[data-reveal]', function () {
+				var newCenter = CMS.siteConfig.map.getCenter();
+				google.maps.event.trigger(CMS.siteConfig.map, "resize");
+				CMS.siteConfig.map.setCenter(newCenter); 
+			});
+		}
+	},
+			
 
     CMS.foundationConfig = {
 		

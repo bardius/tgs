@@ -115,12 +115,12 @@ class SpotAdmin extends Admin
                             ->add('bannercontentblocks','contentblockcollection', array('attr' => array('class' => 'bannercontentblocks'), 'label' => 'Contents For Top Banner'))
                             ->add('maincontentblocks','contentblockcollection', array('attr' => array('class' => 'maincontentblocks'), 'label' => 'Contents Below Spot Description')) 
                             ->add('secondarycontentblocks','contentblockcollection', array('attr' => array('class' => 'secondarycontentblocks'), 'label' => 'Contents Below Weather'))
-                            ->add('modalcontentblocks','contentblockcollection', array('attr' => array('class' => 'modalcontentblocks'), 'label' => 'Modal Window Contents')) 
+                            //->add('modalcontentblocks','contentblockcollection', array('attr' => array('class' => 'modalcontentblocks'), 'label' => 'Modal Window Contents')) 
                             ->setHelps(array(
                                 'maincontentblocks'         => 'Enter contents Below Spot Description',
                                 'secondarycontentblocks'    => 'Enter contents Below Weather',
-                                'bannercontentblocks'		=> 'Enter contents for Top Banner',
-                                'modalcontentblocks'        => 'Enter the contents for Modal Window'
+                                'bannercontentblocks'		=> 'Enter contents for Top Banner'
+                            //    'modalcontentblocks'        => 'Enter the contents for Modal Window'
                             )) 
                         ->end()
                     ;

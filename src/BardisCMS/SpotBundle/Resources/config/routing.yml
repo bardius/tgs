@@ -1,47 +1,47 @@
 SpotBundle_tagged_full:
-    pattern:   /spot/tagged/{extraParams}/{currentpage}/{totalpageitems}/
-    defaults:  { _controller: SpotBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    pattern:   /spots/{extraParams}/{currentpage}/{totalpageitems}/
+    defaults:  { _controller: SpotBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0}
     requirements:
         currentpage: \d+
         totalpageitems: \d+
     
 SpotBundle_tagged_noslash:
-    pattern:   /spot/tagged/{extraParams}/{currentpage}/{totalpageitems}
-    defaults:  { _controller: SpotBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    pattern:   /spots/{extraParams}/{currentpage}/{totalpageitems}
+    defaults:  { _controller: SpotBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0}
     requirements:
         currentpage: \d+
         totalpageitems: \d+
     
 SpotBundle_tagged_onlypage_slash:
-    pattern:   /spot/tagged/{extraParams}/{currentpage}/
-    defaults:  { _controller: SpotBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    pattern:   /spots/{extraParams}/{currentpage}/
+    defaults:  { _controller: SpotBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0}
     requirements:
         currentpage: \d+
     
 SpotBundle_tagged_onlypage:
-    pattern:   /spot/tagged/{extraParams}/{currentpage}
-    defaults:  { _controller: SpotBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    pattern:   /spots/{extraParams}/{currentpage}
+    defaults:  { _controller: SpotBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0}
     requirements:
         currentpage: \d+
     
 SpotBundle_tagged_onlytag_slash:
-    pattern:   /spot/tagged/{extraParams}/
-    defaults:  { _controller: SpotBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    pattern:   /spots/{extraParams}/
+    defaults:  { _controller: SpotBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0}
     
 SpotBundle_tagged_onlytag:
-    pattern:   /spot/tagged/{extraParams}
-    defaults:  { _controller: SpotBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    pattern:   /spots/{extraParams}
+    defaults:  { _controller: SpotBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0}
     
 SpotBundle_tagged_slash:
-    pattern:   /spot/tagged/
-    defaults:  { _controller: SpotBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0} 
+    pattern:   /spots/
+    defaults:  { _controller: SpotBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0} 
     
 SpotBundle_tagged:
-    pattern:   /spot/tagged
-    defaults:  { _controller: SpotBundle:Default:alias, alias: tagged, extraParams: all, currentpage: 0, totalpageitems: 0}
+    pattern:   /spots
+    defaults:  { _controller: SpotBundle:Default:alias, alias: list, extraParams: all, currentpage: 0, totalpageitems: 0}
     
 SpotBundle_filtered:
-    pattern:  /spot/filterPages/
+    pattern:  /filterSpots/
     defaults: { _controller: SpotBundle:Default:filterPages }
 
 SpotBundle_page_full_slash:
