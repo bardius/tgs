@@ -49,6 +49,36 @@ class DestinationTag
     }
 
     /**
+     * toString Title
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
+		}
+		else{
+			return (string)'New Destination Tag';
+		}
+    }
+    
+    /**
+    * toString tagCategory
+    *
+    * @return string 
+    */
+    public function getTagCategoryAsString()
+    {
+        switch($this->getTagCategory()){
+			case('sample1'):	return "Sample 1";
+            case('sample1'):	return "Sample 2";
+			case('sample1'):	return "Sample 3";
+            default:            return $this->getTagCategory();
+        }
+    }
+
+    /**
      * Get id
      *
      * @return integer 
@@ -62,7 +92,8 @@ class DestinationTag
      * Set title
      *
      * @param string $title
-     * @return Tag
+     *
+     * @return DestinationTag
      */
     public function setTitle($title)
     {
@@ -85,7 +116,8 @@ class DestinationTag
      * Set tagCategory
      *
      * @param string $tagCategory
-     * @return Tag
+     *
+     * @return DestinationTag
      */
     public function setTagCategory($tagCategory)
     {
@@ -108,7 +140,8 @@ class DestinationTag
      * Set tagIcon
      *
      * @param \Application\Sonata\MediaBundle\Entity\Media $tagIcon
-     * @return Tag
+     *
+     * @return DestinationTag
      */
     public function setTagIcon(\Application\Sonata\MediaBundle\Entity\Media $tagIcon = null)
     {
@@ -131,7 +164,8 @@ class DestinationTag
      * Add destinations
      *
      * @param \BardisCMS\DestinationBundle\Entity\Destination $destinations
-     * @return Tag
+     *
+     * @return DestinationTag
      */
     public function addDestination(\BardisCMS\DestinationBundle\Entity\Destination $destinations)
     {
@@ -158,35 +192,5 @@ class DestinationTag
     public function getDestinations()
     {
         return $this->destinations;
-    }
-
-    /**
-     * toString Title
-     *
-     * @return string 
-     */
-    public function __toString()
-    {
-		if($this->getTitle()){
-			return (string)$this->getTitle();			
-		}
-		else{
-			return (string)'New Destination Tag';
-		}
-    }
-    
-    /**
-    * toString tagCategory
-    *
-    * @return string 
-    */
-    public function getTagCategoryAsString()
-    {
-        switch($this->getTagCategory()){
-            case('occasions'):  return "Occasions";
-            case('everyday'):   return "Everyday";
-            case('favourites'): return "Our Favourites";
-            default:            return $this->getTagCategory();
-        }
     }
 }

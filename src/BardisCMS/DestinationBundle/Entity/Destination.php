@@ -98,12 +98,6 @@ class Destination
 
     /**
      * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
-     * @ORM\JoinColumn(name="introvideo", onDelete="SET NULL")
-     */
-    protected $introvideo;
-
-    /**
-     * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
      * @ORM\JoinColumn(name="destinationimage", onDelete="SET NULL")
      */ 
     protected $destinationimage;
