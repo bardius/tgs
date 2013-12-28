@@ -16,12 +16,12 @@ use Application\Sonata\MediaBundle\Entity\Media;
 
 
 /**
- * BardisCMS\SpotBundle\Entity\SpotDestination
+ * BardisCMS\SpotBundle\Entity\SpotDestinationFilter
  *
  * @ORM\Table(name="spot_destinations")
  * @ORM\Entity
  */
-class SpotDestination
+class SpotDestinationFilter
 {
     /**
      * @ORM\Id
@@ -39,16 +39,16 @@ class SpotDestination
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */ 
-    protected $spotdestinationClass = null;
+    protected $class = null;
 
     /**
      * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
-     * @ORM\JoinColumn(name="spotdestinationIcon")
+     * @ORM\JoinColumn(name="spotDestinationFilterIcon")
      */ 
-    protected $spotdestinationIcon;
+    protected $spotDestinationFilterIcon;
 
    /**
-    * @ORM\ManyToMany(targetEntity="BardisCMS\SpotBundle\Entity\Spot", mappedBy="spotDestinations", cascade={"all"})
+    * @ORM\ManyToMany(targetEntity="BardisCMS\SpotBundle\Entity\Spot", mappedBy="spotDestinationFilters", cascade={"all"})
     */
     protected $spots;
 	
@@ -80,6 +80,7 @@ class SpotDestination
 		}
     }
 
+
     /**
      * Get id
      *
@@ -95,7 +96,7 @@ class SpotDestination
      *
      * @param string $title
      *
-     * @return SpotDestination
+     * @return SpotDestinationFilter
      */
     public function setTitle($title)
     {
@@ -115,51 +116,51 @@ class SpotDestination
     }
 
     /**
-     * Set spotdestinationClass
+     * Set class
      *
-     * @param string $spotdestinationClass
+     * @param string $class
      *
-     * @return SpotDestination
+     * @return SpotDestinationFilter
      */
-    public function setSpotdestinationClass($spotdestinationClass)
+    public function setClass($class)
     {
-        $this->spotdestinationClass = $spotdestinationClass;
+        $this->class = $class;
     
         return $this;
     }
 
     /**
-     * Get spotdestinationClass
+     * Get class
      *
      * @return string 
      */
-    public function getSpotdestinationClass()
+    public function getClass()
     {
-        return $this->spotdestinationClass;
+        return $this->class;
     }
 
     /**
-     * Set spotdestinationIcon
+     * Set spotDestinationFilterIcon
      *
-     * @param \Application\Sonata\MediaBundle\Entity\Media $spotdestinationIcon
+     * @param \Application\Sonata\MediaBundle\Entity\Media $spotDestinationFilterIcon
      *
-     * @return SpotDestination
+     * @return SpotDestinationFilter
      */
-    public function setSpotdestinationIcon(\Application\Sonata\MediaBundle\Entity\Media $spotdestinationIcon = null)
+    public function setSpotDestinationFilterIcon(\Application\Sonata\MediaBundle\Entity\Media $spotDestinationFilterIcon = null)
     {
-        $this->spotdestinationIcon = $spotdestinationIcon;
+        $this->spotDestinationFilterIcon = $spotDestinationFilterIcon;
     
         return $this;
     }
 
     /**
-     * Get spotdestinationIcon
+     * Get spotDestinationFilterIcon
      *
      * @return \Application\Sonata\MediaBundle\Entity\Media 
      */
-    public function getSpotdestinationIcon()
+    public function getSpotDestinationFilterIcon()
     {
-        return $this->spotdestinationIcon;
+        return $this->spotDestinationFilterIcon;
     }
 
     /**
@@ -167,7 +168,7 @@ class SpotDestination
      *
      * @param \BardisCMS\SpotBundle\Entity\Spot $spots
      *
-     * @return SpotDestination
+     * @return SpotDestinationFilter
      */
     public function addSpot(\BardisCMS\SpotBundle\Entity\Spot $spots)
     {
@@ -201,7 +202,7 @@ class SpotDestination
      *
      * @param \BardisCMS\DestinationBundle\Entity\Destination $destination
      *
-     * @return SpotDestination
+     * @return SpotDestinationFilter
      */
     public function setDestination(\BardisCMS\DestinationBundle\Entity\Destination $destination = null)
     {

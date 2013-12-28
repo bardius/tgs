@@ -39,7 +39,7 @@ class SpotFiltersFormType extends AbstractType
         );
         
         $builder->add('destinations', 'entity', array(
-            'class'		=> 'BardisCMS\SpotBundle\Entity\SpotDestination',
+            'class'		=> 'BardisCMS\SpotBundle\Entity\SpotDestinationFilter',
             'property'	=> 'title', 
             'expanded'	=> true, 
             'multiple'	=> true, 

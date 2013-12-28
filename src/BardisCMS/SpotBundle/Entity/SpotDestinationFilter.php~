@@ -1,0 +1,83 @@
+<?php
+
+/*
+ * Spot Bundle
+ * This file is part of the BardisCMS.
+ *
+ * (c) George Bardis <george@bardis.info>
+ *
+ */
+
+namespace BardisCMS\SpotBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use BardisCMS\SpotBundle\Entity\Spot;
+use Application\Sonata\MediaBundle\Entity\Media;
+
+
+/**
+ * BardisCMS\SpotBundle\Entity\SpotDestinationFilter
+ *
+ * @ORM\Table(name="spot_destinations")
+ * @ORM\Entity
+ */
+class SpotDestinationFilter
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */ 
+    protected $title;
+
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */ 
+    protected $class = null;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     * @ORM\JoinColumn(name="spotDestinationFilterIcon")
+     */ 
+    protected $spotDestinationFilterIcon;
+
+   /**
+    * @ORM\ManyToMany(targetEntity="BardisCMS\SpotBundle\Entity\Spot", mappedBy="SpotDestinationFilters", cascade={"all"})
+    */
+    protected $spots;
+	
+    /**
+     * @ORM\ManyToOne(targetEntity="BardisCMS\DestinationBundle\Entity\Destination")
+     * @ORM\JoinColumn(name="destination", referencedColumnName="id", onDelete="SET NULL")
+     */
+    protected $destination;	
+	
+
+    public function __construct()
+    {
+        $this->spots = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    
+    /**
+     * toString Title
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
+		}
+		else{
+			return (string)'New Spot Destination Filter';
+		}
+    }
+
+}

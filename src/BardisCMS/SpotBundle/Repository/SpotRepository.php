@@ -26,7 +26,7 @@ class SpotRepository extends EntityRepository
             
             $qb->select('DISTINCT p')
                 ->from('SpotBundle:Spot', 'p')
-                ->innerJoin('p.spotDestinations', 'c')
+                ->innerJoin('p.spotDestinationFilters', 'c')
                 ->where($qb->expr()->andX(
                     $qb->expr()->in('c.id', ':spotdestination'),
                     $qb->expr()->in('p.publishState', ':publishState'),
@@ -40,7 +40,7 @@ class SpotRepository extends EntityRepository
                 
             $countqb->select('COUNT(DISTINCT p.id)')
                 ->from('SpotBundle:Spot', 'p')
-                ->innerJoin('p.spotDestinations', 'c')
+                ->innerJoin('p.spotDestinationFilters', 'c')
                 ->where($qb->expr()->andX(
                     $qb->expr()->in('c.id', ':spotdestination'),
                     $qb->expr()->in('p.publishState', ':publishState'),
@@ -71,7 +71,7 @@ class SpotRepository extends EntityRepository
             
             $qb->select('DISTINCT p')
                 ->from('SpotBundle:Spot', 'p')
-                ->innerJoin('p.spotDestinations', 'c')
+                ->innerJoin('p.spotDestinationFilters', 'c')
                 ->innerJoin('p.spotFilters', 't')
                 ->where($qb->expr()->andX(
                     $qb->expr()->in('c.id', ':spotdestination'),
@@ -90,7 +90,7 @@ class SpotRepository extends EntityRepository
                 
             $countqb->select('COUNT(DISTINCT p.id)')
                 ->from('SpotBundle:Spot', 'p')
-                ->innerJoin('p.spotDestinations', 'c')
+                ->innerJoin('p.spotDestinationFilters', 'c')
                 ->innerJoin('p.spotFilters', 't')
                 ->where($qb->expr()->andX(
                     $qb->expr()->in('c.id', ':spotdestination'),
@@ -276,7 +276,7 @@ class SpotRepository extends EntityRepository
             
             $qb->select('DISTINCT p')
                 ->from('SpotBundle:Spot', 'p')
-                ->innerJoin('p.spotDestinations', 'c')
+                ->innerJoin('p.spotDestinationFilters', 'c')
                 ->where($qb->expr()->andX(
                     $qb->expr()->in('c.id', ':spotdestination'),
                     $qb->expr()->in('p.publishState', ':publishState'),

@@ -19,20 +19,20 @@ use Sonata\AdminBundle\Route\RouteCollection;
 use Form\Type;
 
 
-class SpotDestinationsAdmin extends Admin
+class SpotDestinationFiltersAdmin extends Admin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {        
         $formMapper
-            ->with('Spot Destination Details', array('collapsed' => false))
+            ->with('Spot Destination Filter Details', array('collapsed' => false))
                 ->add('title', null, array('label' => 'Destination Title', 'required' => true))
                 ->add('destination', 'entity', array('class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Related Destination', 'attr' => array('class' => 'autoCompleteItems autoCompleteSpot'), 'required' => false))
-                ->add('spotdestinationClass', null, array('label' => 'Intro Item CSS Class', 'required' => false))
-                ->add('spotdestinationIcon', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'icons', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Spot Destination Icon', 'required' => false))
+                ->add('class', null, array('label' => 'Intro Item CSS Class', 'required' => false))
+                ->add('spotDestinationFilterIcon', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'icons', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Spot Destination Icon', 'required' => false))
                 ->setHelps(array(
                     'title'						=> 'Set the title of the Spot Destination',
-                    'spotdestinationClass'		=> 'Set the css class that applies to the Spot Destination items',
-                    'spotdestinationIcon'		=> 'Set the icon of the Spot Destination'
+                    'class'						=> 'Set the css class that applies to the Spot Destination items',
+                    'spotDestinationFilterIcon'	=> 'Set the icon of the Spot Destination'
                 ))
             ->end()
         ;
@@ -50,8 +50,8 @@ class SpotDestinationsAdmin extends Admin
         $listMapper
             ->addIdentifier('title')
             ->addIdentifier('destination')
-            ->addIdentifier('spotdestinationClass')
-            ->addIdentifier('spotdestinationIcon')
+            ->addIdentifier('class')
+            ->addIdentifier('spotDestinationFilterIcon')
             ->add('_action', 'actions', array( 
                     'actions' => array(  
                         'edit' => array(

@@ -74,10 +74,10 @@
               <argument>DestinationBundle</argument>
           </call>
       </service>
-      <service id="sonata.admin.spotdestinations" class="BardisCMS\SpotBundle\Admin\SpotDestinationsAdmin">
+      <service id="sonata.admin.spotdestinationfilters" class="BardisCMS\SpotBundle\Admin\SpotDestinationFiltersAdmin">
           <tag name="sonata.admin" manager_type="orm" group="Spot Destinations" label="Manage Spot Destination" />
           <argument />
-          <argument>BardisCMS\SpotBundle\Entity\SpotDestination</argument>
+          <argument>BardisCMS\SpotBundle\Entity\SpotDestinationFilter</argument>
           <argument>SonataAdminBundle:CRUD</argument>
           <call method="setTranslationDomain">
               <argument>SpotBundle</argument>

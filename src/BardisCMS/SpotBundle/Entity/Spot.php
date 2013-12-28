@@ -17,7 +17,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 use BardisCMS\ContentBlockBundle\Entity\ContentBlock;
-use BardisCMS\SpotBundle\Entity\SpotDestination;
+use BardisCMS\SpotBundle\Entity\SpotDestinationFilter;
 use BardisCMS\SpotBundle\Entity\SpotFilter;
 
 
@@ -125,10 +125,10 @@ class Spot
     protected $introclass = null;
 
     /**
-    * @ORM\ManyToMany(targetEntity="BardisCMS\SpotBundle\Entity\SpotDestination", inversedBy="spots", cascade={"persist"})
-    * @ORM\JoinTable(name="spots_spotdestinations")
+    * @ORM\ManyToMany(targetEntity="BardisCMS\SpotBundle\Entity\SpotDestinationFilter", inversedBy="spots", cascade={"persist"})
+    * @ORM\JoinTable(name="spots_destinationfilters")
     */
-    protected $spotDestinations;
+    protected $spotDestinationFilters;
 
     /**
     * @ORM\ManyToMany(targetEntity="BardisCMS\SpotBundle\Entity\SpotFilter", inversedBy="spots", cascade={"persist"})
@@ -240,11 +240,11 @@ class Spot
     {
         switch($this->getPagetype()){
             case('spot_article'):		return "Spot Page";
-            case('spot_filtered_list'):	return "Spot Filter Results";
             case('spot_home'):			return "Spot Home";
             default:					return $this->getPagetype(); 
         }
     }
+
 
     /**
      * Get id
@@ -473,6 +473,54 @@ class Spot
     }
 
     /**
+     * Set mapLatitude
+     *
+     * @param string $mapLatitude
+     *
+     * @return Spot
+     */
+    public function setMapLatitude($mapLatitude)
+    {
+        $this->mapLatitude = $mapLatitude;
+    
+        return $this;
+    }
+
+    /**
+     * Get mapLatitude
+     *
+     * @return string 
+     */
+    public function getMapLatitude()
+    {
+        return $this->mapLatitude;
+    }
+
+    /**
+     * Set mapLongitude
+     *
+     * @param string $mapLongitude
+     *
+     * @return Spot
+     */
+    public function setMapLongitude($mapLongitude)
+    {
+        $this->mapLongitude = $mapLongitude;
+    
+        return $this;
+    }
+
+    /**
+     * Get mapLongitude
+     *
+     * @return string 
+     */
+    public function getMapLongitude()
+    {
+        return $this->mapLongitude;
+    }
+
+    /**
      * Set description
      *
      * @param string $description
@@ -665,37 +713,37 @@ class Spot
     }
 
     /**
-     * Add spotDestinations
+     * Add spotDestinationFilters
      *
-     * @param \BardisCMS\SpotBundle\Entity\SpotDestination $spotDestinations
+     * @param \BardisCMS\SpotBundle\Entity\SpotDestinationFilter $spotDestinationFilters
      *
      * @return Spot
      */
-    public function addSpotDestination(\BardisCMS\SpotBundle\Entity\SpotDestination $spotDestinations)
+    public function addSpotDestinationFilter(\BardisCMS\SpotBundle\Entity\SpotDestinationFilter $spotDestinationFilters)
     {
-        $this->spotDestinations[] = $spotDestinations;
+        $this->spotDestinationFilters[] = $spotDestinationFilters;
     
         return $this;
     }
 
     /**
-     * Remove spotDestinations
+     * Remove spotDestinationFilters
      *
-     * @param \BardisCMS\SpotBundle\Entity\SpotDestination $spotDestinations
+     * @param \BardisCMS\SpotBundle\Entity\SpotDestinationFilter $spotDestinationFilters
      */
-    public function removeSpotDestination(\BardisCMS\SpotBundle\Entity\SpotDestination $spotDestinations)
+    public function removeSpotDestinationFilter(\BardisCMS\SpotBundle\Entity\SpotDestinationFilter $spotDestinationFilters)
     {
-        $this->spotDestinations->removeElement($spotDestinations);
+        $this->spotDestinationFilters->removeElement($spotDestinationFilters);
     }
 
     /**
-     * Get spotDestinations
+     * Get spotDestinationFilters
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getSpotDestinations()
+    public function getSpotDestinationFilters()
     {
-        return $this->spotDestinations;
+        return $this->spotDestinationFilters;
     }
 
     /**
@@ -730,6 +778,30 @@ class Spot
     public function getSpotFilters()
     {
         return $this->spotFilters;
+    }
+
+    /**
+     * Set spotAttributes
+     *
+     * @param \BardisCMS\SpotBundle\Entity\SpotAttribute $spotAttributes
+     *
+     * @return Spot
+     */
+    public function setSpotAttributes(\BardisCMS\SpotBundle\Entity\SpotAttribute $spotAttributes = null)
+    {
+        $this->spotAttributes = $spotAttributes;
+    
+        return $this;
+    }
+
+    /**
+     * Get spotAttributes
+     *
+     * @return \BardisCMS\SpotBundle\Entity\SpotAttribute 
+     */
+    public function getSpotAttributes()
+    {
+        return $this->spotAttributes;
     }
 
     /**
@@ -866,77 +938,5 @@ class Spot
     public function getModalcontentblocks()
     {
         return $this->modalcontentblocks;
-    }
-
-    /**
-     * Set spotAttributes
-     *
-     * @param \BardisCMS\SpotBundle\Entity\SpotAttribute $spotAttributes
-     *
-     * @return Spot
-     */
-    public function setSpotAttributes(\BardisCMS\SpotBundle\Entity\SpotAttribute $spotAttributes = null)
-    {
-        $this->spotAttributes = $spotAttributes;
-    
-        return $this;
-    }
-
-    /**
-     * Get spotAttributes
-     *
-     * @return \BardisCMS\SpotBundle\Entity\SpotAttribute 
-     */
-    public function getSpotAttributes()
-    {
-        return $this->spotAttributes;
-    }
-
-    /**
-     * Set mapLatitude
-     *
-     * @param string $mapLatitude
-     *
-     * @return Spot
-     */
-    public function setMapLatitude($mapLatitude)
-    {
-        $this->mapLatitude = $mapLatitude;
-    
-        return $this;
-    }
-
-    /**
-     * Get mapLatitude
-     *
-     * @return string 
-     */
-    public function getMapLatitude()
-    {
-        return $this->mapLatitude;
-    }
-
-    /**
-     * Set mapLongitude
-     *
-     * @param string $mapLongitude
-     *
-     * @return Spot
-     */
-    public function setMapLongitude($mapLongitude)
-    {
-        $this->mapLongitude = $mapLongitude;
-    
-        return $this;
-    }
-
-    /**
-     * Get mapLongitude
-     *
-     * @return string 
-     */
-    public function getMapLongitude()
-    {
-        return $this->mapLongitude;
     }
 }

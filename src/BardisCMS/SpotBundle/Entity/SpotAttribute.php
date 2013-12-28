@@ -471,6 +471,7 @@ class SpotAttribute
         }
     }
 
+
     /**
      * Get id
      *

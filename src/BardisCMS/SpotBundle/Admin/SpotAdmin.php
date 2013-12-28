@@ -53,11 +53,11 @@ class SpotAdmin extends Admin
                 ))
             ->end()
             ->with('Filters & Destinations', array('collapsed' => true))
-                ->add('spotDestinations', 'entity', array('class' => 'BardisCMS\SpotBundle\Entity\SpotDestination', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Associated Destinations', 'required' => false))
+                ->add('spotDestinationFilters', 'entity', array('class' => 'BardisCMS\SpotBundle\Entity\SpotDestinationFilter', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Associated Destinations', 'required' => false))
                 ->add('spotFilters', 'entity', array('class' => 'BardisCMS\SpotBundle\Entity\SpotFilter', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Spot Filters', 'required' => false))                
                 ->setHelps(array(
-                    'spotfilters'		=> 'Select the associated filters',
-                    'spotDestinations'	=> 'Select the associated destinations'
+                    'spotFilters'				=> 'Select the associated filters',
+                    'spotDestinationFilters'	=> 'Select the associated destinations'
                 ))            
             ->end()
             ->with('Homepage & Listing Page Intro', array('collapsed' => true))
@@ -162,7 +162,7 @@ class SpotAdmin extends Admin
             ->add('title')
             ->add('publishState', 'doctrine_orm_string', array(), 'choice', array('choices' => array('0' => 'Unpublished', '1' => 'Published', '2' => 'Preview')))
             ->add('pagetype', 'doctrine_orm_string', array(), 'choice', array('choices' => $pagetypeChoices))
-            ->add('spotDestinations')
+            ->add('spotDestinationFilters')
             ->add('spotFilters')
             ->add('featuredSpot', 'doctrine_orm_string', array(), 'choice', array('choices' => array('0' => 'No', '1' => 'Yes')))
             ->add('author')
@@ -177,7 +177,7 @@ class SpotAdmin extends Admin
             ->addIdentifier('alias')
             ->addIdentifier('publishStateAsString', null, array('sortable' => false, 'label' => 'Publish State'))
             ->addIdentifier('pagetypeAsString', null, array('sortable' => false, 'label' => 'Page Type'))
-            ->addIdentifier('spotDestinations')
+            ->addIdentifier('spotDestinationFilters')
             ->addIdentifier('spotFilters')
             ->addIdentifier('featuredSpotAsString', null, array('sortable' => false, 'label' => 'Featured Spot'))
             ->addIdentifier('pageOrder')

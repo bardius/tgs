@@ -209,8 +209,8 @@ class DefaultController extends Controller
         }
         else if ($page->getPagetype() == 'spot_article')
         {   
-            $relatedDestinations	= $page->getSpotDestinations();
-			$relatedDestinationsId	= $this->getCategoryFilterIds($page->getSpotDestinations());			
+            $relatedDestinations	= $page->getSpotDestinationFilters();
+			$relatedDestinationsId	= $this->getCategoryFilterIds($relatedDestinations);			
             $relatedSpots			= $this->getDoctrine()->getRepository('SpotBundle:Spot')->getRelatedSpots($relatedDestinationsId, $id, $publishStates);
 			
             return $this->render('SpotBundle:Default:page.html.twig', array('page' => $page, 'relatedDestinations' => $relatedDestinations,  'relatedSpots' => $relatedSpots));
@@ -336,7 +336,7 @@ class DefaultController extends Controller
                 $categories = explode(',', urldecode($extraParams[1]));
                 foreach($categories as $category)
                 {
-                    $selectedCategories[] = $this->getDoctrine()->getRepository('SpotBundle:SpotDestination')->findOneByTitle(urldecode($category));
+                    $selectedCategories[] = $this->getDoctrine()->getRepository('SpotBundle:SpotDestinationFilter')->findOneByTitle(urldecode($category));
                 }
             }
         }
@@ -373,7 +373,7 @@ class DefaultController extends Controller
         
         if(empty($selectedCategoriesArray[0]))
         {
-            $selectedCategoriesArray = $this->getDoctrine()->getRepository('SpotBundle:SpotDestination')->findAll();
+            $selectedCategoriesArray = $this->getDoctrine()->getRepository('SpotBundle:SpotDestinationFilter')->findAll();
         }
         
         foreach($selectedCategoriesArray as $selectedCategoriesEntity)
