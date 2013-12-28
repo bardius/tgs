@@ -41,13 +41,6 @@ class Configuration implements ConfigurationInterface
                     ->requiresAtLeastOneElement()
                     ->useAttributeAsKey('name')
                         ->prototype('scalar')->defaultValue(null)->end()
-                    ->end() 
-                
-                ->arrayNode('mediasizes')
-                    ->isRequired()
-                    ->requiresAtLeastOneElement()
-                    ->useAttributeAsKey('name')
-                        ->prototype('scalar')->defaultValue(null)->end()
                     ->end()
             ->end();
 

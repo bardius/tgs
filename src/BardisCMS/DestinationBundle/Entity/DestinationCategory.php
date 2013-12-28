@@ -31,13 +31,13 @@ class DestinationCategory
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */ 
-    protected $categoryClass = null;
+    protected $class = null;
 
     /**
      * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
-     * @ORM\JoinColumn(name="categoryIcon")
+     * @ORM\JoinColumn(name="destinationCategoryIcon")
      */ 
-    protected $categoryIcon;
+    protected $icon;
 
    /**
     * @ORM\ManyToMany(targetEntity="BardisCMS\DestinationBundle\Entity\Destination", mappedBy="categories", cascade={"all"})
@@ -47,117 +47,6 @@ class DestinationCategory
     public function __construct()
     {
         $this->destinations = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
- 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     * @return Category
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string 
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set categoryClass
-     *
-     * @param string $categoryClass
-     * @return Category
-     */
-    public function setCategoryClass($categoryClass)
-    {
-        $this->categoryClass = $categoryClass;
-        return $this;
-    }
-
-    /**
-     * Get categoryClass
-     *
-     * @return string 
-     */
-    public function getCategoryClass()
-    {
-        return $this->categoryClass;
-    }
-
-    /**
-     * Set categoryIcon
-     *
-     * @param Application\Sonata\MediaBundle\Entity\Media $categoryIcon
-     * @return Category
-     */
-    public function setCategoryIcon(\Application\Sonata\MediaBundle\Entity\Media $categoryIcon = null)
-    {
-        $this->categoryIcon = $categoryIcon;
-        return $this;
-    }
-
-    /**
-     * Get categoryIcon
-     *
-     * @return Application\Sonata\MediaBundle\Entity\Media 
-     */
-    public function getCategoryIcon()
-    {
-        return $this->categoryIcon;
-    }
-
-    
-    /**
-     * Add destinations
-     *
-     * @param BardisCMS\DestinationBundle\Entity\Destination $destinations
-     * @return Category
-     */
-    public function addDestination(\BardisCMS\DestinationBundle\Entity\Destination $destinations)
-    {
-        $this->destinations[] = $destinations;
-        return $this;
-    }
-
-    /**
-     * Remove destinations
-     *
-     * @param BardisCMS\DestinationBundle\Entity\Destination $destinations
-     */
-    public function removeDestination(\BardisCMS\DestinationBundle\Entity\Destination $destinations)
-    {
-        $this->destinations->removeElement($destinations);
-    }
-
-    /**
-     * Get Destination
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getDestinations()
-    {
-        return $this->destinations;
     }
 
     
@@ -174,5 +63,121 @@ class DestinationCategory
 		else{
 			return (string)'New Destination Category';
 		}
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return DestinationCategory
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set class
+     *
+     * @param string $class
+     *
+     * @return DestinationCategory
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+    
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return string 
+     */
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    /**
+     * Set icon
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $icon
+     *
+     * @return DestinationCategory
+     */
+    public function setIcon(\Application\Sonata\MediaBundle\Entity\Media $icon = null)
+    {
+        $this->icon = $icon;
+    
+        return $this;
+    }
+
+    /**
+     * Get icon
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media 
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * Add destinations
+     *
+     * @param \BardisCMS\DestinationBundle\Entity\Destination $destinations
+     *
+     * @return DestinationCategory
+     */
+    public function addDestination(\BardisCMS\DestinationBundle\Entity\Destination $destinations)
+    {
+        $this->destinations[] = $destinations;
+    
+        return $this;
+    }
+
+    /**
+     * Remove destinations
+     *
+     * @param \BardisCMS\DestinationBundle\Entity\Destination $destinations
+     */
+    public function removeDestination(\BardisCMS\DestinationBundle\Entity\Destination $destinations)
+    {
+        $this->destinations->removeElement($destinations);
+    }
+
+    /**
+     * Get destinations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDestinations()
+    {
+        return $this->destinations;
     }
 }

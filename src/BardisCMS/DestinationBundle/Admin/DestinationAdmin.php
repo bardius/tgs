@@ -29,11 +29,6 @@ class DestinationAdmin extends Admin
         $pagetypeChoices            = $destinationSettings['pagetypes'];
         reset($pagetypeChoices);
         $prefPagetypeChoice         = key($pagetypeChoices);
-
-        // Setting up the available media sizes and preffered choice
-        //$introMediaSizeChoices      = $destinationSettings['mediasizes'];
-        //reset($introMediaSizeChoices);
-        //$prefIntroMediaSizeChoice   = key($introMediaSizeChoices);
         
         // Getting the container services that exist and then the user roles
         $loggedUser     = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
@@ -48,33 +43,31 @@ class DestinationAdmin extends Admin
                 ->add('alias', null, array('attr' => array('class' => 'pageAliasField'), 'label' => 'Page Alias', 'required' => false))
                 ->add('pagetype', 'choice', array('choices' => $pagetypeChoices, 'preferred_choices' => array($prefPagetypeChoice), 'label' => 'Page Type', 'required' => true))              
                 ->setHelps(array(
-                    'title'         => 'Set the title',
-                    'publishState'  => 'Set the publish',
+                    'title'         => 'Set the title of the page',
+                    'publishState'  => 'Set the publish state of the page',
                     'date'          => 'Set the publishing date',
                     'author'        => 'Select the Author ( '.$loggedUserRole[0].' )',
                     'alias'         => 'Set the URL alias of the Page',
-                    'pagetype'      => 'Select the type of the Page (Destination Page template)'
+                    'pagetype'      => 'Select the type of the Page (Destination Page Template)'
                 ))
             ->end()
             ->with('Categories & Tags', array('collapsed' => true))
-                ->add('categories', 'entity', array('class' => 'BardisCMS\DestinationBundle\Entity\DestinationCategory', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Associated Categories', 'required' => false))
-                ->add('tags', 'entity', array('class' => 'BardisCMS\DestinationBundle\Entity\DestinationTag', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Associated Tags', 'required' => false))                
+                ->add('categories', 'entity', array('class' => 'BardisCMS\DestinationBundle\Entity\DestinationCategory', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Destination Categories', 'required' => false))
+                //->add('tags', 'entity', array('class' => 'BardisCMS\DestinationBundle\Entity\DestinationTag', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Associated Tags', 'required' => false))                
                 ->setHelps(array(
-                    'tags'          => 'Select the associated tags',
-                    'categories'    => 'Select the associated categories'
+                    //'tags'          => 'Select the associated tags',
+                    'categories'    => 'Select the associated destination categories'
                 ))            
             ->end()
-            ->with('Homepage & Listing Page Intro', array('collapsed' => true))
+            ->with('Listing Page Intro', array('collapsed' => true))
                 ->add('introtext', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced'), 'label' => 'Intro Text/HTML', 'required' => false))                          
-                ->add('introimage', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'intro', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Intro Image for Homepage', 'required' => false))
-                ->add('introvideo', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.youtube', 'context' => 'intro', 'attr' => array( 'class' => 'videofield'), 'label' => 'YouTube Video Id', 'required' => false))
-                ->add('pageOrder', null, array('label' => 'Intro Item Ordering in Homepage', 'required' => true))
+                ->add('introimage', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'intro', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Intro Image', 'required' => false))
+                ->add('pageOrder', null, array('label' => 'Intro Item Ordering', 'required' => true))
                 ->add('introclass', null, array('label' => 'Intro Item CSS Class', 'required' => false))
                 ->setHelps(array(
                     'introtext'     => 'Set the Text/HTML content to display for intro listing items',
-                    'introimage'    => 'Set the Intro Image to display for homepage listing items',
-                    'introvideo'    => 'Set the video content to display for intro listing items',
-                    'pageOrder'     => 'Set the order of this Destination page intro for the homepage',
+                    'introimage'    => 'Set the Intro Image to display for listing items',
+                    'pageOrder'     => 'Set the order for listing items',
                     'introclass'    => 'Set the CSS class that wraps content to display for intro listing items'
                 ))
             ->end()
@@ -98,38 +91,18 @@ class DestinationAdmin extends Admin
                         ->with('Destination Specific Information', array('collapsed' => true))
                             ->add('showPageTitle', 'choice', array('choices' => array('0' => 'Hide Title', '1' => 'Show Title'), 'preferred_choices' => array('1'), 'label' => 'Title Display', 'required' => true))
                             ->add('summary', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced'), 'label' => 'Destination Description', 'required' => false))
-                            ->add('destinationimage', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'destination', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Destination Image', 'required' => false))
-                            ->add('bgimage', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'bgimage', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Destination Top Background Image', 'required' => false))
-                            ->add('preperation', null, array('label' => 'Preperation Time', 'required' => false))
-                            ->add('cooking', null, array('label' => 'Cooking Time', 'required' => false))
-                            ->add('servings', null, array('label' => 'Total Servings', 'required' => false))
-                            ->add('pageclass', null, array('label' => 'Destination Page CSS Class', 'required' => false))
-                            ->add('spots', 'entity', array('class' => 'BardisCMS\SpotBundle\Entity\Spot', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Related Spot', 'attr' => array('class' => 'autoCompleteItems autoCompleteSpot'), 'required' => false))
+                            ->add('pageclass', null, array('label' => 'Page CSS Class', 'required' => false))
                         ->setHelps(array(
                                 'showPageTitle' => 'Hide / Show The title of the page',
                                 'summary'       => 'Set the Destination Description',
-                                'destinationimage'   => 'Set the Destination Image',
-                                'bgimage'       => 'Set the Destination Top Background Image',
-                                'preperation'   => 'Set the Preperation Time',
-                                'cooking'       => 'Set the Cooking Time',
-                                'servings'      => 'Set the Total Servings',
-                                'pageclass'     => 'Set the Color CSS class for this Destination',
-                                'spots'       => 'Select the related Spot for this Destination'
+                                'pageclass'     => 'Set the Color CSS class for this Destination'
                         ))
                         ->end()
                         ->with('Destination Page Contents', array('collapsed' => true))
-                            ->add('maincontentblocks','contentblockcollection', array('attr' => array('class' => 'maincontentblocks'), 'label' => 'Destination Instructions')) 
-                            ->add('secondarycontentblocks','contentblockcollection', array('attr' => array('class' => 'maincontentblocks'), 'label' => 'Destination Ingredients')) 
-                            //->add('extracontentblocks','contentblockcollection', array('attr' => array('class' => 'maincontentblocks'), 'label' => 'Destination extras')) 
-                            ->add('modalcontentblocks','contentblockcollection', array('attr' => array('class' => 'modalcontentblocks'), 'label' => 'Destination Nutritional Information'))
-                            //->add('bannercontentblocks','contentblockcollection', array('attr' => array('class' => 'bannercontentblocks'), 'label' => 'Bottom Contents'))
-                            ->setHelps(array(
-                                //'bannercontentblocks'       => 'Select the top contents in the order you want them to appear in the Destination Page',
-                                //'extracontentblocks'        => 'Select the top contents in the order you want them to appear in the Destination Page',
-                                'maincontentblocks'         => 'Enter the contents for the Destination Instructions',
-                                'secondarycontentblocks'    => 'Enter the contents for the Destination Ingredients',
-                                'modalcontentblocks'        => 'Enter the contents for the Nutritional Information'
-                            )) 
+                            ->add('bannercontentblocks','contentblockcollection', array('attr' => array('class' => 'bannercontentblocks'), 'label' => 'Top Banner Contents'))
+                            ->add('maincontentblocks','contentblockcollection', array('attr' => array('class' => 'maincontentblocks'), 'label' => 'Contents Below Description'))
+                            ->add('secondarycontentblocks','contentblockcollection', array('attr' => array('class' => 'secondarycontentblocks'), 'label' => 'Contents Below The Spot List')) 
+                            ->add('modalcontentblocks','contentblockcollection', array('attr' => array('class' => 'modalcontentblocks'), 'label' => 'Modal Contents'))
                         ->end() 
                     ;
                     break;
@@ -137,32 +110,19 @@ class DestinationAdmin extends Admin
                 $formMapper
                         ->with('Page Specific Information', array('collapsed' => true))
                             ->add('showPageTitle', 'choice', array('choices' => array('0' => 'Hide Title', '1' => 'Show Title'), 'preferred_choices' => array('1'), 'label' => 'Title Display', 'required' => true))
-                            ->add('summary', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced'), 'label' => 'Category Description', 'required' => false))
-                            ->add('destinationimage', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'destination', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Intro Image', 'required' => false))
-                            ->add('bgimage', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'bgimage', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Top Background Image', 'required' => false))
-                            //->add('intromediasize', 'choice', array('choices' => $introMediaSizeChoices, 'preferred_choices' => array($prefIntroMediaSizeChoice), 'label' => 'Media Size', 'required' => true))
-                            ->add('preperation', null, array('label' => 'Featured Destination Url', 'required' => false))
-                            ->add('cooking', null, array('label' => 'Featured Destination Playfull Copy', 'required' => false))
-                            ->add('pageclass', null, array('label' => 'Destination Page CSS Class', 'required' => false))
+                            ->add('summary', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced'), 'label' => 'Destination Description', 'required' => false))
+                            ->add('pageclass', null, array('label' => 'Page CSS Class', 'required' => false))
                         ->setHelps(array(
                                 'showPageTitle' => 'Hide / Show The title of the page',
-                                'summary'       => 'Set the Category Description',
-                                'destinationimage'   => 'Set the Image content to display for intro listing items',
-                                'bgimage'       => 'Set the Top Background Image',
-                                'preperation'   => 'Set the Featured Destination Url',
-                                'cooking'       => 'Set the Featured Destination Playfull Copy',
+                                'summary'       => 'Set the Destination Description',
                                 'pageclass'     => 'Set the CSS class for this page'
                         ))
                         ->end()
                         ->with('Destination List Page Contents', array('collapsed' => true))
-                            ->add('maincontentblocks','contentblockcollection', array('attr' => array('class' => 'maincontentblocks'), 'label' => 'Contents above the Destination List'))
-                            ->add('secondarycontentblocks','contentblockcollection', array('attr' => array('class' => 'maincontentblocks'), 'label' => 'Contents below the Destination List'))  
-                            ->add('modalcontentblocks','contentblockcollection', array('attr' => array('class' => 'modalcontentblocks'), 'label' => 'Modal Windows Contents')) 
-                            ->setHelps(array(
-                                'maincontentblocks'         => 'Select the contents in the order you want them to appear above the destination list',
-                                'secondarycontentblocks'    => 'Select the contents in the order you want them to appear below the destination list',
-                                'modalcontentblocks'        => 'Enter the contents for the Modal Box'
-                            )) 
+                            ->add('bannercontentblocks','contentblockcollection', array('attr' => array('class' => 'bannercontentblocks'), 'label' => 'Top Banner Contents'))
+                            ->add('maincontentblocks','contentblockcollection', array('attr' => array('class' => 'maincontentblocks'), 'label' => 'Contents Below Description'))
+                            ->add('secondarycontentblocks','contentblockcollection', array('attr' => array('class' => 'secondarycontentblocks'), 'label' => 'Contents Below The Destination List')) 
+                            ->add('modalcontentblocks','contentblockcollection', array('attr' => array('class' => 'modalcontentblocks'), 'label' => 'Modal Contents'))
                         ->end() 
                     ;
             } 
@@ -182,10 +142,8 @@ class DestinationAdmin extends Admin
             ->add('publishState', 'doctrine_orm_string', array(), 'choice', array('choices' => array('0' => 'Unpublished', '1' => 'Published', '2' => 'Preview')))
             ->add('pagetype', 'doctrine_orm_string', array(), 'choice', array('choices' => $pagetypeChoices))
             ->add('categories')
-            ->add('tags')
-            ->add('spots')
             ->add('author')
-            //->add('date', 'doctrine_orm_date_range', array('input_type' => 'date'));
+            ->add('date', 'doctrine_orm_date_range', array('input_type' => 'date'));
         ;
     }
 
@@ -197,8 +155,6 @@ class DestinationAdmin extends Admin
             ->addIdentifier('publishStateAsString', null, array('sortable' => false, 'label' => 'Publish State'))
             ->addIdentifier('pagetypeAsString', null, array('sortable' => false, 'label' => 'Page Type'))
             ->addIdentifier('categories')
-            ->addIdentifier('tags')
-            ->addIdentifier('spots')
             ->addIdentifier('pageOrder')
             ->addIdentifier('author')
             ->addIdentifier('date')

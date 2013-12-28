@@ -130,7 +130,7 @@ sonata_block:
         sonata.admin.categories:
         sonata.admin.tags:
         sonata.admin.destinationcategories:
-        sonata.admin.destinationtags:
+        #sonata.admin.destinationtags:
         sonata.admin.spotdestinationfilters:
         sonata.admin.spotfilters:
         sonata.admin.contentblocks:
@@ -187,7 +187,7 @@ sonata_admin:
     dashboard:
         blocks:
             # display a dashboard block
-            - { position: left, type: sonata.admin.block.admin_list, settings: { groups: [sonata_pages, sonata_categories, sonata_tags, sonata_comments] } }
+            - { position: left, type: sonata.admin.block.admin_list, settings: { groups: [sonata_pages, sonata_categories, sonata_spotfilters, sonata_comments] } }
             
             # display a dashboard block
             - { position: right, type: sonata.admin.block.admin_list, settings: { groups: [sonata_settings, sonata_menus, sonata_users, sonata_contentblocks, sonata_medias] } }
@@ -210,16 +210,16 @@ sonata_admin:
               items:
                   - sonata.admin.menus
            sonata_categories:
-              label: Categories
+              label: Categories & Tags
               items:
                   - sonata.admin.categories
-                  - sonata.admin.destinationcategories
-                  - sonata.admin.spotdestinationfilters
-           sonata_tags:
-              label: Tags
-              items:
                   - sonata.admin.tags
-                  - sonata.admin.destinationtags
+                  - sonata.admin.destinationcategories
+                 # - sonata.admin.destinationtags
+           sonata_spotfilters:
+              label: Spot Filters
+              items:
+                  - sonata.admin.spotdestinationfilters
                   - sonata.admin.spotfilters
            sonata_contentblocks:
               label: Content Blocks
@@ -467,19 +467,12 @@ destination:
     pagetypes:
         destination_article:         Destination Article
         destination_cat_page:        Destination Category Page
-        destination_filtered_list:   Destination Filter Results
         destination_home:            Destination Homepage
     
     tagcategories:
-        occasions:	Occasions
-        everyday:   Everyday
-        favourites: Our Favourites
-   
-    mediasizes:
-        original:   Original
-        small:      Small
-        medium:     Medium
-        big:        Big
+        sample1:	Sample 1
+        sample2:  Sample 2
+        sample3:  Sample 3
 
 blog:        
     loadservices: true
