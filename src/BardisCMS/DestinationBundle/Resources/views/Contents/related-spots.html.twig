@@ -1,8 +1,5 @@
 {% if relatedSpots is defined and relatedSpots is not null %}
 <div class="row relatedSpots">
-<div class="large-12 small-12 columns">
-    <h3>Nearby Spots</h3>
-</div>
 {% for spots in relatedSpots %}
 	<div class="relatedSpot {% if spots.pageclass is not null %}{{ spots.pageclass }}{% endif %} large-2 small-3 columns">
 		<a href="{{ url('SpotBundle_page_normal', { 'alias': spots.alias }) }}" title="{{ spots.title }}">

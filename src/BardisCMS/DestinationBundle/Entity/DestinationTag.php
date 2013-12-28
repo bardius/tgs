@@ -31,6 +31,11 @@ class DestinationTag
      * @ORM\Column(type="string", length=255, nullable=true)
      */ 
     protected $tagCategory;
+    
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $styleColor = null;
 
     /**
      * @ORM\OneToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
@@ -77,6 +82,7 @@ class DestinationTag
             default:            return $this->getTagCategory();
         }
     }
+
 
     /**
      * Get id
@@ -192,5 +198,29 @@ class DestinationTag
     public function getDestinations()
     {
         return $this->destinations;
+    }
+
+    /**
+     * Set styleColor
+     *
+     * @param string $styleColor
+     *
+     * @return DestinationTag
+     */
+    public function setStyleColor($styleColor)
+    {
+        $this->styleColor = $styleColor;
+    
+        return $this;
+    }
+
+    /**
+     * Get styleColor
+     *
+     * @return string 
+     */
+    public function getStyleColor()
+    {
+        return $this->styleColor;
     }
 }

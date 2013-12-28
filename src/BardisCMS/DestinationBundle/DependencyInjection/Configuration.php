@@ -34,7 +34,14 @@ class Configuration implements ConfigurationInterface
                     ->requiresAtLeastOneElement()
                     ->useAttributeAsKey('name')
                         ->prototype('scalar')->defaultValue(null)->end()
-                    ->end() 
+                    ->end()
+                
+                ->arrayNode('stylecolors')
+                    ->isRequired()
+                    ->requiresAtLeastOneElement()
+                    ->useAttributeAsKey('name')
+                        ->prototype('scalar')->defaultValue(null)->end()
+                    ->end()  
                 
                 ->arrayNode('tagcategories')
                     ->isRequired()

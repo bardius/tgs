@@ -15,70 +15,60 @@
 
 
 {% block body_start %}
-    <div class="topBg {% if page.spots is not empty and page.spots.pageclass is not null %}{{ page.spots.pageclass }}DestinationTopBg{% endif %}">
-        <div class="row">
-            <div class="column twelve topBgImg destinationsTopBgImg {% if page.pagetype == 'destination_article' %}destinationArticleTopBgImg{% endif%}" {% if page.bgimage is not empty %}style="background-image: url({% path page.bgimage.id,  'big' %});"{% endif %}>            
-            </div>
-        </div>
-    </div>
 {% endblock %}
 
 {% block content %}
-<div class="twelve columns destinationPage {% if page.pagetype == 'destination_article' %}destinationArticlePage{% endif%}">
-    {% if page.pagetype == 'destination_article' %}    
-        <div class="row destinationSummary {% if page.spots is not empty and page.spots.pageclass is not null %}{{ page.spots.pageclass }}DestinationSummary{% endif %}">
-            <div class="four column destinationImageHolder mobile-four">
-                {% if page.destinationimage.id is defined %}
-                {% media page.destinationimage.id,  'big' with {'alt': page.title, 'title': '' } %}
-                {% else %}
-                    <img src="/images/site_assets/defaultDestinationImage.jpg" alt="{{ page.title }}" />
+
+{% if page.bannercontentblocks is not empty  %}
+<div class="row topBanner">
+	<div class="columns large-12 small-12 ">
+		{% include 'DestinationBundle:Contents:bannercontentblocks.html.twig' %}				
+	</div>
+</div>
+{% endif %}
+
+<div class="large-12 small-12 columns destinationPage {% if page.pageType == 'destination_article' %}destinationArticlePage{% endif%} {% if page.pageclass is not null %}{{ page.pageclass }}{% endif %}">
+    {% if page.pageType == 'destination_article' %}    
+        <div class="row destinationContent contentRow">
+            <div class="large-12 small-12 columns">
+                <h2>
+					{{ page.title }}<br />
+					<span>{% include 'DestinationBundle:Contents:destination-categories.html.twig' %}</span>
+				</h2>
+            </div>
+            <div class="large-12 small-12 columns destinationTopText">
+                {% if page.introtext is not null %}
+					<h3>{{ page.introtext|striptags }}</h3>
+                {% endif %}
+                {% if page.summary is not null %}
+					{{ page.summary|raw }}
                 {% endif %}
             </div>
-            <div class="six column mobile-five">  
-                <div class="destinationSummaryTextHolder">
-                    <h2>{{ page.title }}</h2>
-                    <div class="summary">{{ page.summary|raw }}</div>                    
-                </div>
+			{% if page.maincontentblocks is not empty %}
+			<div class="large-12 small-12 columns">
+				{% include 'DestinationBundle:Contents:maincontentblocks.html.twig' %}
+			</div>
+            {% endif %}
+            <div class="large-12 small-12 columns destinationSports">
+				<h3>Sports</h3>
+                {% include 'DestinationBundle:Contents:destination-sports.html.twig' %}
             </div>
-        </div>
-        <div class="row destinationFeatures">            
-            <div class="two column relatedSpot mobile-nine">
-                {% if page.spots is not empty %}
-                <div class="relatedSpotItem">
-                    <a class="relatedSpotImage" href="{{ url('SpotBundle_page_normal', { 'alias': page.spots.alias }) }}" title="View {{ page.spots.title }}">
-						{% if page.destinationimage.id is defined %}
-                        {% media page.spots.spotsimage.id,  'small' with {'alt': page.spots.title, 'title': '' } %}
-						{% endif %}
-                        <h4>{{ page.spots.title }}</h4>
-                    </a>                
-                    <div class="spotsLinks">
-                        <a href="{{ url('SpotBundle_page_normal', { 'alias': page.spots.alias }) }}" title="View {{ page.spots.title }}">View</a>
-                    </div>  
-                </div>
-                {% endif %}
+            {% if page.directions is not null %}
+            <div class="large-12 small-12 columns destinationDirectionsText">
+				<h3>How to get there</h3>
+				{{ page.directions|raw }}
             </div>
+            {% endif %}
+			<div class="large-12 small-12 columns">
+				{% include 'DestinationBundle:Contents:related-spots.html.twig' %}
+			</div>
+			{% if page.secondarycontentblocks is not empty %}
+			<div class="large-12 small-12 columns">
+				{% include 'DestinationBundle:Contents:secondarycontentblocks.html.twig' %}
+			</div>
+            {% endif %}
         </div>
-        <div class="row contentRow">
-            <div class="four columns mobile-nine push-eight clearBoth">
-                <div class="twelve columns ingredientsText">
-                    {% include 'DestinationBundle:Contents:secondarycontentblocks.html.twig' %}               
-                </div>
-                <div class="twelve columns  mobile-nine">
-                    {% include 'DestinationBundle:Contents:smo_share.html.twig' %}
-                </div>
-            </div>
-            <div class="eight columns pageText destinationText pull-four mobile-nine">
-                <h3 class="bigHeading">How to make this destination</h3>
-                {% include 'DestinationBundle:Contents:maincontentblocks.html.twig' %}
-                {% if page.modalcontentblocks|length > 0 %}
-                <a id="nutritionBtn" href="#" title="information for this destination"><span>information for this destination</span></a>
-                {% endif %}
-            </div>
-        </div>
-        <div class="row">
-            {% include 'DestinationBundle:Contents:related-destinations.html.twig' %}
-        </div>
-    {% elseif page.pagetype == 'destination_cat_page' or page.pagetype == 'destination_filtered_list' or page.pagetype == 'destination_home' %} 
+    {% elseif page.pageType == 'destination_cat_page' or page.pageType == 'destination_filtered_list' or page.pageType == 'destination_home' %} 
             <div class="row destinationListTop">
                 <div class="seven column mobile-nine">  
                     <h2>{{ page.title }}</h2>
@@ -87,7 +77,7 @@
                     {% endif %}
                 </div>                
             </div>
-			<div class="row {{ page.pagetype }}List destinationList"> 
+			<div class="row {{ page.pageType }}List destinationList"> 
             {% if page.maincontentblocks is not empty %}
             <div class="twelve columns pageText mobile-nine">
                 {% include 'DestinationBundle:Contents:maincontentblocks.html.twig' %}
@@ -103,14 +93,17 @@
                 {% endif %} 
             </div>
         </div>
-        {% if page.pagetype == 'destination_filtered_list' %} 
+        {% if page.pageType == 'destination_filtered_list' %} 
             {% include 'DestinationBundle:Contents:tags-pagination.html.twig' %}
-        {% elseif page.pagetype == 'destination_home'%}
+        {% elseif page.pageType == 'destination_home'%}
             {% include 'DestinationBundle:Contents:home_pagination.html.twig' %}
         {% else %} 
             {% include 'DestinationBundle:Contents:pagination.html.twig' %}            
         {% endif %} 
-    {% endif %}
+    {% endif %}	
+	<div class="row contentFoorer">
+		{% include 'DestinationBundle:Contents:destination-footer.html.twig' %}
+	</div>
 </div>
 {% endblock %}
 

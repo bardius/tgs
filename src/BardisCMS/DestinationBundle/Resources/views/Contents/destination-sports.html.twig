@@ -1,0 +1,15 @@
+{% if page.tags is not null %}
+	{% for tag in page.tags %}
+		{% if tag.tagCategory == 'sports' %}
+		<div class="large-2 small-6 columns destinationSport {{ tag.styleColor }}">
+			{% if tag.tagIcon.id is defined %}
+				{% media tag.tagIcon.id, 'icon' with {'alt': tag.title, 'title': ''} %}
+			{% else %}
+				<img src="/img/defaultSportIcon.jpg" alt="{{ tag.title }}" />
+			{% endif %}
+			{{ tag.title }} 
+		</div>
+		{% endif %}
+	{% endfor %}
+{% endif %}
+

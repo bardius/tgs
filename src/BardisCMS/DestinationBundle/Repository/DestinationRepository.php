@@ -28,7 +28,7 @@ class DestinationRepository extends EntityRepository
                 ->where($qb->expr()->andX(
                     $qb->expr()->in('c.id', ':category'),
                     $qb->expr()->in('p.publishState', ':publishState'),
-                    $qb->expr()->neq('p.pagetype', ':categorypagePageType'),
+                    $qb->expr()->neq('p.pageType', ':categorypagePageType'),
                     $qb->expr()->neq('p.id', ':currentPage'),
                     $qb->expr()->neq('c.id', ':homepageCategory')
                 ))
@@ -46,7 +46,7 @@ class DestinationRepository extends EntityRepository
                 ->where($countqb->expr()->andX(
                     $countqb->expr()->in('c.id', ':category'),
                     $countqb->expr()->in('p.publishState', ':publishState'),
-                    $countqb->expr()->neq('p.pagetype', ':categorypagePageType'),
+                    $countqb->expr()->neq('p.pageType', ':categorypagePageType'),
                     $countqb->expr()->neq('p.id', ':currentPage'),
                     $qb->expr()->neq('c.id', ':homepageCategory')
                 ))
@@ -84,7 +84,7 @@ class DestinationRepository extends EntityRepository
                     $qb->expr()->in('t.id', ':tag'),
                     $qb->expr()->in('p.publishState', ':publishState'),
                     $qb->expr()->neq('p.id', ':currentPage'),
-                    $qb->expr()->eq('p.pagetype', ':pagetype')
+                    $qb->expr()->eq('p.pageType', ':pagetype')
                 ))
                 ->orderBy('p.date', 'DESC')
                 ->setParameter('category', $categoryIds)
@@ -103,7 +103,7 @@ class DestinationRepository extends EntityRepository
                     $countqb->expr()->in('t.id', ':tag'),
                     $countqb->expr()->in('p.publishState', ':publishState'),
                     $countqb->expr()->neq('p.id', ':currentPage'),
-                    $countqb->expr()->eq('p.pagetype', ':pagetype')
+                    $countqb->expr()->eq('p.pageType', ':pagetype')
                 ))
                 ->orderBy('p.date', 'DESC')
                 ->setParameter('category', $categoryIds)
@@ -136,7 +136,7 @@ class DestinationRepository extends EntityRepository
                 ->where($qb->expr()->andX(
                     $qb->expr()->in('t.id', ':tag'),
                     $qb->expr()->in('p.publishState', ':publishState'),
-                    $qb->expr()->eq('p.pagetype', ':pagetype'),
+                    $qb->expr()->eq('p.pageType', ':pagetype'),
                     $qb->expr()->neq('p.id', ':currentPage')
                 ))
                 ->orderBy('p.date', 'DESC')
@@ -152,7 +152,7 @@ class DestinationRepository extends EntityRepository
                 ->where($countqb->expr()->andX(
                     $countqb->expr()->in('t.id', ':tag'),
                     $countqb->expr()->in('p.publishState', ':publishState'),
-                    $countqb->expr()->eq('p.pagetype', ':pagetype'),
+                    $countqb->expr()->eq('p.pageType', ':pagetype'),
                     $countqb->expr()->neq('p.id', ':currentPage')
                 ))
                 ->orderBy('p.date', 'DESC')
@@ -181,7 +181,7 @@ class DestinationRepository extends EntityRepository
             ->from('DestinationBundle:Destination', 'p')
             ->where($qb->expr()->andX(
                 $qb->expr()->in('p.publishState', ':publishState'),
-                $qb->expr()->eq('p.pagetype', ':pagetype'),
+                $qb->expr()->eq('p.pageType', ':pagetype'),
                 $qb->expr()->neq('p.id', ':currentPage')
             ))
             ->orderBy('p.date', 'DESC')
@@ -194,7 +194,7 @@ class DestinationRepository extends EntityRepository
             ->from('DestinationBundle:Destination', 'p')
             ->where($countqb->expr()->andX(
                 $countqb->expr()->in('p.publishState', ':publishState'),
-                $countqb->expr()->eq('p.pagetype', ':pagetype'),
+                $countqb->expr()->eq('p.pageType', ':pagetype'),
                 $countqb->expr()->neq('p.id', ':currentPage')
             ))
             ->orderBy('p.date', 'DESC')
@@ -272,36 +272,29 @@ class DestinationRepository extends EntityRepository
         return  $pageList;
     }
     
-    public function getRelatedDestinations($spotsId, $currentPageId, $publishStates)
+    public function getRelatedSpots($currentPageId, $publishStates)
     {   
-        $relatedDestinations = null;
-        
-        if(!empty($spotsId))
-        {
-            $qb = $this->_em->createQueryBuilder(); 
+        $relatedSpots = null;
+		
+        $qb = $this->_em->createQueryBuilder(); 
             
-            $qb->select('DISTINCT p')
-                ->from('DestinationBundle:Destination', 'p')
-                ->innerJoin('p.spots', 't')
-                ->where($qb->expr()->andX(
-                    $qb->expr()->in('t.id', ':spots'),
-                    $qb->expr()->in('p.publishState', ':publishState'),
-                    $qb->expr()->eq('p.pagetype', ':pagetype'),
-                    $qb->expr()->neq('p.id', ':currentPage')
-                ))
-                ->orderBy('p.date', 'DESC')
-                ->setFirstResult(0)
-                ->setMaxResults(4)
-                ->setParameter('spots', $spotsId)
-                ->setParameter('publishState', $publishStates)
-                ->setParameter('pagetype', 'destination_article')
-                ->setParameter('currentPage', $currentPageId)
-            ;
+        $qb->select('DISTINCT s')
+            ->from('SpotBundle:Spot', 's')
+            ->innerJoin('s.spotDestinationFilters', 'd')
+            ->where($qb->expr()->andX(
+                $qb->expr()->in('d.destination', ':destination'),
+                $qb->expr()->in('s.publishState', ':publishState'),
+                $qb->expr()->eq('s.pagetype', ':pagetype')
+            ))
+            ->orderBy('s.date', 'DESC')
+            ->setParameter('destination', $currentPageId)
+            ->setParameter('publishState', $publishStates)
+            ->setParameter('pagetype', 'spot_article')
+        ;
                     
-            $relatedDestinations = $qb->getQuery()->getResult();
-        }
+        $relatedSpots = $qb->getQuery()->getResult();
         
-        return  $relatedDestinations;
+        return  $relatedSpots;
     }
 	
 	public function getDestinationHomeItems($categoryId, $currentPageId, $publishStates, $currentpage, $totalpageitems)

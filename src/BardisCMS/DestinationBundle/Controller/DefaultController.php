@@ -294,7 +294,7 @@ class DefaultController extends Controller
     public function renderPage($page, $id, $publishStates, $extraParams, $currentpage, $totalpageitems, $linkUrlParams)
     {
                         
-        if ($page->getPagetype() == 'destination_cat_page')
+        if ($page->getPageType() == 'destination_cat_page')
         {            
             $tagIds         = $page->getTags()->toArray();           
             $categoryIds    = $page->getCategories()->toArray();
@@ -346,7 +346,7 @@ class DefaultController extends Controller
             
             return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
         }      
-        else if ($page->getPagetype() == 'destination_filtered_list')
+        else if ($page->getPageType() == 'destination_filtered_list')
         {               
             $filterForm     = $this->createForm('destinationfiltersform');                
             $filterData     = $this->getRequestedFilters($extraParams);
@@ -381,7 +381,7 @@ class DefaultController extends Controller
             
             return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
         }
-        else if ($page->getPagetype() == 'destination_home')
+        else if ($page->getPageType() == 'destination_home')
         {
             //$pageList = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getAllItems($id, $publishStates, $currentpage, $totalpageitems);
 			$categoryIds = 2;
@@ -393,12 +393,11 @@ class DefaultController extends Controller
             //return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages,  'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
 			return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems));
         }
-        else if ($page->getPagetype() == 'destination_article')
+        else if ($page->getPageType() == 'destination_article')
         {
-            $spotsId      = $page->getSpots();            
-            $relatedDestinations = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getRelatedDestinations($spotsId, $id, $publishStates);
+			$relatedSpots	= $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getRelatedSpots($id, $publishStates);
             
-            return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'relateddestinations' => $relatedDestinations));
+            return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'relatedSpots' => $relatedSpots));
             
         }
         

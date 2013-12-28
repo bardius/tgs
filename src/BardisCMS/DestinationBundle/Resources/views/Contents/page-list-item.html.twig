@@ -1,15 +1,12 @@
-<div class="twelve column {{ pageItem.pagetype }}Item {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %}">
+<div class="columns large-6 small-12 {{ pageItem.pageType }}Item {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %} ">
     <a href="{{ url('DestinationBundle_page_normal', { 'alias': pageItem.alias }) }}" title="{{ pageItem.title }}">
-        {% if pageItem.destinationimage.id is defined %}
-        {% media pageItem.destinationimage.id, 'small' with {'alt': pageItem.title, 'title': ''} %}
+        {% if pageItem.introImage.id is defined %}
+			{% media pageItem.introImage.id, 'medium' with {'alt': pageItem.title, 'title': ''} %}
         {% else %}
         <img src="/images/site_assets/defaultDestinationThumb.jpg" alt="{{ pageItem.title }}" />
         {% endif %}
-        <div class="relatedItemText  {% if pageItem.spots.pageclass is defined %}{{ pageItem.spots.pageclass }}{% endif %}">
-            <h5 class="title"><span>{{ pageItem.title }}</span></h5>
-            <span class="itemIcon preperation">{{ pageItem.preperation }}</span>
-            <span class="itemIcon cooking">{{ pageItem.cooking }}</span>
-            <span class="itemIcon servings">{{ pageItem.servings }}</span>
+        <div class="destinationItemText {% if pageItem.pageclass is defined %}{{ pageItem.pageclass }}{% endif %}">
+            <h5 class="title">{{ pageItem.title }}</h5>
         </div>
     </a>
 </div>

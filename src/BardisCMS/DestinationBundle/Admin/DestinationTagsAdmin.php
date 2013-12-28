@@ -23,18 +23,23 @@ class DestinationTagsAdmin extends Admin
     {   
                 
         // Getting the container parameters set in the config file that exist
-        $pageSettings = $this->getConfigurationPool()->getContainer()->getParameter('destination_settings');
+        $destinationSettings = $this->getConfigurationPool()->getContainer()->getParameter('destination_settings');
         
         // Setting up the available tag categories and preffered choice
-        $tagcategoriesChoices       = $pageSettings['tagcategories'];
+        $tagcategoriesChoices       = $destinationSettings['tagcategories'];
+		
+        $stylecolorChoices          = $destinationSettings['stylecolors'];
+        reset($stylecolorChoices);
         
         $formMapper
             ->with('Tag Details', array('collapsed' => false))
                 ->add('title', null, array('label' => 'Tag Title', 'required' => true))
-                ->add('tagCategory', 'choice', array('choices' => $tagcategoriesChoices, 'label' => 'Tag Category', 'required' => false))              
+                ->add('styleColor', 'choice', array('empty_value' => false, 'choices' => $stylecolorChoices, 'label' => 'Color Theme', 'required' => false))              
+				->add('tagCategory', 'choice', array('empty_value' => false, 'choices' => $tagcategoriesChoices, 'label' => 'Tag Category', 'required' => false))              
                 ->add('tagIcon', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'icons', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Tag Icon', 'required' => false))
                 ->setHelps(array(
                     'title'             => 'Set the title of the tag',
+                    'styleColor'		=> 'Set the color theme of the tag',
                     'tagCategory'       => 'Set the category of the tag',
                     'tagIcon'           => 'Set the icon of the of the tag'
                 ))
@@ -53,6 +58,7 @@ class DestinationTagsAdmin extends Admin
         
         $datagridMapper
             ->add('title')
+            ->add('styleColor', 'doctrine_orm_string', array(), 'choice', array('choices' => $stylecolorChoices))
             ->add('tagCategory', 'doctrine_orm_string', array(), 'choice', array('choices' => $tagcategoriesChoices))
         ;
     }
@@ -61,6 +67,7 @@ class DestinationTagsAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title')
+            ->addIdentifier('styleColor')
             ->addIdentifier('tagCategoryAsString', null, array('sortable' => false, 'label' => 'Tag Category'))
             ->addIdentifier('tagIcon')
             ->add('_action', 'actions', array( 

@@ -130,7 +130,7 @@ sonata_block:
         sonata.admin.categories:
         sonata.admin.tags:
         sonata.admin.destinationcategories:
-        #sonata.admin.destinationtags:
+        sonata.admin.destinationtags:
         sonata.admin.spotdestinationfilters:
         sonata.admin.spotfilters:
         sonata.admin.contentblocks:
@@ -215,7 +215,7 @@ sonata_admin:
                   - sonata.admin.categories
                   - sonata.admin.tags
                   - sonata.admin.destinationcategories
-                 # - sonata.admin.destinationtags
+                  - sonata.admin.destinationtags
            sonata_spotfilters:
               label: Spot Filters
               items:
@@ -469,10 +469,15 @@ destination:
         destination_cat_page:        Destination Category Page
         destination_home:            Destination Homepage
     
+    stylecolors:
+        default:	Default
+        green:		Green
+        red:			Red
+        pink:			Pink
+        purple:		Purple
+    
     tagcategories:
-        sample1:	Sample 1
-        sample2:  Sample 2
-        sample3:  Sample 3
+        sports:		Sports
 
 blog:        
     loadservices: true
