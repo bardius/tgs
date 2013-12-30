@@ -65,7 +65,7 @@ class DefaultController extends Controller
         }
         
         // Set the website settings and metatags
-        $page = $this->setSettings($settings, $page);
+		$page = $this->get('bardiscms_settings.set_page_settings')->setPageSettings($page);
         
         // Set the pagination variables        
         if(is_object($settings))
@@ -200,68 +200,6 @@ class DefaultController extends Controller
     }
     
     
-    // Set the settings as defined from the service of the settings bundle
-    // alternative could be to skip that bundle and use the config.yml
-    public function setSettings($settings, $page)
-    {
-        if(is_object($settings))
-        {         
-            if($settings->getUseWebsiteAuthor())
-            {
-               $page->metaAuthor = $settings->getWebsiteAuthor();
-            }
-            else
-            {
-               $page->metaAuthor = $page->getAuthor()->getUsername();
-            }
-
-            $pageTitle          = $page->getTitle();
-            $titleKeywords      = trim(preg_replace("/\b[A-za-z0-9']{1,3}\b/", "", strtolower($pageTitle)));
-            $titleKeywords      = str_replace(' ', ',', preg_replace('!\s+!', ' ', $titleKeywords));        
-            $fromTitle          = $pageTitle . ' ' . $settings->getFromTitle();
-            $pageTitle          .= ' - ' . $settings->getWebsiteTitle();
-
-            $page->pagetitle    = $pageTitle;
-
-            $page->enableGA     = $settings->getEnableGoogleAnalytics();
-            $page->gaID         = $settings->getGoogleAnalyticsId();
-
-            if($page->getKeywords() == null)
-            {
-               $page->setKeywords($settings->getMetaKeywords() . ',' . $titleKeywords);
-            }
-            else
-            {
-                $page->setKeywords($page->getKeywords() . ',' . $titleKeywords);
-            }
-
-            if($page->getDescription() == null)
-            {
-                $page->setDescription($settings->getMetaDescription() . ' ' . $fromTitle);
-            }
-            else
-            {
-                $page->setDescription($page->getDescription() . ' ' . $fromTitle);
-            }
-        }
-        else
-        {
-            $page->metaAuthor   = '';
-            $pageTitle          = $page->getTitle();
-            $titleKeywords      = trim(preg_replace("/\b[A-za-z0-9']{1,3}\b/", "", strtolower($pageTitle)));
-            $titleKeywords      = str_replace(' ', ',', preg_replace('!\s+!', ' ', $titleKeywords)); 
-            $page->pagetitle    = $pageTitle; 
-            $page->enableGA     = false;
-            $page->gaID         = null;
-            
-            $page->setDescription($page->getDescription());
-            $page->setKeywords($page->getKeywords() . ',' . $titleKeywords);
-        }         
-        
-        return $page;
-    }
-    
-    
     // Get the required data to display to the correct view depending on pagetype
     public function renderPage($page, $id, $publishStates, $extraParams, $currentpage, $totalpageitems, $linkUrlParams)
     {
@@ -324,10 +262,8 @@ class DefaultController extends Controller
     
     // Get and display to the 404 error page
     public function render404Page()
-    {
-        
+    {        
         $page       = $this->getDoctrine()->getRepository('PageBundle:Page')->findOneByAlias('404');
-        $settings   = $this->get('bardiscms_settings.load_settings')->loadSettings();
         
         // Check if page exists
         if (!$page) {
@@ -335,7 +271,7 @@ class DefaultController extends Controller
         }
         
         // Set the website settings and metatags
-        $page = $this->setSettings($settings, $page);
+		$page = $this->get('bardiscms_settings.set_page_settings')->setPageSettings($page);
         
         return $this->render('PageBundle:Default:page.html.twig', array('page' => $page))->setStatusCode(404);
     }

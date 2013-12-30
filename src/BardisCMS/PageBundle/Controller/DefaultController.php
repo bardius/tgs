@@ -62,7 +62,7 @@ class DefaultController extends Controller {
 		}
 
 		// Set the website settings and metatags
-		$page = $this->setSettings($settings, $page);
+		$page = $this->get('bardiscms_settings.set_page_settings')->setPageSettings($page);
 
 		// Set the pagination variables        
 		if (is_object($settings)) {
@@ -167,59 +167,6 @@ class DefaultController extends Controller {
 		return $tagIds;
 	}
 
-	// Set the settings as defined from the service of the settings bundle
-	// alternative could be to skip that bundle and use the config.yml
-	// adn dependency injection to provide this settings values
-	public function setSettings($settings, $page) {
-		if (is_object($settings)) {
-			if ($settings->getUseWebsiteAuthor()) {
-				$page->metaAuthor = $settings->getWebsiteAuthor();
-			} else {
-				$page->metaAuthor = $page->getAuthor()->getUsername();
-			}
-
-			// Set the page title basd on page and site title and the keywords based on that generated title
-			$pageTitle = $page->getTitle();
-			$titleKeywords = trim(preg_replace("/\b[A-za-z0-9']{1,3}\b/", "", strtolower($pageTitle)));
-			$titleKeywords = str_replace(' ', ',', preg_replace('!\s+!', ' ', $titleKeywords));
-			$fromTitle = $pageTitle . ' ' . $settings->getFromTitle();
-			$pageTitle .= ' - ' . $settings->getWebsiteTitle();
-
-			$page->pagetitle = $pageTitle;
-
-			// Get the Google Analytics 
-			$page->enableGA = $settings->getEnableGoogleAnalytics();
-			$page->gaID = $settings->getGoogleAnalyticsId();
-
-			// Set the page meta keywords and description basd on user input values if any
-			if ($page->getKeywords() == null) {
-				$page->setKeywords($settings->getMetaKeywords() . ',' . $titleKeywords);
-			} else {
-				$page->setKeywords($page->getKeywords() . ',' . $titleKeywords);
-			}
-
-			if ($page->getDescription() == null) {
-				$page->setDescription($settings->getMetaDescription() . ' ' . $fromTitle);
-			} else {
-				$page->setDescription($page->getDescription() . ' ' . $fromTitle);
-			}
-		} else {
-			// Set the meta values depending if settings do not exist
-			$page->metaAuthor = '';
-			$pageTitle = $page->getTitle();
-			$titleKeywords = trim(preg_replace("/\b[A-za-z0-9']{1,3}\b/", "", strtolower($pageTitle)));
-			$titleKeywords = str_replace(' ', ',', preg_replace('!\s+!', ' ', $titleKeywords));
-			$page->pagetitle = $pageTitle;
-			$page->enableGA = false;
-			$page->gaID = null;
-
-			$page->setDescription($page->getDescription());
-			$page->setKeywords($page->getKeywords() . ',' . $titleKeywords);
-		}
-
-		return $page;
-	}
-
 	// Get the required data to display to the correct view depending on pagetype
 	// @TODO: refactor that to be a case switch in stead of conditional if 
 	public function renderPage($page, $id, $publishStates, $extraParams, $currentpage, $totalpageitems, $linkUrlParams) {
@@ -269,7 +216,6 @@ class DefaultController extends Controller {
 			// Get the items to display in homepage from all bundles that should supply contents
 			$pages = array();
 			$blogpages = array();
-			$destinationpages = array();
 			$spotspages = array();
 
 			// Get the pages for the category id of homepage but take ou the current (homepage) page item from the results
@@ -277,10 +223,9 @@ class DefaultController extends Controller {
 			$blogpages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getHomepageItems($categoryIds, $publishStates);
 
 			// @TODO: remove the hardcoded if for the homepage category of the other bundles (8)
-			$destinationpages = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getHomepageItems(8, $publishStates);
 			$spotspages = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getHomepageItems(8, $publishStates);
 
-			$pages = array_merge($pages, $blogpages, $destinationpages, $spotspages);
+			$pages = array_merge($pages, $blogpages, $spotspages);
 
 			// Sort all the items based on custom sorting
 			usort($pages, array("BardisCMS\PageBundle\Controller\DefaultController", "sortHomepageItemsCompare"));
@@ -309,16 +254,13 @@ class DefaultController extends Controller {
 		// Get the page with alias 404
 		$page = $this->getDoctrine()->getRepository('PageBundle:Page')->findOneByAlias('404');
 
-		//Load the settings of the settting bundle
-		$settings = $this->get('bardiscms_settings.load_settings')->loadSettings();
-
 		// Check if page exists
 		if (!$page) {
 			throw $this->createNotFoundException('No 404 error page exists. No page found for with alias 404. Page has id: ' . $page->getId());
 		}
 
 		// Set the website settings and metatags
-		$page = $this->setSettings($settings, $page);
+		$page = $this->get('bardiscms_settings.set_page_settings')->setPageSettings($page);
 
 		return $this->render('PageBundle:Default:page.html.twig', array('page' => $page))->setStatusCode(404);
 	}
@@ -358,13 +300,15 @@ class DefaultController extends Controller {
 	// Get the contact form page
 	public function contactForm(Request $request, $page) {
 		// Load the settings from the setting bundle
-		$settings = $this->get('bardiscms_settings.load_settings')->loadSettings();		
+		$settings = $this->get('bardiscms_settings.load_settings')->loadSettings();	
+		
 		if (is_object($settings)) {		
 			$websiteTitle = $settings->getWebsiteTitle();
 		}
 		else{
 			$websiteTitle = '';			
 		}
+		
 		$successMgs = '';		
 		$ajaxForm = $request->get('isAjax');
 		if(!isset($ajaxForm) || !$ajaxForm){
