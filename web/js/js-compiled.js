@@ -29,6 +29,7 @@ return b.length>0?b:"replace"},object:function(a){var b=this.parse_data_attr(a),
 		mapKey:			'AIzaSyB8uoWbuhHNagbpi22tEeZYiT41toB171g',
 		mapLatitude:	$('#mapLat').val(),
 		mapLongitude:	$('#mapLong').val(),
+		mapZoom:		14,
 		markerTitle:	$('#mapTitle').val(),
 		mapCanvasId:	'map-canvas',
 		GMapScriptURL:	'http://maps.google.com/maps/api/js?sensor=false&key=',
@@ -45,27 +46,17 @@ return b.length>0?b:"replace"},object:function(a){var b=this.parse_data_attr(a),
 			
 			$('#' + CMS.siteConfig.mapCanvasId).css('height', (windowHeight / 2) + 'px');
 			
+			if($('#mapZoom').length > 0){
+				CMS.siteConfig.mapZoom = parseInt($('#mapZoom').val());
+			}
+			
 			var mapOptions	= {
 				center:		mapLatlng,
 				mapTypeId:	google.maps.MapTypeId.ROADMAP,
-				zoom:		14
+				zoom:		CMS.siteConfig.mapZoom
 			};
 			
-			var infowindow	= new google.maps.InfoWindow({ 
-				content: contentString
-			});
-			
 			CMS.siteConfig.map	= new google.maps.Map(document.getElementById(CMS.siteConfig.mapCanvasId), mapOptions);
-
-			var marker		= new google.maps.Marker({
-				position:	mapLatlng,
-				map:		CMS.siteConfig.map,
-				title:		CMS.siteConfig.markerTitle
-			});
-			
-			google.maps.event.addListener(marker, 'click', function() {
-				infowindow.open(CMS.siteConfig.map,marker);
-			});
 		 
 			google.maps.event.addDomListener(window, "resize", function() {
 				var newCenter = CMS.siteConfig.map.getCenter();
@@ -78,6 +69,22 @@ return b.length>0?b:"replace"},object:function(a){var b=this.parse_data_attr(a),
 				google.maps.event.trigger(CMS.siteConfig.map, "resize");
 				CMS.siteConfig.map.setCenter(newCenter); 
 			});
+			
+			if(CMS.siteConfig.mapZoom == 14){				
+				var marker		= new google.maps.Marker({
+					position:	mapLatlng,
+					map:		CMS.siteConfig.map,
+					title:		CMS.siteConfig.markerTitle
+				});
+
+				var infowindow	= new google.maps.InfoWindow({ 
+					content: contentString
+				});
+
+				google.maps.event.addListener(marker, 'click', function() {
+					infowindow.open(CMS.siteConfig.map,marker);
+				});
+			}
 		}
 	},
 			

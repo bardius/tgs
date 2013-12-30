@@ -132,11 +132,6 @@ class ContentBlock
     protected $blog_extracontents;
     
     /**
-     * @ORM\ManyToMany(targetEntity="BardisCMS\DestinationBundle\Entity\Destination", mappedBy="extracontentblocks", cascade={"persist"})
-     **/
-    protected $destination_extracontents;
-    
-    /**
      * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Page", mappedBy="modalcontentblocks", cascade={"persist"})
      **/
     protected $modalcontents;
@@ -226,7 +221,6 @@ class ContentBlock
         $this->imagefiles						= new \Doctrine\Common\Collections\ArrayCollection();
         $this->destination_maincontents         = new \Doctrine\Common\Collections\ArrayCollection();
         $this->destination_secondarycontents    = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->destination_extracontents        = new \Doctrine\Common\Collections\ArrayCollection();
         $this->destination_modalcontents        = new \Doctrine\Common\Collections\ArrayCollection();
         $this->destination_bannercontents       = new \Doctrine\Common\Collections\ArrayCollection();
         $this->spot_maincontents				= new \Doctrine\Common\Collections\ArrayCollection();
@@ -1052,40 +1046,6 @@ class ContentBlock
     {
         return $this->spot_secondarycontents;
     }
-
-    /**
-     * Add destination_extracontents
-     *
-     * @param \BardisCMS\DestinationBundle\Entity\Destination $eExtracontents
-     * @return ContentBlock
-     */
-    public function addDestinationExtracontent(\BardisCMS\DestinationBundle\Entity\Destination $eExtracontents)
-    {
-        $this->destination_extracontents[] = $eExtracontents;
-    
-        return $this;
-    }
-
-    /**
-     * Remove destination_extracontents
-     *
-     * @param \BardisCMS\DestinationBundle\Entity\Destination $eExtracontents
-     */
-    public function removeDestinationExtracontent(\BardisCMS\DestinationBundle\Entity\Destination $eExtracontents)
-    {
-        $this->destination_extracontents->removeElement($eExtracontents);
-    }
-
-    /**
-     * Get destination_extracontents
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getDestinationExtracontents()
-    {
-        return $this->destination_extracontents;
-    }
-
     /**
      * Add destination_modalcontents
      *

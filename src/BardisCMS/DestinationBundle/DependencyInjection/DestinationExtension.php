@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Destination Bundle
  * This file is part of the BardisCMS.

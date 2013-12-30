@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Destination Bundle
  * This file is part of the BardisCMS.
@@ -6,6 +7,7 @@
  * (c) George Bardis <george@bardis.info>
  *
  */
+
 namespace BardisCMS\DestinationBundle\Controller;
 
 use BardisCMS\DestinationBundle\Entity\Destination;

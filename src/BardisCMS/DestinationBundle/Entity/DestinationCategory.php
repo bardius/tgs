@@ -26,6 +26,12 @@ class DestinationCategory
      * @ORM\Column(type="string", length=255)
      */ 
     protected $title;
+	
+    /**
+     * @ORM\ManyToOne(targetEntity="BardisCMS\DestinationBundle\Entity\Destination")
+     * @ORM\JoinColumn(name="destinationListPage", referencedColumnName="id", onDelete="SET NULL")
+     */
+    protected $destinationListPage;
 
 
     /**
@@ -179,5 +185,31 @@ class DestinationCategory
     public function getDestinations()
     {
         return $this->destinations;
+    }
+	
+	
+	
+	
+    
+    /**
+     * Set destinationListPage
+     *
+     * @param BardisCMS\DestinationBundle\Entity\Destination $destination
+     * @return Menu
+     */
+    public function setDestinationListPage(\BardisCMS\DestinationBundle\Entity\Destination $destinationListPage = null)
+    {
+        $this->destinationListPage = $destinationListPage;
+        return $this;
+    }
+
+    /**
+     * Get destinationListPage
+     *
+     * @return BardisCMS\DestinationBundle\Entity\Destination 
+     */
+    public function getDestinationListPage()
+    {
+        return $this->destinationListPage;
     }
 }

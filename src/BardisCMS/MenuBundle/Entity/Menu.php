@@ -380,7 +380,7 @@ class Menu
     /**
      * Set spot
      *
-     * @param BardisCMS\DestinationBundle\Entity\Spot $spot
+     * @param BardisCMS\SpotBundle\Entity\Spot $spot
      * @return Menu
      */
     public function setSpot(\BardisCMS\SpotBundle\Entity\Spot $spot = null)
@@ -392,7 +392,7 @@ class Menu
     /**
      * Get spot
      *
-     * @return BardisCMS\DestinationBundle\Entity\Spot 
+     * @return BardisCMS\SpotBundle\Entity\Spot 
      */
     public function getSpot()
     {

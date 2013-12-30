@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /*
  * Destination Bundle
  * This file is part of the BardisCMS.
@@ -15,7 +16,6 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Form\Type;
 
 
 class DestinationAdmin extends Admin
@@ -95,7 +95,7 @@ class DestinationAdmin extends Admin
                             ->add('showPageTitle', 'choice', array('empty_value' => false, 'choices' => array('0' => 'Hide Title', '1' => 'Show Title'), 'preferred_choices' => array('1'), 'label' => 'Title Display', 'required' => true))
                             ->add('summary', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced'), 'label' => 'Destination Description', 'required' => false))
 							->add('directions', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced'), 'label' => 'Destination Directions', 'required' => false))    
-							->add('destinationIcon', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'icon', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Destination Icon', 'required' => false))
+							->add('destinationIcon', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'icons', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Destination Icon', 'required' => false))
 							->add('styleColor', 'choice', array('empty_value' => false, 'choices' => $stylecolorChoices, 'label' => 'Color Theme', 'required' => false))              
 							->add('pageClass', null, array('label' => 'Page CSS Class', 'required' => false))
 							->add('mapLatitude', null, array('label' => 'Map Latitude', 'required' => false))
@@ -121,7 +121,7 @@ class DestinationAdmin extends Admin
                         ->with('Page Specific Information', array('collapsed' => true))
                             ->add('showPageTitle', 'choice', array('empty_value' => false, 'choices' => array('0' => 'Hide Title', '1' => 'Show Title'), 'preferred_choices' => array('1'), 'label' => 'Title Display', 'required' => true))
                             ->add('summary', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced'), 'label' => 'Destination Description', 'required' => false))
-                            ->add('destinationIcon', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'icon', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Destination Icon', 'required' => false))
+                            ->add('destinationIcon', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'icons', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Destination Icon', 'required' => false))
 							->add('styleColor', 'choice', array('empty_value' => false, 'choices' => $stylecolorChoices, 'label' => 'Color Theme', 'required' => false)) 
 							->add('pageClass', null, array('label' => 'Page CSS Class', 'required' => false))
 							->add('mapLatitude', null, array('label' => 'Map Latitude', 'required' => false))
@@ -137,7 +137,7 @@ class DestinationAdmin extends Admin
                         ->with('Destination List Page Contents', array('collapsed' => true))
                             ->add('bannercontentblocks','contentblockcollection', array('attr' => array('class' => 'bannercontentblocks'), 'label' => 'Top Banner Contents'))
                             ->add('maincontentblocks','contentblockcollection', array('attr' => array('class' => 'maincontentblocks'), 'label' => 'Contents Below Description'))
-                            ->add('secondarycontentblocks','contentblockcollection', array('attr' => array('class' => 'secondarycontentblocks'), 'label' => 'Contents Below The Spot List')) 
+                            ->add('secondarycontentblocks','contentblockcollection', array('attr' => array('class' => 'secondarycontentblocks'), 'label' => 'Contents Below The Destinations List')) 
                             ->add('modalcontentblocks','contentblockcollection', array('attr' => array('class' => 'modalcontentblocks'), 'label' => 'Modal Contents'))
                         ->end() 
                     ;

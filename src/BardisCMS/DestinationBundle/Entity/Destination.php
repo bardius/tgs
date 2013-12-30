@@ -96,13 +96,13 @@ class Destination
     protected $directions = null;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */ 
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     protected $mapLatitude = null;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */ 
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     protected $mapLongitude = null;
 
     /**

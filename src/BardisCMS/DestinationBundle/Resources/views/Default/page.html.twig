@@ -68,39 +68,41 @@
 			</div>
             {% endif %}
         </div>
-    {% elseif page.pageType == 'destination_cat_page' or page.pageType == 'destination_filtered_list' or page.pageType == 'destination_home' %} 
-            <div class="row destinationListTop">
-                <div class="seven column mobile-nine">  
-                    <h2>{{ page.title }}</h2>
-                    {% if page.summary is not empty %}
-                    <div class="summary">{{ page.summary|raw }}</div>
-                    {% endif %}
-                </div>                
+    {% elseif page.pageType == 'destination_cat_page' or page.pageType == 'destination_home' %}
+		<div class="row destinationContent contentRow">
+            <div class="large-12 small-12 columns">
+                <h2>{{ page.title }}</h2>
             </div>
-			<div class="row {{ page.pageType }}List destinationList"> 
-            {% if page.maincontentblocks is not empty %}
-            <div class="twelve columns pageText mobile-nine">
-                {% include 'DestinationBundle:Contents:maincontentblocks.html.twig' %}
+			{% if page.summary is not null %}
+            <div class="large-12 small-12 columns destinationTopText">
+                {% if page.introtext is not null %}
+					<h3>{{ page.introtext|striptags }}</h3>
+                {% endif %}
+				{{ page.summary|raw }}
             </div>
+			{% endif %}
+			{% if page.maincontentblocks is not empty %}
+			<div class="large-12 small-12 columns">
+				{% include 'DestinationBundle:Contents:maincontentblocks.html.twig' %}
+			</div>
+			{% endif %}
+		 </div>
+		<div class="row {{ page.pageType }}List destinationList">
+            {% if pages %}
+                {% for pageItem in pages %}
+                {% include 'DestinationBundle:Contents:page-list-item.html.twig' %}
+				{% endfor %}
             {% endif %}
-            <div class="twelve columns categoryListing mobile-nine">
-                {% if pages %}
-                    {% for pageItem in pages %}
-                        <div class="columns categoryListingItem three mobile-four">
-                            {% include 'DestinationBundle:Contents:page-list-item.html.twig' %}
-                        </div>
-                    {% endfor %}
-                {% endif %} 
-            </div>
         </div>
-        {% if page.pageType == 'destination_filtered_list' %} 
-            {% include 'DestinationBundle:Contents:tags-pagination.html.twig' %}
-        {% elseif page.pageType == 'destination_home'%}
-            {% include 'DestinationBundle:Contents:home_pagination.html.twig' %}
-        {% else %} 
-            {% include 'DestinationBundle:Contents:pagination.html.twig' %}            
-        {% endif %} 
-    {% endif %}	
+        {% include 'DestinationBundle:Contents:pagination.html.twig' %}		
+		<div class="row {{ page.pageType }}Below destinationListBelow">
+			{% if page.secondarycontentblocks is not empty %}
+			<div class="large-12 small-12 columns">
+				{% include 'DestinationBundle:Contents:secondarycontentblocks.html.twig' %}
+			</div>
+			{% endif %}
+        </div>
+    {% endif %}
 	<div class="row contentFoorer">
 		{% include 'DestinationBundle:Contents:destination-footer.html.twig' %}
 	</div>

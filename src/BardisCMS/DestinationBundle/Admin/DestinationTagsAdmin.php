@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Destination Bundle
  * This file is part of the BardisCMS.
@@ -6,6 +7,7 @@
  * (c) George Bardis <george@bardis.info>
  *
  */
+
 namespace BardisCMS\DestinationBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
@@ -14,7 +16,6 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Form\Type;
 
 
 class DestinationTagsAdmin extends Admin

@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * Destination Bundle
+ * This file is part of the BardisCMS.
+ *
+ * (c) George Bardis <george@bardis.info>
+ *
+ */
+
 namespace BardisCMS\DestinationBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
