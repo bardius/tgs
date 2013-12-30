@@ -38,7 +38,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $blogfiltered->setShowPageTitle(1);
         $blogfiltered->setPublishState(1);
         $blogfiltered->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
-        $blogfiltered->setPagetype('blog_tag_list');
+        $blogfiltered->setPagetype('blog_filtered_list');
 		$manager->persist($blogfiltered);
 		
         $blog1 = new Blog();

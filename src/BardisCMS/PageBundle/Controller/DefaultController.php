@@ -276,11 +276,6 @@ class DefaultController extends Controller {
 			$publishStates = array(1, 2);
 		}
 
-		$sitemapList = array();
-		$blogpages = array();
-		$destinationpages = array();
-		$spotspages = array();
-
 		$sitemapList = $this->getDoctrine()->getRepository('PageBundle:Page')->getSitemapList($publishStates);
 		$blogpages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getSitemapList($publishStates);
 		$destinationpages = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getSitemapList($publishStates);
