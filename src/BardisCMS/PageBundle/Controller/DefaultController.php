@@ -41,7 +41,7 @@ class DefaultController extends Controller {
 		$page = $this->getDoctrine()->getRepository('PageBundle:Page')->find($id);
 
 		// Get the highest user role security permission
-		$userRole = $this->getLoggedUserHighestRole();
+		$userRole = $this->get('sonata_user.services.helpers')->getLoggedUserHighestRole();
 
 		// Load the settings from the settings bundle
 		$settings = $this->get('bardiscms_settings.load_settings')->loadSettings();
@@ -75,20 +75,6 @@ class DefaultController extends Controller {
 
 		// Render the correct view depending on pagetype
 		return $this->renderPage($page, $id, $publishStates, $extraParams, $currentpage, $totalpageitems, $linkUrlParams);
-	}
-
-	// Get the highest user role ( @TODO: this is very simple ACL and has to be improved )
-	public function getLoggedUserHighestRole() {
-
-		if ($this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
-			$userRole = 'ROLE_SUPER_ADMIN';
-		} else if ($this->get('security.context')->isGranted('ROLE_USER')) {
-			$userRole = 'ROLE_USER';
-		} else {
-			$userRole = '';
-		}
-
-		return $userRole;
 	}
 
 	// Get the tags and / or categories for filtering from the request
@@ -268,7 +254,7 @@ class DefaultController extends Controller {
 	// Get and display all items from all bundles in the sitemap xml
 	public function sitemapAction() {
 
-		$userRole = $this->getLoggedUserHighestRole();
+		$userRole = $this->get('sonata_user.services.helpers')->getLoggedUserHighestRole();
 
 		if ($userRole == "") {
 			$publishStates = array(1);

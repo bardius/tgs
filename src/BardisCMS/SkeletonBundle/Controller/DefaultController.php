@@ -41,7 +41,7 @@ class DefaultController extends Controller
         
         // Get data to display
         $page       = $this->getDoctrine()->getRepository('SkeletonBundle:Skeleton')->find($id);        
-        $userRole   = $this->getLoggedUserHighestRole();        
+        $userRole   = $this->get('sonata_user.services.helpers')->getLoggedUserHighestRole();        
         $settings   = $this->get('bardiscms_settings.load_settings')->loadSettings();
         
         // Simple ACL for publishing
@@ -82,25 +82,6 @@ class DefaultController extends Controller
         
         // Render the correct view depending on pagetype
         return $this->renderPage($page, $id, $publishStates, $extraParams, $currentpage, $totalpageitems, $linkUrlParams);        
-    }
-    
-    
-    // Get the user role ( @TODO: this is very simple ACL and has to be improved )
-    public function getLoggedUserHighestRole()
-    {
-        
-        if ($this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
-            $userRole = 'ROLE_SUPER_ADMIN';
-        }
-        else if ($this->get('security.context')->isGranted('ROLE_USER')) {
-            $userRole = 'ROLE_USER';
-        }
-        else
-        {
-            $userRole = '';
-        }
-        
-        return $userRole;
     }
     
     

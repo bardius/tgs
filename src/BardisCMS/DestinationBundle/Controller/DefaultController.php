@@ -42,7 +42,7 @@ class DefaultController extends Controller
         
         // Get data to display
         $page       = $this->getDoctrine()->getRepository('DestinationBundle:Destination')->find($id);        
-        $userRole   = $this->getLoggedUserHighestRole();
+        $userRole   = $this->get('sonata_user.services.helpers')->getLoggedUserHighestRole();
         
         // Simple ACL for publishing
         if($page->getPublishState() == 0)
@@ -123,25 +123,6 @@ class DefaultController extends Controller
 		$page = $this->get('bardiscms_settings.set_page_settings')->setPageSettings($page);
         
         return $this->render('PageBundle:Default:page.html.twig', array('page' => $page))->setStatusCode(404);
-    }
-    
-    
-    // Get the user role ( @TODO: this is very simple ACL and has to be improved )
-    public function getLoggedUserHighestRole()
-    {
-        
-        if ($this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
-            $userRole = 'ROLE_SUPER_ADMIN';
-        }
-        else if ($this->get('security.context')->isGranted('ROLE_USER')) {
-            $userRole = 'ROLE_USER';
-        }
-        else
-        {
-            $userRole = '';
-        }
-        
-        return $userRole;
-    }    
+    } 
     
 }
