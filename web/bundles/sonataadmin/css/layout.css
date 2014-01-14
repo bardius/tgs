@@ -176,6 +176,19 @@ body.sonata-bc {
     visibility: visible;
 }
 
+.sonata-bc td.sonata-ba-list-field.sonata-ba-list-field-boolean i {
+    margin-right: 1ex;
+}
+.sonata-bc td.sonata-ba-list-field.sonata-ba-list-field-boolean a:hover {
+    text-decoration: none;
+}
+
+.sonata-bc td.sonata-ba-list-field.sonata-ba-list-field-currency,
+.sonata-bc td.sonata-ba-list-field.sonata-ba-list-field-percent,
+.sonata-bc td.sonata-ba-list-field.sonata-ba-list-field-integer {
+    text-align: right;
+}
+
 .sonata-bc td.sonata-ba-list-field.sonata-ba-list-field-select {
     text-align: center;
 }
@@ -252,7 +265,7 @@ body.sonata-bc {
 }
 
 .sonata-bc div.sonata-medium-date select {
-    width: 75px;
+    width: 85px;
 }
 
 .sonata-bc div.sonata-medium-date div {
@@ -306,7 +319,6 @@ body.sonata-bc {
 
 .sonata-collection-delete {
     float: left;
-    margin-top: 5px;
 }
 
 .no-js .sonata-collection-add, .no-js .sonata-collection-delete {
@@ -372,10 +384,31 @@ legend.sonata-ba-fieldset-collapsed-description + .sonata-ba-collapsed-fields {
 
 }
 
+.sonata-bc .required:after {
+    content: '*';
+}
+
 .sonata-bc .form-horizontal .control-group {
     margin-bottom: 10px;
 }
 
 span.field-actions {
     margin-left: 10px;
+}
+
+/* X-editable */
+.sonata-bc td.sonata-ba-list-field .editable {
+    cursor: pointer;
+}
+.sonata-bc td.sonata-ba-list-field .btn.editable {
+    border-bottom: solid 1px #BBB;
+}
+.sonata-bc td.sonata-ba-list-field .editable-empty:not(.editable-open) {
+    display: none;
+}
+.sonata-bc .sonata-ba-list tr:hover .editable-empty {
+    display: inline-block;
+}
+.editable-pre-wrapped {
+    white-space: normal;
 }

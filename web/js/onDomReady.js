@@ -1,26 +1,5 @@
 (function(CMS, $) {
-
-    $(function() {
-		CMS.foundationConfig.init();
-		
-		if($('#mapModal').length > 0){
-			CMS.siteConfig.mapInit();			
-		}
-    });
-    // END DOC READY
-
-    /* Optional triggers
-     
-     // WINDOW.LOAD
-     $(window).load(function() {
-     
-     });
-
-    // WINDOW.RESIZE
-    $(window).resize(function() {
 	
-    });
-     */
 	CMS.siteConfig = {
 		map:			null,
 		mapKey:			'AIzaSyB8uoWbuhHNagbpi22tEeZYiT41toB171g',
@@ -179,5 +158,27 @@
 			 });
 		 */
     };
+
+    $(function() {
+		CMS.foundationConfig.init();
+		
+		if($('#mapModal').length > 0){
+			CMS.siteConfig.mapInit();			
+		}
+    });
+    // END DOC READY
+
+    /* Optional triggers
+     
+     // WINDOW.LOAD
+     $(window).load(function() {
+     
+     });
+
+    // WINDOW.RESIZE
+    $(window).resize(function() {
+	
+    });
+     */
 
 })(window.CMS = window.CMS || {}, jQuery);

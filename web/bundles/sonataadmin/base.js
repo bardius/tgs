@@ -1,10 +1,11 @@
 jQuery(document).ready(function() {
     jQuery('html').removeClass('no-js');
-    if (window.SONATA_CONFIG.CONFIRM_EXIT) {
+    if (window.SONATA_CONFIG && window.SONATA_CONFIG.CONFIRM_EXIT) {
         jQuery('.sonata-ba-form form').confirmExit();
     }
 
     Admin.setup_select2(document);
+    Admin.setup_xeditable(document);
     Admin.add_pretty_errors(document);
     Admin.add_filters(document);
     Admin.set_object_field_value(document);
@@ -14,17 +15,33 @@ jQuery(document).ready(function() {
     Admin.setup_inline_form_errors(document);
 });
 
+jQuery(document).on('sonata-admin-append-form-element', function(e) {
+    Admin.setup_select2(e.target);
+});
+
 var Admin = {
 
     setup_select2: function(subject) {
         if (window.SONATA_CONFIG && window.SONATA_CONFIG.USE_SELECT2 && window.Select2) {
-            jQuery('select', subject).each(function() {
+            jQuery('select:not([data-sonata-select2="false"])', subject).each(function() {
                 var select = $(this);
+
+                var allowClearEnabled = false;
+
+                if (select.find('option[value=""]').length) {
+                    allowClearEnabled = true;
+                }
+
+                if (select.attr('data-sonata-select2-allow-clear')==='true') {
+                    allowClearEnabled = true;
+                } else if (select.attr('data-sonata-select2-allow-clear')==='false') {
+                    allowClearEnabled = false;
+                }
 
                 select.select2({
                     width: 'resolve',
                     minimumResultsForSearch: 10,
-                    allowClear: select.find('option[value=""]').length ? true : false
+                    allowClear: allowClearEnabled
                 });
 
                 var popover = select.data('popover');
@@ -37,6 +54,26 @@ var Admin = {
                 }
             });
         }
+    },
+
+    setup_xeditable: function(subject) {
+        jQuery('.x-editable', subject).editable({
+            emptyclass: 'editable-empty btn btn-small',
+            emptytext: '<i class="icon-edit"></i>',
+            success: function(response) {
+                if('KO' === response.status) {
+                    return response.message;
+                }
+
+                var html = jQuery(response.content);
+                Admin.setup_xeditable(html);
+
+                jQuery(this)
+                    .closest('td')
+                    .replaceWith(html)
+                ;
+            }
+        });
     },
 
     /**
@@ -116,7 +153,7 @@ var Admin = {
     add_filters: function(subject) {
         jQuery('div.filter_container .sonata-filter-option', subject).hide();
         jQuery('fieldset.filter_legend', subject).click(function(event) {
-           jQuery('div.filter_container .sonata-filter-option', jQuery(event.target).parent()).toggle();
+            jQuery('div.filter_container .sonata-filter-option', jQuery(event.target).parent()).toggle();
         });
     },
 
@@ -166,7 +203,10 @@ var Admin = {
             var parts = container.attr('id').split('_');
             var nameRegexp = new RegExp(parts[parts.length-1]+'\\]\\['+protoName,'g');
             proto = proto.replace(nameRegexp, parts[parts.length-1]+']['+(container.children().length - 1));
-            jQuery(proto).insertBefore(jQuery(this).parent());
+            jQuery(proto)
+                .insertBefore(jQuery(this).parent())
+                .trigger('sonata-admin-append-form-element')
+            ;
 
             jQuery(this).trigger('sonata-collection-item-added');
         });
@@ -174,9 +214,9 @@ var Admin = {
         jQuery(subject).on('click', '.sonata-collection-delete', function(event) {
             Admin.stopEvent(event);
 
-            jQuery(this).closest('.sonata-collection-row').remove();
-
             jQuery(this).trigger('sonata-collection-item-deleted');
+
+            jQuery(this).closest('.sonata-collection-row').remove();
         });
     },
 

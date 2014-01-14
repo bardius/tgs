@@ -791,7 +791,8 @@ class Blog {
 		// Defining the string values of the page types
 		switch ($this->getPagetype()) {
 			case('blog_article'): return "Blog Article";
-			case('blog_tag_list'): return "Blog Tag Results";
+			case('blog_cat_page'): return "Blog Category List";
+			case('blog_filtered_list'): return "Blog Tag Results";
 			case('blog_home'): return "Blog Homepage";
 			default: return $this->getPagetype();
 		}
