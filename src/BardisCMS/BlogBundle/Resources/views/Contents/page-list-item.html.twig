@@ -22,13 +22,13 @@
 				{% endif %}
 					{{ pageItem.title }}
 				</a>
+				<small class="date">
+					<span class="day">{{ pageItem.date|date("d") }}</span>
+					<span class="month">{{ pageItem.date|date("M") }}</span>
+					<span class="year">{{ pageItem.date|date("Y") }}</span>
+				</small>
 			</h3>
 			{% if pageItem.tags is not null %}
-			<p class="date">
-				Date Posted: 
-				<span class="day">{{ pageItem.date|date("d") }}</span>
-				<span class="month">{{ pageItem.date|date("M") }}</span>
-			</p>
 			<p class="tagList">
 				Tags: 
 				{% for title in pageItem.tags %}
@@ -42,11 +42,11 @@
 			{{ pageItem.introtext|raw }}
 			{% endif %}
 			{% if pageItem.alias is not null %}
-			<a href="{{ app.request.getBaseURL() }}/blog/{{ pageItem.alias }}" class="readMore" title="Read more">
+			<a href="{{ app.request.getBaseURL() }}/blog/{{ pageItem.alias }}" class="readMore" title="Want more? Hit Me!">
 			{% else %}
-			<a href="{{ url('BlogBundle_showPage', { 'id': pageItem.id }) }}" class="readMore" title="Read more">
+			<a href="{{ url('BlogBundle_showPage', { 'id': pageItem.id }) }}" class="readMore" title="Want more? Hit Me!">
 			{% endif %}
-				<span>Read more</span>
+				Want more? Hit <span>Me!</span>
 			</a>
 		</div>
 	</div>
