@@ -19,22 +19,14 @@ ehthumbs.db
 Thumbs.db
 
 
-
-# Collabtive #
-#################
-pm/config/standard/config.php
-
-
-
 # Netbeans #
 #################
 nbproject/
 
 
-
 # Symfonny2 #
 #############
-#app/bootstrap.php.cache
+app/bootstrap.php.cache
 app/cache/*
 app/logs/*
 build/
@@ -47,6 +39,7 @@ parameters.yml
 vendor/
 /web/bower_components/*
 /#web/stylesheets/*
+web/uploads/
 
 
 
