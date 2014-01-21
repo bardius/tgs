@@ -1,0 +1,13 @@
+    {% if eventsItem.introimage.id is defined %}
+        <a href="{{ app.request.getBaseURL() }}/blog/{{ eventsItem.alias }}" title="{{ eventsItem.title }}" class="readMoreImage">
+        {% media eventsItem.introimage.id, 'small' with {'alt': eventsItem.title, 'title': ''} %}
+        </a>
+    {% endif %}
+
+    <div class="introItemTitle">
+        <h5><a href="{{ app.request.getBaseURL() }}/blog/{{ eventsItem.alias }}" title="{{ eventsItem.title }}" class="readMore">{{ eventsItem.title }}</a></h5>            
+    </div>
+
+	<div class="introItemText">
+        <a href="{{ app.request.getBaseURL() }}/blog/{{ eventsItem.alias }}" title="{{ eventsItem.introtext|striptags }}" class="readMore">{{ eventsItem.introtext|striptags }}</a>          
+    </div>

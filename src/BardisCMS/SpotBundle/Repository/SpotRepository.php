@@ -205,7 +205,7 @@ class SpotRepository extends EntityRepository
     }
     
     
-    public function getHomepageItems($featuredSpots, $publishStates)
+    public function getHomepageItems($publishStates)
     {            
         $qb = $this->_em->createQueryBuilder();
         
@@ -216,11 +216,10 @@ class SpotRepository extends EntityRepository
                 $qb->expr()->in('p.publishState', ':publishState')
             ))
             ->orderBy('p.pageOrder', 'ASC')
-            ->setParameter('featuredSpot', $featuredSpots)
+            ->setParameter('featuredSpot', 1)
             ->setParameter('publishState', $publishStates);
                     
         $pages = $qb->getQuery()->getResult();
-        
         return  $pages;
     }  
     

@@ -201,22 +201,25 @@ class DefaultController extends Controller {
 
 			// Get the items to display in homepage from all bundles that should supply contents
 			$pages = array();
-			$blogpages = array();
+			//$blogpages = array();
+			$newspages = array();
+			$eventspages = array();
 			$spotspages = array();
 
 			// Get the pages for the category id of homepage but take ou the current (homepage) page item from the results
 			$pages = $this->getDoctrine()->getRepository('PageBundle:Page')->getHomepageItems($categoryIds, $id, $publishStates);
-			$blogpages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getHomepageItems($categoryIds, $publishStates);
+			//$blogpages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getHomepageItems($categoryIds, $publishStates);
+			$newspages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getFeaturedItems('News', $publishStates);
+			$eventspages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getFeaturedItems('Events', $publishStates);
+			
+			$spotspages = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getHomepageItems($publishStates);
 
-			// @TODO: remove the hardcoded if for the homepage category of the other bundles (8)
-			$spotspages = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getHomepageItems(8, $publishStates);
-
-			$pages = array_merge($pages, $blogpages, $spotspages);
+			//$pages = array_merge($pages, $blogpages, $spotspages);
 
 			// Sort all the items based on custom sorting
-			usort($pages, array("BardisCMS\PageBundle\Controller\DefaultController", "sortHomepageItemsCompare"));
+			//usort($pages, array("BardisCMS\PageBundle\Controller\DefaultController", "sortHomepageItemsCompare"));
 			
-			$response = $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'mobile' => $serveMobile));
+			$response = $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'news' => $newspages , 'events' => $eventspages, 'spots' => $spotspages, 'mobile' => $serveMobile));
 			
 			/*$cacheIsOn = true;
 			if($cacheIsOn){
