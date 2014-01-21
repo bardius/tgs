@@ -212,7 +212,7 @@ class BlogRepository extends EntityRepository {
 	}
 	
 	// Function to retrieve the blog posts of the homepage category
-	public function getFeaturedItems($categoryTitle, $publishStates) {
+	public function getFeaturedItems($categoryTitle, $publishStates, $maxResults) {
 		
 		$blogPostList = null;
         
@@ -230,10 +230,10 @@ class BlogRepository extends EntityRepository {
 					$qb->expr()->in('p.publishState', ':publishState')
 				))
 				->orderBy('p.date', 'DESC')
-				->setParameter('category', $categoryTitle)
-				->setParameter('publishState', $publishStates)
 				->setFirstResult(0)
-				->setMaxResults(2);
+				->setMaxResults($maxResults)
+				->setParameter('category', $categoryTitle)
+				->setParameter('publishState', $publishStates);
 
 			// Get the blog posts
 			$blogPostList = $qb->getQuery()->getResult();

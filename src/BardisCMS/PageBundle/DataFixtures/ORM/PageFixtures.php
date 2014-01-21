@@ -106,7 +106,6 @@ class PageFixtures extends AbstractFixture implements OrderedFixtureInterface
         $page2->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
         $page2->setIntroimage($manager->merge($this->getReference('introImage2')));
         $page2->setPagetype('two_columned');
-        $page2->addCategory($manager->merge($this->getReference('categoryHome')));
         $page2->addCategory($manager->merge($this->getReference('categorySample')));
         $page2->addTag($manager->merge($this->getReference('tagSample1')));
 		$manager->persist($page2);
@@ -121,7 +120,6 @@ class PageFixtures extends AbstractFixture implements OrderedFixtureInterface
         $page3->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
         $page3->setIntroimage($manager->merge($this->getReference('introImage3')));
         $page3->setPagetype('three_columned');
-        $page3->addCategory($manager->merge($this->getReference('categoryHome')));
         $page3->addTag($manager->merge($this->getReference('tagSample1')));
 		$manager->persist($page3);
 		
@@ -135,7 +133,6 @@ class PageFixtures extends AbstractFixture implements OrderedFixtureInterface
         $page4->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
         $page4->setIntroimage($manager->merge($this->getReference('introImage4')));
         $page4->setPagetype('one_columned');
-        $page4->addCategory($manager->merge($this->getReference('categoryHome')));
         $page4->addTag($manager->merge($this->getReference('tagSample1')));
 		$manager->persist($page4);
 		

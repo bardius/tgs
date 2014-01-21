@@ -209,8 +209,8 @@ class DefaultController extends Controller {
 			// Get the pages for the category id of homepage but take ou the current (homepage) page item from the results
 			$pages = $this->getDoctrine()->getRepository('PageBundle:Page')->getHomepageItems($categoryIds, $id, $publishStates);
 			//$blogpages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getHomepageItems($categoryIds, $publishStates);
-			$newspages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getFeaturedItems('News', $publishStates);
-			$eventspages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getFeaturedItems('Events', $publishStates);
+			$newspages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getFeaturedItems('News', $publishStates, 2);
+			$eventspages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getFeaturedItems('Events', $publishStates, 1);
 			
 			$spotspages = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getHomepageItems($publishStates);
 
