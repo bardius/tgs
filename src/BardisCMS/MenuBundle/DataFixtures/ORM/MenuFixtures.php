@@ -43,29 +43,53 @@ class MenuFixtures extends AbstractFixture implements OrderedFixtureInterface
         $menuSamplePage->setOrdering(1);
 		$manager->persist($menuSamplePage);
 		
-        $menuBlogPage = new Menu();
-		$menuBlogPage->setBlog($manager->merge($this->getReference('bloghome')));
-        $menuBlogPage->setTitle('Blog Page');
-        $menuBlogPage->setMenuType('Blog');
-        $menuBlogPage->setRoute('showPage');
-        $menuBlogPage->setAccessLevel(0);
-        $menuBlogPage->setParent(0);
-        $menuBlogPage->setMenuGroup('Main Menu');
-        $menuBlogPage->setPublishState(1);
-        $menuBlogPage->setOrdering(1);
-		$manager->persist($menuBlogPage);
+        $menuDestinations = new Menu();
+		$menuDestinations->setDestination($manager->merge($this->getReference('destinationhome')));
+        $menuDestinations->setTitle('Destinations');
+        $menuDestinations->setMenuType('Destination');
+        $menuDestinations->setRoute('showPage');
+        $menuDestinations->setAccessLevel(0);
+        $menuDestinations->setParent(0);
+        $menuDestinations->setMenuGroup('Main Menu');
+        $menuDestinations->setPublishState(1);
+        $menuDestinations->setOrdering(1);
+		$manager->persist($menuDestinations);
 		
-        $menuBlogPost = new Menu();
-		$menuBlogPost->setBlog($manager->merge($this->getReference('blog1')));
-        $menuBlogPost->setTitle('Sample Blog Post');
-        $menuBlogPost->setMenuType('Blog');
-        $menuBlogPost->setRoute('showPage');
-        $menuBlogPost->setAccessLevel(0);
-        $menuBlogPost->setParent(0);
-        $menuBlogPost->setMenuGroup('Main Menu');
-        $menuBlogPost->setPublishState(1);
-        $menuBlogPost->setOrdering(1);
-		$manager->persist($menuBlogPost);
+        $menuSpots = new Menu();
+		$menuSpots->setSpot($manager->merge($this->getReference('spothome')));
+        $menuSpots->setTitle('Spots');
+        $menuSpots->setMenuType('Spot');
+        $menuSpots->setRoute('showPage');
+        $menuSpots->setAccessLevel(0);
+        $menuSpots->setParent(0);
+        $menuSpots->setMenuGroup('Main Menu');
+        $menuSpots->setPublishState(1);
+        $menuSpots->setOrdering(1);
+		$manager->persist($menuSpots);
+		
+        $menuNews = new Menu();
+		$menuNews->setBlog($manager->merge($this->getReference('blognews')));
+        $menuNews->setTitle('News');
+        $menuNews->setMenuType('Blog');
+        $menuNews->setRoute('showPage');
+        $menuNews->setAccessLevel(0);
+        $menuNews->setParent(0);
+        $menuNews->setMenuGroup('Main Menu');
+        $menuNews->setPublishState(1);
+        $menuNews->setOrdering(1);
+		$manager->persist($menuNews);
+		
+        $menuEvents = new Menu();
+		$menuEvents->setBlog($manager->merge($this->getReference('blogevents')));
+        $menuEvents->setTitle('Events');
+        $menuEvents->setMenuType('Blog');
+        $menuEvents->setRoute('showPage');
+        $menuEvents->setAccessLevel(0);
+        $menuEvents->setParent(0);
+        $menuEvents->setMenuGroup('Main Menu');
+        $menuEvents->setPublishState(1);
+        $menuEvents->setOrdering(1);
+		$manager->persist($menuEvents);
 		
         $menuContactPage = new Menu();
 		$menuContactPage->setPage($manager->merge($this->getReference('pagecontact')));
@@ -95,15 +119,17 @@ class MenuFixtures extends AbstractFixture implements OrderedFixtureInterface
 		
 		$this->addReference('menuHome', $menuHome);
 		$this->addReference('menuSamplePage', $menuSamplePage);
-		$this->addReference('menuBlogPage', $menuBlogPage);
-		$this->addReference('menuBlogPost', $menuBlogPost);		
+		$this->addReference('menuDestinations', $menuDestinations);
+		$this->addReference('menuSpots', $menuSpots);
+		$this->addReference('menuNews', $menuNews);	
+		$this->addReference('menuEvents', $menuEvents);		
 		$this->addReference('menuContactPage', $menuContactPage);
 		$this->addReference('menuSitemapPage', $menuSitemapPage);
     }
 	
 	public function getOrder()
     {
-        return 9;
+        return 16;
     }
 
 }

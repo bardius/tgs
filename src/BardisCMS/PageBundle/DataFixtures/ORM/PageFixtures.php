@@ -69,9 +69,9 @@ class PageFixtures extends AbstractFixture implements OrderedFixtureInterface
 		
         $pagecontact = new Page();
         $pagecontact->setDate(new \DateTime());
-        $pagecontact->setTitle('Contact Page');
+        $pagecontact->setTitle('Contact');
         $pagecontact->setAuthor($manager->merge($this->getReference('admin')));
-        $pagecontact->setAlias('contact-page');
+        $pagecontact->setAlias('contact');
         $pagecontact->setShowPageTitle(1);
         $pagecontact->setPublishState(1);
         $pagecontact->setIntrotext('');
