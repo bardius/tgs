@@ -28,7 +28,7 @@
 		"sonata-project/block-bundle": "dev-master",
 		"sonata-project/cache-bundle": "dev-master",
 		"sonata-project/media-bundle": "dev-master",
-		"sonata-project/user-bundle": "dev-master",
+		"sonata-project/user-bundle": "2.2.3",
 		"sonata-project/doctrine-orm-admin-bundle": "dev-master",
 		"knplabs/knp-menu": "1.1.*",
 		"facebook/php-sdk": "dev-master",

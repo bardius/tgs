@@ -15,7 +15,9 @@ framework:
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale:  %locale%
-    session:         ~
+    session:         
+        handler_id: session.handler.native_file
+        save_path: "%kernel.root_dir%/sessions"
 
 # Twig Configuration
 twig:
@@ -110,10 +112,13 @@ sonata_block:
     blocks:
         sonata.admin.block.admin_list:
             contexts:   [admin]
-
+         
         #sonata.admin_doctrine_orm.block.audit:
         #    contexts:   [admin]
-
+        
+        sonata.admin.block.search_result: 
+            contexts:   [admin]       
+            
         sonata.block.service.text:
         sonata.block.service.action:
         sonata.block.service.rss:
@@ -137,6 +142,7 @@ sonata_block:
         sonata.user.admin.user:
         sonata.admin.settings:
         sonata.admin.comments:
+        sonata.block.service.clearcache:
 
 sonata_cache:
     caches:
@@ -179,6 +185,10 @@ sonata_admin:
         # default global templates
         layout:  SonataAdminBundle::standard_layout.html.twig
         ajax:    SonataAdminBundle::ajax_layout.html.twig
+        
+        # other configuration options
+        # search:              SonataAdminBundle:Core:search.html.twig
+        # search_result_block: SonataAdminBundle:Block:block_search_result.html.twig
 
         # default actions templates, should extend a global templates
         list:    SonataAdminBundle:CRUD:list.html.twig
@@ -191,11 +201,7 @@ sonata_admin:
             
             # display a dashboard block
             - { position: right, type: sonata.admin.block.admin_list, settings: { groups: [sonata_settings, sonata_menus, sonata_users, sonata_contentblocks, sonata_medias] } }
-            
-            # Customize this part to add new block configuration
-            #- { position: right, type: sonata.block.service.text, settings: { content: "<h2>Welcome to the Sonata Admin</h2> <p>This is a <code>sonata.block.service.text</code> from the Block Bundle, you can create and add new block in these area by configuring the <code>sonata_admin</code> section.</p> <br /> For instance, here a RSS feed parser (<code>sonata.block.service.rss</code>):"} }
-
-            #- { position: right, type: sonata.block.service.rss, settings: { title: Sonata Project's Feeds, url: http://sonata-project.org/blog/archive.rss }}
+            - { position: right, type: sonata.block.service.clearcache }
 
         groups:
            sonata_pages:

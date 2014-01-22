@@ -139,6 +139,11 @@
           <call method="setTranslationDomain">
               <argument>CommentBundle</argument>
           </call>
-      </service>      
+      </service>
+	  <service id="sonata.block.service.clearcache" class="BardisCMS\PageBundle\Block\Service\ClearCacheService">
+		<tag name="sonata.block" />
+		<argument>sonata.block.clearcache</argument>
+		<argument type="service" id="templating" />
+	  </service>  
    </services>
 </container>

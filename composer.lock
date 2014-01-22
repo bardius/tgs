@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "70d435270045c367585e8306e29547c3",
+    "hash": "5c4f55eda1469de5c325fdb6d768fb09",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -137,7 +137,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -204,7 +204,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -337,7 +337,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -1418,7 +1418,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2728,12 +2728,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "06ef1cdf10fceba34084eee210c4353f82f0e7a3"
+                "reference": "38dcd134441a58dda6f3ef7da88d4cbcfd7159e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/06ef1cdf10fceba34084eee210c4353f82f0e7a3",
-                "reference": "06ef1cdf10fceba34084eee210c4353f82f0e7a3",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/38dcd134441a58dda6f3ef7da88d4cbcfd7159e8",
+                "reference": "38dcd134441a58dda6f3ef7da88d4cbcfd7159e8",
                 "shasum": ""
             },
             "require": {
@@ -2797,7 +2797,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2014-01-17 14:42:55"
+            "time": "2014-01-22 16:19:22"
         },
         {
             "name": "sonata-project/notification-bundle",
@@ -2871,17 +2871,17 @@
         },
         {
             "name": "sonata-project/user-bundle",
-            "version": "dev-master",
+            "version": "2.2.3",
             "target-dir": "Sonata/UserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "5539f2337cca9bd884e1374d1251f9a312225ce4"
+                "reference": "45ea9dc475b7f087fe9bbd81885473c93ab978b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/5539f2337cca9bd884e1374d1251f9a312225ce4",
-                "reference": "5539f2337cca9bd884e1374d1251f9a312225ce4",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/45ea9dc475b7f087fe9bbd81885473c93ab978b5",
+                "reference": "45ea9dc475b7f087fe9bbd81885473c93ab978b5",
                 "shasum": ""
             },
             "require": {
@@ -2896,8 +2896,12 @@
                 "symfony/http-foundation": "~2.2",
                 "symfony/security": "~2.2"
             },
+            "require-dev": {
+                "sonata-project/seo-bundle": "~1.1"
+            },
             "suggest": {
-                "sonata-project/doctrine-orm-admin-bundle": "~2.2"
+                "sonata-project/doctrine-orm-admin-bundle": "~2.2",
+                "sonata-project/seo-bundle": "~1.1"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -2932,7 +2936,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2014-01-17 17:03:22"
+            "time": "2014-01-22 18:26:31"
         },
         {
             "name": "stfalcon/tinymce-bundle",
@@ -3155,17 +3159,17 @@
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "dev-master",
+            "version": "v2.4.1",
             "target-dir": "Symfony/Bundle/MonologBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "29a17a347dfc41aed34ce9b72cceaf375635c408"
+                "reference": "e81c2e9c4dc0a9ff794674017069e036f575f278"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/29a17a347dfc41aed34ce9b72cceaf375635c408",
-                "reference": "29a17a347dfc41aed34ce9b72cceaf375635c408",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/e81c2e9c4dc0a9ff794674017069e036f575f278",
+                "reference": "e81c2e9c4dc0a9ff794674017069e036f575f278",
                 "shasum": ""
             },
             "require": {
@@ -3183,7 +3187,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5.x-dev"
+                    "dev-master": "2.4.x-dev"
                 }
             },
             "autoload": {
@@ -3211,7 +3215,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2014-01-19 13:23:40"
+            "time": "2013-08-26 10:15:04"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -3500,7 +3504,6 @@
         "sonata-project/block-bundle": 20,
         "sonata-project/cache-bundle": 20,
         "sonata-project/media-bundle": 20,
-        "sonata-project/user-bundle": 20,
         "sonata-project/doctrine-orm-admin-bundle": 20,
         "facebook/php-sdk": 20,
         "simplethings/entity-audit-bundle": 20,

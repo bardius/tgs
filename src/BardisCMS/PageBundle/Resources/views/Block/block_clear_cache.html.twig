@@ -1,0 +1,15 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    <h3 class="sonata-clearcache-title">{{ settings.title }}</h3>
+	<div class="btn-group" align="left">
+		<a class="btn btn-small" href="/admin/bardiscms/page/page/clearcache">
+			<i class="icon-trash"></i>
+            {% trans from 'SonataAdminBundle' %}clear_cache_dev{% endtrans %}
+        </a>
+		<a class="btn btn-small" href="/admin/bardiscms/page/page/clearcacheprod">
+			<i class="icon-trash"></i>
+            {% trans from 'SonataAdminBundle' %}clear_cache_prod{% endtrans %}
+        </a>
+	</div>
+{% endblock %}
