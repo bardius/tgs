@@ -1,0 +1,86 @@
+sonata_admin:
+    title:      TGS - Website Admin
+    title_logo: /images/site_assets/adminlogo.jpg
+    
+    security:
+        handler: sonata.admin.security.handler.noop
+        # acl security information
+        information:
+            EDIT: EDIT
+            LIST: LIST
+            CREATE: CREATE
+            VIEW: VIEW
+            DELETE: DELETE
+            OPERATOR: OPERATOR
+            MASTER: MASTER
+            
+    templates:
+        # default global templates
+        layout:  SonataAdminBundle::standard_layout.html.twig
+        ajax:    SonataAdminBundle::ajax_layout.html.twig
+        
+        # other configuration options
+        # search:              SonataAdminBundle:Core:search.html.twig
+        # search_result_block: SonataAdminBundle:Block:block_search_result.html.twig
+
+        # default actions templates, should extend a global templates
+        list:    SonataAdminBundle:CRUD:list.html.twig
+        show:    SonataAdminBundle:CRUD:show.html.twig
+        edit:    SonataAdminBundle:CRUD:edit.html.twig
+        
+    dashboard:
+        blocks:
+            - { position: left, type: sonata.admin.block.admin_list, settings: { groups: [sonata_pages, sonata_categories, sonata_spotfilters, sonata_comments] } }
+            
+            - { position: center, type: sonata.admin.block.admin_list, settings: { groups: [sonata_settings, sonata_menus, sonata_users, sonata_contentblocks, sonata_medias] } }
+            
+            - { position: right, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2><p>The current dashboard presents the all items from the Bundles that you can manage and a timeline with the latest actions</p>"} }
+            - { position: right, type: sonata.block.service.clearcache }
+            - { position: right, type: sonata.timeline.block.timeline, settings: { context: SONATA_ADMIN, max_per_page: 15 }}
+
+        groups:
+           sonata_pages:
+              label: Website Pages
+              items:
+                  - sonata.admin.pages
+                  - sonata.admin.blogs
+                  - sonata.admin.destination
+                  - sonata.admin.spots
+           sonata_menus:
+              label: Menus
+              items:
+                  - sonata.admin.menus
+           sonata_categories:
+              label: Categories & Tags
+              items:
+                  - sonata.admin.categories
+                  - sonata.admin.tags
+                  - sonata.admin.destinationcategories
+                  - sonata.admin.destinationtags
+           sonata_spotfilters:
+              label: Spot Filters
+              items:
+                  - sonata.admin.spotdestinationfilters
+                  - sonata.admin.spotfilters
+           sonata_contentblocks:
+              label: Content Blocks
+              items:
+                  - sonata.admin.contentblocks
+           sonata_comments:
+              label: Comments
+              items:
+                  - sonata.admin.comments
+           sonata_settings:
+              label: Settings
+              items:
+                  - sonata.admin.settings
+           sonata_users:
+              label: Users
+              items:
+                  - sonata.user.admin.user
+                  - sonata.user.admin.group
+           sonata_medias:
+              label: Media
+              items:
+                  - sonata.media.admin.media
+                  - sonata.media.admin.gallery

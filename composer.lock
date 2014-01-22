@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5c4f55eda1469de5c325fdb6d768fb09",
+    "hash": "e6b2d4eb9f313cfab7862e9d28a33573",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -137,7 +137,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -204,7 +204,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -337,7 +337,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -1418,7 +1418,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2870,18 +2870,75 @@
             "time": "2014-01-13 15:51:28"
         },
         {
+            "name": "sonata-project/timeline-bundle",
+            "version": "dev-master",
+            "target-dir": "Sonata/TimelineBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataTimelineBundle.git",
+                "reference": "e3b74b4132f618275ffa0afc3d3249397409c142"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataTimelineBundle/zipball/e3b74b4132f618275ffa0afc3d3249397409c142",
+                "reference": "e3b74b4132f618275ffa0afc3d3249397409c142",
+                "shasum": ""
+            },
+            "require": {
+                "sonata-project/block-bundle": "~2.2,>=2.2.1",
+                "sonata-project/core-bundle": "~2.2",
+                "stephpy/timeline": "~1.0@dev",
+                "stephpy/timelinebundle": "2.0.*@dev"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sonata\\TimelineBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataTimelineBundle/contributors"
+                }
+            ],
+            "description": "Symfony SonataTimelineBundle ~ integrate SpyTimelineBundle into Sonata",
+            "homepage": "http://sonata-project.org/bundles/timeline",
+            "keywords": [
+                "date",
+                "sonata",
+                "time",
+                "wall"
+            ],
+            "time": "2014-01-08 15:27:56"
+        },
+        {
             "name": "sonata-project/user-bundle",
-            "version": "2.2.3",
+            "version": "dev-master",
             "target-dir": "Sonata/UserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "45ea9dc475b7f087fe9bbd81885473c93ab978b5"
+                "reference": "feea02716ba997f863c6b69ab0208978a1b603aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/45ea9dc475b7f087fe9bbd81885473c93ab978b5",
-                "reference": "45ea9dc475b7f087fe9bbd81885473c93ab978b5",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/feea02716ba997f863c6b69ab0208978a1b603aa",
+                "reference": "feea02716ba997f863c6b69ab0208978a1b603aa",
                 "shasum": ""
             },
             "require": {
@@ -2936,7 +2993,136 @@
                 "sonata",
                 "user"
             ],
-            "time": "2014-01-22 18:26:31"
+            "time": "2014-01-22 18:40:51"
+        },
+        {
+            "name": "stephpy/TimelineBundle",
+            "version": "dev-master",
+            "target-dir": "Spy/TimelineBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stephpy/TimelineBundle.git",
+                "reference": "b25601473a9087eb18f15ec9a11abf05094a77f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stephpy/TimelineBundle/zipball/b25601473a9087eb18f15ec9a11abf05094a77f6",
+                "reference": "b25601473a9087eb18f15ec9a11abf05094a77f6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "stephpy/timeline": "1.0.*",
+                "symfony/framework-bundle": "2.*",
+                "symfony/options-resolver": "2.*"
+            },
+            "replace": {
+                "stephpy/timelinebundle": "self.version"
+            },
+            "require-dev": {
+                "atoum/atoum-bundle": "dev-master",
+                "doctrine/orm": "2.*",
+                "symfony/console": "2.*"
+            },
+            "suggest": {
+                "doctrine/mongodb-odm-bundle": "Use doctrine ODM driver",
+                "doctrine/orm": "Use doctrine ORM driver",
+                "snc/redis-bundle": "Use redis driver",
+                "symfony/console": "List spreads and deploy timelines via a command"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spy\\TimelineBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stéphane PY",
+                    "email": "py.stephane1@gmail.com"
+                },
+                {
+                    "name": "Community contributors",
+                    "homepage": "https://github.com/stephpy/TimelineBundle/contributors"
+                }
+            ],
+            "description": "Symfony2 bundle to make timeline",
+            "homepage": "https://github.com/stephpy/TimelineBundle",
+            "keywords": [
+                "bundle",
+                "notification",
+                "symfony",
+                "timeline"
+            ],
+            "time": "2013-11-08 15:49:58"
+        },
+        {
+            "name": "stephpy/timeline",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stephpy/timeline.git",
+                "reference": "b24dc45b2f39e9d935012b96bad253e580110df2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stephpy/timeline/zipball/b24dc45b2f39e9d935012b96bad253e580110df2",
+                "reference": "b24dc45b2f39e9d935012b96bad253e580110df2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/options-resolver": "*"
+            },
+            "require-dev": {
+                "atoum/atoum": "dev-master",
+                "knplabs/knp-components": "1.*",
+                "pimple/pimple": "*",
+                "symfony/event-dispatcher": "2.*"
+            },
+            "suggest": {
+                "ext-redis": "Redis C extension for PHP",
+                "knplabs/knp-components": "Knp Paginator",
+                "pimple/pimple": "Use ServiceLocator",
+                "predis/predis": "Redis PHP client library"
+            },
+            "type": "standalone",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spy\\Timeline": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Community contributors",
+                    "homepage": "https://github.com/stephpy/timeline/contributors"
+                }
+            ],
+            "description": "Standalone library to make timeline",
+            "homepage": "https://github.com/stephpy/timeline",
+            "keywords": [
+                "standalone",
+                "timeline"
+            ],
+            "time": "2013-12-15 15:51:27"
         },
         {
             "name": "stfalcon/tinymce-bundle",
@@ -3504,7 +3690,9 @@
         "sonata-project/block-bundle": 20,
         "sonata-project/cache-bundle": 20,
         "sonata-project/media-bundle": 20,
+        "sonata-project/user-bundle": 20,
         "sonata-project/doctrine-orm-admin-bundle": 20,
+        "sonata-project/timeline-bundle": 20,
         "facebook/php-sdk": 20,
         "simplethings/entity-audit-bundle": 20,
         "stfalcon/tinymce-bundle": 20,
