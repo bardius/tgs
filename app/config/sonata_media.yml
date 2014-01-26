@@ -1,5 +1,6 @@
 # cli  http://sonata-project.org/bundles/media/2-1/doc/reference/command_line.html
 sonata_media:
+  
     default_context: default
     db_driver: doctrine_orm # or doctrine_mongodb
     
@@ -12,10 +13,11 @@ sonata_media:
                 - sonata.media.provider.file
 
             formats:
-                adminthumb: { width: 70 , height: 70 , quality: 80 }
-                small:			{ width: 188 , height: 263 , quality: 80 }
-                medium:			{ width: 394 , height: 263 , quality: 80 }
-                big:				{ width: 840 , height: 320 , quality: 80 }
+                adminthumb: { width: 70, height: 70, quality: 80 }
+                xsmall:			{ width: 90, height: 90, quality: 80 }
+                small:			{ width: 290, height: 114, quality: 80 }
+                medium:			{ width: 410, height: 162, quality: 80 }
+                big:				{ width: 840, height: 320, quality: 80 }
                 original:		{ quality: 80 }                
         
         intro:
@@ -24,11 +26,11 @@ sonata_media:
                 - sonata.media.provider.image
 
             formats:
-                adminthumb: { width: 70 , height: 70 , quality: 80 }
-                small:			{ width: 188 , height: 263 , quality: 80 }
-                blog:				{ width: 227 , height: 205 , quality: 80 }
-                medium:			{ width: 394 , height: 263 , quality: 80 }
-                big:				{ width: 601 , height: 263 , quality: 80 }
+                adminthumb: { width: 70, height: 70, quality: 80 }
+                small:			{ width: 290, height: 114, quality: 80 }
+                blog:				{ width: 410, height: 236, quality: 80 }
+                medium:			{ width: 410, height: 162, quality: 80 }
+                big:				{ width: 1400, height: 390, quality: 80 }
                 original:		{ quality: 80 }  
         
         bgimage:
@@ -36,12 +38,12 @@ sonata_media:
                 - sonata.media.provider.image
 
             formats:
-                adminthumb: { width: 70 , height: 70 , quality: 80 }
-                small:      { width: 224 , height: 206 , quality: 80 }
-                mobile:     { width: 768 , height: 300 , quality: 80 }
-                medium:     { width: 310 , height: 318 , quality: 80 }
-                big:        { width: 1388 , height: 257 , quality: 80 }
-                slide:      { width: 1388 , height: 394 , quality: 80 }
+                adminthumb: { width: 70, height: 70, quality: 80 }
+                small:      { width: 290, height: 114, quality: 80 }
+                mobile:     { width: 480, height: 133, quality: 80 }
+                medium:     { width: 410, height: 162, quality: 80 }
+                big:        { width: 1400, height: 390, quality: 80 }
+                slide:      { width: 1400, height: 390, quality: 80 }
                 original:   { quality: 80 }        
         
         destination:
@@ -49,11 +51,12 @@ sonata_media:
                 - sonata.media.provider.image
 
             formats:
-                adminthumb: { width: 70 , height: 70 , quality: 80 }
-                xsmall:     { width: 191 , height: 176 , quality: 80 }
-                small:      { width: 224 , height: 206 , quality: 80 }
-                medium:     { width: 310 , height: 318 , quality: 80 }
-                big:        { width: 307 , height: 356 , quality: 80 }
+                adminthumb: { width: 70, height: 70, quality: 80 }
+                xsmall:     { width: 112, height: 112, quality: 80 }
+                small:      { width: 290, height: 136, quality: 80 }
+                medium:     { width: 454, height: 214, quality: 80 }
+                big:        { width: 1400, height: 390, quality: 80 }
+                bigmob:     { width: 480, height: 133, quality: 80 }
                 original:   { quality: 80 }  
                 
         spot:
@@ -61,11 +64,12 @@ sonata_media:
                 - sonata.media.provider.image
 
             formats:
-                adminthumb: { width: 70 , height: 70 , quality: 80 }
-                xsmall:     { width: 66 , height: 112 , quality: 80 }
-                small:      { width: 152 , height: 260, quality: 80 }
-                medium:     { width: 226 , height: 385, quality: 80 }
-                big:        { width: 306 , height: 522 , quality: 80 }
+                adminthumb: { width: 70, height: 70, quality: 80 }
+                xsmall:     { width: 112, height: 112, quality: 80 }
+                small:      { width: 290, height: 114, quality: 80 }
+                medium:     { width: 410, height: 162, quality: 80 }
+                big:        { width: 1400, height: 390, quality: 80 }
+                bigmob:     { width: 480, height: 133, quality: 80 }
                 original:   { quality: 80 }
                 
         spotlist:
@@ -73,10 +77,10 @@ sonata_media:
                 - sonata.media.provider.image
 
             formats:
-                adminthumb: { width: 70 , height: 70 , quality: 80 }
-                small:      { width: 226 , height: 260 , quality: 80 }
-                medium:     { width: 226 , height: 260 , quality: 80 }
-                big:        { width: 226 , height: 260 , quality: 80 }
+                adminthumb: { width: 70 , height: 70, quality: 80 }
+                small:      { width: 290, height: 114, quality: 80 }
+                medium:     { width: 410, height: 162, quality: 80 }
+                big:        { width: 410, height: 162, quality: 80 }
                 original:   { quality: 80 }              
         
         icons:

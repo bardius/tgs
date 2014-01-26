@@ -25,7 +25,6 @@
 
     {% stylesheets filter="?yui_css" output="css/styles-compiled.css"
         'stylesheets/app.css'
-        'stylesheets/styles.css'
         'stylesheets/legacy.css'
     %}
 		<link rel="stylesheet" href="{{ asset_url }}" />
@@ -50,17 +49,19 @@
 		<div class="superWrapper">
 			<div class="wrapper">
             {% block body_start %}{% endblock %}
-				<header class="row header">
-					<div id="logo" class="columns small-12 large-3">
-						<h1 class="logo">
-							<a href="{{ url('PageBundle_index', { 'alias': 'index' }) }}" title="{% block siteLogoTitle %}Page Title{% endblock %}">
-								<img src="{% block sitelogoImage %}{{ app.request.uriForPath('/images/site_assets/siteLogo.png') }}{% endblock %}" alt="{% block siteLogoKeywords %}Site Keywords{% endblock %}" />
-								<span class="inv">{% block siteLogoDescription %}Page Description{% endblock %}</span>
-							</a>
-						</h1>
-					</div>						
-					<div class="columns small-12 large-9">
-                    {% include '::site_top_nav.html.twig' %}
+				<header>
+					<div class="row header">
+						<div id="logo" class="columns small-12 large-4">
+							<h1 class="logo">
+								<a href="{{ url('PageBundle_index', { 'alias': 'index' }) }}" title="{% block siteLogoTitle %}Page Title{% endblock %}">
+									<img src="{% block sitelogoImage %}{{ app.request.uriForPath('/images/site_assets/siteLogo.png') }}{% endblock %}" alt="{% block siteLogoKeywords %}Site Keywords{% endblock %}" />
+									<span class="inv">{% block siteLogoDescription %}Page Description{% endblock %}</span>
+								</a>
+							</h1>
+						</div>						
+						<div class="columns small-12 large-12">
+						{% include '::site_top_nav.html.twig' %}
+						</div>
 					</div>
 				</header>
 					
@@ -68,8 +69,10 @@
 					{% block content %}{% endblock %}
 				</div>
 					
-				<footer class="row footer">
+				<footer>
+					<div class="row footer">
                     {% include '::site_footer.html.twig' %}
+					</div>
 				</footer>
 
 				{% block modal %}

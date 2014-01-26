@@ -29,6 +29,7 @@ nbproject/
 app/bootstrap.php.cache
 app/cache/*
 app/logs/*
+app/sessions/*
 build/
 composer.phar
 foundation/.sass-cache/

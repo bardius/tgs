@@ -1,408 +1,77 @@
-/* -----------------------------------------
-   Foundation Styles Overrides
------------------------------------------ */
-/* line 17, ../scss/styles.scss */
-iframe {
-  left: 0;
-  border: none!important;
-}
+/*
+Syntax error: Undefined variable: "$primary-color".
+        on line 136 of c:/wamp/www/tgs/web/scss/styles.scss
 
-/* line 28, ../scss/styles.scss */
-.inv {
-  position: absolute;
-  font-size: 0.5em;
-  font-size: 0.5rem;
-  left: -9999px;
-}
-
-/* line 35, ../scss/styles.scss */
-.hidden {
-  display: none!important;
-}
-
-/* line 39, ../scss/styles.scss */
-img {
-  border: none;
-}
-
-/* line 43, ../scss/styles.scss */
-strong {
-  font-size: inherit;
-  line-height: inherit;
-  font-weight: bold;
-}
-
-/* line 49, ../scss/styles.scss */
-table {
-  font-size: inherit;
-  float: left;
-  border-spacing: 0!important;
-  border-collapse: collapse!important;
-}
-
-/* line 56, ../scss/styles.scss */
-td {
-  text-align: center;
-}
-
-/* line 60, ../scss/styles.scss */
-.clearBoth {
-  clear: both;
-}
-
-/* line 64, ../scss/styles.scss */
-.hidden {
-  display: none;
-  visibility: hidden;
-}
-
-/* line 69, ../scss/styles.scss */
-.gm-style img {
-  width: auto;
-  height: auto;
-  max-width: none;
-}
-
-/* line 75, ../scss/styles.scss */
-#map-canvas {
-  width: 100%;
-}
-
-/*-------------------------------------------
-    Website Body / Backgrounds
-  -----------------------------------------*/
-/* line 83, ../scss/styles.scss */
-body {
-  min-height: 100%;
-  width: 100%;
-}
-
-/* line 88, ../scss/styles.scss */
-.superWrapper {
-  width: 100%;
-  min-height: 100%;
-  min-width: 320px;
-}
-
-/* line 94, ../scss/styles.scss */
-.wrapper {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-/* line 100, ../scss/styles.scss */
-.pageContents {
-  min-height: 300px;
-}
-
-/*-------------------------------------------
-    Website Logo / Header
-  -----------------------------------------*/
-/* line 109, ../scss/styles.scss */
-header {
-  overflow: visible;
-  position: relative;
-  background-color: #CCC;
-}
-
-/* line 115, ../scss/styles.scss */
-#logo {
-  position: relative;
-  z-index: 98;
-}
-/* line 119, ../scss/styles.scss */
-#logo .logo {
-  float: left;
-  display: block;
-  margin: 0;
-}
-/* line 125, ../scss/styles.scss */
-#logo a {
-  display: block;
-  width: 100%;
-}
-/* line 130, ../scss/styles.scss */
-#logo img {
-  display: block;
-  max-width: 100%;
-}
-
-/*-------------------------------------------
-    Navigation Menu Styles
-  -----------------------------------------*/
-/* line 140, ../scss/styles.scss */
-.top-bar {
-  margin: 10px 0;
-}
-
-/*-------------------------------------------
-    Homepage Page styles
-  -----------------------------------------*/
-/*-------------------------------------------
-    Generic Page styles
-  -----------------------------------------*/
-/* -----------------------------------------
-   Filter form styles
------------------------------------------ */
-/* line 156, ../scss/styles.scss */
-#filterResultsFormHolder {
-  margin-top: 28px;
-  position: relative;
-  padding-bottom: 68px;
-}
-
-/* line 162, ../scss/styles.scss */
-#filterResultsFormHolder h3 {
-  display: none;
-}
-
-/* line 166, ../scss/styles.scss */
-#filterResultsFormHolder form {
-  margin: 0;
-}
-
-/* line 170, ../scss/styles.scss */
-#filterResultsFormHolder .control-group {
-  width: 100%;
-  float: left;
-}
-
-/* line 175, ../scss/styles.scss */
-#filterResultsFormHolder label {
-  font-size: 16px;
-  line-height: 20px;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  color: #052763;
-  cursor: default;
-}
-
-/* line 184, ../scss/styles.scss */
-#filterResultsFormHolder .controls label {
-  font-size: 0.9285em;
-  font-size: 0.9285rem;
-  line-height: 1.285em;
-  line-height: 1.285rem;
-  text-transform: none;
-  color: #052763;
-  cursor: pointer;
-  margin-bottom: 0;
-}
-
-/* line 195, ../scss/styles.scss */
-#filterResultsForm .formBtns {
-  float: none;
-  position: absolute;
-  bottom: 22px;
-  right: 0;
-  width: 25%;
-}
-
-/* line 203, ../scss/styles.scss */
-#filterResultsForm .formBtns .checkAllBox {
-  float: left;
-  margin-top: 4px;
-}
-
-/* line 208, ../scss/styles.scss */
-#filterResultsForm #filterResultsBtn {
-  float: right;
-  background: url(../images/site_assets/indexSlideArrow.png) no-repeat 80% 50% #0a3982;
-  border-radius: 16px 16px 16px 16px;
-  color: #FFFFFF;
-  display: block;
-  font-family: "futuramedium", "Helvetica", Tahoma, Arial, sans-serif;
-  font-size: 16px;
-  height: 32px;
-  line-height: 32px;
-  padding: 0 34px 0 16px;
-  text-align: left;
-  text-transform: uppercase;
-  border: none;
-  font-weight: normal!important;
-}
-
-/* line 225, ../scss/styles.scss */
-#filterResultsForm #filterResultsBtn:hover {
-  cursor: pointer;
-  background: url(../images/site_assets/indexSlideArrow.png) no-repeat 80% 50% #011a48;
-}
-
-/* line 230, ../scss/styles.scss */
-#filterResultsForm .checkAllBox label {
-  font-size: 0.9285em;
-  font-size: 0.9285rem;
-  line-height: 1.285em;
-  line-height: 1.285rem;
-  text-transform: none;
-  color: #052763;
-  cursor: pointer;
-  margin-bottom: 0;
-}
-
-/* line 241, ../scss/styles.scss */
-.customCheckBox input {
-  display: none;
-}
-
-/* line 245, ../scss/styles.scss */
-.lt-ie9 #filterResultsForm .customCheckBox input {
-  display: inline-block;
-  float: left;
-  clear: left;
-}
-
-/* line 251, ../scss/styles.scss */
-.customCheckBox input + label {
-  padding: 3px 3px 3px 22px;
-  padding: 3px 3px 3px 1.6rem;
-  display: inline-block;
-  position: relative;
-  line-height: 18px;
-  line-height: 1.285rem;
-  clear: left;
-  float: left;
-}
-
-/* line 262, ../scss/styles.scss */
-.lt-ie9 .customCheckBox input + label {
-  display: inline-block;
-  float: left;
-  clear: none;
-}
-
-/* line 268, ../scss/styles.scss */
-.customCheckBox input + label:after {
-  content: '\00a0';
-  font-size: 14px;
-  font-size: 1rem;
-  position: absolute;
-  top: 3px;
-  left: 0px;
-  color: #99a1a7;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0), inset 0px 1px 3px rgba(13, 59, 131, 0);
-  border: none;
-  -o-border-radius: 9px;
-  -moz-border-radius: 9px;
-  -webkit-border-radius: 9px;
-  border-radius: 9px;
-  -o-border-radius: 0.6425rem;
-  -moz-border-radius: 0.6425rem;
-  -webkit-border-radius: 0.6425rem;
-  border-radius: 0.6425rem;
-  background-color: #FFF;
-  width: 18px;
-  height: 18px;
-  line-height: 18px;
-  width: 1.285rem;
-  height: 1.285rem;
-  line-height: 1.285rem;
-  text-align: center;
-}
-
-/* line 296, ../scss/styles.scss */
-.lt-ie9 .customCheckBox input + label:after {
-  display: none;
-}
-
-/* line 300, ../scss/styles.scss */
-.customCheckBox input:checked + label:after {
-  content: '\2714';
-  color: #FFF;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0), inset 0px -15px 10px -12px rgba(0, 0, 0, 0), inset 15px 10px -12px rgba(13, 59, 131, 0);
-  border: none;
-  background-color: #052763;
-}
-
-/* -----------------------------------------
-   Sitemap page
------------------------------------------ */
-/* -----------------------------------------
-   Google Map
------------------------------------------ */
-/* line 332, ../scss/styles.scss */
-#map_canvas {
-  width: 95%;
-  height: 100%;
-  float: left;
-}
-
-/* -----------------------------------------
-   Footer Styles
------------------------------------------ */
-/* line 342, ../scss/styles.scss */
-footer {
-  margin-top: 30px;
-  background: #CCC;
-}
-
-/* ---------------------------------------------------
-   Media Queries for mobile / tablets responsivenes
------------------------------------------------------ */
-@media only screen and (device-width: 320px) and (orientation: portrait) {
-  /* line 353, ../scss/styles.scss */
-  html {
-    font-size: 10px!important;
-  }
-}
-@media only screen and (device-width: 320px) and (orientation: landscape) {
-  /* line 360, ../scss/styles.scss */
-  html {
-    font-size: 11px!important;
-  }
-}
-@media only screen and (max-width: 380px) {
-  /* line 368, ../scss/styles.scss */
-  html {
-    font-size: 10px!important;
-  }
-}
-@media only screen and (max-width: 498px) {
-  /* line 375, ../scss/styles.scss */
-  html {
-    font-size: 10px!important;
-  }
-}
-@media only screen and (max-width: 766px) and (min-width: 499px) {
-  /* line 382, ../scss/styles.scss */
-  html {
-    font-size: 12px!important;
-  }
-}
-@media only screen and (max-width: 767px) {
-  /* line 390, ../scss/styles.scss */
-  html {
-    font-size: 13px!important;
-  }
-}
-@media only screen and (device-width: 768px) and (orientation: portrait) {
-  /* line 397, ../scss/styles.scss */
-  html {
-    font-size: 12px!important;
-  }
-}
-@media only screen and (device-width: 768px) and (orientation: landscape) {
-  /* line 404, ../scss/styles.scss */
-  html {
-    font-size: 13px!important;
-  }
-}
-@media only screen and (max-width: 959px) and (min-width: 768px) {
-  /* line 411, ../scss/styles.scss */
-  html {
-    font-size: 13px!important;
-  }
-}
-@media only screen and (min-width: 960px) {
-  /* line 417, ../scss/styles.scss */
-  html {
-    font-size: 14px!important;
-  }
-}
-@media print {
-  /* line 423, ../scss/styles.scss */
-  div:not(.reveal-modal) {
-    display: inherit !important;
-  }
-}
+Backtrace:
+c:/wamp/www/tgs/web/scss/styles.scss:136
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/script/variable.rb:49:in `_perform'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/script/node.rb:40:in `perform'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:294:in `visit_prop'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `map'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:316:in `visit_rule'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `map'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:7:in `visit'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/root_node.rb:20:in `render'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:315:in `_render'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:262:in `render'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:140:in `block (2 levels) in compile'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:139:in `block in compile'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/logger.rb:45:in `red'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:138:in `compile'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:118:in `compile_if_required'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:103:in `block (2 levels) in run'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `each'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `block in run'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:147:in `recompile'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `call'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `run_callback'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:55:in `callback_action'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:35:in `update'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:39:in `block in modified'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `each'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `modified'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:18:in `refresh'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block (2 levels) in run'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `each'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block in run'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `loop'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `run'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm/monitor.rb:26:in `run'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.9/lib/fssm.rb:70:in `monitor'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:87:in `perform'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/base.rb:18:in `execute'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/project_base.rb:19:in `execute'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:30:in `block in <top (required)>'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `call'
+C:/Program Files (x86)/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `<top (required)>'
+C:/Program Files (x86)/Ruby193/bin/compass:23:in `load'
+C:/Program Files (x86)/Ruby193/bin/compass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$primary-color\".\A         on line 136 of c:/wamp/www/tgs/web/scss/styles.scss"; }
