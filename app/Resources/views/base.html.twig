@@ -23,18 +23,26 @@
 		<link rel="shortcut icon" href="{{ app.request.uriForPath('/favicon.ico') }}" />
 		<link rel="apple-touch-icon" href="{{ app.request.uriForPath('/apple-touch-icon.png') }}" />
 
-    {% stylesheets filter="?yui_css" output="css/styles-compiled.css"
+		{% stylesheets filter="?yui_css" output="css/styles-compiled.css"
         'stylesheets/app.css'
         'stylesheets/legacy.css'
-    %}
+		%}
 		<link rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
+		{% endstylesheets %}
 
-    {% block stylesheets %}{% endblock %}
+		{% block stylesheets %}{% endblock %}
 
-    {% javascripts filter='?yui_js' output='js/modernizr.js' 'bower_components/modernizr/modernizr.js' %}
+		{% javascripts filter='?yui_js' output='js/modernizr.js' 'bower_components/modernizr/modernizr.js' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+		{% endjavascripts %}
+		
+		<!--[if !IE]><!-->
+		<script>
+			if (/*@cc_on!@*/false) {
+			    document.documentElement.className+=' is-ie';
+			}
+		</script>
+		<!--<![endif]-->
 		
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -44,7 +52,9 @@
 		<![endif]-->
 		
 	</head>
+	
 	{% flush %}
+	
 	<body>
 		<div class="superWrapper">
 			<div class="wrapper">
@@ -76,41 +86,45 @@
 				</footer>
 
 				{% block modal %}
-				{% endblock %}
-
-				{% javascripts filter='?yui_js' output='js/jquery.min.js' 'bower_components/jquery/jquery.js' %}
-					<script type="text/javascript" src="{{ asset_url }}"></script>
-				{% endjavascripts %}
-
-				{% javascripts filter='?yui_js' output='js/js-compiled.js'
-					'bower_components/foundation/js/foundation.min.js'
-					'js/onDomReady.js'
-				%}
-
-				<script type="text/javascript" src="{{ asset_url }}"></script>
+				{% endblock %}				
 				
-				<script type="text/javascript">
-					/*function downloadJSAtOnload() {
-						var element = document.createElement("script");
-						element.src = '{{ asset_url }}';
-						document.body.appendChild(element);
-					}
-					
-					if (window.addEventListener){
-						window.addEventListener("load", downloadJSAtOnload, false);						
-					}
-					else if (window.attachEvent){
-						window.attachEvent("onload", downloadJSAtOnload);						
-					}
-					else {
-						window.onload = downloadJSAtOnload;
-					}*/
-				</script>
-				{% endjavascripts %}
-
-				{% block javascripts %}{% endblock %}
-				{% block gAnalytics %}{% endblock %}
 			</div>  
 		</div>
+		
+		{% javascripts filter='?yui_js' output='js/jquery.min.js' 'bower_components/jquery/jquery.js' %}
+		<script type="text/javascript" src="{{ asset_url }}"></script>
+		{% endjavascripts %}
+
+		{% javascripts filter='?yui_js' output='js/js-compiled.js'
+			'bower_components/foundation/js/foundation.min.js'
+			'js/onDomReady.js'
+		%}
+
+		<script type="text/javascript" src="{{ asset_url }}"></script>
+		<!--
+		<script type="text/javascript">
+			function downloadJSAtOnload() {
+				var element = document.createElement("script");
+				element.src = '{{ asset_url }}';
+				document.body.appendChild(element);
+			}
+					
+			if (window.addEventListener){
+				window.addEventListener("load", downloadJSAtOnload, false);						
+			}
+			else if (window.attachEvent){
+				window.attachEvent("onload", downloadJSAtOnload);						
+			}
+			else {
+				window.onload = downloadJSAtOnload;
+			}
+		</script>
+		-->
+		{% endjavascripts %}
+
+		{% block javascripts %}{% endblock %}
+		{% block gAnalytics %}{% endblock %}				
+		
+		<script src="/js/polyfills/rem.min.js" type="text/javascript"></script>
 	</body>
 </html>
