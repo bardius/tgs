@@ -1,24 +1,27 @@
-<div class="large-12 small-12 columns homepageListing">
 	{% for pageItem in pages %}
 		{% set vars = {'urlPart': ''} %}
 		
         <div class="columns homepageItem homepageItem{{ loop.index }} {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %} large-6 small-12">
-            {% include 'PageBundle:Contents:homepage-item-three.html.twig' with vars %}
+            {% include 'PageBundle:Contents:homepage-item.html.twig' with vars %}
         </div>
     {% endfor %}
 	<div class="columns homepageItem homepageSpotsItem large-6 small-12">
-		<h3>Featured Spots</h3>
 		<div class="row">
+			<h3>Featured Spots</h3>
+		</div>
+		<div class="row itemContents collapse">
 		{% for spotItem in spots %}				
-			<div class="columns spotItem spotItem{{ loop.index }} {% if spotItem.introclass is not null %}{{ spotItem.introclass }}{% endif %} large-3 small-6">
+			<div class="columns spotItem spotItem{{ loop.index }} {% if spotItem.introclass is not null %}{{ spotItem.introclass }}{% endif %} large-3 small-4">
 				{% include 'PageBundle:Contents:homepage-item-spot.html.twig' %}
 			</div>
 		{% endfor %}
 		</div>
 	</div>
-	<div class="columns homepageItem homepageNewsItem large-6 small-12">
-		<h3>Latest News</h3>
+	<div class="columns homepageItem homepageNewsItem large-6 small-12 clearBoth">
 		<div class="row">
+			<h3>Latest News</h3>
+		</div>
+		<div class="row itemContents collapse">
 		{% for newsItem in news %}				
 			<div class="columns newsItem newsItem{{ loop.index }} {% if newsItem.introclass is not null %}{{ newsItem.introclass }}{% endif %} large-12 small-12">
 				{% include 'PageBundle:Contents:homepage-item-news.html.twig'%}
@@ -27,8 +30,10 @@
 		</div>
 	</div>		
 	<div class="columns homepageItem homepageEventsItem large-6 small-12">
-		<h3>Latest Events</h3>
 		<div class="row">
+			<h3>Latest Events</h3>
+		</div>
+		<div class="row itemContents collapse">
 			{% for eventsItem in events %}
 				{% if loop.index == 1 %}
 				<div class="columns eventsItem eventsItem{{ loop.index }} {% if eventsItem.introclass is not null %}{{ eventsItem.introclass }}{% endif %} large-12 small-12">
@@ -36,9 +41,11 @@
 				</div>
 				{% endif %}
 			{% endfor %}
-			<div class="columns eventsItem homepageAddBanners large-12 small-12">
-				{% include 'PageBundle:Contents:homepage-item-addbanners.html.twig' %}
-			</div>
+		</div>
+	</div>
+	<div class="columns homepageItem homepageBannersItem large-6 small-12">
+		<div class="row collapse">
+			{% include 'PageBundle:Contents:homepage-item-addbanners.html.twig' %}
 		</div>
 	</div>
 	{#
@@ -69,4 +76,3 @@
         {% endif %}
     {% endfor %}
 	#}
-</div>

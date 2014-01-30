@@ -1,13 +1,9 @@
-    {% if newsItem.introimage.id is defined %}
-        <a href="{{ app.request.getBaseURL() }}/blog/{{ newsItem.alias }}" title="{{ newsItem.title }}" class="readMoreImage">
-        {% media newsItem.introimage.id, 'small' with {'alt': newsItem.title, 'title': ''} %}
+	{% if newsItem.introimage.id is defined %}
+		<a href="{{ app.request.getBaseURL() }}/blog/{{ newsItem.alias }}" title="{{ newsItem.title }}" class="readMoreImage columns large-12 small-12">
+			{% media newsItem.introimage.id, 'mediumnews' with {'alt': newsItem.title, 'title': ''} %}
+			<span class="introItemText">
+				<span class="introItemTitle">{{ newsItem.title }}</span>
+				{{ newsItem.introtext|striptags }}
+			</span>
         </a>
     {% endif %}
-
-    <div class="introItemTitle">
-        <h5><a href="{{ app.request.getBaseURL() }}/blog/{{ newsItem.alias }}" title="{{ newsItem.title }}" class="readMore">{{ newsItem.title }}</a></h5>            
-    </div>
-
-	<div class="introItemText">
-        <a href="{{ app.request.getBaseURL() }}/blog/{{ newsItem.alias }}" title="{{ newsItem.introtext|striptags }}" class="readMore">{{ newsItem.introtext|striptags }}</a>          
-    </div>

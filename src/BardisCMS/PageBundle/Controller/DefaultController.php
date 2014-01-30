@@ -207,8 +207,10 @@ class DefaultController extends Controller {
 			$spotspages = array();
 
 			// Get the pages for the category id of homepage but take ou the current (homepage) page item from the results
-			$pages = $this->getDoctrine()->getRepository('PageBundle:Page')->getHomepageItems($categoryIds, $id, $publishStates);
+			//$pages = $this->getDoctrine()->getRepository('PageBundle:Page')->getHomepageItems($categoryIds, $id, $publishStates);
 			//$blogpages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getHomepageItems($categoryIds, $publishStates);
+			
+			$pages = $this->getDoctrine()->getRepository('SpotBundle:Spot')->getSpotListItem($publishStates);
 			$newspages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getFeaturedItems('News', $publishStates, 2);
 			$eventspages = $this->getDoctrine()->getRepository('BlogBundle:Blog')->getFeaturedItems('Events', $publishStates, 1);
 			

@@ -102,7 +102,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $blog3->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
         $blog3->setIntroimage($manager->merge($this->getReference('introImage7')));
         $blog3->setPagetype('blog_article');
-        $blog3->addCategory($manager->merge($this->getReference('categoryHome')));
+        $blog3->addCategory($manager->merge($this->getReference('categoryNews')));
         $blog3->addTag($manager->merge($this->getReference('tagSample2')));
 		$manager->persist($blog3);
 		
@@ -116,7 +116,7 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $blog4->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
         $blog4->setIntroimage($manager->merge($this->getReference('introImage8')));
         $blog4->setPagetype('blog_article');
-        $blog4->addCategory($manager->merge($this->getReference('categoryHome')));
+        $blog4->addCategory($manager->merge($this->getReference('categoryEvents')));
         $blog4->addTag($manager->merge($this->getReference('tagSample1')));
 		$manager->persist($blog4);
 		

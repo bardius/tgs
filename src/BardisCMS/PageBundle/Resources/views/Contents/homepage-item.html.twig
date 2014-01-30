@@ -1,0 +1,11 @@
+	<div class="row">
+		<h3><a href="{{ app.request.getBaseURL() }}/spots" title="Find your spot!" class="readMore">Find your spot!</a></h3>
+	</div>
+	<div class="row itemContents">
+	{% if pageItem.introimage.id is defined %}
+        <a href="{{ app.request.getBaseURL() }}/spots" title="Find your spot!" class="readMoreImage columns large-12 small-12">
+			{% media pageItem.introimage.id, 'medium' with {'alt': 'Find your spot!', 'title': ''} %}
+			<span class="introItemText">{{ pageItem.introtext|striptags }}</span>
+        </a>
+    {% endif %}
+	</div>

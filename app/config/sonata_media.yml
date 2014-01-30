@@ -28,9 +28,9 @@ sonata_media:
             formats:
                 adminthumb: { width: 70, height: 70, quality: 80 }
                 small:			{ width: 290, height: 114, quality: 80 }
-                blog:				{ width: 410, height: 236, quality: 80 }
-                medium:			{ width: 410, height: 162, quality: 80 }
-                big:				{ width: 1400, height: 390, quality: 80 }
+                blog:				{ width: 413, height: 236, quality: 80 }
+                medium:			{ width: 413, height: 236, quality: 80 }
+                mediumnews:	{ width: 413, height: 288, quality: 80 }
                 original:		{ quality: 80 }  
         
         bgimage:
@@ -39,11 +39,11 @@ sonata_media:
 
             formats:
                 adminthumb: { width: 70, height: 70, quality: 80 }
-                small:      { width: 290, height: 114, quality: 80 }
-                mobile:     { width: 480, height: 133, quality: 80 }
-                medium:     { width: 410, height: 162, quality: 80 }
+                small:      { width: 290, height: 165, quality: 80 }
+                medium:     { width: 413, height: 236, quality: 80 }
                 big:        { width: 1400, height: 390, quality: 80 }
                 slide:      { width: 1400, height: 390, quality: 80 }
+                mobile:     { width: 480, height: 133, quality: 80 }
                 original:   { quality: 80 }        
         
         destination:
@@ -53,8 +53,8 @@ sonata_media:
             formats:
                 adminthumb: { width: 70, height: 70, quality: 80 }
                 xsmall:     { width: 112, height: 112, quality: 80 }
-                small:      { width: 290, height: 136, quality: 80 }
-                medium:     { width: 454, height: 214, quality: 80 }
+                small:      { width: 290, height: 114, quality: 80 }
+                medium:     { width: 413, height: 162, quality: 80 }
                 big:        { width: 1400, height: 390, quality: 80 }
                 bigmob:     { width: 480, height: 133, quality: 80 }
                 original:   { quality: 80 }  
@@ -66,8 +66,8 @@ sonata_media:
             formats:
                 adminthumb: { width: 70, height: 70, quality: 80 }
                 xsmall:     { width: 112, height: 112, quality: 80 }
-                small:      { width: 290, height: 114, quality: 80 }
-                medium:     { width: 410, height: 162, quality: 80 }
+                small:      { width: 290, height: 165, quality: 80 }
+                medium:     { width: 413, height: 236, quality: 80 }
                 big:        { width: 1400, height: 390, quality: 80 }
                 bigmob:     { width: 480, height: 133, quality: 80 }
                 original:   { quality: 80 }
@@ -79,8 +79,7 @@ sonata_media:
             formats:
                 adminthumb: { width: 70 , height: 70, quality: 80 }
                 small:      { width: 290, height: 114, quality: 80 }
-                medium:     { width: 410, height: 162, quality: 80 }
-                big:        { width: 410, height: 162, quality: 80 }
+                medium:     { width: 413, height: 162, quality: 80 }
                 original:   { quality: 80 }              
         
         icons:
@@ -101,7 +100,7 @@ sonata_media:
     filesystem:
         local:
             directory:  %kernel.root_dir%/../web/uploads/media
-            create:     false
+            create:     true
     
     providers:
         file:

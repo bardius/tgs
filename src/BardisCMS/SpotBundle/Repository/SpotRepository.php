@@ -221,6 +221,25 @@ class SpotRepository extends EntityRepository
                     
         $pages = $qb->getQuery()->getResult();
         return  $pages;
+    } 
+    
+    
+    public function getSpotListItem($publishStates)
+    {            
+        $qb = $this->_em->createQueryBuilder();
+        
+        $qb->select('DISTINCT p')
+            ->from('SpotBundle:Spot', 'p')
+            ->where($qb->expr()->andX(
+                $qb->expr()->in('p.pagetype', ':spotType'),
+                $qb->expr()->in('p.publishState', ':publishState')
+            ))
+            ->orderBy('p.pageOrder', 'ASC')
+            ->setParameter('spotType', 'spot_home')
+            ->setParameter('publishState', $publishStates);
+                    
+        $pages = $qb->getQuery()->getResult();
+        return  $pages;
     }  
     
     

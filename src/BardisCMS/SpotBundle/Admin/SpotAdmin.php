@@ -62,7 +62,7 @@ class SpotAdmin extends Admin
             ->end()
             ->with('Homepage & Listing Page Intro', array('collapsed' => true))
                 ->add('introtext', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced'), 'label' => 'Intro Text/HTML', 'required' => false))
-                ->add('introimage', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'intro', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Intro Image', 'required' => false))
+                ->add('introimage', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'spotlist', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Intro Image', 'required' => false))
                 ->add('pageOrder', null, array('label' => 'Intro Item Ordering in Homepage', 'required' => true))
                 ->add('introclass', null, array('label' => 'Intro Item CSS Class', 'required' => false))
                 ->setHelps(array(

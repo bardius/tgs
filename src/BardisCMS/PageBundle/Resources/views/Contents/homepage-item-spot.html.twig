@@ -1,9 +1,1 @@
-    {% if spotItem.introimage.id is defined %}
-        <a href="{{ app.request.getBaseURL() }}/spot/{{ spotItem.alias }}" title="{{ spotItem.title }}" class="readMoreImage">
-        {% media spotItem.introimage.id, 'small' with {'alt': spotItem.title, 'title': ''} %}
-        </a>
-    {% endif %}
-
-    <div class="introItemTitle">
-        <h5><a href="{{ app.request.getBaseURL() }}/spot/{{ spotItem.alias }}" title="{{ spotItem.title }}" class="readMore">{{ spotItem.title }}</a></h5>            
-    </div>
+<h5><a href="{{ app.request.getBaseURL() }}/spot/{{ spotItem.alias }}" title="{{ spotItem.title }}" class="readMore"><span>{{ spotItem.title }}</span></a></h5>

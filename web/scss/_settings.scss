@@ -29,15 +29,16 @@ $rem-base: 16px;
 // Grid
 
 // $include-html-grid-classes: $include-html-classes;
-$row-width: rem-calc(960);
-$column-gutter: rem-calc(30);
+$row-width: 960px;
+$column-gutter: rem-calc(22);
 $total-columns: 12;
 
 // We use these to control various global styles
 $body-bg: #fff;
 $body-font-color: #FFF;
-$body-font-family: "gotham", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: "open_sansregular", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $alt-font-family: "burbank_big_condensed", Verdana, Tahoma, Arial, sans-serif;
+$bold-font-family: "gotham", "open_sansregular", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $body-font-weight: normal;
 $body-font-style: normal;
 
@@ -57,6 +58,7 @@ $alert-color: #f04124;
 $success-color: #43AC6A;
 $warning-color: #f08a24;
 $info-color: #a0d3e8;
+$white-color: #ffffff;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -69,8 +71,8 @@ $info-color: #a0d3e8;
 
 // Media Query Ranges
 $small-range: (0em, 40em);
-$medium-range: (40.063em, 64em);
-$large-range: (64.063em, 90em);
+$medium-range: (40.063em, 48em);
+$large-range: (48.063em, 90em);
 $xlarge-range: (90.063em, 120em);
 $xxlarge-range: (120.063em);
 

@@ -28,6 +28,7 @@ class SpotFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spothome->setPublishState(1);		
         $spothome->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
         $spothome->setPagetype('spot_home');
+        $spothome->setIntroimage($manager->merge($this->getReference('introImage9')));
 		$manager->persist($spothome);
 		
         $testspot1 = new Spot();

@@ -154,6 +154,23 @@ class UserFixtures extends AbstractFixture implements OrderedFixtureInterface
         $introImage8->setUpdatedAt(new \DateTime());
 		$manager->persist($introImage8);
 		
+		
+        $introImage9 = new Media();
+        $introImage9->setName('sample_thumb.jpeg');
+        $introImage9->setEnabled(0);
+        $introImage9->setProviderName('sonata.media.provider.image');
+        $introImage9->setProviderStatus(1);
+        $introImage9->setProviderReference('sample_thumb.jpeg');
+        $introImage8->setMetadataValue('filename', 'sample_thumb.jpeg');
+        $introImage9->setWidth(622);
+        $introImage9->setHeight(415);
+		$introImage9->setContentType('image/jpeg');
+		$introImage9->setSize(8043);
+        $introImage9->setContext('spotlist');
+        $introImage9->setCreatedAt(new \DateTime());
+        $introImage9->setUpdatedAt(new \DateTime());
+		$manager->persist($introImage9);
+		
         $manager->flush();
 		
 		$this->addReference('introImage1', $introImage1);
@@ -164,6 +181,7 @@ class UserFixtures extends AbstractFixture implements OrderedFixtureInterface
 		$this->addReference('introImage6', $introImage6);
 		$this->addReference('introImage7', $introImage7);
 		$this->addReference('introImage8', $introImage8);
+		$this->addReference('introImage9', $introImage9);
     }
 	
 	public function getOrder()

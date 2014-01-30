@@ -1,13 +1,9 @@
-    {% if eventsItem.introimage.id is defined %}
-        <a href="{{ app.request.getBaseURL() }}/blog/{{ eventsItem.alias }}" title="{{ eventsItem.title }}" class="readMoreImage">
-        {% media eventsItem.introimage.id, 'small' with {'alt': eventsItem.title, 'title': ''} %}
+	{% if eventsItem.introimage.id is defined %}
+		<a href="{{ app.request.getBaseURL() }}/blog/{{ eventsItem.alias }}" title="{{ eventsItem.title }}" class="readMoreImage columns large-12 small-12">
+			{% media eventsItem.introimage.id, 'medium' with {'alt': eventsItem.title, 'title': ''} %}
+			<span class="introItemText">
+				<span class="introItemTitle">{{ eventsItem.title }}</span>
+				{{ eventsItem.introtext|striptags }}
+			</span>
         </a>
     {% endif %}
-
-    <div class="introItemTitle">
-        <h5><a href="{{ app.request.getBaseURL() }}/blog/{{ eventsItem.alias }}" title="{{ eventsItem.title }}" class="readMore">{{ eventsItem.title }}</a></h5>            
-    </div>
-
-	<div class="introItemText">
-        <a href="{{ app.request.getBaseURL() }}/blog/{{ eventsItem.alias }}" title="{{ eventsItem.introtext|striptags }}" class="readMore">{{ eventsItem.introtext|striptags }}</a>          
-    </div>
