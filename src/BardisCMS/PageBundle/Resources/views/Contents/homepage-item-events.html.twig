@@ -2,8 +2,17 @@
 		<a href="{{ app.request.getBaseURL() }}/blog/{{ eventsItem.alias }}" title="{{ eventsItem.title }}" class="readMoreImage columns large-12 small-12">
 			{% media eventsItem.introimage.id, 'medium' with {'alt': eventsItem.title, 'title': ''} %}
 			<span class="introItemText">
-				<span class="introItemTitle">{{ eventsItem.title }}</span>
-				{{ eventsItem.introtext|striptags }}
+				<span class="introItemTitle">
+					{{ eventsItem.title }}
+				</span>
+				<small class="date">
+					<span class="day">{{ eventsItem.date|date("d") }}</span>
+					<span class="month">{{ eventsItem.date|date("M") }}</span>
+					<span class="year">{{ eventsItem.date|date("Y") }}</span>
+				</small>
+				<span class="introItemDesc">
+					{{ eventsItem.introtext|striptags }}
+				</span>
 			</span>
         </a>
     {% endif %}

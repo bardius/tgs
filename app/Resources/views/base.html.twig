@@ -58,7 +58,6 @@
 	<body>
 		<div class="superWrapper">
 			<div class="wrapper">
-            {% block body_start %}{% endblock %}
 				<header>
 					<div class="row header">
 						<div id="logo" class="columns small-12 large-4">
@@ -74,6 +73,8 @@
 						</div>
 					</div>
 				</header>
+					
+				{% block body_start %}{% endblock %}
 					
 				<div class="row pageContents">
 					{% block content %}{% endblock %}

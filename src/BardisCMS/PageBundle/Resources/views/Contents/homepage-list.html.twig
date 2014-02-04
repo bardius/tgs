@@ -11,7 +11,7 @@
 		</div>
 		<div class="row itemContents collapse">
 		{% for spotItem in spots %}				
-			<div class="columns spotItem spotItem{{ loop.index }} {% if spotItem.introclass is not null %}{{ spotItem.introclass }}{% endif %} large-3 small-4">
+			<div class="columns spotItem spotItem{{ loop.index }} {% if spotItem.introclass is not null %}{{ spotItem.introclass }}{% endif %} large-3 small-3">
 				{% include 'PageBundle:Contents:homepage-item-spot.html.twig' %}
 			</div>
 		{% endfor %}

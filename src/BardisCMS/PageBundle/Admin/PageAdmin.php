@@ -151,12 +151,12 @@ class PageAdmin extends Admin {
 				case 'homepage':
 					$formMapper
 						->with('Page Contents', array('collapsed' => true))
-						->add('maincontentblocks', 'contentblockcollection', array('attr' => array('class' => 'maincontentblocks'), 'label' => 'Contents Above Item Listing'))
-						->add('secondarycontentblocks', 'contentblockcollection', array('attr' => array('class' => 'secondarycontentblocks'), 'label' => 'Contents Below Item Listing'))
+						->add('bannercontentblocks', 'contentblockcollection', array('attr' => array('class' => 'bannercontentblocks'), 'label' => 'Top Banner Contents'))
+						->add('maincontentblocks', 'contentblockcollection', array('attr' => array('class' => 'maincontentblocks'), 'label' => 'Contents Below Item Listing'))
 						->add('modalcontentblocks', 'contentblockcollection', array('attr' => array('class' => 'modalcontentblocks'), 'label' => 'Modal Windows Contents'))
 						->setHelps(array(
-							'maincontentblocks' => 'Enter the contents that appear above the items list',
-							'secondarycontentblocks' => 'Enter the contents that appear below the items list',
+							'bannercontentblocks' => 'Enter the contents for the top banner',
+							'maincontentblocks' => 'Enter the contents that appear below the items list',
 							'modalcontentblocks' => 'Enter the contents for the modal windows'
 						))
 						->end()

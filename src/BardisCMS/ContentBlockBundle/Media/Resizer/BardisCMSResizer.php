@@ -54,7 +54,24 @@ class BardisCMSResizer implements ResizerInterface {
 		if (!$settings['height']) {
 			$settings['height'] = $settings['width'] * $originalRatio;
 		}
+		
+		// Scale Image up if too small
+		if ($size->getHeight() > $size->getWidth()) {			
+			if($settings['height'] > $size->getHeight()){
+				$image->resize(new Box($settings['height'] * $originalRatio, $settings['height']));
+			}
+		}
+		else{			
+			if($settings['width'] > $size->getWidth()){
+				$image->resize(new Box($settings['width'], $settings['width'] / $originalRatio));
+			}
+		}
+		
+		// Re calculate size and aspect ratio
+		$size = $image->getSize();
+		$originalRatio = $size->getWidth() / $size->getHeight();
 
+		// Resize and on center
 		if ($size->getHeight() > $size->getWidth()) {
 			$thRatio = $settings['width'] / $settings['height'];
 			$higher = $size->getHeight();
@@ -82,7 +99,7 @@ class BardisCMSResizer implements ResizerInterface {
 				$image->crop($point, new Box($newWidth, $higher));
 			}
 		} 
-		else {
+		else {			
 			$thRatio = $settings['width'] / $settings['height'];
 			$higher = $size->getWidth();
 			$lower = $size->getHeight();
@@ -109,7 +126,8 @@ class BardisCMSResizer implements ResizerInterface {
 				$image->crop($point, new Box($higher, $newHeight));
 			}
 		}
-
+		
+		// Generate thumbnail
 		$content = $image
 			->thumbnail(new Box($settings['width'], $settings['height']), $this->mode)
 			->get($format, array('quality' => $settings['quality']));

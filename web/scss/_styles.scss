@@ -122,13 +122,14 @@ body{
 	position: absolute;
 	top: 0;
 	left: 0;
-	background: url("../images/site_assets/bodyBg.png") 0 0 repeat #e5e5e5;
+	background: url("../images/site_assets/bodyBg.jpg") 0 0 repeat #e5e5e5;
 }
 
 .superWrapper{
 	width:100%;
 	min-height:100%;
 	min-width:320px;
+	background: url("../images/site_assets/seaBg.png") 0 100% repeat-x;
 }
 
 .wrapper{
@@ -190,6 +191,17 @@ header{
 		overflow: hidden;
 		padding: 0 rem-calc(18)!important;
 	}
+}
+
+/*-------------------------------------------
+	Top Banner Slideshow
+-----------------------------------------*/
+
+.pageTopBanner {
+    margin: 0 auto;
+    max-width: 1400px;
+    position: relative;
+    width: 100%;
 }
 
 /*-------------------------------------------
@@ -292,7 +304,7 @@ header{
 					line-height: 1.4;
 					font-size: rem-calc(16);
 					font-family: $bold-font-family;
-					margin-bottom: rem-calc(12);
+					margin-bottom: rem-calc(6);
 				}
 				
 				&:hover{
@@ -300,7 +312,33 @@ header{
 					.introItemText{
 						transform: translate(0, 0);
 					}
-				}				
+				}			
+				
+				.introItemDesc{					
+					display: inline-block;
+					width: 100%;
+					background: transparent;
+					color: $white-color;
+					line-height: 1.2;
+					font-size: rem-calc(13);
+					padding: 0;	
+				}
+				
+				small{
+					display: inline-block;
+					width: 100%;
+					margin-bottom: rem-calc(6);
+					
+					span{
+						display: inline;
+						width: auto;
+						background: transparent;
+						color: $white-color;
+						line-height: 1.2;
+						font-size: rem-calc(13);
+						padding: 0;									
+					}
+				}
 			}
 		}
 		
@@ -427,15 +465,15 @@ header{
 	text-transform: none;
 	color: #052763;
 	cursor: pointer;
-	margin-bottom:0;
+	margin-bottom: 0;
 }
 
 #filterResultsForm .formBtns {
-	float:none;
+	float: none;
 	position: absolute;
-	bottom:22px;
-	right:0;
-	width:25%;
+	bottom: 22px;
+	right: 0;
+	width: 25%;
 }
 
 #filterResultsForm .formBtns .checkAllBox{
@@ -457,7 +495,7 @@ header{
 	text-align: left;
 	text-transform: uppercase;
 	border: none;
-	font-weight:normal!important;
+	font-weight: normal!important;
 }
 
 #filterResultsForm #filterResultsBtn:hover{
@@ -582,6 +620,24 @@ footer{
 	background: $primary-color;
 	position: relative;
 	overflow: hidden;
+	
+	#copyrights{
+		text-align: center;
+		font-size: rem-calc(12);
+	}
+	
+	#footerNav{
+		width: 100%;
+		text-transform: uppercase;
+		margin-top: rem-calc(36);
+
+		.level0 a{
+			overflow: hidden;
+			padding: 0 rem-calc(18)!important;
+			color: $white-color;
+			text-align: center;
+		}
+	}
 }
 
 /* ---------------------------------------------------

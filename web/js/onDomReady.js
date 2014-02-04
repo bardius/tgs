@@ -1,6 +1,7 @@
 (function(CMS, $) {
 	
 	CMS.siteConfig = {
+		// Map settings
 		map:			null,
 		mapKey:			'AIzaSyB8uoWbuhHNagbpi22tEeZYiT41toB171g',
 		mapLatitude:	$('#mapLat').val(),
@@ -80,15 +81,17 @@
 				},
 				orbit : {
 					animation: 'fade',
-					timer_speed: 8000,
+					timer_speed: 7000,
 					pause_on_hover: true,
 					resume_on_mouseout: false,
-					animation_speed: 700,
-					stack_on_small: true,
+					animation_speed: 900,
+					stack_on_small: false,
 					navigation_arrows: true,
 					slide_number: false,
 					bullets: true,
 					timer: false,
+					circular: true,
+					swipe: true,
 					variable_height: false
 				},
 				dropdown : {

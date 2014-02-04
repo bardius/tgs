@@ -587,28 +587,28 @@ $xxlarge-range: (120.063em);
 // $include-html-orbit-classes: $include-html-classes;
 
 // We use these to control the caption styles
-// $orbit-container-bg: none;
-// $orbit-caption-bg: rgba(51,51,51, 0.8);
-// $orbit-caption-font-color: #fff;
-// $orbit-caption-font-size: rem-calc(14);
-// $orbit-caption-position: "bottom"; // Supported values: "bottom", "under"
-// $orbit-caption-padding: rem-calc(10 14);
-// $orbit-caption-height: auto;
+$orbit-container-bg: none;
+$orbit-caption-bg: rgba(51,51,51, 0.8);
+$orbit-caption-font-color: #fff;
+$orbit-caption-font-size: rem-calc(14);
+$orbit-caption-position: "bottom"; // Supported values: "bottom", "under"
+$orbit-caption-padding: rem-calc(10 14);
+$orbit-caption-height: auto;
 
 // We use these to control the left/right nav styles
-// $orbit-nav-bg: none;
-// $orbit-nav-bg-hover: rgba(0,0,0,0.3);
-// $orbit-nav-arrow-color: #fff;
-// $orbit-nav-arrow-color-hover: #fff;
+$orbit-nav-bg: none;
+$orbit-nav-bg-hover: rgba(0,0,0,0.3);
+$orbit-nav-arrow-color: #fff;
+$orbit-nav-arrow-color-hover: #fff;
 
 // We use these to control the timer styles
 // $orbit-timer-bg: rgba(255,255,255,0.3);
 // $orbit-timer-show-progress-bar: true;
 
 // We use these to control the bullet nav styles
-// $orbit-bullet-nav-color: #ccc;
-// $orbit-bullet-nav-color-active: #999;
-// $orbit-bullet-radius: rem-calc(9);
+$orbit-bullet-nav-color: #ccc;
+$orbit-bullet-nav-color-active: #999;
+$orbit-bullet-radius: rem-calc(9);
 
 // We use these to controls the style of slide numbers
 // $orbit-slide-number-bg: rgba(0,0,0,0);
@@ -616,8 +616,8 @@ $xxlarge-range: (120.063em);
 // $orbit-slide-number-padding: rem-calc(5);
 
 // Graceful Loading Wrapper and preloader
-// $wrapper-class: "slideshow-wrapper";
-// $preloader-class: "preloader";
+$wrapper-class: "slideshow-wrapper";
+$preloader-class: "preloader";
 
 // Pagination
 
@@ -1043,8 +1043,8 @@ $topbar-link-weight: normal;
 $topbar-link-font-size: rem-calc(26);
 $topbar-link-hover-lightness: -20%; // Darken by 10%
 $topbar-link-bg-hover: $hover-color;
-$topbar-link-bg-active: $hover-color;
-$topbar-link-bg-active-hover: scale-color($hover-color, $lightness: -10%);
+$topbar-link-bg-active: scale-color($hover-color, $lightness: -10%);
+$topbar-link-bg-active-hover: scale-color($hover-color, $lightness: -20%);
 $topbar-link-font-family: $alt-font-family;
 
 // $topbar-button-font-size: 0.75rem;
@@ -1112,19 +1112,19 @@ $h6-font-size: 1rem;
 // $subheader-bottom-margin: .5rem;
 
 // A general <small> styling
-// $small-font-size: 60%;
+$small-font-size: 80%;
 // $small-font-color: scale-color($header-font-color, $lightness: 35%);
 
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
 // $paragraph-font-weight: normal;
-// $paragraph-font-size: 1rem;
-// $paragraph-line-height: 1.6;
-// $paragraph-margin-bottom: rem-calc(20);
+$paragraph-font-size: 1rem;
+$paragraph-line-height: 1.4;
+$paragraph-margin-bottom: 1rem;
 // $paragraph-aside-font-size: rem-calc(14);
 // $paragraph-aside-line-height: 1.35;
 // $paragraph-aside-font-style: italic;
-// $paragraph-text-rendering: optimizeLegibility;
+$paragraph-text-rendering: optimizeLegibility;
 
 // We use these to style <code> tags
 // $code-color: scale-color($alert-color, $lightness: -27%);
@@ -1132,9 +1132,9 @@ $h6-font-size: 1rem;
 // $code-font-weight: bold;
 
 // We use these to style anchors
-// $anchor-text-decoration: none;
-// $anchor-font-color: $primary-color;
-// $anchor-font-color-hover: scale-color($primary-color, $lightness: -14%);
+$anchor-text-decoration: none;
+$anchor-font-color: $primary-color;
+$anchor-font-color-hover: scale-color($primary-color, $lightness: -20%);
 
 // We use these to style the <hr> element
 // $hr-border-width: 1px;
