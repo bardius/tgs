@@ -1,12 +1,16 @@
 <div class="columns large-6 small-12 {{ pageItem.pageType }}Item {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %} ">
-    <a href="{{ url('DestinationBundle_page_normal', { 'alias': pageItem.alias }) }}" title="{{ pageItem.title }}">
+	
+	<h3>
+		<a href="{{ url('DestinationBundle_page_normal', { 'alias': pageItem.alias }) }}" title="{{ pageItem.title }}">
+			{{ pageItem.title }}
+		</a>
+	</h3>
+	
+    <a class="readMoreImage" href="{{ url('DestinationBundle_page_normal', { 'alias': pageItem.alias }) }}" title="{{ pageItem.title }}">
         {% if pageItem.introImage.id is defined %}
-			{% media pageItem.introImage.id, 'medium' with {'alt': pageItem.title, 'title': ''} %}
+		{% media pageItem.introImage.id, 'medium' with {'alt': pageItem.title, 'title': ''} %}
         {% else %}
         <img src="/images/site_assets/defaultDestinationThumb.jpg" alt="{{ pageItem.title }}" />
         {% endif %}
-        <div class="destinationItemText {% if pageItem.pageclass is defined %}{{ pageItem.pageclass }}{% endif %}">
-            <h5 class="title">{{ pageItem.title }}</h5>
-        </div>
     </a>
 </div>

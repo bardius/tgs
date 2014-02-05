@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 30, 2014 at 03:23 AM
+-- Generation Time: Feb 04, 2014 at 02:32 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.16
 
@@ -118,6 +118,14 @@ CREATE TABLE IF NOT EXISTS `bannercontent_blocks` (
   KEY `IDX_F4D58642ADBAC2` (`contentblock_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `bannercontent_blocks`
+--
+
+INSERT INTO `bannercontent_blocks` (`page_id`, `contentblock_id`) VALUES
+(82, 58),
+(82, 59);
+
 -- --------------------------------------------------------
 
 --
@@ -149,21 +157,21 @@ CREATE TABLE IF NOT EXISTS `blogs` (
   UNIQUE KEY `UNIQ_F41BCA7097AB4E12` (`bgimage`),
   UNIQUE KEY `UNIQ_F41BCA704A73D32C` (`introvideo`),
   KEY `IDX_F41BCA70BDAFD8C8` (`author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=81 ;
 
 --
 -- Dumping data for table `blogs`
 --
 
 INSERT INTO `blogs` (`id`, `author`, `introimage`, `bgimage`, `introvideo`, `date`, `title`, `alias`, `pageOrder`, `showPageTitle`, `publishState`, `pageclass`, `description`, `keywords`, `introtext`, `intromediasize`, `introclass`, `pagetype`) VALUES
-(41, 6, NULL, NULL, NULL, '2014-01-30', 'Blog Home', 'articles', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_home'),
-(42, 6, NULL, NULL, NULL, '2014-01-30', 'News', 'news', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_cat_page'),
-(43, 6, NULL, NULL, NULL, '2014-01-30', 'Events', 'events', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_cat_page'),
-(44, 6, NULL, NULL, NULL, '2014-01-30', 'Blog Filtered Listing', 'tagged', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_filtered_list'),
-(45, 6, 67, NULL, NULL, '2014-01-30', 'Test Blog Post 1', 'test-blog-post-1', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article'),
-(46, 6, 68, NULL, NULL, '2014-01-30', 'Test Blog Post 2', 'test-blog-post-2', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article'),
-(47, 6, 69, NULL, NULL, '2014-01-30', 'Test Blog Post 3', 'test-blog-post-3', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article'),
-(48, 6, 70, NULL, NULL, '2014-01-30', 'Test Blog Post 4', 'test-blog-post-4', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article');
+(73, 12, NULL, NULL, NULL, '2014-02-04', 'Blog Home', 'articles', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_home'),
+(74, 12, NULL, NULL, NULL, '2014-02-04', 'News', 'news', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_cat_page'),
+(75, 12, NULL, NULL, NULL, '2014-02-04', 'Events', 'events', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_cat_page'),
+(76, 12, NULL, NULL, NULL, '2014-02-04', 'Blog Filtered Listing', 'tagged', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_filtered_list'),
+(77, 12, 132, NULL, NULL, '2014-02-04', 'Test Blog Post 1', 'test-blog-post-1', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article'),
+(78, 12, 133, NULL, NULL, '2014-02-04', 'Test Blog Post 2', 'test-blog-post-2', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article'),
+(79, 12, 134, NULL, NULL, '2014-02-04', 'Test Blog Post 3', 'test-blog-post-3', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article'),
+(80, 12, 135, NULL, NULL, '2014-02-04', 'Test Blog Post 4', 'test-blog-post-4', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article');
 
 -- --------------------------------------------------------
 
@@ -184,10 +192,10 @@ CREATE TABLE IF NOT EXISTS `blogs_categories` (
 --
 
 INSERT INTO `blogs_categories` (`blog_id`, `category_id`) VALUES
-(45, 22),
-(46, 23),
-(47, 22),
-(48, 23);
+(77, 46),
+(78, 47),
+(79, 46),
+(80, 47);
 
 -- --------------------------------------------------------
 
@@ -208,10 +216,10 @@ CREATE TABLE IF NOT EXISTS `blogs_tags` (
 --
 
 INSERT INTO `blogs_tags` (`blog_id`, `tag_id`) VALUES
-(45, 11),
-(46, 12),
-(47, 12),
-(48, 11);
+(77, 23),
+(78, 24),
+(79, 24),
+(80, 23);
 
 -- --------------------------------------------------------
 
@@ -260,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `blog_maincontent_blocks` (
 --
 
 INSERT INTO `blog_maincontent_blocks` (`blog_id`, `contentblock_id`) VALUES
-(45, 30);
+(77, 57);
 
 -- --------------------------------------------------------
 
@@ -289,17 +297,17 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `categoryIcon` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_3AF34668AD0F3245` (`categoryIcon`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=49 ;
 
 --
 -- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `title`, `categoryClass`, `categoryIcon`) VALUES
-(21, 'Homepage', NULL, NULL),
-(22, 'News', 'news', NULL),
-(23, 'Events', 'events', NULL),
-(24, 'Sample Category', 'featured-category', NULL);
+(45, 'Homepage', NULL, NULL),
+(46, 'News', 'news', NULL),
+(47, 'Events', 'events', NULL),
+(48, 'Sample Category', 'featured-category', NULL);
 
 -- --------------------------------------------------------
 
@@ -319,16 +327,16 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `bottrap` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_5F9E962ADAE07E97` (`blog_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`id`, `blog_id`, `title`, `username`, `comment`, `approved`, `created`, `commentType`, `bottrap`) VALUES
-(16, 45, 'Sample Comment 1', 'blogger1', 'To make a long story short. You can''t go wrong by choosing Symfony! And no one has ever been fired for using Symfony.', 1, '2014-01-30 02:32:38', 'Blog', NULL),
-(17, 45, 'Sample Comment 2', 'blogger2', 'To make a long story short. You can''t go wrong by choosing Symfony! And no one has ever been fired for using Symfony 2.', 1, '2014-01-30 02:32:38', 'Blog', NULL),
-(18, 45, 'Sample Comment 3', 'blogger3', 'To make a long story short. You can''t go wrong by choosing Symfony! And no one has ever been fired for using Symfony 3.', 1, '2014-01-30 02:32:38', 'Blog', NULL);
+(28, 77, 'Sample Comment 1', 'blogger1', 'To make a long story short. You can''t go wrong by choosing Symfony! And no one has ever been fired for using Symfony.', 1, '2014-02-04 00:34:47', 'Blog', NULL),
+(29, 77, 'Sample Comment 2', 'blogger2', 'To make a long story short. You can''t go wrong by choosing Symfony! And no one has ever been fired for using Symfony 2.', 1, '2014-02-04 00:34:47', 'Blog', NULL),
+(30, 77, 'Sample Comment 3', 'blogger3', 'To make a long story short. You can''t go wrong by choosing Symfony! And no one has ever been fired for using Symfony 3.', 1, '2014-02-04 00:34:47', 'Blog', NULL);
 
 -- --------------------------------------------------------
 
@@ -358,18 +366,20 @@ CREATE TABLE IF NOT EXISTS `content_blocks` (
   UNIQUE KEY `UNIQ_A6DBE5D44E850E4D` (`fileFile`),
   UNIQUE KEY `UNIQ_A6DBE5D47316E1A3` (`vimeo`),
   UNIQUE KEY `UNIQ_A6DBE5D4F0789934` (`youtube`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=60 ;
 
 --
 -- Dumping data for table `content_blocks`
 --
 
 INSERT INTO `content_blocks` (`id`, `slide`, `vimeo`, `youtube`, `title`, `publishedState`, `availability`, `showTitle`, `ordering`, `className`, `sizeClass`, `mediaSize`, `idName`, `contentType`, `htmlText`, `fileFile`) VALUES
-(26, NULL, NULL, NULL, 'Sample Content Home', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
-(27, NULL, NULL, NULL, 'Sample Content 1', 1, 'page', 1, 1, 'sampleClassname', 'large-12', NULL, 'sampleId', 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
-(28, NULL, NULL, NULL, 'Sample Content 2', 1, 'page', 1, 2, NULL, 'large-12', NULL, NULL, 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
-(29, NULL, NULL, NULL, 'Sample Contact Form', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'contact', NULL, NULL),
-(30, NULL, NULL, NULL, 'Sample Blog Content 1', 1, 'page', 1, 1, 'sampleClassname', 'large-12', NULL, 'sampleId', 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL);
+(53, NULL, NULL, NULL, 'Sample Content Home', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
+(54, NULL, NULL, NULL, 'Sample Content 1', 1, 'page', 1, 1, 'sampleClassname', 'large-12', NULL, 'sampleId', 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
+(55, NULL, NULL, NULL, 'Sample Content 2', 1, 'page', 1, 2, NULL, 'large-12', NULL, NULL, 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
+(56, NULL, NULL, NULL, 'Sample Contact Form', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'contact', NULL, NULL),
+(57, NULL, NULL, NULL, 'Sample Blog Content 1', 1, 'page', 1, 1, 'sampleClassname', 'large-12', NULL, 'sampleId', 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
+(58, 8, NULL, NULL, 'Home Top Banner Slide 1', 1, 'page', 0, 1, NULL, 'large-12', NULL, NULL, 'slide', NULL, NULL),
+(59, 9, NULL, NULL, 'Home Top Banner Slide 2', 1, 'page', 0, 2, NULL, 'large-12', NULL, NULL, 'slide', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -412,7 +422,15 @@ CREATE TABLE IF NOT EXISTS `content_slides` (
   `imageLinkURL` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_D0F6503D991EFFB9` (`imagefile`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `content_slides`
+--
+
+INSERT INTO `content_slides` (`id`, `imagefile`, `imageLinkTitle`, `imageLinkURL`) VALUES
+(8, 137, 'Stay Salty', '/stay-salty'),
+(9, 138, 'Stay Salty 2', NULL);
 
 -- --------------------------------------------------------
 
@@ -451,16 +469,16 @@ CREATE TABLE IF NOT EXISTS `destinations` (
   UNIQUE KEY `UNIQ_2D3343C397AB4E12` (`bgimage`),
   KEY `IDX_2D3343C3BDAFD8C8` (`author`),
   KEY `IDX_2D3343C3D2BBDDF7` (`spots`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `destinations`
 --
 
 INSERT INTO `destinations` (`id`, `author`, `introimage`, `destinationicon`, `bgimage`, `spots`, `date`, `title`, `alias`, `pageOrder`, `showPageTitle`, `publishState`, `pageClass`, `description`, `keywords`, `introText`, `summary`, `directions`, `mapLatitude`, `mapLongitude`, `introClass`, `pageType`, `styleColor`) VALUES
-(16, 6, NULL, NULL, NULL, NULL, '2014-01-30', 'Destinations', 'list', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, NULL, NULL, NULL, 'destination_home', NULL),
-(17, 6, NULL, NULL, NULL, NULL, '2014-01-30', 'North Greece', 'north-greece', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, NULL, NULL, NULL, 'destination_cat_page', NULL),
-(18, 6, NULL, NULL, NULL, NULL, '2014-01-30', 'Halkidiki', 'halkidiki', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, NULL, NULL, NULL, 'destination_article', NULL);
+(28, 12, NULL, NULL, NULL, NULL, '2014-02-04', 'Destinations', 'list', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, NULL, NULL, NULL, 'destination_home', NULL),
+(29, 12, NULL, NULL, NULL, NULL, '2014-02-04', 'North Greece', 'north-greece', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, NULL, NULL, NULL, 'destination_cat_page', NULL),
+(30, 12, NULL, NULL, NULL, NULL, '2014-02-04', 'Halkidiki', 'halkidiki', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, NULL, NULL, NULL, 'destination_article', NULL);
 
 -- --------------------------------------------------------
 
@@ -481,9 +499,9 @@ CREATE TABLE IF NOT EXISTS `destinations_categories` (
 --
 
 INSERT INTO `destinations_categories` (`destination_id`, `destinationcategory_id`) VALUES
-(17, 11),
-(17, 12),
-(18, 12);
+(29, 19),
+(29, 20),
+(30, 20);
 
 -- --------------------------------------------------------
 
@@ -504,7 +522,7 @@ CREATE TABLE IF NOT EXISTS `destinations_tags` (
 --
 
 INSERT INTO `destinations_tags` (`destination_id`, `destinationtag_id`) VALUES
-(18, 6);
+(30, 10);
 
 -- --------------------------------------------------------
 
@@ -535,15 +553,15 @@ CREATE TABLE IF NOT EXISTS `destination_categories` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_67CADDDACEB1B078` (`destinationCategoryIcon`),
   KEY `IDX_67CADDDABD7209A` (`destinationListPage`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `destination_categories`
 --
 
 INSERT INTO `destination_categories` (`id`, `title`, `class`, `destinationListPage`, `destinationCategoryIcon`) VALUES
-(11, 'Destination Home', NULL, NULL, NULL),
-(12, 'North Greece', 'north-greece', NULL, NULL);
+(19, 'Destination Home', NULL, NULL, NULL),
+(20, 'North Greece', 'north-greece', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -601,14 +619,14 @@ CREATE TABLE IF NOT EXISTS `destination_tags` (
   `tagIcon` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_CC1D1D178913051D` (`tagIcon`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `destination_tags`
 --
 
 INSERT INTO `destination_tags` (`id`, `title`, `tagCategory`, `styleColor`, `tagIcon`) VALUES
-(6, 'Surf', 'sports', 'green', NULL);
+(10, 'Surf', 'sports', 'green', NULL);
 
 -- --------------------------------------------------------
 
@@ -693,14 +711,14 @@ CREATE TABLE IF NOT EXISTS `fos_user_user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_C560D76192FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_C560D761A0D96FBF` (`email_canonical`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `fos_user_user`
 --
 
 INSERT INTO `fos_user_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `created_at`, `updated_at`, `date_of_birth`, `firstname`, `lastname`, `website`, `biography`, `gender`, `locale`, `timezone`, `phone`, `facebook_uid`, `facebook_name`, `facebook_data`, `twitter_uid`, `twitter_name`, `twitter_data`, `gplus_uid`, `gplus_name`, `gplus_data`, `token`, `two_step_code`, `bakeFrequency`, `sex`, `bakeChoises`, `age`, `children`, `campaign`) VALUES
-(6, 'administrator', 'administrator', 'george@bardis.info', 'george@bardis.info', 1, '6nh8ngur6w00okgo0wk8kgso0wkkkog', 'bKFhAn1TdXdms7mpUwV2x/ytbVIQALaAHqpOyRr3vtlTMbekshMub8gtCSni5wMGyGMDSsNwPRvQ7gkEXmQmLA==', NULL, 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL, '2014-01-30 02:32:37', '2014-01-30 02:32:37', NULL, NULL, NULL, NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, NULL, NULL, 'N;', NULL, NULL, NULL);
+(12, 'administrator', 'administrator', 'george@bardis.info', 'george@bardis.info', 1, 'aebzosxxo084s480ooosc448gcw84w8', 'AHlypCdaqqFnPOI4F6+LATVau+wRLm6VK2MsosCIZyehb8O48pmANiHkH26PO2MRHaHlACYtHvldhsc09JYDlw==', '2014-02-04 01:01:37', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL, '2014-02-04 00:34:46', '2014-02-04 01:01:37', NULL, NULL, NULL, NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, NULL, NULL, 'N;', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -735,10 +753,10 @@ CREATE TABLE IF NOT EXISTS `maincontent_blocks` (
 --
 
 INSERT INTO `maincontent_blocks` (`page_id`, `contentblock_id`) VALUES
-(46, 26),
-(50, 29),
-(51, 27),
-(51, 28);
+(82, 53),
+(86, 56),
+(87, 54),
+(87, 55);
 
 -- --------------------------------------------------------
 
@@ -805,22 +823,24 @@ CREATE TABLE IF NOT EXISTS `media__media` (
   `updated_at` datetime NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=72 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=139 ;
 
 --
 -- Dumping data for table `media__media`
 --
 
 INSERT INTO `media__media` (`id`, `name`, `description`, `enabled`, `provider_name`, `provider_status`, `provider_reference`, `provider_metadata`, `width`, `height`, `length`, `content_type`, `content_size`, `copyright`, `author_name`, `context`, `cdn_is_flushable`, `cdn_flush_at`, `cdn_status`, `updated_at`, `created_at`) VALUES
-(63, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-01-30 02:32:37', '2014-01-30 02:32:37'),
-(64, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-01-30 02:32:37', '2014-01-30 02:32:37'),
-(65, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-01-30 02:32:37', '2014-01-30 02:32:37'),
-(66, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-01-30 02:32:37', '2014-01-30 02:32:37'),
-(67, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-01-30 02:32:37', '2014-01-30 02:32:37'),
-(68, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-01-30 02:32:37', '2014-01-30 02:32:37'),
-(69, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-01-30 02:32:37', '2014-01-30 02:32:37'),
-(70, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-01-30 02:32:37', '2014-01-30 02:32:37'),
-(71, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '[]', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'spotlist', NULL, NULL, NULL, '2014-01-30 02:32:37', '2014-01-30 02:32:37');
+(128, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
+(129, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
+(130, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
+(131, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
+(132, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
+(133, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
+(134, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
+(135, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
+(136, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '[]', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'spotlist', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
+(137, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'bgimage', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
+(138, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'bgimage', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47');
 
 -- --------------------------------------------------------
 
@@ -851,21 +871,21 @@ CREATE TABLE IF NOT EXISTS `menu_items` (
   KEY `IDX_70B2CA2AC0155143` (`blog`),
   KEY `IDX_70B2CA2A3EC63EAA` (`destination`),
   KEY `IDX_70B2CA2AB9327A73` (`spot`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=81 ;
 
 --
 -- Dumping data for table `menu_items`
 --
 
 INSERT INTO `menu_items` (`id`, `page`, `blog`, `destination`, `spot`, `title`, `menuType`, `route`, `externalUrl`, `accessLevel`, `parent`, `menuGroup`, `publishState`, `ordering`, `menuUrlExtras`, `menuImage`) VALUES
-(41, 46, NULL, NULL, NULL, 'Homepage', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 0, NULL, NULL),
-(42, 51, NULL, NULL, NULL, 'Test Page 1', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
-(43, NULL, NULL, 16, NULL, 'Destinations', 'Destination', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
-(44, NULL, NULL, NULL, 16, 'Spots', 'Spot', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
-(45, NULL, 42, NULL, NULL, 'News', 'Blog', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
-(46, NULL, 43, NULL, NULL, 'Events', 'Blog', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
-(47, 50, NULL, NULL, NULL, 'Contact Page', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 5, NULL, NULL),
-(48, 48, NULL, NULL, NULL, 'Sitemap', 'Page', 'showPage', NULL, 0, '0', 'Footer Menu', 1, 0, NULL, NULL);
+(73, 82, NULL, NULL, NULL, 'Homepage', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 0, NULL, NULL),
+(74, 87, NULL, NULL, NULL, 'Test Page 1', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
+(75, NULL, NULL, 28, NULL, 'Destinations', 'Destination', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
+(76, NULL, NULL, NULL, 28, 'Spots', 'Spot', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
+(77, NULL, 74, NULL, NULL, 'News', 'Blog', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
+(78, NULL, 75, NULL, NULL, 'Events', 'Blog', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
+(79, 86, NULL, NULL, NULL, 'Contact Page', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 5, NULL, NULL),
+(80, 84, NULL, NULL, NULL, 'Sitemap', 'Page', 'showPage', NULL, 0, '0', 'Footer Menu', 1, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -910,22 +930,22 @@ CREATE TABLE IF NOT EXISTS `pages` (
   UNIQUE KEY `UNIQ_2074E575F3890D5F` (`introimage`),
   UNIQUE KEY `UNIQ_2074E57597AB4E12` (`bgimage`),
   KEY `IDX_2074E575BDAFD8C8` (`author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=55 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=91 ;
 
 --
 -- Dumping data for table `pages`
 --
 
 INSERT INTO `pages` (`id`, `author`, `introimage`, `bgimage`, `date`, `title`, `alias`, `pageOrder`, `showPageTitle`, `publishState`, `pageclass`, `description`, `keywords`, `introtext`, `intromediasize`, `introclass`, `pagetype`) VALUES
-(46, 6, NULL, NULL, '2014-01-30', 'Home', 'index', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'homepage'),
-(47, 6, NULL, NULL, '2014-01-30', '404 Error Page', '404', 99, 1, 1, NULL, NULL, NULL, '', NULL, NULL, '404'),
-(48, 6, NULL, NULL, '2014-01-30', 'Sitemap', 'site-map', 99, 1, 1, NULL, NULL, NULL, '', NULL, NULL, 'sitemap'),
-(49, 6, NULL, NULL, '2014-01-30', 'Page Filtered Listing', 'tagged', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'page_tag_list'),
-(50, 6, NULL, NULL, '2014-01-30', 'Contact', 'contact', 99, 1, 1, NULL, NULL, NULL, '', NULL, NULL, 'contact'),
-(51, 6, 63, NULL, '2014-01-30', 'Test Page 1', 'test-page-1', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'one_columned'),
-(52, 6, 64, NULL, '2014-01-30', 'Test Page 2', 'test-page-2', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'two_columned'),
-(53, 6, 65, NULL, '2014-01-30', 'Test Page 3', 'test-page-3', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'three_columned'),
-(54, 6, 66, NULL, '2014-01-30', 'Test Page 4', 'test-page-4', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'one_columned');
+(82, 12, NULL, NULL, '2014-02-04', 'The Greek Spots', 'index', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'homepage'),
+(83, 12, NULL, NULL, '2014-02-04', '404 Error Page', '404', 99, 1, 1, NULL, NULL, NULL, '', NULL, NULL, '404'),
+(84, 12, NULL, NULL, '2014-02-04', 'Sitemap', 'site-map', 99, 1, 1, NULL, NULL, NULL, '', NULL, NULL, 'sitemap'),
+(85, 12, NULL, NULL, '2014-02-04', 'Page Filtered Listing', 'tagged', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'page_tag_list'),
+(86, 12, NULL, NULL, '2014-02-04', 'Contact', 'contact', 99, 1, 1, NULL, NULL, NULL, '', NULL, NULL, 'contact'),
+(87, 12, 128, NULL, '2014-02-04', 'Test Page 1', 'test-page-1', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'one_columned'),
+(88, 12, 129, NULL, '2014-02-04', 'Test Page 2', 'test-page-2', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'two_columned'),
+(89, 12, 130, NULL, '2014-02-04', 'Test Page 3', 'test-page-3', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'three_columned'),
+(90, 12, 131, NULL, '2014-02-04', 'Test Page 4', 'test-page-4', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'one_columned');
 
 -- --------------------------------------------------------
 
@@ -946,11 +966,11 @@ CREATE TABLE IF NOT EXISTS `pages_categories` (
 --
 
 INSERT INTO `pages_categories` (`page_id`, `category_id`) VALUES
-(46, 21),
-(49, 24),
-(51, 21),
-(51, 24),
-(52, 24);
+(82, 45),
+(85, 48),
+(87, 45),
+(87, 48),
+(88, 48);
 
 -- --------------------------------------------------------
 
@@ -971,11 +991,11 @@ CREATE TABLE IF NOT EXISTS `pages_tags` (
 --
 
 INSERT INTO `pages_tags` (`page_id`, `tag_id`) VALUES
-(49, 11),
-(51, 11),
-(52, 11),
-(53, 11),
-(54, 11);
+(85, 23),
+(87, 23),
+(88, 23),
+(89, 23),
+(90, 23);
 
 -- --------------------------------------------------------
 
@@ -1013,14 +1033,14 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `blogItemsPerPage` int(11) NOT NULL,
   `activateSettings` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `metaDescription`, `metaKeywords`, `fromTitle`, `websiteTitle`, `websiteAuthor`, `useWebsiteAuthor`, `enableGoogleAnalytics`, `googleAnalyticsId`, `emailSender`, `emailRecepient`, `itemsPerPage`, `blogItemsPerPage`, `activateSettings`) VALUES
-(6, 'Default Meta Description', 'Default Meta Keywords', 'Owner', 'Website Title', 'Author', 1, 0, 'UA-XXX-XXXXX', 'george@bardis.info', 'george@bardis.info', 2, 2, 1);
+(12, 'Default Meta Description', 'Default Meta Keywords', 'Owner', 'Website Title', 'Author', 1, 0, 'UA-XXX-XXXXX', 'george@bardis.info', 'george@bardis.info', 2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -1055,16 +1075,16 @@ CREATE TABLE IF NOT EXISTS `spots` (
   UNIQUE KEY `UNIQ_D2BBDDF7F3890D5F` (`introimage`),
   UNIQUE KEY `UNIQ_D2BBDDF73B6DB7D3` (`spotattributes`),
   KEY `IDX_D2BBDDF7BDAFD8C8` (`author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `spots`
 --
 
 INSERT INTO `spots` (`id`, `author`, `introimage`, `spotattributes`, `date`, `title`, `alias`, `pageOrder`, `spotOrder`, `showPageTitle`, `publishState`, `featuredSpot`, `pageclass`, `mapLatitude`, `mapLongitude`, `description`, `keywords`, `introtext`, `introclass`, `pagetype`, `summary`) VALUES
-(16, 6, 71, NULL, '2014-01-30', 'Spots', 'list', 99, 99, 1, 1, 0, NULL, NULL, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, 'spot_home', NULL),
-(17, 6, NULL, NULL, '2014-01-30', 'Test spot page 1', 'test-spot-page-1', 99, 99, 1, 1, 1, NULL, '52.1111', '31.1111', 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, 'Lorem ipsum dolor sit amet', NULL, 'spot_article', NULL),
-(18, 6, NULL, NULL, '2014-01-30', 'Test spot page 2', 'test-spot-page-2', 99, 99, 1, 1, 1, NULL, '52.1111', '31.1111', 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports 2.', NULL, 'Lorem ipsum dolor sit amet 2', NULL, 'spot_article', NULL);
+(28, 12, 136, NULL, '2014-02-04', 'Spots', 'list', 99, 99, 1, 1, 0, NULL, NULL, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, 'spot_home', NULL),
+(29, 12, NULL, NULL, '2014-02-04', 'Test spot page 1', 'test-spot-page-1', 99, 99, 1, 1, 1, NULL, '52.1111', '31.1111', 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, 'Lorem ipsum dolor sit amet', NULL, 'spot_article', NULL),
+(30, 12, NULL, NULL, '2014-02-04', 'Test spot page 2', 'test-spot-page-2', 99, 99, 1, 1, 1, NULL, '52.1111', '31.1111', 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports 2.', NULL, 'Lorem ipsum dolor sit amet 2', NULL, 'spot_article', NULL);
 
 -- --------------------------------------------------------
 
@@ -1099,8 +1119,8 @@ CREATE TABLE IF NOT EXISTS `spots_destinationfilters` (
 --
 
 INSERT INTO `spots_destinationfilters` (`spot_id`, `spotdestinationfilter_id`) VALUES
-(17, 6),
-(18, 6);
+(29, 10),
+(30, 10);
 
 -- --------------------------------------------------------
 
@@ -1163,8 +1183,8 @@ CREATE TABLE IF NOT EXISTS `spots_spotfilters` (
 --
 
 INSERT INTO `spots_spotfilters` (`spot_id`, `spotfilter_id`) VALUES
-(17, 6),
-(18, 6);
+(29, 10),
+(30, 10);
 
 -- --------------------------------------------------------
 
@@ -1234,14 +1254,14 @@ CREATE TABLE IF NOT EXISTS `spot_destinations` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_BCCE0A9B46B7BA9` (`spotDestinationFilterIcon`),
   KEY `IDX_BCCE0A9B3EC63EAA` (`destination`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `spot_destinations`
 --
 
 INSERT INTO `spot_destinations` (`id`, `destination`, `title`, `class`, `spotDestinationFilterIcon`) VALUES
-(6, 18, 'Halkidiki', NULL, NULL);
+(10, 30, 'Halkidiki', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1256,14 +1276,14 @@ CREATE TABLE IF NOT EXISTS `spot_filters` (
   `filterIcon` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_329D53256F191ECD` (`filterIcon`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `spot_filters`
 --
 
 INSERT INTO `spot_filters` (`id`, `title`, `filterCategory`, `filterIcon`) VALUES
-(6, 'Low Budjet', 'Budget', NULL);
+(10, 'Low Budjet', 'Budget', NULL);
 
 -- --------------------------------------------------------
 
@@ -1278,15 +1298,15 @@ CREATE TABLE IF NOT EXISTS `tags` (
   `tagIcon` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_6FBC94268913051D` (`tagIcon`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `tags`
 --
 
 INSERT INTO `tags` (`id`, `title`, `tagCategory`, `tagIcon`) VALUES
-(11, 'Sample Tag 1', NULL, NULL),
-(12, 'Sample Tag 2', 'blog', NULL);
+(23, 'Sample Tag 1', NULL, NULL),
+(24, 'Sample Tag 2', 'blog', NULL);
 
 -- --------------------------------------------------------
 
@@ -1335,7 +1355,14 @@ CREATE TABLE IF NOT EXISTS `timeline__component` (
   `hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_1B2F01CDD1B862B8` (`hash`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `timeline__component`
+--
+
+INSERT INTO `timeline__component` (`id`, `model`, `identifier`, `hash`) VALUES
+(6, 'Application\\Sonata\\UserBundle\\Entity\\User', 's:2:"12";', 'Application\\Sonata\\UserBundle\\Entity\\User#s:2:"12";');
 
 -- --------------------------------------------------------
 

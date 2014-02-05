@@ -83,33 +83,28 @@ class PageFixtures extends AbstractFixture implements OrderedFixtureInterface
 		
         $page1 = new Page();
         $page1->setDate(new \DateTime());
-        $page1->setTitle('Test Page 1');
+        $page1->setTitle('E-Magazine');
         $page1->setAuthor($manager->merge($this->getReference('admin')));
-        $page1->setAlias('test-page-1');
+        $page1->setAlias('e-magazine');
         $page1->setShowPageTitle(1);
         $page1->setPublishState(1);
         $page1->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
         $page1->setIntroimage($manager->merge($this->getReference('introImage1')));
         $page1->setPagetype('one_columned');
-		$page1->addCategory($manager->merge($this->getReference('categoryHome')));
-        $page1->addCategory($manager->merge($this->getReference('categorySample')));
-        $page1->addTag($manager->merge($this->getReference('tagSample1')));
         $page1->addMaincontentblock($manager->merge($this->getReference('contentSample1')));
         $page1->addMaincontentblock($manager->merge($this->getReference('contentSample2')));
 		$manager->persist($page1);
 		
         $page2 = new Page();
         $page2->setDate(new \DateTime());
-        $page2->setTitle('Test Page 2');
+        $page2->setTitle('Sports');
         $page2->setAuthor($manager->merge($this->getReference('admin')));
-        $page2->setAlias('test-page-2');
+        $page2->setAlias('sports');
         $page2->setShowPageTitle(1);
         $page2->setPublishState(1);
         $page2->setIntrotext('Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.');
         $page2->setIntroimage($manager->merge($this->getReference('introImage2')));
         $page2->setPagetype('two_columned');
-        $page2->addCategory($manager->merge($this->getReference('categorySample')));
-        $page2->addTag($manager->merge($this->getReference('tagSample1')));
 		$manager->persist($page2);
 		
         $page3 = new Page();

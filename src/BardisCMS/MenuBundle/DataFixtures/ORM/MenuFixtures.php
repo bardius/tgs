@@ -31,18 +31,6 @@ class MenuFixtures extends AbstractFixture implements OrderedFixtureInterface
         $menuHome->setOrdering(0);
 		$manager->persist($menuHome);
 		
-        $menuSamplePage = new Menu();
-		$menuSamplePage->setPage($manager->merge($this->getReference('page1')));
-        $menuSamplePage->setTitle('Test Page 1');
-        $menuSamplePage->setMenuType('Page');
-        $menuSamplePage->setRoute('showPage');
-        $menuSamplePage->setAccessLevel(0);
-        $menuSamplePage->setParent(0);
-        $menuSamplePage->setMenuGroup('Main Menu');
-        $menuSamplePage->setPublishState(1);
-        $menuSamplePage->setOrdering(1);
-		$manager->persist($menuSamplePage);
-		
         $menuDestinations = new Menu();
 		$menuDestinations->setDestination($manager->merge($this->getReference('destinationhome')));
         $menuDestinations->setTitle('Destinations');
@@ -64,20 +52,8 @@ class MenuFixtures extends AbstractFixture implements OrderedFixtureInterface
         $menuSpots->setParent(0);
         $menuSpots->setMenuGroup('Main Menu');
         $menuSpots->setPublishState(1);
-        $menuSpots->setOrdering(1);
+        $menuSpots->setOrdering(2);
 		$manager->persist($menuSpots);
-		
-        $menuNews = new Menu();
-		$menuNews->setBlog($manager->merge($this->getReference('blognews')));
-        $menuNews->setTitle('News');
-        $menuNews->setMenuType('Blog');
-        $menuNews->setRoute('showPage');
-        $menuNews->setAccessLevel(0);
-        $menuNews->setParent(0);
-        $menuNews->setMenuGroup('Main Menu');
-        $menuNews->setPublishState(1);
-        $menuNews->setOrdering(1);
-		$manager->persist($menuNews);
 		
         $menuEvents = new Menu();
 		$menuEvents->setBlog($manager->merge($this->getReference('blogevents')));
@@ -88,19 +64,55 @@ class MenuFixtures extends AbstractFixture implements OrderedFixtureInterface
         $menuEvents->setParent(0);
         $menuEvents->setMenuGroup('Main Menu');
         $menuEvents->setPublishState(1);
-        $menuEvents->setOrdering(1);
+        $menuEvents->setOrdering(3);
 		$manager->persist($menuEvents);
+		
+        $menuNews = new Menu();
+		$menuNews->setBlog($manager->merge($this->getReference('blognews')));
+        $menuNews->setTitle('News');
+        $menuNews->setMenuType('Blog');
+        $menuNews->setRoute('showPage');
+        $menuNews->setAccessLevel(0);
+        $menuNews->setParent(0);
+        $menuNews->setMenuGroup('Main Menu');
+        $menuNews->setPublishState(1);
+        $menuNews->setOrdering(4);
+		$manager->persist($menuNews);
+		
+        $menuSamplePage1 = new Menu();
+		$menuSamplePage1->setPage($manager->merge($this->getReference('page2')));
+        $menuSamplePage1->setTitle('Sports');
+        $menuSamplePage1->setMenuType('Page');
+        $menuSamplePage1->setRoute('showPage');
+        $menuSamplePage1->setAccessLevel(0);
+        $menuSamplePage1->setParent(0);
+        $menuSamplePage1->setMenuGroup('Main Menu');
+        $menuSamplePage1->setPublishState(1);
+        $menuSamplePage1->setOrdering(5);
+		$manager->persist($menuSamplePage1);
+		
+        $menuSamplePage2 = new Menu();
+		$menuSamplePage2->setPage($manager->merge($this->getReference('page1')));
+        $menuSamplePage2->setTitle('E-Magazine');
+        $menuSamplePage2->setMenuType('Page');
+        $menuSamplePage2->setRoute('showPage');
+        $menuSamplePage2->setAccessLevel(0);
+        $menuSamplePage2->setParent(0);
+        $menuSamplePage2->setMenuGroup('Main Menu');
+        $menuSamplePage2->setPublishState(1);
+        $menuSamplePage2->setOrdering(6);
+		$manager->persist($menuSamplePage2);
 		
         $menuContactPage = new Menu();
 		$menuContactPage->setPage($manager->merge($this->getReference('pagecontact')));
-        $menuContactPage->setTitle('Contact Page');
+        $menuContactPage->setTitle('Contact Us');
         $menuContactPage->setMenuType('Page');
         $menuContactPage->setRoute('showPage');
         $menuContactPage->setAccessLevel(0);
         $menuContactPage->setParent(0);
         $menuContactPage->setMenuGroup('Main Menu');
         $menuContactPage->setPublishState(1);
-        $menuContactPage->setOrdering(5);
+        $menuContactPage->setOrdering(7);
 		$manager->persist($menuContactPage);
 		
         $menuSitemapPage = new Menu();
@@ -118,7 +130,8 @@ class MenuFixtures extends AbstractFixture implements OrderedFixtureInterface
         $manager->flush();
 		
 		$this->addReference('menuHome', $menuHome);
-		$this->addReference('menuSamplePage', $menuSamplePage);
+		$this->addReference('menuSamplePage2', $menuSamplePage1);
+		$this->addReference('menuSamplePage', $menuSamplePage2);
 		$this->addReference('menuDestinations', $menuDestinations);
 		$this->addReference('menuSpots', $menuSpots);
 		$this->addReference('menuNews', $menuNews);	

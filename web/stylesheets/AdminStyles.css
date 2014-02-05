@@ -183,3 +183,7 @@
 a.sonata-ba-collapsed{
     text-decoration: none!important;
 }
+
+.autoCompleteItems {
+	float:left;
+}

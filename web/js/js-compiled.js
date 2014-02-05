@@ -91,7 +91,7 @@ a("section",this),a("> ul",this).first()}b.data("index",0);var d=b.parent();d.ha
 					stack_on_small: false,
 					navigation_arrows: true,
 					slide_number: false,
-					bullets: true,
+					bullets: false,
 					timer: false,
 					circular: true,
 					swipe: true,
