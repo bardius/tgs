@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
 	
 	/*
 	 * Comment out to use the custom autocomplete for admin
-	 * 
+	 */
 	// Autocomplete for selectboxes
 	if ($('.autoCompleteItems').length > 0)
 	{
@@ -31,7 +31,6 @@ jQuery(document).ready(function($) {
 	{
 		$(".autoCompleteMenus").combobox();
 	}
-	*/
    
 	// Datepicker
 	if ($('.datepicker').length > 0)
