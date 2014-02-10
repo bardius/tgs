@@ -2,12 +2,18 @@
 	{% for tag in page.tags %}
 		{% if tag.tagCategory == 'sports' %}
 		<div class="large-2 small-6 columns destinationSport {{ tag.styleColor }}">
-			{% if tag.tagIcon.id is defined %}
-				{% media tag.tagIcon.id, 'icon' with {'alt': tag.title, 'title': ''} %}
-			{% else %}
-				<img src="/img/defaultSportIcon.jpg" alt="{{ tag.title }}" />
-			{% endif %}
-			{{ tag.title }} 
+			<a class="isRound" href="{{ app.request.getBaseURL() }}/sports" title="{{ tag.title }}">
+				<span class="roundTitle">
+					<span class="verticalCenterer">
+						{% if tag.tagIcon.id is defined %}
+							{% media tag.tagIcon.id, 'big' with {'alt': tag.title, 'title': ''} %}
+						{% else %}
+							<img src="/images/site_assets/defaultSportIcon.png" alt="{{ tag.title }}" />
+						{% endif %}
+						<span>{{ tag.title }}</span>
+					</span>
+				</span>
+			</a> 
 		</div>
 		{% endif %}
 	{% endfor %}

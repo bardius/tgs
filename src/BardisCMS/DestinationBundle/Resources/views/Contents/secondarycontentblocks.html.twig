@@ -1,5 +1,5 @@
 {% if page.secondarycontentblocks is not empty %}
-<div class="row">
+<div class="row collapse">
 {% for contentBlock in page.secondarycontentblocks|sort_by_attribute('ordering') %}
 	{% if contentBlock.publishedState == 1 %}
 		<div class="contentBlock {% if loop.index == 1 %}firstBlock{% endif %} {% if contentBlock.className is not null %}{{ contentBlock.className }}{% endif %} small-12 {% if contentBlock.sizeClass is null %}large-12{% else %}{{ contentBlock.sizeClass }}{% endif %} columns" {% if contentBlock.idName is not null %}id="{{ contentBlock.idName }}"{% endif %}>

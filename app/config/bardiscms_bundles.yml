@@ -91,9 +91,10 @@ destination:
     stylecolors:
         default:	Default
         green:		Green
-        red:			Red
+        orange:		Orange
         pink:			Pink
         purple:		Purple
+        red:			Red
     
     tagcategories:
         sports:		Sports

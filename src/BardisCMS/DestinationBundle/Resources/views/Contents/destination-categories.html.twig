@@ -2,12 +2,14 @@
 	{% for category in page.categories %}
 		{% if category.destinationListPage is not null %}
 		<a href="{{ url('DestinationBundle_page_normal', { 'alias': category.destinationListPage.alias }) }}" title="{{ category.destinationListPage.title }}">
+			{#
 			{% if category.destinationListPage.destinationIcon.id is defined %}
 				{% media category.destinationListPage.destinationIcon.id, 'small' with {'alt': category.destinationListPage.title, 'title': ''} %}
 			{% else %}
 				<img src="/images/site_assets/defaultDestinationCatIcon.jpg" alt="{{ category.destinationListPage.title }}" />
 			{% endif %}
-			<small>{{ category.destinationListPage.title }}</small>
+			#}
+			{{ category.destinationListPage.title }}
 		</a>
 		{% else %}
 		<small>{{ category.title }}</small>

@@ -31,19 +31,23 @@
     {% if page.pageType == 'destination_article' %}    
         <div class="row destinationContent contentRow">
             <div class="large-12 small-12 columns">
-                <h2>
-					{{ page.title }}<br />
-					<span>{% include 'DestinationBundle:Contents:destination-categories.html.twig' %}</span>
+                <h2 class="leftAlign">
+					{{ page.title }}
 				</h2>
+				<h5>{% include 'DestinationBundle:Contents:destination-categories.html.twig' %}</h5>
             </div>
-            <div class="large-12 small-12 columns destinationTopText">
-                {% if page.introtext is not null %}
-					<h3>{{ page.introtext|striptags }}</h3>
-                {% endif %}
-                {% if page.summary is not null %}
-					{{ page.summary|raw }}
-                {% endif %}
+			{% if page.summary is not null %}
+            <div class="large-12 small-12 columns destinationTopText pageDescription">
+				<div class="row collapse">
+					<div class="small-12 large-12 columns">
+						{% if page.introtext is not null %}
+						<h3>{{ page.introtext|striptags }}</h3>
+						{% endif %}
+						{{ page.summary|raw }}
+					</div>
+				</div>
             </div>
+			{% endif %}
 			{% if page.maincontentblocks is not empty %}
 			<div class="large-12 small-12 columns">
 				{% include 'DestinationBundle:Contents:maincontentblocks.html.twig' %}
@@ -60,6 +64,7 @@
             </div>
             {% endif %}
 			<div class="large-12 small-12 columns">
+				<h3>Nearby Spots</h3>
 				{% include 'DestinationBundle:Contents:related-spots.html.twig' %}
 			</div>
 			{% if page.secondarycontentblocks is not empty %}
@@ -68,17 +73,59 @@
 			</div>
             {% endif %}
         </div>
-    {% elseif page.pageType == 'destination_cat_page' or page.pageType == 'destination_home' %}
+    {% elseif page.pageType == 'destination_cat_page' %}
 		<div class="row destinationContent contentRow">
             <div class="large-12 small-12 columns">
                 <h2>{{ page.title }}</h2>
             </div>
 			{% if page.summary is not null %}
-            <div class="large-12 small-12 columns destinationTopText">
-                {% if page.introtext is not null %}
-					<h3>{{ page.introtext|striptags }}</h3>
-                {% endif %}
-				{{ page.summary|raw }}
+            <div class="large-12 small-12 columns destinationTopText pageDescription">
+				<div class="row collapse">
+					<div class="small-12 large-12 columns">
+						{% if page.introtext is not null %}
+						<h3>{{ page.introtext|striptags }}</h3>
+						{% endif %}
+						{{ page.summary|raw }}
+					</div>
+				</div>
+            </div>
+			{% endif %}
+			{% if page.maincontentblocks is not empty %}
+			<div class="large-12 small-12 columns">
+				{% include 'DestinationBundle:Contents:maincontentblocks.html.twig' %}
+			</div>
+			{% endif %}
+		 </div>
+		<div class="row {{ page.pageType }}List destinationList">
+            {% if pages %}
+                {% for pageItem in pages %}
+                {% include 'DestinationBundle:Contents:page-cat-list-item.html.twig' %}
+				{% endfor %}
+            {% endif %}
+        </div>
+        {% include 'DestinationBundle:Contents:pagination.html.twig' %}		
+		<div class="row {{ page.pageType }}Below destinationListBelow">
+			{% if page.secondarycontentblocks is not empty %}
+			<div class="large-12 small-12 columns pageDescription">
+				{% include 'DestinationBundle:Contents:secondarycontentblocks.html.twig' %}
+			</div>
+			{% endif %}
+        </div>
+    {% elseif page.pageType == 'destination_home' %}
+		<div class="row destinationContent contentRow">
+            <div class="large-12 small-12 columns">
+                <h2>{{ page.title }}</h2>
+            </div>
+			{% if page.summary is not null %}
+            <div class="large-12 small-12 columns destinationTopText pageDescription">
+				<div class="row collapse">
+					<div class="small-12 large-12 columns">
+						{% if page.introtext is not null %}
+						<h3>{{ page.introtext|striptags }}</h3>
+						{% endif %}
+						{{ page.summary|raw }}
+					</div>
+				</div>
             </div>
 			{% endif %}
 			{% if page.maincontentblocks is not empty %}
@@ -97,7 +144,7 @@
         {% include 'DestinationBundle:Contents:pagination.html.twig' %}		
 		<div class="row {{ page.pageType }}Below destinationListBelow">
 			{% if page.secondarycontentblocks is not empty %}
-			<div class="large-12 small-12 columns">
+			<div class="large-12 small-12 columns pageDescription">
 				{% include 'DestinationBundle:Contents:secondarycontentblocks.html.twig' %}
 			</div>
 			{% endif %}

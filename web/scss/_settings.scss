@@ -33,15 +33,6 @@ $row-width: 960px;
 $column-gutter: rem-calc(22);
 $total-columns: 12;
 
-// We use these to control various global styles
-$body-bg: #fff;
-$body-font-color: #FFF;
-$body-font-family: "gotham_book", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-$alt-font-family: "burbank_big_condensed", Verdana, Tahoma, Arial, sans-serif;
-$bold-font-family: "gotham", "open_sansregular", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-$body-font-weight: normal;
-$body-font-style: normal;
-
 // We use this to control font-smoothing
 // $font-smoothing: antialiased;
 
@@ -60,6 +51,16 @@ $warning-color: #f08a24;
 $info-color: #a0d3e8;
 $white-color: #ffffff;
 $dark-gray-color: #515151;
+$light-black-color: #323232;
+
+// We use these to control various global styles
+$body-bg: #fff;
+$body-font-color: $secondary-color;
+$body-font-family: "gotham_book", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$alt-font-family: "burbank_big_condensed", Verdana, Tahoma, Arial, sans-serif;
+$bold-font-family: "gotham", "open_sansregular", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-weight: normal;
+$body-font-style: normal;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;

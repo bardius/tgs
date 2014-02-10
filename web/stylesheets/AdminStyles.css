@@ -187,3 +187,8 @@ a.sonata-ba-collapsed{
 .autoCompleteItems {
 	float:left;
 }
+
+#dialogPreview{
+	text-align: center;
+	background: #EEE;
+}
