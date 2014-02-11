@@ -61,10 +61,9 @@ a:hover{
 }
 
 .inv{ 
-	position: absolute; 
-	font-size: 0.5em; 
-	font-size: 0.5rem; 
-	left: -9999px;
+	font-size: 1px; 
+	overflow: hidden;
+    text-indent: -100%;
 }
 
 .hidden{
