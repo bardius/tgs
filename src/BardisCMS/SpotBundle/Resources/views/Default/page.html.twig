@@ -13,6 +13,9 @@
 {% block siteLogoKeywords %}{{ page.keywords }}{% endblock %}
 {% block siteLogoDescription %}{{ page.title }} {{ page.description }}{% endblock %}
 
+{% block body_start %}
+{% endblock %}
+
 {% block content %}
 
 {% if page.bannercontentblocks is not empty  %}
@@ -23,20 +26,27 @@
 </div>
 {% endif %}
 
-<div class="large-12 small-12 columns spotsPage {% if page.pageclass is not null %}{{ page.pageclass }}{% endif %}">
+<div class="large-12 small-12 columns spotsPage {% if page.pageType == 'spot_article' %}spotArticlePage {% endif %}{% if page.pageclass is not null %}{{ page.pageclass }}{% endif %}">
     {% if page.pagetype == 'spot_article' %}    
         <div class="row spotsContent contentRow">
             <div class="large-12 small-12 columns">
-                <h2>{{ page.title }} {% include 'SpotBundle:Contents:related-destinations.html.twig' %}</h2>
+                <h2 class="leftAlign">
+					{{ page.title }}
+				</h2>
+				<h5>{% include 'SpotBundle:Contents:related-destinations.html.twig' %}</h5>
             </div>
-            <div class="large-12 small-12 columns spotsTopText">
-                {% if page.introtext is not null %}
-					<h3>{{ page.introtext|striptags }}</h3>
-                {% endif %}
-                {% if page.summary is not null %}
-					{{ page.summary|raw }}
-                {% endif %}
+			{% if page.summary is not null %}
+            <div class="large-12 small-12 columns spotsTopText pageDescription">
+				<div class="row collapse">
+					<div class="small-12 large-12 columns">
+						{% if page.introtext is not null %}
+						<h3>{{ page.introtext|striptags }}</h3>
+						{% endif %}
+						{{ page.summary|raw }}
+					</div>
+				</div>
             </div>
+			{% endif %}
 			{% if page.maincontentblocks is not empty %}
 			<div class="large-12 small-12 columns">
 				{% include 'SpotBundle:Contents:maincontentblocks.html.twig' %}
@@ -49,50 +59,64 @@
             <div class="large-12 small-12 columns">
                 {% include 'SpotBundle:Contents:spot-weather.html.twig' %}
             </div>
+			{% if page.secondarycontentblocks is not empty %}
 			<div class="large-12 small-12 columns">
 				{% include 'SpotBundle:Contents:secondarycontentblocks.html.twig' %}
 			</div>
+            {% endif %}
 			<div class="large-12 small-12 columns">
 				{% include 'SpotBundle:Contents:nearby-spots.html.twig' %}
 			</div>
         </div>
     {% elseif page.pagetype == 'spot_home' %} 
-        <div class="row spotsListTop">
-            <div class="columns large-12 small-12">  
+        <div class="row spotContent contentRow">
+            <div class="large-12 small-12 columns">
                 <h2>{{ page.title }}</h2>
-                {% if page.summary is not empty %} 
-					<div class="summary">
+            </div>
+			{% if page.summary is not null %}
+            <div class="large-12 small-12 columns spotTopText pageDescription">
+				<div class="row collapse">
+					<div class="small-12 large-12 columns">
+						{% if page.introtext is not null %}
+						<h3>{{ page.introtext|striptags }}</h3>
+						{% endif %}
 						{{ page.summary|raw }}
 					</div>
-                {% endif %}  
+				</div>
             </div>
-        </div>
-        <div class="row {{ page.pagetype }}List spotsList">
-            <div class="columns large-12 small-12"> 
-                {% include 'SpotBundle:Contents:filterResultsFormHolder.html.twig' %}
-            </div>
+			{% endif %}			
             {% if page.maincontentblocks is not empty %}
-            <div class="columns large-12 small-12 pageText">
+            <div class="columns large-12 small-12">
                 {% include 'SpotBundle:Contents:maincontentblocks.html.twig' %}
             </div>
             {% endif %}
+        </div>
+		<div id="filterResultsFormHolder" class="row {{ page.pagetype }}Filters spotFilters">
+			{% include 'SpotBundle:Contents:filterResultsFormHolder.html.twig' %}
+        </div>
+        <div class="row {{ page.pagetype }}List spotsList">
             {% if pages %}
-			<div class="large-12 small-12 columns categoryListing">
-				<div class="row">
-                    {% for pageItem in pages %}
-                        <div class="large-6 small-12 columns categoryListingItem">
-                            {% include 'SpotBundle:Contents:page-list-item.html.twig' %}
-                        </div>
-                    {% endfor %}
+                {% for pageItem in pages %}
+                {% include 'SpotBundle:Contents:page-list-item.html.twig' %}
+				{% endfor %}
+			{% else %}
+				<div class="columns large-12 small-12">
+					<h3>No spots have been found with the requested criteria. Please try again with less filters.</h3>
 				</div>
-            </div>
-            {% endif %}
+            {% endif %}            
         </div>
         {% include 'SpotBundle:Contents:home_pagination.html.twig' %}
+		{% if page.secondarycontentblocks is not empty %}
+		<div class="row {{ page.pageType }}Below spotListBelow">
+			<div class="large-12 small-12 columns pageDescription">
+				{% include 'SpotBundle:Contents:secondarycontentblocks.html.twig' %}
+			</div>
+        </div>
+		{% endif %}
     {% endif %}
-</div>
-<div class="row contentFooter">
-	{% include 'SpotBundle:Contents:spot-footer.html.twig' %}
+	<div class="row contentFooter">
+		{% include 'SpotBundle:Contents:spot-footer.html.twig' %}
+	</div>
 </div>
 {% endblock %}
 

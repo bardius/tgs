@@ -1,65 +1,85 @@
-                    <div id="filterResultsFormHolder" class="columns large-12 small-12">
-						<div class="row panel">						
-                        <form name="filterResultsForm" id="filterResultsForm" action="{{ url('SpotBundle_filtered') }}" method="post" {{ form_enctype(filterForm) }} class="filterForm">
+  						{% form_theme filterForm 'SpotBundle:Form:fields.html.twig' %}	
 							
-                            <div class="columns large-12 small-12">  
-                                {{ form_row(filterForm.sport, { 'attr': {'class': 'customCheckBox'} }) }}
+                        <form name="spotfiltersform" id="filterResultsForm" action="{{ url('SpotBundle_filtered') }}" method="post" {{ form_enctype(filterForm) }} class="filterForm">
+								
+                            <div class="columns large-12 small-12">
+								<div class="row collapse">
+								{{ form_row(filterForm.sport, { 'attr': {'class': 'customCheckBox mainFilters'} }) }}
+								</div>
                             </div>
                               
                             <div class="columns large-12 small-12">  
-                                {{ form_row(filterForm.destinations, { 'attr': {'class': 'customCheckBox'} }) }}
+								<div class="row collapse">
+                                {{ form_row(filterForm.destinations, { 'attr': {'class': 'customCheckBox mainFilters'} }) }}
+								</div>
                             </div>
                               
                             <div class="columns large-12 small-12">  
-                                {{ form_row(filterForm.budget, { 'attr': {'class': 'customCheckBox'} }) }}
+								<div class="row collapse">
+                                {{ form_row(filterForm.season, { 'attr': {'class': 'customCheckBox mainFilters'} }) }}
+								</div>
                             </div>
                               
                             <div class="columns large-12 small-12">  
-                                {{ form_row(filterForm.season, { 'attr': {'class': 'customCheckBox'} }) }}
-                            </div>
-                              
-                            <div class="columns large-12 small-12">  
+								<div class="row collapse">
                                 {{ form_row(filterForm.experience, { 'attr': {'class': 'customCheckBox'} }) }}
+								</div>
                             </div>
                               
-                            <div class="columns large-12 small-12">  
+                            <div class="columns large-12 small-12"> 
+								<div class="row collapse"> 
                                 {{ form_row(filterForm.style, { 'attr': {'class': 'customCheckBox'} }) }}
+								</div>
                             </div>
                               
                             <div class="columns large-12 small-12">  
+								<div class="row collapse">
                                 {{ form_row(filterForm.sea_state, { 'attr': {'class': 'customCheckBox'} }) }}
+								</div>
                             </div>
                               
-                            <div class="columns large-12 small-12">  
+                            <div class="columns large-12 small-12"> 
+								<div class="row collapse"> 
                                 {{ form_row(filterForm.wind_force, { 'attr': {'class': 'customCheckBox'} }) }}
+								</div>
                             </div>
                               
-                            <div class="columns large-12 small-12">  
-                                {{ form_row(filterForm.amenities, { 'attr': {'class': 'customCheckBox'} }) }}
-                            </div>
-                              
-                            <div class="columns large-12 small-12">  
-                                {{ form_row(filterForm.lifestyle, { 'attr': {'class': 'customCheckBox'} }) }}
-                            </div>
-                              
-                            <div class="columns large-12 small-12">  
+                            <div class="columns large-12 small-12"> 
+								<div class="row collapse"> 
                                 {{ form_row(filterForm.swell_length, { 'attr': {'class': 'customCheckBox'} }) }}
+								</div>
                             </div>
                               
                             <div class="columns large-12 small-12">  
+								<div class="row collapse">
+                                {{ form_row(filterForm.amenities, { 'attr': {'class': 'customCheckBox'} }) }}
+								</div>
+                            </div>
+                              
+                            <div class="columns large-12 small-12"> 
+								<div class="row collapse"> 
+                                {{ form_row(filterForm.lifestyle, { 'attr': {'class': 'customCheckBox'} }) }}
+								</div>
+                            </div>
+                              
+                            <div class="columns large-12 small-12">  
+								<div class="row collapse">
+                                {{ form_row(filterForm.budget, { 'attr': {'class': 'customCheckBox'} }) }}
+								</div>
+                            </div>
+                              
+                            <div class="columns large-12 small-12">  
+								<div class="row collapse">
                                 {{ form_rest(filterForm) }}
                                 {{ form_errors(filterForm) }}
+								</div>
                             </div>
                               
                             <div class="formBtns columns large-12 small-12">
-                                <div class="control-group">
-                                    <input type="submit" id="filterResultsBtn" value="GO" />
-                                    <div class="customCheckBox checkAllBox">
-                                        <input class="checkAllBtn" type="checkbox" id="CheckAll" name="CheckAll" value="1" />
-                                        <label for="CheckAll">Show All</label>
-                                    </div>
+                                <input type="submit" id="filterResultsBtn" value="GO" />
+                                <div class="customCheckBox checkAllBox">
+									<input class="checkAllBtn" type="checkbox" id="CheckAll" name="CheckAll" value="1" />
+                                    <label for="CheckAll">Show All</label>
                                 </div>
                             </div>
                         </form>
-                     </div>
-                 </div>

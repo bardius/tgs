@@ -1,10 +1,20 @@
-<div class="columns large-6 small-12 {{ pageItem.pagetype }}Item {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %} ">
-    <a href="{{ url('SpotBundle_page_normal', { 'alias': pageItem.alias }) }}" title="{{ pageItem.title }}">
-        {% if pageItem.spotslistimage.id is defined %}
-			{% media pageItem.spotslistimage.id, 'medium' with {'alt': pageItem.title, 'title': ''} %}
+<div class="columns large-6 small-12 {{ pageItem.pageType }}Item {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %} ">
+	<h3>
+		<a href="{{ url('SpotBundle_page_normal', { 'alias': pageItem.alias }) }}" title="{{ pageItem.title }}">
+			{{ pageItem.title }}
+		</a>
+	</h3>
+	
+    <a class="readMoreImage" href="{{ url('SpotBundle_page_normal', { 'alias': pageItem.alias }) }}" title="{{ pageItem.title }}">
+        {% if pageItem.introImage.id is defined %}
+		{% media pageItem.spotslistimage.id, 'medium' with {'alt': pageItem.title, 'title': ''} %}
+        {% else %}
+        <img src="/images/site_assets/defaultSpotThumb.jpg" alt="{{ pageItem.title }}" />
         {% endif %}
-        <div class="spotsItemText {% if pageItem.pageclass is defined %}{{ pageItem.pageclass }}{% endif %}">
-            <h5 class="title">{{ pageItem.title }}</h5>
-        </div>
+		<span class="introItemText">
+			<span class="introItemDesc">
+				{{ pageItem.introtext|striptags }}
+			</span>
+		</span>
     </a>
 </div>

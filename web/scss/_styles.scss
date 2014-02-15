@@ -63,7 +63,7 @@ a:hover{
 .inv{ 
 	font-size: 1px; 
 	overflow: hidden;
-    text-indent: -100%;
+	text-indent: -100%;
 }
 
 .hidden{
@@ -531,6 +531,7 @@ header{
 	
 	.destination_cat_pageItem {
 		margin-bottom: rem-calc(40);
+		overflow: hidden;
 		
 		h3{	
 			color: $white-color;
@@ -546,16 +547,59 @@ header{
 			transition: all 300ms ease-in-out;
 			
 			a{
-				color: $white-color;				
+				color: $white-color;
 			}			
+		}
+		
+		.readMoreImage {
+			position: relative;
+			
+			.introItemText{
+				display: inline-block;
+				width: 100%;
+				background: $primary-color;
+				color: $white-color;
+				line-height: 1.2;
+				font-size: rem-calc(14);
+				padding: rem-calc(11);
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				margin-bottom: -50%;
+				
+				-webkit-transition: all 400ms ease-in-out;
+				-moz-transition: all 400ms ease-in-out;
+				-o-transition: all 400ms ease-in-out;
+				transition: all 400ms ease-in-out;				
+			}	
+			
+			.introItemDesc{					
+				display: inline-block;
+				width: 100%;
+				background: transparent;
+				color: $white-color;
+				line-height: 1.2;
+				font-size: rem-calc(13);
+				padding: 0;	
+			}
+			
+			span{
+				display: inline;
+				width: auto;
+				background: transparent;
+				color: $white-color;
+				line-height: 1.2;
+				font-size: rem-calc(13);
+				padding: 0;									
+			}
 		}
 		
 		&:hover{
 			
-			h3{
-				background: none $secondary-color;				
+			.introItemText{
+				margin-bottom: 0;
 			}
-		}
+		}		
 	}
 	
 	.isRound{
@@ -730,6 +774,202 @@ header{
 	}
 }
 
+
+/*-------------------------------------------
+	Spot Page styles
+-----------------------------------------*/
+
+.spotsList{
+	margin-bottom: rem-calc(30)!important;
+	
+	.spot_articleItem {
+		margin-bottom: rem-calc(40);
+		overflow: hidden;
+		
+		h3{	
+			color: $white-color;
+			background: none $primary-color;
+			margin: 0;
+			text-align: center;
+			padding: 0 10%;
+			line-height: 1.8;
+			
+			-webkit-transition: all 300ms ease-in-out;
+			-moz-transition: all 300ms ease-in-out;
+			-o-transition: all 300ms ease-in-out;
+			transition: all 300ms ease-in-out;
+			
+			a{
+				color: $white-color;
+			}			
+		}
+		
+		.readMoreImage {
+			position: relative;
+			
+			.introItemText{
+				display: inline-block;
+				width: 100%;
+				background: $primary-color;
+				color: $white-color;
+				line-height: 1.2;
+				font-size: rem-calc(14);
+				padding: rem-calc(11);
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				margin-bottom: -50%;
+				
+				-webkit-transition: all 400ms ease-in-out;
+				-moz-transition: all 400ms ease-in-out;
+				-o-transition: all 400ms ease-in-out;
+				transition: all 400ms ease-in-out;				
+			}	
+			
+			.introItemDesc{					
+				display: inline-block;
+				width: 100%;
+				background: transparent;
+				color: $white-color;
+				line-height: 1.2;
+				font-size: rem-calc(13);
+				padding: 0;	
+			}
+			
+			span{
+				display: inline;
+				width: auto;
+				background: transparent;
+				color: $white-color;
+				line-height: 1.2;
+				font-size: rem-calc(13);
+				padding: 0;									
+			}
+		}
+		
+		&:hover{
+			
+			.introItemText{
+				margin-bottom: 0;
+			}
+		}		
+	}
+}
+
+.spotListBelow {
+	margin-bottom: calc-rem(30);
+	
+	.pageDescription{
+		padding: 0;
+	}	
+}
+
+.spotTopText  {
+	
+	&.pageDescription{
+		padding: 0;
+		margin-bottom: rem-calc(30);
+	}	
+}
+
+.spotFilters{
+	
+}
+
+.spotArticlePage{
+	
+	h2{
+		color: $dark-gray-color;
+		line-height: 0.9;
+	}
+	
+	h3{
+		font-size: rem-calc(54);
+		line-height: 1;
+	}
+	
+	h5{
+		display: inline-block;
+		width: 100%;
+		font-size: rem-calc(34);
+		line-height: 1;
+		color: $dark-gray-color;
+		margin-bottom: rem-calc(14);
+		
+		a {
+			color: $dark-gray-color;
+			
+			&:hover, &:focus{
+				color: $primary-color;
+				
+			}
+		}		
+	}
+	
+	.pageDescription{
+		margin-bottom: rem-calc(44);		
+	}
+	
+	.isRound{
+		display: inline-block;
+		text-align: center;
+		color: $white-color;
+		background-color: $secondary-color;	
+		border-radius: 50%;
+		overflow: hidden;
+		position: relative;
+		width: 90%;
+		height: auto;
+		padding-top: 88%;
+		margin-bottom: rem-calc(16);
+		
+		.roundTitle{
+			display: inline-block;
+			height: 100%;
+			width: 100%;
+			padding: 10%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			text-align: center;
+			font-size: rem-calc(22);
+			line-height: 1.15;
+			letter-spacing: 2px;
+			font-family: $alt-font-family;
+			border-radius: 50%;
+			overflow: hidden;
+			
+			.verticalCenterer{
+				display: inline-block;
+				height: 100%;
+				width: 100%;
+				text-align: center;
+				
+				img{
+					height: 60%;
+					width: auto;
+					display: inline-block;
+					margin-bottom: 4%;
+					font-size: rem-calc(1);
+				}
+				
+				span{
+					width: 100%;
+					display: inline-block;
+				}
+				
+			}
+		}
+		
+		&:hover, &:focus {
+			color: $white-color;
+			background-color: $dark-gray-color;
+			border-color: $dark-gray-color;
+		}		
+	}
+}
+
+
 /*-------------------------------------------
 	News - Events Page styles
 -----------------------------------------*/
@@ -869,42 +1109,105 @@ header{
 ----------------------------------------- */
 
 #filterResultsFormHolder{
-	margin-top: 28px;     
+	margin-top: rem-calc(40);  
+	margin-bottom: rem-calc(40);    
 	position: relative;
-	padding-bottom: 68px;
-}
-
-#filterResultsFormHolder h3{
-	display:none;
-}
-
-#filterResultsFormHolder form{
-	margin:0;
-}
-
-#filterResultsFormHolder .control-group{
-	width: 100%;
-	float: left;
-}
-
-#filterResultsFormHolder label{
-	font-size: 16px;
-	line-height: 20px;
-	margin-bottom:12px;
-	text-transform: uppercase;
-	color: #052763;
-	cursor: default;
-}
-
-#filterResultsFormHolder .controls label{
-	font-size: 0.9285em;
-	font-size: 0.9285rem;
-	line-height: 1.285em;
-	line-height: 1.285rem;
-	text-transform: none;
-	color: #052763;
-	cursor: pointer;
-	margin-bottom: 0;
+	
+	label{
+		font-size: rem-calc(41);
+		text-rendering: $header-text-rendering;
+		font-family: $alt-font-family;
+		line-height: 1.4;
+		text-transform: uppercase;
+		color: $dark-gray-color;
+		cursor: default;
+		letter-spacing: 2px;
+		font-weight: 300;
+	}
+	
+	.customCheckBox {
+		padding-top: 12px;
+		
+		input{
+			display: none;
+		}
+		
+		input + label {
+			padding: 0 0 0 28px;
+			display: inline-block;
+			position: relative;
+			line-height: 1.2;
+			clear: left;
+			float: left;
+			font-size: rem-calc(24);
+			width: auto;
+			cursor: pointer;
+			margin: 0;
+			
+			&:after{
+				content: '\00a0';
+				font-size: rem-calc(22);
+				position: absolute;
+				top: 3px;
+				left: 0px;
+				color: $dark-gray-color;
+				box-shadow: 0 1px 2px rgba(0,0,0,0), inset 0px 1px 3px rgba(13,59,131,0);
+				border: 2px solid $dark-gray-color;
+				border-radius: 50%;
+				background: none transparent;
+				width: rem-calc(20);
+				height: rem-calc(20);
+				line-height: 0.5;
+				text-align: center;			
+			}
+		}
+		
+		input:checked + label:after {
+			content: '\2714';
+			box-shadow: 0 1px 2px rgba(0,0,0,0), inset 0px -15px 10px -12px rgba(0,0,0,0), inset 15px 10px -12px rgba(13,59,131,0);
+		}
+		
+		.isBox,
+		.isRound{
+			display: inline-block;
+			width: 90%;
+			text-align: center;
+			
+			input + label {
+				color: $white-color;
+				display: inline-block;
+				padding: 6px 0;
+				width: 100%;
+				background: none $secondary-color;
+				float: left;
+				border: 4px solid $secondary-color;
+			
+				-webkit-transition: all 300ms ease-in-out;
+				-moz-transition: all 300ms ease-in-out;
+				-o-transition: all 300ms ease-in-out;
+				transition: all 300ms ease-in-out;
+				
+				&:after{
+					display: none;
+				}
+				
+				&:hover{
+					border: 4px solid $primary-color;
+					background: none $primary-color;					
+				}
+			}
+					
+			input:checked + label {
+				background: none $dark-gray-color;
+				border: 4px solid $white-color;				
+				border-radius: 4px;
+			}
+		}
+	}
+	
+	.mainFilters{
+		padding-top: 2px;		
+	}
 }
 
 #filterResultsForm .formBtns {
@@ -953,75 +1256,29 @@ header{
 	margin-bottom:0;    
 }
 
-.customCheckBox input{
-	display: none;
-}
-
-.lt-ie9 #filterResultsForm .customCheckBox input{
-	display: inline-block;
-	float: left;
-	clear: left;
-}
-
-.customCheckBox input + label {
-	padding: 3px 3px 3px 22px;
-	padding: 3px 3px 3px 1.6rem;
-	display: inline-block;
-	position: relative;
-	line-height: 18px;
-	line-height: 1.285rem;
-	clear: left;
-	float: left;
-}
-
-.lt-ie9 .customCheckBox input + label{
-	display: inline-block;
-	float: left;
-	clear: none;
-}
-
-.customCheckBox input + label:after {
-	content: '\00a0';
-	font-size: 14px;
-	font-size: 1rem;
-	position: absolute;
-	top: 3px;
-	left: 0px;
-	color: #99a1a7;
-	box-shadow: 0 1px 2px rgba(0,0,0,0), inset 0px 1px 3px rgba(13,59,131,0);
-	border: none;
-	-o-border-radius: 9px;
-	-moz-border-radius: 9px;
-	-webkit-border-radius: 9px;
-	border-radius: 9px;
-	-o-border-radius: 0.6425rem;
-	-moz-border-radius: 0.6425rem;
-	-webkit-border-radius: 0.6425rem;
-	border-radius: 0.6425rem;
-	background-color: #FFF;
-	width: 18px;
-	height: 18px;
-	line-height: 18px;
-	width: 1.285rem;
-	height: 1.285rem;
-	line-height: 1.285rem;
-	text-align: center;
-}
-
-.lt-ie9 .customCheckBox input + label:after{
-	display: none;
-}
-
-.customCheckBox input:checked + label:after {
-	content: '\2714';
-	color: #FFF;
-	box-shadow: 0 1px 2px rgba(0,0,0,0), inset 0px -15px 10px -12px rgba(0,0,0,0), inset 15px 10px -12px rgba(13,59,131,0);
-	border: none;
-	background-color: #052763;
-}
-
-#filterResultsForm .checkAllBox{
+.lt-ie9 {
 	
+	#filterResultsForm{
+		
+		.customCheckBox {
+			
+			input{
+				display: inline-block;
+				float: left;
+				clear: left;
+			}
+			
+			input + label{
+				display: inline-block;
+				float: left;
+				clear: none;
+				
+				&:after{
+					display: none;
+				}
+			}
+		}
+	}
 }
 
 /* -----------------------------------------

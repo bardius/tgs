@@ -1,5 +1,4 @@
-<div class="columns large-6 small-12 {{ pageItem.pageType }}Item {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %} ">
-	
+<div class="columns large-6 small-12 {{ pageItem.pageType }}Item {% if pageItem.introclass is not null %}{{ pageItem.introclass }}{% endif %} ">	
 	<h3>
 		<a href="{{ url('DestinationBundle_page_normal', { 'alias': pageItem.alias }) }}" title="{{ pageItem.title }}">
 			{{ pageItem.title }}
@@ -12,5 +11,10 @@
         {% else %}
         <img src="/images/site_assets/defaultDestinationThumb.jpg" alt="{{ pageItem.title }}" />
         {% endif %}
+		<span class="introItemText">
+			<span class="introItemDesc">
+				{{ pageItem.introtext|striptags }}
+			</span>
+		</span>
     </a>
 </div>
