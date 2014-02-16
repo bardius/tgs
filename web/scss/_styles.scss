@@ -383,7 +383,7 @@ header{
 					background: $primary-color;
 					color: $white-color;
 					line-height: 1.2;
-					font-size: rem-calc(14);
+					font-size: rem-calc(16);
 					padding: rem-calc(11);
 				}
 			}
@@ -406,7 +406,7 @@ header{
 					transform: none;
 					padding: 0;
 					line-height: 1.4;
-					font-size: rem-calc(16);
+					font-size: rem-calc(20);
 					font-family: $bold-font-family;
 					margin-bottom: rem-calc(6);
 				}
@@ -424,7 +424,7 @@ header{
 					background: transparent;
 					color: $white-color;
 					line-height: 1.2;
-					font-size: rem-calc(13);
+					font-size: rem-calc(16);
 					padding: 0;	
 				}
 				
@@ -439,7 +439,7 @@ header{
 						background: transparent;
 						color: $white-color;
 						line-height: 1.2;
-						font-size: rem-calc(13);
+						font-size: rem-calc(16);
 						padding: 0;									
 					}
 				}
@@ -560,7 +560,7 @@ header{
 				background: $primary-color;
 				color: $white-color;
 				line-height: 1.2;
-				font-size: rem-calc(14);
+				font-size: rem-calc(16);
 				padding: rem-calc(11);
 				position: absolute;
 				bottom: 0;
@@ -579,7 +579,7 @@ header{
 				background: transparent;
 				color: $white-color;
 				line-height: 1.2;
-				font-size: rem-calc(13);
+				font-size: rem-calc(16);
 				padding: 0;	
 			}
 			
@@ -589,7 +589,7 @@ header{
 				background: transparent;
 				color: $white-color;
 				line-height: 1.2;
-				font-size: rem-calc(13);
+				font-size: rem-calc(16);
 				padding: 0;									
 			}
 		}
@@ -703,12 +703,16 @@ header{
 		}		
 	}
 	
-	.pageDescription{
+	.pageDescription {
 		margin-bottom: rem-calc(44);		
 	}
 	
-	.destinationSports{
+	.destinationSports {
 		margin-bottom: rem-calc(30);		
+		
+		.destinationSport {
+			text-align: center;
+		}
 	}
 	
 	.destinationDirectionsText{
@@ -726,7 +730,7 @@ header{
 		width: 90%;
 		height: auto;
 		padding-top: 88%;
-		margin-bottom: rem-calc(16);
+		margin: 8px 0;
 		
 		.roundTitle{
 			display: inline-block;
@@ -761,8 +765,7 @@ header{
 				span{
 					width: 100%;
 					display: inline-block;
-				}
-				
+				}				
 			}
 		}
 		
@@ -771,6 +774,50 @@ header{
 			background-color: $dark-gray-color;
 			border-color: $dark-gray-color;
 		}		
+	}
+	
+	.relatedSpot {
+		text-align: center;
+		
+		a{
+			display: inline-block;
+			font-size: rem-calc(32);
+			font-family: $alt-font-family;
+			text-transform: uppercase;
+			color: $dark-gray-color;			
+			
+			-webkit-transition: all 300ms ease-in-out;
+			-moz-transition: all 300ms ease-in-out;
+			-o-transition: all 300ms ease-in-out;
+			transition: all 300ms ease-in-out;
+			
+			img{
+				display: inline-block;
+				width: 100%;
+				margin: 8px 0;
+				width: 90%;
+				border-radius: 50%;
+				overflow: hidden;
+				
+				-webkit-transition: all 300ms ease-in-out;
+				-moz-transition: all 300ms ease-in-out;
+				-o-transition: all 300ms ease-in-out;
+				transition: all 300ms ease-in-out;
+			}
+			
+			.span{
+			}
+			
+			&:hover{
+				color: $primary-color;
+				
+				img{
+					-moz-box-shadow: inset 0 0 20px 5px #000;
+					-webkit-box-shadow: inset 0 0 20px 5px #000;
+					box-shadow: inset 0 0 20px 5px #000;					
+				}
+			}	
+		}
 	}
 }
 
@@ -813,7 +860,7 @@ header{
 				background: $primary-color;
 				color: $white-color;
 				line-height: 1.2;
-				font-size: rem-calc(14);
+				font-size: rem-calc(16);
 				padding: rem-calc(11);
 				position: absolute;
 				bottom: 0;
@@ -832,7 +879,7 @@ header{
 				background: transparent;
 				color: $white-color;
 				line-height: 1.2;
-				font-size: rem-calc(13);
+				font-size: rem-calc(16);
 				padding: 0;	
 			}
 			
@@ -876,7 +923,22 @@ header{
 	
 }
 
-.spotArticlePage{
+.spotsListBelow {
+	
+	.pageDescription{
+		padding: 0;
+	}	
+}
+
+.spotsTopText {
+	
+	&.pageDescription{
+		padding: 0;
+		margin-bottom: rem-calc(30);
+	}	
+}
+
+.spotArticlePage {
 	
 	h2{
 		color: $dark-gray-color;
@@ -966,6 +1028,107 @@ header{
 			background-color: $dark-gray-color;
 			border-color: $dark-gray-color;
 		}		
+	}
+	
+	.relatedSpot {
+		text-align: center;
+		
+		a{
+			display: inline-block;
+			font-size: rem-calc(32);
+			font-family: $alt-font-family;
+			text-transform: uppercase;
+			color: $dark-gray-color;			
+			
+			-webkit-transition: all 300ms ease-in-out;
+			-moz-transition: all 300ms ease-in-out;
+			-o-transition: all 300ms ease-in-out;
+			transition: all 300ms ease-in-out;
+			
+			img{
+				display: inline-block;
+				width: 100%;
+				margin: 8px 0;
+				width: 90%;
+				border-radius: 50%;
+				overflow: hidden;
+				
+				-webkit-transition: all 300ms ease-in-out;
+				-moz-transition: all 300ms ease-in-out;
+				-o-transition: all 300ms ease-in-out;
+				transition: all 300ms ease-in-out;
+			}
+			
+			.span{
+			}
+			
+			&:hover{
+				color: $primary-color;
+				
+				img{
+					-moz-box-shadow: inset 0 0 20px 5px #000;
+					-webkit-box-shadow: inset 0 0 20px 5px #000;
+					box-shadow: inset 0 0 20px 5px #000;					
+				}
+			}	
+		}
+	}
+	
+	.contentBlock {
+		margin-bottom: rem-calc(44);
+	}
+	
+	.spotAttributes {
+		margin-bottom: rem-calc(44);
+		
+		.spotAttributeTitle{
+			display: block;
+			line-height: 1;
+			text-transform: uppercase;
+			
+			&:hover{				
+			}
+		}
+		
+		.spotAttributeRow {
+			padding: 0;
+			
+			.columns{
+				padding: rem-calc(10);
+				height: 160px;
+				border-right: 1px solid $white-color;
+				border-bottom: 1px solid $white-color;
+				overflow: hidden;
+				
+				&:nth-child(6),
+				&:nth-child(12),
+				&:nth-child(18){
+					border-right: none;
+				} 
+				
+				h5{
+					color: $white-color;
+					text-align: center;
+					line-height: 1.2;
+					font-size: rem-calc(19);
+					font-family: $bold-font-family;
+					display: inline-block;
+					width: 100%;
+					height: rem-calc(40);
+					margin: 0 0 10px 0;
+				}
+				
+				span{
+					color: $yellow-color;
+					text-align: center;
+					line-height: 1.2;
+					font-size: rem-calc(19);
+					font-family: $bold-font-family;
+					display: inline-block;
+					width: 100%;				
+				}
+			}
+		}
 	}
 }
 
@@ -1181,7 +1344,7 @@ header{
 				background: none $secondary-color;
 				float: left;
 				border: 4px solid $secondary-color;
-			
+				
 				-webkit-transition: all 300ms ease-in-out;
 				-moz-transition: all 300ms ease-in-out;
 				-o-transition: all 300ms ease-in-out;
@@ -1196,7 +1359,7 @@ header{
 					background: none $primary-color;					
 				}
 			}
-					
+			
 			input:checked + label {
 				background: none $dark-gray-color;
 				border: 4px solid $white-color;				

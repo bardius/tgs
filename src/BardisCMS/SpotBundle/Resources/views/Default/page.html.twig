@@ -14,18 +14,14 @@
 {% block siteLogoDescription %}{{ page.title }} {{ page.description }}{% endblock %}
 
 {% block body_start %}
+	{% if page.bannercontentblocks is not empty %}
+    <div class="pageTopBanner">		
+		{% include 'SpotBundle:Contents:bannercontentblocks.html.twig' %}
+    </div>
+	{% endif %}
 {% endblock %}
 
 {% block content %}
-
-{% if page.bannercontentblocks is not empty  %}
-<div class="row topBanner">
-	<div class="columns large-12 small-12 ">
-		{% include 'SpotBundle:Contents:bannercontentblocks.html.twig' %}				
-	</div>
-</div>
-{% endif %}
-
 <div class="large-12 small-12 columns spotsPage {% if page.pageType == 'spot_article' %}spotArticlePage {% endif %}{% if page.pageclass is not null %}{{ page.pageclass }}{% endif %}">
     {% if page.pagetype == 'spot_article' %}    
         <div class="row spotsContent contentRow">

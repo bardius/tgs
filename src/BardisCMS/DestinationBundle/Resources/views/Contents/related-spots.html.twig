@@ -1,16 +1,14 @@
 {% if relatedSpots is defined and relatedSpots is not null %}
-<div class="row relatedSpots">
 {% for spots in relatedSpots %}
 	<div class="relatedSpot {% if spots.pageclass is not null %}{{ spots.pageclass }}{% endif %} large-2 small-3 columns">
 		<a href="{{ url('SpotBundle_page_normal', { 'alias': spots.alias }) }}" title="{{ spots.title }}">
 			{% if spots.introimage.id is defined %}
-				{% media spots.introimage.id, 'small' with {'alt': spots.title, 'title': ''} %}
+				{% media spots.introimage.id, 'xsmall' with {'alt': spots.title, 'title': ''} %}
 			{% else %}
-				<img src="/img/defaultSpotThumb.jpg" alt="{{ spots.title }}" />
+				<img src="/images/site_assets/defaultSpotListThumb.jpg" alt="{{ spots.title }}" />
 			{% endif %}
-			<span>{{ spots.title }}</span>
+			<span class="relatedSpotTitle">{{ spots.title }}</span>
 		</a>
     </div>
-{% endfor %}	
-</div>
+{% endfor %}
 {% endif %}

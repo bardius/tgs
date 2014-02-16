@@ -65,7 +65,7 @@ sonata_media:
 
             formats:
                 adminthumb: { width: 70, height: 70, quality: 80 }
-                xsmall:     { width: 112, height: 112, quality: 80 }
+                xsmall:     { width: 100, height: 100, quality: 80 }
                 small:      { width: 290, height: 165, quality: 80 }
                 medium:     { width: 413, height: 236, quality: 80 }
                 big:        { width: 1400, height: 390, quality: 80 }
@@ -78,6 +78,7 @@ sonata_media:
 
             formats:
                 adminthumb: { width: 70 , height: 70, quality: 80 }
+                xsmall:     { width: 100, height: 100, quality: 80 }
                 small:      { width: 290, height: 114, quality: 80 }
                 medium:     { width: 413, height: 162, quality: 80 }
                 original:   { quality: 80 }              

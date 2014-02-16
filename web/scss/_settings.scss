@@ -51,11 +51,12 @@ $warning-color: #f08a24;
 $info-color: #a0d3e8;
 $white-color: #ffffff;
 $dark-gray-color: #515151;
-$light-black-color: #323232;
+$light-black-color: #080808;
+$yellow-color: #f8f0a2;
 
 // We use these to control various global styles
 $body-bg: #fff;
-$body-font-color: $secondary-color;
+$body-font-color: $light-black-color;
 $body-font-family: "gotham_book", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $alt-font-family: "burbank_big_condensed", Verdana, Tahoma, Arial, sans-serif;
 $bold-font-family: "gotham", "open_sansregular", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -114,16 +115,16 @@ $xxlarge-range: (120.063em);
 
 // $include-html-accordion-classes: $include-html-classes;
 
-// $accordion-navigation-padding: rem-calc(16);
-// $accordion-navigation-bg-color: #efefef  ;
-// $accordion-navigation-hover-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -5%);
-// $accordion-navigation-active-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -3%);
-// $accordion-navigation-font-color: #222;
-// $accordion-navigation-font-size: rem-calc(16);
-// $accordion-navigation-font-family: $body-font-family;
+$accordion-navigation-padding: rem-calc(20);
+$accordion-navigation-bg-color: $primary-color;
+$accordion-navigation-hover-bg-color: $secondary-color;
+$accordion-navigation-active-bg-color: $dark-gray-color;
+$accordion-navigation-font-color: $white-color;
+$accordion-navigation-font-size: rem-calc(20);
+$accordion-navigation-font-family: $bold-font-family;
 
-// $accordion-content-padding: $column-gutter/2;
-// $accordion-content-active-bg-color: #fff;
+$accordion-content-padding: $column-gutter / 2;
+$accordion-content-active-bg-color: $dark-gray-color;
 
 // Alert Boxes
 
@@ -758,27 +759,27 @@ $preloader-class: "preloader";
 // $include-html-reveal-classes: $include-html-classes;
 
 // We use these to control the style of the reveal overlay.
-// $reveal-overlay-bg: rgba(#000, .45);
-// $reveal-overlay-bg-old: #000;
+$reveal-overlay-bg: rgba($secondary-color, .45);
+$reveal-overlay-bg-old: $secondary-color;
 
 // We use these to control the style of the modal itself.
-// $reveal-modal-bg: #fff;
-// $reveal-position-top: 50px;
-// $reveal-default-width: 80%;
-// $reveal-modal-padding: rem-calc(20);
-// $reveal-box-shadow: 0 0 10px rgba(#000,.4);
+$reveal-modal-bg: $primary-color;
+$reveal-position-top: 50px;
+$reveal-default-width: 80%;
+$reveal-modal-padding: rem-calc(20);
+$reveal-box-shadow: 0 0 10px rgba(#000,.4);
 
 // We use these to style the reveal close button
-// $reveal-close-font-size: rem-calc(22);
-// $reveal-close-top: rem-calc(8);
-// $reveal-close-side: rem-calc(11);
-// $reveal-close-color: #aaa;
-// $reveal-close-weight: bold;
+$reveal-close-font-size: rem-calc(42);
+$reveal-close-top: rem-calc(-4);
+$reveal-close-side: rem-calc(3);
+$reveal-close-color: $white-color;
+$reveal-close-weight: bold;
 
 // We use these to control the modal border
-// $reveal-border-style: solid;
-// $reveal-border-width: 1px;
-// $reveal-border-color: #666;
+$reveal-border-style: solid;
+$reveal-border-width: 1px;
+$reveal-border-color: $secondary-color;
 
 // $reveal-modal-class: "reveal-modal";
 // $close-reveal-modal-class: "close-reveal-modal";
@@ -1067,7 +1068,7 @@ $topbar-link-font-family: $alt-font-family;
 // $topbar-menu-icon-color-toggled: #888;
 
 // Transitions and breakpoint styles
-$topbar-transition-speed: 300ms;
+$topbar-transition-speed: 500ms;
 // Using rem-calc for the below breakpoint causes issues with top bar
 // $topbar-breakpoint: #{upper-bound($medium-range)}; // Change to 9999px for always mobile layout
 // $topbar-media-query: "only screen and (min-width: #{upper-bound($medium-range)})";
@@ -1101,7 +1102,7 @@ $header-text-rendering: optimizeLegibility;
 // We use these to control header font sizes
 $h1-font-size: rem-calc(1);
 $h2-font-size: rem-calc(76);
-$h3-font-size: rem-calc(31);
+$h3-font-size: rem-calc(36);
 $h4-font-size: rem-calc(23);
 $h5-font-size: rem-calc(18);
 $h6-font-size: 1rem;
@@ -1120,7 +1121,7 @@ $small-font-size: 80%;
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
 // $paragraph-font-weight: normal;
-$paragraph-font-size: 1rem;
+$paragraph-font-size: 1.125rem;
 $paragraph-line-height: 1.4;
 $paragraph-margin-bottom: 1rem;
 // $paragraph-aside-font-size: rem-calc(14);
