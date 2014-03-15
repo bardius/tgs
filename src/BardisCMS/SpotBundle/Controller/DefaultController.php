@@ -126,11 +126,34 @@ class DefaultController extends Controller
         }
         else if ($page->getPagetype() == 'spot_article')
         {   
-            $relatedDestinations	= $page->getSpotDestinationFilters();
-			$relatedDestinationsId	= $this->getCategoryFilterIds($relatedDestinations);			
-            $relatedSpots			= $this->getDoctrine()->getRepository('SpotBundle:Spot')->getRelatedSpots($relatedDestinationsId, $id, $publishStates);
+			// Implementing the weather API
+			$spotMapLatitude = $page->getMapLatitude();
+			$spotMapLongitude = $page->getMapLongitude();
 			
-            return $this->render('SpotBundle:Default:page.html.twig', array('page' => $page, 'relatedDestinations' => $relatedDestinations,  'relatedSpots' => $relatedSpots));
+			if(!empty($spotMapLatitude) && !empty($spotMapLongitude)){
+				// Setting up the API form config
+				$spotsSettings			= $this->container->getParameter('spots_settings');
+				$weatherAPIParams		= $spotsSettings['worldweatheronline'];
+				$weatherAPIClientURL	= $weatherAPIParams['service_url'] . '?key=' . $weatherAPIParams['key'] . '&format=' . $weatherAPIParams['format'] . '&tp=' . $weatherAPIParams['tp'] . '&tide=' . $weatherAPIParams['tide'] . '&q=' . $spotMapLatitude . ',' . $spotMapLongitude;
+
+				// Call to REST API of worldweatheronline with Guzzle
+				$weatherAPIClient		= $this->get('weatherapi.client');
+				$request				= $weatherAPIClient->get($weatherAPIClientURL);
+				$request->getParams()->set('cache.override_ttl', 7200);
+				$response				= $request->send();
+				$data					= $response->json();
+				$weatherData			= $data['data']["weather"];				
+			}
+
+			$relatedDestinations	= $page->getSpotDestinationFilters();
+			$relatedDestinationsId	= $this->getCategoryFilterIds($relatedDestinations);			
+			$relatedSpots			= $this->getDoctrine()->getRepository('SpotBundle:Spot')->getRelatedSpots($relatedDestinationsId, $id, $publishStates);
+			
+			if(!isset($weatherData) || empty($weatherData)){			
+				return $this->render('SpotBundle:Default:page.html.twig', array('page' => $page, 'relatedDestinations' => $relatedDestinations,  'relatedSpots' => $relatedSpots));				
+			}
+			
+            return $this->render('SpotBundle:Default:page.html.twig', array('page' => $page, 'relatedDestinations' => $relatedDestinations,  'relatedSpots' => $relatedSpots, 'weatherData' => $weatherData));
         }
         
         return $this->render('SpotBundle:Default:page.html.twig', array('page' => $page));

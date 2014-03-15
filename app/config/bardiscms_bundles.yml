@@ -136,6 +136,14 @@ spot:
         swell_length:   Swell Length
         wind_force:     Wind Force
         
+    #http://developer.worldweatheronline.com/documentation
+    worldweatheronline:
+        service_url:	marine.ashx
+        key:					3bwatdha3xarcefvuvtwvbdf
+        format:				json
+        tide:					yes
+        tp:						3
+        
 comment:    
     loadservices: true
     

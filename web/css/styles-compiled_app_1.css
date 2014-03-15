@@ -11630,49 +11630,72 @@ header {
   display: inline-block;
   width: 100%;
 }
+/* line 1134, ../scss/_styles.scss */
+.spotArticlePage .spotWeather {
+  margin-bottom: 2.75rem;
+}
+/* line 1137, ../scss/_styles.scss */
+.spotArticlePage .spotWeather .spotWeatherRow {
+  padding: 0;
+  width: 100%;
+}
+/* line 1141, ../scss/_styles.scss */
+.spotArticlePage .spotWeather .spotWeatherRow .columns {
+  padding: 0.625rem;
+  border-right: 1px solid white;
+  overflow: hidden;
+}
+/* line 1146, ../scss/_styles.scss */
+.spotArticlePage .spotWeather .spotWeatherRow .columns:nth-child(6) {
+  border-right: none;
+}
+/* line 1150, ../scss/_styles.scss */
+.spotArticlePage .spotWeather .spotWeatherRow .columns p {
+  font-size: 0.75rem;
+}
 
 /*-------------------------------------------
 	News - Events Page styles
 -----------------------------------------*/
-/* line 1140, ../scss/_styles.scss */
+/* line 1163, ../scss/_styles.scss */
 .blog_articleItem {
   margin-bottom: 5rem;
 }
-/* line 1143, ../scss/_styles.scss */
+/* line 1166, ../scss/_styles.scss */
 .blog_articleItem h3 {
   font-size: 3.75rem;
   line-height: 1;
   margin-top: 0.75rem;
 }
-/* line 1148, ../scss/_styles.scss */
+/* line 1171, ../scss/_styles.scss */
 .blog_articleItem h3 a {
   color: gray;
 }
-/* line 1151, ../scss/_styles.scss */
+/* line 1174, ../scss/_styles.scss */
 .blog_articleItem h3 a:hover {
   color: #4cb9bb;
 }
-/* line 1156, ../scss/_styles.scss */
+/* line 1179, ../scss/_styles.scss */
 .blog_articleItem h3 small {
   color: gray;
   font-size: 2.25rem;
 }
-/* line 1162, ../scss/_styles.scss */
+/* line 1185, ../scss/_styles.scss */
 .blog_articleItem .tagList {
   display: none;
 }
-/* line 1166, ../scss/_styles.scss */
+/* line 1189, ../scss/_styles.scss */
 .blog_articleItem p {
   font-size: 1.25rem;
   font-family: "gotham_book", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   color: #515151;
 }
-/* line 1172, ../scss/_styles.scss */
+/* line 1195, ../scss/_styles.scss */
 .blog_articleItem .readMore {
   text-align: right;
   margin: 0;
 }
-/* line 1176, ../scss/_styles.scss */
+/* line 1199, ../scss/_styles.scss */
 .blog_articleItem .readMore a {
   font-size: 1.625rem;
   font-family: "burbank_big_condensed", Verdana, Tahoma, Arial, sans-serif;
@@ -11681,12 +11704,12 @@ header {
   display: inline-block;
   line-height: 5rem;
 }
-/* line 1186, ../scss/_styles.scss */
+/* line 1209, ../scss/_styles.scss */
 .blog_articleItem .readMore a .hasArrow:after {
   content: "\279C";
   color: #515151;
 }
-/* line 1192, ../scss/_styles.scss */
+/* line 1215, ../scss/_styles.scss */
 .blog_articleItem .readMore a .isCyrcle {
   color: white;
   border: 4px solid white;
@@ -11705,11 +11728,11 @@ header {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-/* line 1212, ../scss/_styles.scss */
+/* line 1235, ../scss/_styles.scss */
 .blog_articleItem .readMore a:hover, .blog_articleItem .readMore a:focus {
   color: #515151;
 }
-/* line 1215, ../scss/_styles.scss */
+/* line 1238, ../scss/_styles.scss */
 .blog_articleItem .readMore a:hover .isCyrcle, .blog_articleItem .readMore a:focus .isCyrcle {
   color: white;
   background: none #515151;
@@ -11718,21 +11741,21 @@ header {
 /* -----------------------------------------
 	Pagination
 ----------------------------------------- */
-/* line 1228, ../scss/_styles.scss */
+/* line 1251, ../scss/_styles.scss */
 .paginationHolder {
   margin-bottom: 3.75rem;
 }
-/* line 1231, ../scss/_styles.scss */
+/* line 1254, ../scss/_styles.scss */
 .paginationHolder ul {
   text-align: center;
 }
-/* line 1234, ../scss/_styles.scss */
+/* line 1257, ../scss/_styles.scss */
 .paginationHolder ul li {
   float: none;
   display: inline-block;
   height: auto;
 }
-/* line 1239, ../scss/_styles.scss */
+/* line 1262, ../scss/_styles.scss */
 .paginationHolder ul li a {
   color: white;
   font-size: 1.375rem;
@@ -11741,18 +11764,18 @@ header {
   font-family: "burbank_big_condensed", Verdana, Tahoma, Arial, sans-serif;
   background: none gray;
 }
-/* line 1247, ../scss/_styles.scss */
+/* line 1270, ../scss/_styles.scss */
 .paginationHolder ul li a:hover, .paginationHolder ul li a:focus {
   color: white;
   background: none #4cb9bb;
 }
-/* line 1256, ../scss/_styles.scss */
+/* line 1279, ../scss/_styles.scss */
 .paginationHolder ul li.current a {
   color: white;
   background: none #515151;
   font-weight: normal;
 }
-/* line 1261, ../scss/_styles.scss */
+/* line 1284, ../scss/_styles.scss */
 .paginationHolder ul li.current a:hover, .paginationHolder ul li.current a:focus {
   color: white;
   background: none #515151;
@@ -11761,13 +11784,13 @@ header {
 /* -----------------------------------------
 	Filter form styles
 ----------------------------------------- */
-/* line 1274, ../scss/_styles.scss */
+/* line 1297, ../scss/_styles.scss */
 #filterResultsFormHolder {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
   position: relative;
 }
-/* line 1279, ../scss/_styles.scss */
+/* line 1302, ../scss/_styles.scss */
 #filterResultsFormHolder label {
   font-size: 2.5625rem;
   text-rendering: optimizeLegibility;
@@ -11779,15 +11802,15 @@ header {
   letter-spacing: 2px;
   font-weight: 300;
 }
-/* line 1291, ../scss/_styles.scss */
+/* line 1314, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox {
   padding-top: 12px;
 }
-/* line 1294, ../scss/_styles.scss */
+/* line 1317, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox input {
   display: none;
 }
-/* line 1298, ../scss/_styles.scss */
+/* line 1321, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox input + label {
   padding: 0 0 0 28px;
   display: inline-block;
@@ -11800,7 +11823,7 @@ header {
   cursor: pointer;
   margin: 0;
 }
-/* line 1310, ../scss/_styles.scss */
+/* line 1333, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox input + label:after {
   content: '\00a0';
   font-size: 1.375rem;
@@ -11817,19 +11840,19 @@ header {
   line-height: 0.5;
   text-align: center;
 }
-/* line 1328, ../scss/_styles.scss */
+/* line 1351, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox input:checked + label:after {
   content: '\2714';
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0), inset 0px -15px 10px -12px rgba(0, 0, 0, 0), inset 15px 10px -12px rgba(13, 59, 131, 0);
 }
-/* line 1334, ../scss/_styles.scss */
+/* line 1357, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox .isBox,
 #filterResultsFormHolder .customCheckBox .isRound {
   display: inline-block;
   width: 90%;
   text-align: center;
 }
-/* line 1339, ../scss/_styles.scss */
+/* line 1362, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox .isBox input + label,
 #filterResultsFormHolder .customCheckBox .isRound input + label {
   color: white;
@@ -11844,30 +11867,30 @@ header {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-/* line 1353, ../scss/_styles.scss */
+/* line 1376, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox .isBox input + label:after,
 #filterResultsFormHolder .customCheckBox .isRound input + label:after {
   display: none;
 }
-/* line 1357, ../scss/_styles.scss */
+/* line 1380, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox .isBox input + label:hover,
 #filterResultsFormHolder .customCheckBox .isRound input + label:hover {
   border: 4px solid #4cb9bb;
   background: none #4cb9bb;
 }
-/* line 1363, ../scss/_styles.scss */
+/* line 1386, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox .isBox input:checked + label,
 #filterResultsFormHolder .customCheckBox .isRound input:checked + label {
   background: none #515151;
   border: 4px solid white;
   border-radius: 4px;
 }
-/* line 1371, ../scss/_styles.scss */
+/* line 1394, ../scss/_styles.scss */
 #filterResultsFormHolder .mainFilters {
   padding-top: 2px;
 }
 
-/* line 1376, ../scss/_styles.scss */
+/* line 1399, ../scss/_styles.scss */
 #filterResultsForm .formBtns {
   float: none;
   position: absolute;
@@ -11876,13 +11899,13 @@ header {
   width: 25%;
 }
 
-/* line 1384, ../scss/_styles.scss */
+/* line 1407, ../scss/_styles.scss */
 #filterResultsForm .formBtns .checkAllBox {
   float: left;
   margin-top: 4px;
 }
 
-/* line 1389, ../scss/_styles.scss */
+/* line 1412, ../scss/_styles.scss */
 #filterResultsForm #filterResultsBtn {
   float: right;
   background: url(../images/site_assets/indexSlideArrow.png) no-repeat 80% 50% #0a3982;
@@ -11900,13 +11923,13 @@ header {
   font-weight: normal!important;
 }
 
-/* line 1406, ../scss/_styles.scss */
+/* line 1429, ../scss/_styles.scss */
 #filterResultsForm #filterResultsBtn:hover {
   cursor: pointer;
   background: url("../images/site_assets/indexSlideArrow.png") no-repeat 80% 50% #011a48;
 }
 
-/* line 1411, ../scss/_styles.scss */
+/* line 1434, ../scss/_styles.scss */
 #filterResultsForm .checkAllBox label {
   font-size: 0.9285em;
   font-size: 0.9285rem;
@@ -11918,19 +11941,19 @@ header {
   margin-bottom: 0;
 }
 
-/* line 1428, ../scss/_styles.scss */
+/* line 1451, ../scss/_styles.scss */
 .lt-ie9 #filterResultsForm .customCheckBox input {
   display: inline-block;
   float: left;
   clear: left;
 }
-/* line 1434, ../scss/_styles.scss */
+/* line 1457, ../scss/_styles.scss */
 .lt-ie9 #filterResultsForm .customCheckBox input + label {
   display: inline-block;
   float: left;
   clear: none;
 }
-/* line 1439, ../scss/_styles.scss */
+/* line 1462, ../scss/_styles.scss */
 .lt-ie9 #filterResultsForm .customCheckBox input + label:after {
   display: none;
 }
@@ -11941,7 +11964,7 @@ header {
 /* -----------------------------------------
 	Google Map
 ----------------------------------------- */
-/* line 1467, ../scss/_styles.scss */
+/* line 1490, ../scss/_styles.scss */
 #map_canvas {
   width: 95%;
   height: 100%;
@@ -11951,7 +11974,7 @@ header {
 /* -----------------------------------------
 	Footer Styles
 ----------------------------------------- */
-/* line 1477, ../scss/_styles.scss */
+/* line 1500, ../scss/_styles.scss */
 footer {
   margin-top: 30px;
   background: #4cb9bb;
@@ -11959,18 +11982,18 @@ footer {
   overflow: hidden;
   color: white;
 }
-/* line 1484, ../scss/_styles.scss */
+/* line 1507, ../scss/_styles.scss */
 footer #copyrights {
   text-align: center;
   font-size: 0.75rem;
 }
-/* line 1489, ../scss/_styles.scss */
+/* line 1512, ../scss/_styles.scss */
 footer #footerNav {
   width: 100%;
   text-transform: uppercase;
   margin-top: 2.25rem;
 }
-/* line 1494, ../scss/_styles.scss */
+/* line 1517, ../scss/_styles.scss */
 footer #footerNav .level0 a {
   overflow: hidden;
   color: white;
@@ -11984,19 +12007,19 @@ footer #footerNav .level0 a {
   transition: all 300ms ease-in-out;
 }
 
-/* line 1510, ../scss/_styles.scss */
+/* line 1533, ../scss/_styles.scss */
 .contentFooter {
   text-align: center;
   margin-top: 5rem !important;
 }
-/* line 1514, ../scss/_styles.scss */
+/* line 1537, ../scss/_styles.scss */
 .contentFooter h5 {
   text-align: center;
   font-size: 2.125rem;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-/* line 1521, ../scss/_styles.scss */
+/* line 1544, ../scss/_styles.scss */
 .contentFooter h6 {
   text-align: center;
   font-size: 1.25rem;
@@ -12005,7 +12028,7 @@ footer #footerNav .level0 a {
   margin: 1.25rem 0 0 0;
   font-family: "gotham_book", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
-/* line 1530, ../scss/_styles.scss */
+/* line 1553, ../scss/_styles.scss */
 .contentFooter .isRound {
   display: inline-block;
   text-align: center;
@@ -12019,19 +12042,19 @@ footer #footerNav .level0 a {
   height: auto;
   padding-top: 52%;
 }
-/* line 1543, ../scss/_styles.scss */
+/* line 1566, ../scss/_styles.scss */
 .contentFooter .isRound.magazineLink {
   background: url("../images/site_assets/magazineIcon.png") no-repeat 50% 50% gray;
 }
-/* line 1547, ../scss/_styles.scss */
+/* line 1570, ../scss/_styles.scss */
 .contentFooter .isRound.mapLink {
   background: url("../images/site_assets/mapIcon.png") no-repeat 50% 50% gray;
 }
-/* line 1551, ../scss/_styles.scss */
+/* line 1574, ../scss/_styles.scss */
 .contentFooter .isRound.addSpotLink {
   background: url("../images/site_assets/addSpotIcon.png") no-repeat 50% 50% gray;
 }
-/* line 1555, ../scss/_styles.scss */
+/* line 1578, ../scss/_styles.scss */
 .contentFooter .isRound span {
   display: inline-block;
   height: 100%;
@@ -12048,17 +12071,17 @@ footer #footerNav .level0 a {
   border-radius: 50%;
   overflow: hidden;
 }
-/* line 1571, ../scss/_styles.scss */
+/* line 1594, ../scss/_styles.scss */
 .contentFooter .isRound span small {
   display: none;
 }
-/* line 1576, ../scss/_styles.scss */
+/* line 1599, ../scss/_styles.scss */
 .contentFooter .isRound:hover, .contentFooter .isRound:focus {
   color: white;
   background-color: #515151;
   border-color: #515151;
 }
-/* line 1583, ../scss/_styles.scss */
+/* line 1606, ../scss/_styles.scss */
 .contentFooter .smoIcons {
   display: inline-block;
   text-align: center;
@@ -12067,13 +12090,13 @@ footer #footerNav .level0 a {
   padding: 0;
   width: 100%;
 }
-/* line 1591, ../scss/_styles.scss */
+/* line 1614, ../scss/_styles.scss */
 .contentFooter .smoIcons li {
   display: inline-block;
   padding: 0;
   margin: 0 8px;
 }
-/* line 1596, ../scss/_styles.scss */
+/* line 1619, ../scss/_styles.scss */
 .contentFooter .smoIcons li a {
   color: white;
   border: 2px solid white;
@@ -12088,24 +12111,24 @@ footer #footerNav .level0 a {
   background: none 50% 50% no-repeat gray;
   vertical-align: middle;
 }
-/* line 1610, ../scss/_styles.scss */
+/* line 1633, ../scss/_styles.scss */
 .contentFooter .smoIcons li a span {
   display: none;
 }
-/* line 1614, ../scss/_styles.scss */
+/* line 1637, ../scss/_styles.scss */
 .contentFooter .smoIcons li a:hover, .contentFooter .smoIcons li a:focus {
   color: white;
   background-color: #515151;
 }
-/* line 1620, ../scss/_styles.scss */
+/* line 1643, ../scss/_styles.scss */
 .contentFooter .smoIcons li .fbIcon {
   background-image: url("../images/site_assets/fbIcon.png");
 }
-/* line 1624, ../scss/_styles.scss */
+/* line 1647, ../scss/_styles.scss */
 .contentFooter .smoIcons li .tweetIcon {
   background-image: url("../images/site_assets/tweetIcon.png");
 }
-/* line 1628, ../scss/_styles.scss */
+/* line 1651, ../scss/_styles.scss */
 .contentFooter .smoIcons li .mailIcon {
   background-image: url("../images/site_assets/mailIcon.png");
 }
@@ -12114,67 +12137,67 @@ footer #footerNav .level0 a {
 	Media Queries for mobile / tablets responsivenes
 ----------------------------------------------------- */
 @media only screen and (device-width: 320px) and (orientation: portrait) {
-  /* line 1641, ../scss/_styles.scss */
+  /* line 1664, ../scss/_styles.scss */
   html {
     font-size: 10px!important;
   }
 }
 @media only screen and (device-width: 320px) and (orientation: landscape) {
-  /* line 1648, ../scss/_styles.scss */
+  /* line 1671, ../scss/_styles.scss */
   html {
     font-size: 11px!important;
   }
 }
 @media only screen and (max-width: 380px) {
-  /* line 1656, ../scss/_styles.scss */
+  /* line 1679, ../scss/_styles.scss */
   html {
     font-size: 10px!important;
   }
 }
 @media only screen and (max-width: 498px) {
-  /* line 1663, ../scss/_styles.scss */
+  /* line 1686, ../scss/_styles.scss */
   html {
     font-size: 10px!important;
   }
 }
 @media only screen and (max-width: 766px) and (min-width: 499px) {
-  /* line 1670, ../scss/_styles.scss */
+  /* line 1693, ../scss/_styles.scss */
   html {
     font-size: 12px!important;
   }
 }
 @media only screen and (max-width: 767px) {
-  /* line 1678, ../scss/_styles.scss */
+  /* line 1701, ../scss/_styles.scss */
   html {
     font-size: 13px!important;
   }
 }
 @media only screen and (device-width: 768px) and (orientation: portrait) {
-  /* line 1685, ../scss/_styles.scss */
+  /* line 1708, ../scss/_styles.scss */
   html {
     font-size: 12px!important;
   }
 }
 @media only screen and (device-width: 768px) and (orientation: landscape) {
-  /* line 1692, ../scss/_styles.scss */
+  /* line 1715, ../scss/_styles.scss */
   html {
     font-size: 13px!important;
   }
 }
 @media only screen and (max-width: 959px) and (min-width: 768px) {
-  /* line 1699, ../scss/_styles.scss */
+  /* line 1722, ../scss/_styles.scss */
   html {
     font-size: 13px!important;
   }
 }
 @media only screen and (min-width: 960px) {
-  /* line 1705, ../scss/_styles.scss */
+  /* line 1728, ../scss/_styles.scss */
   html {
     font-size: 14px!important;
   }
 }
 @media print {
-  /* line 1711, ../scss/_styles.scss */
+  /* line 1734, ../scss/_styles.scss */
   div:not(.reveal-modal) {
     display: inherit !important;
   }

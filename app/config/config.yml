@@ -9,6 +9,7 @@ imports:
     - { resource: sonata_media.yml }
     - { resource: bardiscms_bundles.yml }
     - { resource: tinymce.yml }
+    - { resource: guzzle.yml }
 
 framework:
     #esi:             ~

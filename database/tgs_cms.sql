@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 04, 2014 at 02:32 AM
+-- Generation Time: Feb 16, 2014 at 02:43 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.16
 
@@ -123,8 +123,8 @@ CREATE TABLE IF NOT EXISTS `bannercontent_blocks` (
 --
 
 INSERT INTO `bannercontent_blocks` (`page_id`, `contentblock_id`) VALUES
-(82, 58),
-(82, 59);
+(91, 64),
+(91, 65);
 
 -- --------------------------------------------------------
 
@@ -157,21 +157,21 @@ CREATE TABLE IF NOT EXISTS `blogs` (
   UNIQUE KEY `UNIQ_F41BCA7097AB4E12` (`bgimage`),
   UNIQUE KEY `UNIQ_F41BCA704A73D32C` (`introvideo`),
   KEY `IDX_F41BCA70BDAFD8C8` (`author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=81 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=89 ;
 
 --
 -- Dumping data for table `blogs`
 --
 
 INSERT INTO `blogs` (`id`, `author`, `introimage`, `bgimage`, `introvideo`, `date`, `title`, `alias`, `pageOrder`, `showPageTitle`, `publishState`, `pageclass`, `description`, `keywords`, `introtext`, `intromediasize`, `introclass`, `pagetype`) VALUES
-(73, 12, NULL, NULL, NULL, '2014-02-04', 'Blog Home', 'articles', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_home'),
-(74, 12, NULL, NULL, NULL, '2014-02-04', 'News', 'news', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_cat_page'),
-(75, 12, NULL, NULL, NULL, '2014-02-04', 'Events', 'events', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_cat_page'),
-(76, 12, NULL, NULL, NULL, '2014-02-04', 'Blog Filtered Listing', 'tagged', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_filtered_list'),
-(77, 12, 132, NULL, NULL, '2014-02-04', 'Test Blog Post 1', 'test-blog-post-1', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article'),
-(78, 12, 133, NULL, NULL, '2014-02-04', 'Test Blog Post 2', 'test-blog-post-2', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article'),
-(79, 12, 134, NULL, NULL, '2014-02-04', 'Test Blog Post 3', 'test-blog-post-3', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article'),
-(80, 12, 135, NULL, NULL, '2014-02-04', 'Test Blog Post 4', 'test-blog-post-4', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article');
+(81, 13, NULL, NULL, NULL, '2014-02-04', 'Blog Home', 'articles', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_home'),
+(82, 13, NULL, NULL, NULL, '2014-02-04', 'News', 'news', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_cat_page'),
+(83, 13, NULL, NULL, NULL, '2014-02-04', 'Events', 'events', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_cat_page'),
+(84, 13, NULL, NULL, NULL, '2014-02-04', 'Blog Filtered Listing', 'tagged', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_filtered_list'),
+(85, 13, 142, NULL, NULL, '2014-02-04', 'Test Blog Post 1', 'test-blog-post-1', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article'),
+(86, 13, 143, NULL, NULL, '2014-02-04', 'Test Blog Post 2', 'test-blog-post-2', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article'),
+(87, 13, 144, NULL, NULL, '2014-02-04', 'Test Blog Post 3', 'test-blog-post-3', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article'),
+(88, 13, 145, NULL, NULL, '2014-02-04', 'Test Blog Post 4', 'test-blog-post-4', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'blog_article');
 
 -- --------------------------------------------------------
 
@@ -192,10 +192,10 @@ CREATE TABLE IF NOT EXISTS `blogs_categories` (
 --
 
 INSERT INTO `blogs_categories` (`blog_id`, `category_id`) VALUES
-(77, 46),
-(78, 47),
-(79, 46),
-(80, 47);
+(85, 50),
+(86, 51),
+(87, 50),
+(88, 51);
 
 -- --------------------------------------------------------
 
@@ -216,10 +216,10 @@ CREATE TABLE IF NOT EXISTS `blogs_tags` (
 --
 
 INSERT INTO `blogs_tags` (`blog_id`, `tag_id`) VALUES
-(77, 23),
-(78, 24),
-(79, 24),
-(80, 23);
+(85, 25),
+(86, 26),
+(87, 26),
+(88, 25);
 
 -- --------------------------------------------------------
 
@@ -268,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `blog_maincontent_blocks` (
 --
 
 INSERT INTO `blog_maincontent_blocks` (`blog_id`, `contentblock_id`) VALUES
-(77, 57);
+(85, 63);
 
 -- --------------------------------------------------------
 
@@ -297,17 +297,17 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `categoryIcon` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_3AF34668AD0F3245` (`categoryIcon`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=53 ;
 
 --
 -- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `title`, `categoryClass`, `categoryIcon`) VALUES
-(45, 'Homepage', NULL, NULL),
-(46, 'News', 'news', NULL),
-(47, 'Events', 'events', NULL),
-(48, 'Sample Category', 'featured-category', NULL);
+(49, 'Homepage', NULL, NULL),
+(50, 'News', 'news', NULL),
+(51, 'Events', 'events', NULL),
+(52, 'Sample Category', 'featured-category', NULL);
 
 -- --------------------------------------------------------
 
@@ -327,16 +327,16 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `bottrap` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_5F9E962ADAE07E97` (`blog_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=34 ;
 
 --
 -- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`id`, `blog_id`, `title`, `username`, `comment`, `approved`, `created`, `commentType`, `bottrap`) VALUES
-(28, 77, 'Sample Comment 1', 'blogger1', 'To make a long story short. You can''t go wrong by choosing Symfony! And no one has ever been fired for using Symfony.', 1, '2014-02-04 00:34:47', 'Blog', NULL),
-(29, 77, 'Sample Comment 2', 'blogger2', 'To make a long story short. You can''t go wrong by choosing Symfony! And no one has ever been fired for using Symfony 2.', 1, '2014-02-04 00:34:47', 'Blog', NULL),
-(30, 77, 'Sample Comment 3', 'blogger3', 'To make a long story short. You can''t go wrong by choosing Symfony! And no one has ever been fired for using Symfony 3.', 1, '2014-02-04 00:34:47', 'Blog', NULL);
+(31, 85, 'Sample Comment 1', 'blogger1', 'To make a long story short. You can''t go wrong by choosing Symfony! And no one has ever been fired for using Symfony.', 1, '2014-02-04 23:43:20', 'Blog', NULL),
+(32, 85, 'Sample Comment 2', 'blogger2', 'To make a long story short. You can''t go wrong by choosing Symfony! And no one has ever been fired for using Symfony 2.', 1, '2014-02-04 23:43:20', 'Blog', NULL),
+(33, 85, 'Sample Comment 3', 'blogger3', 'To make a long story short. You can''t go wrong by choosing Symfony! And no one has ever been fired for using Symfony 3.', 1, '2014-02-04 23:43:20', 'Blog', NULL);
 
 -- --------------------------------------------------------
 
@@ -366,20 +366,30 @@ CREATE TABLE IF NOT EXISTS `content_blocks` (
   UNIQUE KEY `UNIQ_A6DBE5D44E850E4D` (`fileFile`),
   UNIQUE KEY `UNIQ_A6DBE5D47316E1A3` (`vimeo`),
   UNIQUE KEY `UNIQ_A6DBE5D4F0789934` (`youtube`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=60 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=76 ;
 
 --
 -- Dumping data for table `content_blocks`
 --
 
 INSERT INTO `content_blocks` (`id`, `slide`, `vimeo`, `youtube`, `title`, `publishedState`, `availability`, `showTitle`, `ordering`, `className`, `sizeClass`, `mediaSize`, `idName`, `contentType`, `htmlText`, `fileFile`) VALUES
-(53, NULL, NULL, NULL, 'Sample Content Home', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
-(54, NULL, NULL, NULL, 'Sample Content 1', 1, 'page', 1, 1, 'sampleClassname', 'large-12', NULL, 'sampleId', 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
-(55, NULL, NULL, NULL, 'Sample Content 2', 1, 'page', 1, 2, NULL, 'large-12', NULL, NULL, 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
-(56, NULL, NULL, NULL, 'Sample Contact Form', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'contact', NULL, NULL),
-(57, NULL, NULL, NULL, 'Sample Blog Content 1', 1, 'page', 1, 1, 'sampleClassname', 'large-12', NULL, 'sampleId', 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
-(58, 8, NULL, NULL, 'Home Top Banner Slide 1', 1, 'page', 0, 1, NULL, 'large-12', NULL, NULL, 'slide', NULL, NULL),
-(59, 9, NULL, NULL, 'Home Top Banner Slide 2', 1, 'page', 0, 2, NULL, 'large-12', NULL, NULL, 'slide', NULL, NULL);
+(59, NULL, NULL, NULL, 'Sample Content Home', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
+(60, NULL, NULL, NULL, 'Sample Content 1', 1, 'page', 1, 1, 'sampleClassname', 'large-12', NULL, 'sampleId', 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
+(61, NULL, NULL, NULL, 'Sample Content 2', 1, 'page', 1, 2, NULL, 'large-12', NULL, NULL, 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
+(62, NULL, NULL, NULL, 'Sample Contact Form', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'contact', NULL, NULL),
+(63, NULL, NULL, NULL, 'Sample Blog Content 1', 1, 'page', 1, 1, 'sampleClassname', 'large-12', NULL, 'sampleId', 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
+(64, 9, NULL, NULL, 'Home Top Banner Slide 1', 1, 'page', 0, 1, NULL, 'large-12', NULL, NULL, 'slide', NULL, NULL),
+(65, 10, NULL, NULL, 'Home Top Banner Slide 2', 1, 'page', 0, 2, NULL, 'large-12', NULL, NULL, 'slide', NULL, NULL),
+(66, NULL, NULL, NULL, 'Sample Content Destinations', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
+(67, NULL, NULL, NULL, 'Sample Content North Greece', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
+(68, NULL, NULL, NULL, 'Sample Content North Greece', 1, 'page', 1, 2, NULL, 'large-12', NULL, NULL, 'html', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL),
+(69, NULL, NULL, NULL, 'HOW TO GET THERE', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'html', '<p>The term "surfing" refers to the act of riding a wave, regardless of whether the wave is ridden with a board or without a board, and regardless of the stance used. For instance, the native peoples of the Pacific surfed waves on alaia, paipo, and other such crafts, and did so on their bellies, knees, and However, the modern day definition of surfing most often refers to a surfer riding a wave standing up on a surfboard, and this is also referred to as stand-up surfing.</p>', NULL),
+(70, NULL, NULL, NULL, 'gdfgdfg', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'html', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>', NULL),
+(71, NULL, NULL, NULL, 'thdhd', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'html', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>', NULL),
+(72, NULL, NULL, NULL, 'sssss s sss', 1, 'page', 1, 1, NULL, 'large-12', NULL, NULL, 'html', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>', NULL),
+(73, NULL, NULL, NULL, 'gdfgdfdg fgg sfgs s', 1, 'page', 1, 2, NULL, 'large-12', NULL, NULL, 'html', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>', NULL),
+(74, 11, NULL, NULL, 'f  xfgvsx', 1, 'page', 0, 1, NULL, 'large-12', 'original', NULL, 'slide', NULL, NULL),
+(75, 12, NULL, NULL, 'gg sgsg sgs', 1, 'page', 0, 2, NULL, 'large-12', NULL, NULL, 'slide', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -407,7 +417,7 @@ CREATE TABLE IF NOT EXISTS `content_images` (
   `imageOrder` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8829CEC6991EFFB9` (`imagefile`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -422,15 +432,17 @@ CREATE TABLE IF NOT EXISTS `content_slides` (
   `imageLinkURL` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_D0F6503D991EFFB9` (`imagefile`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `content_slides`
 --
 
 INSERT INTO `content_slides` (`id`, `imagefile`, `imageLinkTitle`, `imageLinkURL`) VALUES
-(8, 137, 'Stay Salty', '/stay-salty'),
-(9, 138, 'Stay Salty 2', NULL);
+(9, 147, 'Stay Salty', '/stay-salty'),
+(10, 148, 'Stay Salty 2', NULL),
+(11, 155, NULL, NULL),
+(12, 156, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -469,16 +481,19 @@ CREATE TABLE IF NOT EXISTS `destinations` (
   UNIQUE KEY `UNIQ_2D3343C397AB4E12` (`bgimage`),
   KEY `IDX_2D3343C3BDAFD8C8` (`author`),
   KEY `IDX_2D3343C3D2BBDDF7` (`spots`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=37 ;
 
 --
 -- Dumping data for table `destinations`
 --
 
 INSERT INTO `destinations` (`id`, `author`, `introimage`, `destinationicon`, `bgimage`, `spots`, `date`, `title`, `alias`, `pageOrder`, `showPageTitle`, `publishState`, `pageClass`, `description`, `keywords`, `introText`, `summary`, `directions`, `mapLatitude`, `mapLongitude`, `introClass`, `pageType`, `styleColor`) VALUES
-(28, 12, NULL, NULL, NULL, NULL, '2014-02-04', 'Destinations', 'list', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, NULL, NULL, NULL, 'destination_home', NULL),
-(29, 12, NULL, NULL, NULL, NULL, '2014-02-04', 'North Greece', 'north-greece', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, NULL, NULL, NULL, 'destination_cat_page', NULL),
-(30, 12, NULL, NULL, NULL, NULL, '2014-02-04', 'Halkidiki', 'halkidiki', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, NULL, NULL, NULL, 'destination_article', NULL);
+(31, 13, NULL, NULL, NULL, NULL, '2014-02-04', 'Destinations', 'list', 99, 1, 1, NULL, NULL, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>', NULL, NULL, NULL, NULL, 'destination_home', 'default'),
+(32, 13, 150, NULL, NULL, NULL, '2014-02-04', 'North Greece', 'north-greece', 99, 1, 1, NULL, NULL, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>', '<p>Quisque non arcu id ipsum imperdiet ultricies pharetra eu nibh. Etiam eros lectus, ullamcorper et congue in, lobortis sit amet lectus. In fermentum quam in arcu sodales, id varius est placerat. Fusce a dictum mi. Aliquam accumsan diam eget rutrum tincidunt. Nullam massa metus, placerat quis mattis nec</p>', NULL, NULL, NULL, NULL, 'destination_cat_page', 'default'),
+(33, 13, NULL, NULL, NULL, NULL, '2014-02-04', 'Halkidiki', 'halkidiki', 99, 1, 1, NULL, NULL, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>', '<p>The term "surfing" refers to the act of riding a wave, regardless of whether the wave is ridden with a board or without a board, and regardless of the stance used. For instance, the native peoples of the Pacific surfed waves on alaia, paipo, and other such crafts, and did so on their bellies, knees, and However, the modern day definition of surfing most often refers to a surfer riding a wave standing up on a surfboard, and this is also referred to as stand-up surfing.</p>', '<p>The term "surfing" refers to the act of riding a wave, regardless of whether the wave is ridden with a board or without a board, and regardless of the stance used. For instance, the native peoples of the Pacific surfed waves on alaia, paipo, and other such crafts, and did so on their bellies, knees, and However, the modern day definition of surfing most often refers to a surfer riding a wave standing up on a surfboard, and this is also referred to as stand-up surfing.</p>', NULL, NULL, NULL, 'destination_article', 'default'),
+(34, 13, NULL, NULL, NULL, NULL, '2014-02-05', 'South Greece', 'south-greece', 99, NULL, 1, NULL, NULL, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>', NULL, NULL, NULL, NULL, NULL, 'destination_cat_page', NULL),
+(35, 13, NULL, NULL, NULL, NULL, '2014-02-05', 'Halkidiki Clone', 'halkidiki-clone', 99, NULL, 1, NULL, NULL, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>', NULL, NULL, NULL, NULL, NULL, 'destination_article', NULL),
+(36, 13, NULL, NULL, NULL, NULL, '2014-02-05', 'South Greece Clone', 'south-greece-clone', 99, 1, 1, NULL, NULL, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>', NULL, NULL, NULL, NULL, NULL, 'destination_cat_page', 'default');
 
 -- --------------------------------------------------------
 
@@ -499,9 +514,14 @@ CREATE TABLE IF NOT EXISTS `destinations_categories` (
 --
 
 INSERT INTO `destinations_categories` (`destination_id`, `destinationcategory_id`) VALUES
-(29, 19),
-(29, 20),
-(30, 20);
+(32, 21),
+(32, 22),
+(33, 22),
+(34, 21),
+(34, 23),
+(35, 22),
+(36, 21),
+(36, 23);
 
 -- --------------------------------------------------------
 
@@ -522,7 +542,12 @@ CREATE TABLE IF NOT EXISTS `destinations_tags` (
 --
 
 INSERT INTO `destinations_tags` (`destination_id`, `destinationtag_id`) VALUES
-(30, 10);
+(33, 11),
+(33, 12),
+(33, 13),
+(33, 14),
+(33, 15),
+(35, 11);
 
 -- --------------------------------------------------------
 
@@ -553,15 +578,16 @@ CREATE TABLE IF NOT EXISTS `destination_categories` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_67CADDDACEB1B078` (`destinationCategoryIcon`),
   KEY `IDX_67CADDDABD7209A` (`destinationListPage`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `destination_categories`
 --
 
 INSERT INTO `destination_categories` (`id`, `title`, `class`, `destinationListPage`, `destinationCategoryIcon`) VALUES
-(19, 'Destination Home', NULL, NULL, NULL),
-(20, 'North Greece', 'north-greece', NULL, NULL);
+(21, 'Destination Home', NULL, NULL, NULL),
+(22, 'North Greece', 'north-greece', 32, NULL),
+(23, 'South Greece', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -605,6 +631,14 @@ CREATE TABLE IF NOT EXISTS `destination_secondarycontent_blocks` (
   KEY `IDX_3D7A49B442ADBAC2` (`contentblock_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `destination_secondarycontent_blocks`
+--
+
+INSERT INTO `destination_secondarycontent_blocks` (`destination_id`, `contentblock_id`) VALUES
+(31, 66),
+(32, 68);
+
 -- --------------------------------------------------------
 
 --
@@ -619,14 +653,18 @@ CREATE TABLE IF NOT EXISTS `destination_tags` (
   `tagIcon` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_CC1D1D178913051D` (`tagIcon`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `destination_tags`
 --
 
 INSERT INTO `destination_tags` (`id`, `title`, `tagCategory`, `styleColor`, `tagIcon`) VALUES
-(10, 'Surf', 'sports', 'green', NULL);
+(11, 'Surf', 'sports', 'green', 151),
+(12, 'Kite Surf', 'sports', 'purple', NULL),
+(13, 'Wake Board', 'sports', 'orange', NULL),
+(14, 'Surf', 'sports', 'default', NULL),
+(15, 'Water Ski', 'sports', 'pink', NULL);
 
 -- --------------------------------------------------------
 
@@ -711,14 +749,14 @@ CREATE TABLE IF NOT EXISTS `fos_user_user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_C560D76192FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_C560D761A0D96FBF` (`email_canonical`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `fos_user_user`
 --
 
 INSERT INTO `fos_user_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `created_at`, `updated_at`, `date_of_birth`, `firstname`, `lastname`, `website`, `biography`, `gender`, `locale`, `timezone`, `phone`, `facebook_uid`, `facebook_name`, `facebook_data`, `twitter_uid`, `twitter_name`, `twitter_data`, `gplus_uid`, `gplus_name`, `gplus_data`, `token`, `two_step_code`, `bakeFrequency`, `sex`, `bakeChoises`, `age`, `children`, `campaign`) VALUES
-(12, 'administrator', 'administrator', 'george@bardis.info', 'george@bardis.info', 1, 'aebzosxxo084s480ooosc448gcw84w8', 'AHlypCdaqqFnPOI4F6+LATVau+wRLm6VK2MsosCIZyehb8O48pmANiHkH26PO2MRHaHlACYtHvldhsc09JYDlw==', '2014-02-04 01:01:37', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL, '2014-02-04 00:34:46', '2014-02-04 01:01:37', NULL, NULL, NULL, NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, NULL, NULL, 'N;', NULL, NULL, NULL);
+(13, 'administrator', 'administrator', 'george@bardis.info', 'george@bardis.info', 1, 'brys9cc04t4cs0gk40k4cgsggkskcws', '0ANGjUZ51MFVKewONAjFbQhoaQ5HHypCO7Urck2l5MMduKJASx0/mkCf/5cVm/9RoiH7JzQ2BLumtd382CPJAg==', '2014-02-15 22:09:26', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL, '2014-02-04 23:43:19', '2014-02-15 22:09:26', NULL, NULL, NULL, NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, NULL, NULL, 'N;', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -753,10 +791,10 @@ CREATE TABLE IF NOT EXISTS `maincontent_blocks` (
 --
 
 INSERT INTO `maincontent_blocks` (`page_id`, `contentblock_id`) VALUES
-(82, 53),
-(86, 56),
-(87, 54),
-(87, 55);
+(91, 59),
+(95, 62),
+(96, 60),
+(96, 61);
 
 -- --------------------------------------------------------
 
@@ -823,24 +861,30 @@ CREATE TABLE IF NOT EXISTS `media__media` (
   `updated_at` datetime NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=139 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=157 ;
 
 --
 -- Dumping data for table `media__media`
 --
 
 INSERT INTO `media__media` (`id`, `name`, `description`, `enabled`, `provider_name`, `provider_status`, `provider_reference`, `provider_metadata`, `width`, `height`, `length`, `content_type`, `content_size`, `copyright`, `author_name`, `context`, `cdn_is_flushable`, `cdn_flush_at`, `cdn_status`, `updated_at`, `created_at`) VALUES
-(128, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
-(129, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
-(130, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
-(131, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
-(132, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
-(133, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
-(134, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
-(135, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
-(136, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '[]', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'spotlist', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
-(137, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'bgimage', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47'),
-(138, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'bgimage', NULL, NULL, NULL, '2014-02-04 00:34:47', '2014-02-04 00:34:47');
+(138, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 23:43:20', '2014-02-04 23:43:20'),
+(139, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 23:43:20', '2014-02-04 23:43:20'),
+(140, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 23:43:20', '2014-02-04 23:43:20'),
+(141, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 23:43:20', '2014-02-04 23:43:20'),
+(142, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 23:43:20', '2014-02-04 23:43:20'),
+(143, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 23:43:20', '2014-02-04 23:43:20'),
+(144, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 23:43:20', '2014-02-04 23:43:20'),
+(145, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-04 23:43:20', '2014-02-04 23:43:20'),
+(146, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '[]', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'spotlist', NULL, NULL, NULL, '2014-02-04 23:43:20', '2014-02-04 23:43:20'),
+(147, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'bgimage', NULL, NULL, NULL, '2014-02-04 23:43:20', '2014-02-04 23:43:20'),
+(148, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'sample_thumb.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'bgimage', NULL, NULL, NULL, '2014-02-04 23:43:20', '2014-02-04 23:43:20'),
+(149, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, '43413f4e9533109b5637c9d279a58af4a7791f6c.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'icons', NULL, NULL, NULL, '2014-02-05 19:49:52', '2014-02-05 19:49:52'),
+(150, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'a8905877d9a4c41ac236dfb3d96a6103c3b5b8ee.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'intro', NULL, NULL, NULL, '2014-02-05 19:50:56', '2014-02-05 19:50:56'),
+(151, 'surfIcon.png', NULL, 0, 'sonata.media.provider.image', 1, '0d2db9e5a6147c9522b73e6631b33c618e8eb1c4.png', '{"filename":"surfIcon.png"}', 85, 85, NULL, 'image/png', 724, NULL, NULL, 'icons', NULL, NULL, NULL, '2014-02-10 23:20:19', '2014-02-10 23:20:19'),
+(152, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, '71c245a82b7c5b357fb91f9f729375f07e8a1383.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'spotlist', NULL, NULL, NULL, '2014-02-15 22:12:11', '2014-02-15 22:12:11'),
+(155, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, 'd9e9a243de3798d68fb983f27432d9a7356e408c.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'bgimage', NULL, NULL, NULL, '2014-02-16 01:32:34', '2014-02-16 01:32:34'),
+(156, 'sample_thumb.jpeg', NULL, 0, 'sonata.media.provider.image', 1, '8f2ba80970d13f4b81818ac15d08b3e15abf646a.jpeg', '{"filename":"sample_thumb.jpeg"}', 622, 415, NULL, 'image/jpeg', 8043, NULL, NULL, 'bgimage', NULL, NULL, NULL, '2014-02-16 01:33:26', '2014-02-16 01:33:26');
 
 -- --------------------------------------------------------
 
@@ -871,21 +915,22 @@ CREATE TABLE IF NOT EXISTS `menu_items` (
   KEY `IDX_70B2CA2AC0155143` (`blog`),
   KEY `IDX_70B2CA2A3EC63EAA` (`destination`),
   KEY `IDX_70B2CA2AB9327A73` (`spot`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=81 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=90 ;
 
 --
 -- Dumping data for table `menu_items`
 --
 
 INSERT INTO `menu_items` (`id`, `page`, `blog`, `destination`, `spot`, `title`, `menuType`, `route`, `externalUrl`, `accessLevel`, `parent`, `menuGroup`, `publishState`, `ordering`, `menuUrlExtras`, `menuImage`) VALUES
-(73, 82, NULL, NULL, NULL, 'Homepage', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 0, NULL, NULL),
-(74, 87, NULL, NULL, NULL, 'Test Page 1', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
-(75, NULL, NULL, 28, NULL, 'Destinations', 'Destination', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
-(76, NULL, NULL, NULL, 28, 'Spots', 'Spot', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
-(77, NULL, 74, NULL, NULL, 'News', 'Blog', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
-(78, NULL, 75, NULL, NULL, 'Events', 'Blog', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
-(79, 86, NULL, NULL, NULL, 'Contact Page', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 5, NULL, NULL),
-(80, 84, NULL, NULL, NULL, 'Sitemap', 'Page', 'showPage', NULL, 0, '0', 'Footer Menu', 1, 0, NULL, NULL);
+(81, 91, NULL, NULL, NULL, 'Homepage', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 0, NULL, NULL),
+(82, NULL, NULL, 31, NULL, 'Destinations', 'Destination', 'showPage', NULL, 0, '0', 'Main Menu', 1, 1, NULL, NULL),
+(83, NULL, NULL, NULL, 31, 'Spots', 'Spot', 'showPage', NULL, 0, '0', 'Main Menu', 1, 2, NULL, NULL),
+(84, NULL, 83, NULL, NULL, 'Events', 'Blog', 'showPage', NULL, 0, '0', 'Main Menu', 1, 3, NULL, NULL),
+(85, NULL, 82, NULL, NULL, 'News', 'Blog', 'showPage', NULL, 0, '0', 'Main Menu', 1, 4, NULL, NULL),
+(86, 97, NULL, NULL, NULL, 'Sports', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 5, NULL, NULL),
+(87, 96, NULL, NULL, NULL, 'E-Magazine', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 6, NULL, NULL),
+(88, 95, NULL, NULL, NULL, 'Contact Us', 'Page', 'showPage', NULL, 0, '0', 'Main Menu', 1, 7, NULL, NULL),
+(89, 93, NULL, NULL, NULL, 'Sitemap', 'Page', 'showPage', NULL, 0, '0', 'Footer Menu', 1, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -930,22 +975,22 @@ CREATE TABLE IF NOT EXISTS `pages` (
   UNIQUE KEY `UNIQ_2074E575F3890D5F` (`introimage`),
   UNIQUE KEY `UNIQ_2074E57597AB4E12` (`bgimage`),
   KEY `IDX_2074E575BDAFD8C8` (`author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=91 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=100 ;
 
 --
 -- Dumping data for table `pages`
 --
 
 INSERT INTO `pages` (`id`, `author`, `introimage`, `bgimage`, `date`, `title`, `alias`, `pageOrder`, `showPageTitle`, `publishState`, `pageclass`, `description`, `keywords`, `introtext`, `intromediasize`, `introclass`, `pagetype`) VALUES
-(82, 12, NULL, NULL, '2014-02-04', 'The Greek Spots', 'index', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'homepage'),
-(83, 12, NULL, NULL, '2014-02-04', '404 Error Page', '404', 99, 1, 1, NULL, NULL, NULL, '', NULL, NULL, '404'),
-(84, 12, NULL, NULL, '2014-02-04', 'Sitemap', 'site-map', 99, 1, 1, NULL, NULL, NULL, '', NULL, NULL, 'sitemap'),
-(85, 12, NULL, NULL, '2014-02-04', 'Page Filtered Listing', 'tagged', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'page_tag_list'),
-(86, 12, NULL, NULL, '2014-02-04', 'Contact', 'contact', 99, 1, 1, NULL, NULL, NULL, '', NULL, NULL, 'contact'),
-(87, 12, 128, NULL, '2014-02-04', 'Test Page 1', 'test-page-1', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'one_columned'),
-(88, 12, 129, NULL, '2014-02-04', 'Test Page 2', 'test-page-2', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'two_columned'),
-(89, 12, 130, NULL, '2014-02-04', 'Test Page 3', 'test-page-3', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'three_columned'),
-(90, 12, 131, NULL, '2014-02-04', 'Test Page 4', 'test-page-4', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'one_columned');
+(91, 13, NULL, NULL, '2014-02-04', 'The Greek Spots', 'index', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'homepage'),
+(92, 13, NULL, NULL, '2014-02-04', '404 Error Page', '404', 99, 1, 1, NULL, NULL, NULL, '', NULL, NULL, '404'),
+(93, 13, NULL, NULL, '2014-02-04', 'Sitemap', 'site-map', 99, 1, 1, NULL, NULL, NULL, '', NULL, NULL, 'sitemap'),
+(94, 13, NULL, NULL, '2014-02-04', 'Page Filtered Listing', 'tagged', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'page_tag_list'),
+(95, 13, NULL, NULL, '2014-02-04', 'Contact', 'contact', 99, 1, 1, NULL, NULL, NULL, '', NULL, NULL, 'contact'),
+(96, 13, 138, NULL, '2014-02-04', 'E-Magazine', 'e-magazine', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'one_columned'),
+(97, 13, 139, NULL, '2014-02-04', 'Sports', 'sports', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'two_columned'),
+(98, 13, 140, NULL, '2014-02-04', 'Test Page 3', 'test-page-3', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'three_columned'),
+(99, 13, 141, NULL, '2014-02-04', 'Test Page 4', 'test-page-4', 99, 1, 1, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, NULL, 'one_columned');
 
 -- --------------------------------------------------------
 
@@ -966,11 +1011,8 @@ CREATE TABLE IF NOT EXISTS `pages_categories` (
 --
 
 INSERT INTO `pages_categories` (`page_id`, `category_id`) VALUES
-(82, 45),
-(85, 48),
-(87, 45),
-(87, 48),
-(88, 48);
+(91, 49),
+(94, 52);
 
 -- --------------------------------------------------------
 
@@ -991,11 +1033,9 @@ CREATE TABLE IF NOT EXISTS `pages_tags` (
 --
 
 INSERT INTO `pages_tags` (`page_id`, `tag_id`) VALUES
-(85, 23),
-(87, 23),
-(88, 23),
-(89, 23),
-(90, 23);
+(94, 25),
+(98, 25),
+(99, 25);
 
 -- --------------------------------------------------------
 
@@ -1033,14 +1073,14 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `blogItemsPerPage` int(11) NOT NULL,
   `activateSettings` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `metaDescription`, `metaKeywords`, `fromTitle`, `websiteTitle`, `websiteAuthor`, `useWebsiteAuthor`, `enableGoogleAnalytics`, `googleAnalyticsId`, `emailSender`, `emailRecepient`, `itemsPerPage`, `blogItemsPerPage`, `activateSettings`) VALUES
-(12, 'Default Meta Description', 'Default Meta Keywords', 'Owner', 'Website Title', 'Author', 1, 0, 'UA-XXX-XXXXX', 'george@bardis.info', 'george@bardis.info', 2, 2, 1);
+(13, 'Default Meta Description', 'Default Meta Keywords', 'Owner', 'Website Title', 'Author', 1, 0, 'UA-XXX-XXXXX', 'george@bardis.info', 'george@bardis.info', 2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -1075,16 +1115,17 @@ CREATE TABLE IF NOT EXISTS `spots` (
   UNIQUE KEY `UNIQ_D2BBDDF7F3890D5F` (`introimage`),
   UNIQUE KEY `UNIQ_D2BBDDF73B6DB7D3` (`spotattributes`),
   KEY `IDX_D2BBDDF7BDAFD8C8` (`author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `spots`
 --
 
 INSERT INTO `spots` (`id`, `author`, `introimage`, `spotattributes`, `date`, `title`, `alias`, `pageOrder`, `spotOrder`, `showPageTitle`, `publishState`, `featuredSpot`, `pageclass`, `mapLatitude`, `mapLongitude`, `description`, `keywords`, `introtext`, `introclass`, `pagetype`, `summary`) VALUES
-(28, 12, 136, NULL, '2014-02-04', 'Spots', 'list', 99, 99, 1, 1, 0, NULL, NULL, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, 'spot_home', NULL),
-(29, 12, NULL, NULL, '2014-02-04', 'Test spot page 1', 'test-spot-page-1', 99, 99, 1, 1, 1, NULL, '52.1111', '31.1111', 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, 'Lorem ipsum dolor sit amet', NULL, 'spot_article', NULL),
-(30, 12, NULL, NULL, '2014-02-04', 'Test spot page 2', 'test-spot-page-2', 99, 99, 1, 1, 1, NULL, '52.1111', '31.1111', 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports 2.', NULL, 'Lorem ipsum dolor sit amet 2', NULL, 'spot_article', NULL);
+(31, 13, 146, NULL, '2014-02-04', 'Spots', 'list', 99, 99, 1, 1, 0, NULL, NULL, NULL, NULL, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>', NULL, 'spot_home', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>'),
+(32, 13, 152, 1, '2014-02-04', 'Test spot page 1', 'test-spot-page-1', 99, 99, 1, 1, 1, NULL, '52.1111', '31.1111', 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, '<p>Lorem ipsum dolor sit amet</p>', NULL, 'spot_article', '<p>The term "surfing" refers to the act of riding a wave, regardless of whether the wave is ridden with a board or without a board, and regardless of the stance used. For instance, the native peoples of the Pacific surfed waves on alaia, paipo, and other such crafts, and did so on their bellies, knees, and However, the modern day definition of surfing most often refers to a surfer riding a wave standing up on a surfboard, and this is also referred to as stand-up surfing.</p>'),
+(33, 13, NULL, NULL, '2014-02-04', 'Test spot page 2', 'test-spot-page-2', 99, 99, 1, 1, 1, NULL, '52.1111', '31.1111', 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports 2.', NULL, 'Lorem ipsum dolor sit amet 2', NULL, 'spot_article', NULL),
+(34, 13, NULL, NULL, '2014-02-15', 'Test spot page 2 Clone', 'test-spot-page-2-clone', 99, 99, 1, 1, 0, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports 2.', NULL, '<p>Lorem ipsum dolor sit amet 2</p>', NULL, 'spot_article', NULL);
 
 -- --------------------------------------------------------
 
@@ -1099,6 +1140,14 @@ CREATE TABLE IF NOT EXISTS `spots_bannercontent_blocks` (
   KEY `IDX_FC83D8272DF1D37C` (`spot_id`),
   KEY `IDX_FC83D82742ADBAC2` (`contentblock_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `spots_bannercontent_blocks`
+--
+
+INSERT INTO `spots_bannercontent_blocks` (`spot_id`, `contentblock_id`) VALUES
+(32, 74),
+(32, 75);
 
 -- --------------------------------------------------------
 
@@ -1119,8 +1168,9 @@ CREATE TABLE IF NOT EXISTS `spots_destinationfilters` (
 --
 
 INSERT INTO `spots_destinationfilters` (`spot_id`, `spotdestinationfilter_id`) VALUES
-(29, 10),
-(30, 10);
+(32, 11),
+(33, 11),
+(34, 11);
 
 -- --------------------------------------------------------
 
@@ -1135,6 +1185,14 @@ CREATE TABLE IF NOT EXISTS `spots_maincontent_blocks` (
   KEY `IDX_5F16D2102DF1D37C` (`spot_id`),
   KEY `IDX_5F16D21042ADBAC2` (`contentblock_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `spots_maincontent_blocks`
+--
+
+INSERT INTO `spots_maincontent_blocks` (`spot_id`, `contentblock_id`) VALUES
+(31, 71),
+(32, 72);
 
 -- --------------------------------------------------------
 
@@ -1164,6 +1222,14 @@ CREATE TABLE IF NOT EXISTS `spots_secondarycontent_blocks` (
   KEY `IDX_5BC0C7CD42ADBAC2` (`contentblock_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `spots_secondarycontent_blocks`
+--
+
+INSERT INTO `spots_secondarycontent_blocks` (`spot_id`, `contentblock_id`) VALUES
+(31, 70),
+(32, 73);
+
 -- --------------------------------------------------------
 
 --
@@ -1183,8 +1249,10 @@ CREATE TABLE IF NOT EXISTS `spots_spotfilters` (
 --
 
 INSERT INTO `spots_spotfilters` (`spot_id`, `spotfilter_id`) VALUES
-(29, 10),
-(30, 10);
+(32, 11),
+(32, 12),
+(33, 11),
+(34, 11);
 
 -- --------------------------------------------------------
 
@@ -1237,7 +1305,14 @@ CREATE TABLE IF NOT EXISTS `spot_attributes` (
   `family` tinyint(1) NOT NULL,
   `restaurants` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `spot_attributes`
+--
+
+INSERT INTO `spot_attributes` (`id`, `nearestAirport`, `nearestTown`, `publicTransportation`, `accessProblem`, `surfClub`, `lessons`, `rental`, `storage`, `repair`, `gearshop`, `rescue`, `snacksAndDrinks`, `parking`, `toilets`, `showers`, `accommodation`, `budget`, `spotType`, `shoreType`, `bottom`, `sports`, `experience`, `style`, `crowded`, `dangers`, `windDirection`, `bestWindDirection`, `windForce`, `relative`, `blowingTime`, `seaState`, `swellType`, `swellDirection`, `swellLength`, `pointBreak`, `tide`, `waterQuality`, `season`, `seaTemperature`, `nightlife`, `family`, `restaurants`) VALUES
+(1, NULL, NULL, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 'a:1:{i:0;s:5:"Hotel";}', 'a:2:{i:0;s:6:"Medium";i:1;s:4:"High";}', 'a:1:{i:0;s:5:"Beach";}', NULL, NULL, 'a:3:{i:0;s:8:"Windsurf";i:1;s:8:"Kitesurf";i:2;s:9:"Wakeboard";}', 'a:1:{i:0;s:9:"Advanced ";}', 'a:3:{i:0;s:9:"Freestyle";i:1;s:9:"Big Jumps";i:2;s:7:"Formula";}', 'a:3:{i:0;s:17:"Sometimes crowded";i:1;s:7:"Crowded";i:2;s:11:"Too crowded";}', 'None', 'a:4:{i:0;s:1:"S";i:1;s:3:"SSW";i:2;s:1:"W";i:3;s:2:"NW";}', 'a:4:{i:0;s:2:"SE";i:1;s:3:"SSW";i:2;s:3:"WNW";i:3;s:2:"NW";}', 'a:0:{}', 'a:0:{}', 'All day', 'a:2:{i:0;s:6:"Choppy";i:1;s:4:"Flat";}', 'a:2:{i:0;s:5:"Mixed";i:1;s:11:"Wind swells";}', 'a:5:{i:0;s:2:"NE";i:1;s:2:"SW";i:2;s:3:"WSW";i:3;s:3:"WNW";i:4;s:2:"NW";}', 'a:2:{i:0;s:5:"Short";i:1;s:6:"Medium";}', 'a:1:{i:0;s:4:"Left";}', 'a:2:{i:0;s:4:"High";i:1;s:3:"Low";}', 'Salty', 'a:3:{i:0;s:6:"Automn";i:1;s:6:"Spring";i:2;s:3:"All";}', '20', 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -1254,14 +1329,15 @@ CREATE TABLE IF NOT EXISTS `spot_destinations` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_BCCE0A9B46B7BA9` (`spotDestinationFilterIcon`),
   KEY `IDX_BCCE0A9B3EC63EAA` (`destination`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `spot_destinations`
 --
 
 INSERT INTO `spot_destinations` (`id`, `destination`, `title`, `class`, `spotDestinationFilterIcon`) VALUES
-(10, 30, 'Halkidiki', NULL, NULL);
+(11, 33, 'Halkidiki', NULL, NULL),
+(12, NULL, 'destin', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1276,14 +1352,17 @@ CREATE TABLE IF NOT EXISTS `spot_filters` (
   `filterIcon` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_329D53256F191ECD` (`filterIcon`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `spot_filters`
 --
 
 INSERT INTO `spot_filters` (`id`, `title`, `filterCategory`, `filterIcon`) VALUES
-(10, 'Low Budjet', 'Budget', NULL);
+(11, 'Low Budjet', 'Budget', NULL),
+(12, 'Wind Surf', 'sport', NULL),
+(13, 'Winter', 'season', NULL),
+(14, 'Surd', 'sport', NULL);
 
 -- --------------------------------------------------------
 
@@ -1298,15 +1377,15 @@ CREATE TABLE IF NOT EXISTS `tags` (
   `tagIcon` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_6FBC94268913051D` (`tagIcon`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `tags`
 --
 
 INSERT INTO `tags` (`id`, `title`, `tagCategory`, `tagIcon`) VALUES
-(23, 'Sample Tag 1', NULL, NULL),
-(24, 'Sample Tag 2', 'blog', NULL);
+(25, 'Sample Tag 1', NULL, NULL),
+(26, 'Sample Tag 2', 'blog', NULL);
 
 -- --------------------------------------------------------
 
@@ -1323,7 +1402,72 @@ CREATE TABLE IF NOT EXISTS `timeline__action` (
   `duplicate_priority` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=63 ;
+
+--
+-- Dumping data for table `timeline__action`
+--
+
+INSERT INTO `timeline__action` (`id`, `verb`, `status_current`, `status_wanted`, `duplicate_key`, `duplicate_priority`, `created_at`) VALUES
+(4, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-05 19:49:53'),
+(5, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-05 19:50:34'),
+(6, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-05 19:50:56'),
+(7, 'sonata.admin.create', 'published', 'frozen', NULL, NULL, '2014-02-05 20:03:04'),
+(8, 'sonata.admin.create', 'published', 'frozen', NULL, NULL, '2014-02-05 20:03:57'),
+(9, 'sonata.admin.create', 'published', 'frozen', NULL, NULL, '2014-02-05 20:11:23'),
+(10, 'sonata.admin.create', 'published', 'frozen', NULL, NULL, '2014-02-05 20:11:42'),
+(11, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-05 20:11:52'),
+(12, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-05 20:28:45'),
+(13, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-05 20:28:56'),
+(14, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-05 20:30:09'),
+(15, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-05 20:32:15'),
+(16, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 20:39:14'),
+(17, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 20:39:35'),
+(18, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 21:47:12'),
+(19, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 21:47:39'),
+(20, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 21:48:19'),
+(21, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 21:48:36'),
+(22, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 21:48:59'),
+(23, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 21:49:28'),
+(24, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 21:53:56'),
+(25, 'sonata.admin.create', 'published', 'frozen', NULL, NULL, '2014-02-10 21:57:06'),
+(26, 'sonata.admin.create', 'published', 'frozen', NULL, NULL, '2014-02-10 21:57:28'),
+(27, 'sonata.admin.create', 'published', 'frozen', NULL, NULL, '2014-02-10 21:57:47'),
+(28, 'sonata.admin.create', 'published', 'frozen', NULL, NULL, '2014-02-10 21:58:07'),
+(29, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 21:59:42'),
+(30, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 21:59:55'),
+(31, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 22:43:03'),
+(32, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 22:48:03'),
+(33, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 22:48:14'),
+(34, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 22:48:55'),
+(35, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 22:49:05'),
+(36, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-10 23:20:20'),
+(37, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-15 00:23:02'),
+(38, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-15 00:37:29'),
+(39, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-15 00:37:39'),
+(40, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-15 00:37:51'),
+(41, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-15 00:38:02'),
+(42, 'sonata.admin.create', 'published', 'frozen', NULL, NULL, '2014-02-15 00:50:38'),
+(43, 'sonata.admin.create', 'published', 'frozen', NULL, NULL, '2014-02-15 00:52:02'),
+(44, 'sonata.admin.create', 'published', 'frozen', NULL, NULL, '2014-02-15 01:15:29'),
+(45, 'sonata.admin.create', 'published', 'frozen', NULL, NULL, '2014-02-15 03:13:49'),
+(46, 'sonata.admin.create', 'published', 'frozen', NULL, NULL, '2014-02-15 03:53:44'),
+(47, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-15 22:12:11'),
+(48, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-15 22:12:35'),
+(49, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-15 22:13:44'),
+(50, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:22:49'),
+(51, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:23:06'),
+(52, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:23:22'),
+(53, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:23:35'),
+(54, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:26:19'),
+(55, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:27:35'),
+(56, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:27:58'),
+(57, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:28:48'),
+(58, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:31:55'),
+(59, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:32:12'),
+(60, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:32:35'),
+(61, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:33:07'),
+(62, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:33:27');
 
 -- --------------------------------------------------------
 
@@ -1340,7 +1484,190 @@ CREATE TABLE IF NOT EXISTS `timeline__action_component` (
   PRIMARY KEY (`id`),
   KEY `IDX_6ACD1B169D32F035` (`action_id`),
   KEY `IDX_6ACD1B16E2ABAFFF` (`component_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=187 ;
+
+--
+-- Dumping data for table `timeline__action_component`
+--
+
+INSERT INTO `timeline__action_component` (`id`, `action_id`, `component_id`, `type`, `text`) VALUES
+(10, 4, 9, 'target', NULL),
+(11, 4, NULL, 'target_text', 'North Greece'),
+(12, 4, 8, 'subject', NULL),
+(13, 5, 9, 'target', NULL),
+(14, 5, NULL, 'target_text', 'North Greece'),
+(15, 5, 8, 'subject', NULL),
+(16, 6, 9, 'target', NULL),
+(17, 6, NULL, 'target_text', 'North Greece'),
+(18, 6, 8, 'subject', NULL),
+(19, 7, 10, 'target', NULL),
+(20, 7, NULL, 'target_text', 'South Greece'),
+(21, 7, 8, 'subject', NULL),
+(22, 8, 11, 'target', NULL),
+(23, 8, NULL, 'target_text', 'South Greece'),
+(24, 8, 8, 'subject', NULL),
+(25, 9, 12, 'target', NULL),
+(26, 9, NULL, 'target_text', 'Halkidiki Clone'),
+(27, 9, 8, 'subject', NULL),
+(28, 10, 13, 'target', NULL),
+(29, 10, NULL, 'target_text', 'South Greece Clone'),
+(30, 10, 8, 'subject', NULL),
+(31, 11, 13, 'target', NULL),
+(32, 11, NULL, 'target_text', 'South Greece Clone'),
+(33, 11, 8, 'subject', NULL),
+(34, 12, 14, 'target', NULL),
+(35, 12, NULL, 'target_text', 'Events'),
+(36, 12, 8, 'subject', NULL),
+(37, 13, 14, 'target', NULL),
+(38, 13, NULL, 'target_text', 'Events'),
+(39, 13, 8, 'subject', NULL),
+(40, 14, 15, 'target', NULL),
+(41, 14, NULL, 'target_text', 'North Greece'),
+(42, 14, 8, 'subject', NULL),
+(43, 15, 15, 'target', NULL),
+(44, 15, NULL, 'target_text', 'North Greece'),
+(45, 15, 8, 'subject', NULL),
+(46, 16, 16, 'target', NULL),
+(47, 16, NULL, 'target_text', 'Destinations'),
+(48, 16, 8, 'subject', NULL),
+(49, 17, 16, 'target', NULL),
+(50, 17, NULL, 'target_text', 'Destinations'),
+(51, 17, 8, 'subject', NULL),
+(52, 18, 9, 'target', NULL),
+(53, 18, NULL, 'target_text', 'North Greece'),
+(54, 18, 8, 'subject', NULL),
+(55, 19, 9, 'target', NULL),
+(56, 19, NULL, 'target_text', 'North Greece'),
+(57, 19, 8, 'subject', NULL),
+(58, 20, 9, 'target', NULL),
+(59, 20, NULL, 'target_text', 'North Greece'),
+(60, 20, 8, 'subject', NULL),
+(61, 21, 9, 'target', NULL),
+(62, 21, NULL, 'target_text', 'North Greece'),
+(63, 21, 8, 'subject', NULL),
+(64, 22, 9, 'target', NULL),
+(65, 22, NULL, 'target_text', 'North Greece'),
+(66, 22, 8, 'subject', NULL),
+(67, 23, 9, 'target', NULL),
+(68, 23, NULL, 'target_text', 'North Greece'),
+(69, 23, 8, 'subject', NULL),
+(70, 24, 16, 'target', NULL),
+(71, 24, NULL, 'target_text', 'Destinations'),
+(72, 24, 8, 'subject', NULL),
+(73, 25, 17, 'target', NULL),
+(74, 25, NULL, 'target_text', 'Kite Surf'),
+(75, 25, 8, 'subject', NULL),
+(76, 26, 18, 'target', NULL),
+(77, 26, NULL, 'target_text', 'Wake Board'),
+(78, 26, 8, 'subject', NULL),
+(79, 27, 19, 'target', NULL),
+(80, 27, NULL, 'target_text', 'Surf'),
+(81, 27, 8, 'subject', NULL),
+(82, 28, 20, 'target', NULL),
+(83, 28, NULL, 'target_text', 'Water Ski'),
+(84, 28, 8, 'subject', NULL),
+(85, 29, 18, 'target', NULL),
+(86, 29, NULL, 'target_text', 'Wake Board'),
+(87, 29, 8, 'subject', NULL),
+(88, 30, 21, 'target', NULL),
+(89, 30, NULL, 'target_text', 'Halkidiki'),
+(90, 30, 8, 'subject', NULL),
+(91, 31, 21, 'target', NULL),
+(92, 31, NULL, 'target_text', 'Halkidiki'),
+(93, 31, 8, 'subject', NULL),
+(94, 32, 21, 'target', NULL),
+(95, 32, NULL, 'target_text', 'Halkidiki'),
+(96, 32, 8, 'subject', NULL),
+(97, 33, 21, 'target', NULL),
+(98, 33, NULL, 'target_text', 'Halkidiki'),
+(99, 33, 8, 'subject', NULL),
+(100, 34, 21, 'target', NULL),
+(101, 34, NULL, 'target_text', 'Halkidiki'),
+(102, 34, 8, 'subject', NULL),
+(103, 35, 21, 'target', NULL),
+(104, 35, NULL, 'target_text', 'Halkidiki'),
+(105, 35, 8, 'subject', NULL),
+(106, 36, 22, 'target', NULL),
+(107, 36, NULL, 'target_text', 'Surf'),
+(108, 36, 8, 'subject', NULL),
+(109, 37, 23, 'target', NULL),
+(110, 37, NULL, 'target_text', 'Spots'),
+(111, 37, 8, 'subject', NULL),
+(112, 38, 23, 'target', NULL),
+(113, 38, NULL, 'target_text', 'Spots'),
+(114, 38, 8, 'subject', NULL),
+(115, 39, 23, 'target', NULL),
+(116, 39, NULL, 'target_text', 'Spots'),
+(117, 39, 8, 'subject', NULL),
+(118, 40, 23, 'target', NULL),
+(119, 40, NULL, 'target_text', 'Spots'),
+(120, 40, 8, 'subject', NULL),
+(121, 41, 23, 'target', NULL),
+(122, 41, NULL, 'target_text', 'Spots'),
+(123, 41, 8, 'subject', NULL),
+(124, 42, 24, 'target', NULL),
+(125, 42, NULL, 'target_text', 'Wind Surf'),
+(126, 42, 8, 'subject', NULL),
+(127, 43, 25, 'target', NULL),
+(128, 43, NULL, 'target_text', 'Winter'),
+(129, 43, 8, 'subject', NULL),
+(130, 44, 26, 'target', NULL),
+(131, 44, NULL, 'target_text', 'Surd'),
+(132, 44, 8, 'subject', NULL),
+(133, 45, 27, 'target', NULL),
+(134, 45, NULL, 'target_text', 'Test spot page 2 Clone'),
+(135, 45, 8, 'subject', NULL),
+(136, 46, 28, 'target', NULL),
+(137, 46, NULL, 'target_text', 'destin'),
+(138, 46, 8, 'subject', NULL),
+(139, 47, 29, 'target', NULL),
+(140, 47, NULL, 'target_text', 'Test spot page 1'),
+(141, 47, 8, 'subject', NULL),
+(142, 48, 29, 'target', NULL),
+(143, 48, NULL, 'target_text', 'Test spot page 1'),
+(144, 48, 8, 'subject', NULL),
+(145, 49, 29, 'target', NULL),
+(146, 49, NULL, 'target_text', 'Test spot page 1'),
+(147, 49, 8, 'subject', NULL),
+(148, 50, 29, 'target', NULL),
+(149, 50, NULL, 'target_text', 'Test spot page 1'),
+(150, 50, 8, 'subject', NULL),
+(151, 51, 29, 'target', NULL),
+(152, 51, NULL, 'target_text', 'Test spot page 1'),
+(153, 51, 8, 'subject', NULL),
+(154, 52, 29, 'target', NULL),
+(155, 52, NULL, 'target_text', 'Test spot page 1'),
+(156, 52, 8, 'subject', NULL),
+(157, 53, 29, 'target', NULL),
+(158, 53, NULL, 'target_text', 'Test spot page 1'),
+(159, 53, 8, 'subject', NULL),
+(160, 54, 29, 'target', NULL),
+(161, 54, NULL, 'target_text', 'Test spot page 1'),
+(162, 54, 8, 'subject', NULL),
+(163, 55, 29, 'target', NULL),
+(164, 55, NULL, 'target_text', 'Test spot page 1'),
+(165, 55, 8, 'subject', NULL),
+(166, 56, 29, 'target', NULL),
+(167, 56, NULL, 'target_text', 'Test spot page 1'),
+(168, 56, 8, 'subject', NULL),
+(169, 57, 29, 'target', NULL),
+(170, 57, NULL, 'target_text', 'Test spot page 1'),
+(171, 57, 8, 'subject', NULL),
+(172, 58, 29, 'target', NULL),
+(173, 58, NULL, 'target_text', 'Test spot page 1'),
+(174, 58, 8, 'subject', NULL),
+(175, 59, 29, 'target', NULL),
+(176, 59, NULL, 'target_text', 'Test spot page 1'),
+(177, 59, 8, 'subject', NULL),
+(178, 60, 29, 'target', NULL),
+(179, 60, NULL, 'target_text', 'Test spot page 1'),
+(180, 60, 8, 'subject', NULL),
+(181, 61, 29, 'target', NULL),
+(182, 61, NULL, 'target_text', 'Test spot page 1'),
+(183, 61, 8, 'subject', NULL),
+(184, 62, 29, 'target', NULL),
+(185, 62, NULL, 'target_text', 'Test spot page 1'),
+(186, 62, 8, 'subject', NULL);
 
 -- --------------------------------------------------------
 
@@ -1355,14 +1682,35 @@ CREATE TABLE IF NOT EXISTS `timeline__component` (
   `hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_1B2F01CDD1B862B8` (`hash`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `timeline__component`
 --
 
 INSERT INTO `timeline__component` (`id`, `model`, `identifier`, `hash`) VALUES
-(6, 'Application\\Sonata\\UserBundle\\Entity\\User', 's:2:"12";', 'Application\\Sonata\\UserBundle\\Entity\\User#s:2:"12";');
+(8, 'Application\\Sonata\\UserBundle\\Entity\\User', 's:2:"13";', 'Application\\Sonata\\UserBundle\\Entity\\User#s:2:"13";'),
+(9, 'BardisCMS\\DestinationBundle\\Entity\\Destination', 's:2:"32";', 'BardisCMS\\DestinationBundle\\Entity\\Destination#s:2:"32";'),
+(10, 'BardisCMS\\DestinationBundle\\Entity\\DestinationCategory', 's:2:"23";', 'BardisCMS\\DestinationBundle\\Entity\\DestinationCategory#s:2:"23";'),
+(11, 'BardisCMS\\DestinationBundle\\Entity\\Destination', 's:2:"34";', 'BardisCMS\\DestinationBundle\\Entity\\Destination#s:2:"34";'),
+(12, 'BardisCMS\\DestinationBundle\\Entity\\Destination', 's:2:"35";', 'BardisCMS\\DestinationBundle\\Entity\\Destination#s:2:"35";'),
+(13, 'BardisCMS\\DestinationBundle\\Entity\\Destination', 's:2:"36";', 'BardisCMS\\DestinationBundle\\Entity\\Destination#s:2:"36";'),
+(14, 'BardisCMS\\MenuBundle\\Entity\\Menu', 's:2:"84";', 'BardisCMS\\MenuBundle\\Entity\\Menu#s:2:"84";'),
+(15, 'BardisCMS\\DestinationBundle\\Entity\\DestinationCategory', 's:2:"22";', 'BardisCMS\\DestinationBundle\\Entity\\DestinationCategory#s:2:"22";'),
+(16, 'BardisCMS\\DestinationBundle\\Entity\\Destination', 's:2:"31";', 'BardisCMS\\DestinationBundle\\Entity\\Destination#s:2:"31";'),
+(17, 'BardisCMS\\DestinationBundle\\Entity\\DestinationTag', 's:2:"12";', 'BardisCMS\\DestinationBundle\\Entity\\DestinationTag#s:2:"12";'),
+(18, 'BardisCMS\\DestinationBundle\\Entity\\DestinationTag', 's:2:"13";', 'BardisCMS\\DestinationBundle\\Entity\\DestinationTag#s:2:"13";'),
+(19, 'BardisCMS\\DestinationBundle\\Entity\\DestinationTag', 's:2:"14";', 'BardisCMS\\DestinationBundle\\Entity\\DestinationTag#s:2:"14";'),
+(20, 'BardisCMS\\DestinationBundle\\Entity\\DestinationTag', 's:2:"15";', 'BardisCMS\\DestinationBundle\\Entity\\DestinationTag#s:2:"15";'),
+(21, 'BardisCMS\\DestinationBundle\\Entity\\Destination', 's:2:"33";', 'BardisCMS\\DestinationBundle\\Entity\\Destination#s:2:"33";'),
+(22, 'BardisCMS\\DestinationBundle\\Entity\\DestinationTag', 's:2:"11";', 'BardisCMS\\DestinationBundle\\Entity\\DestinationTag#s:2:"11";'),
+(23, 'BardisCMS\\SpotBundle\\Entity\\Spot', 's:2:"31";', 'BardisCMS\\SpotBundle\\Entity\\Spot#s:2:"31";'),
+(24, 'BardisCMS\\SpotBundle\\Entity\\SpotFilter', 's:2:"12";', 'BardisCMS\\SpotBundle\\Entity\\SpotFilter#s:2:"12";'),
+(25, 'BardisCMS\\SpotBundle\\Entity\\SpotFilter', 's:2:"13";', 'BardisCMS\\SpotBundle\\Entity\\SpotFilter#s:2:"13";'),
+(26, 'BardisCMS\\SpotBundle\\Entity\\SpotFilter', 's:2:"14";', 'BardisCMS\\SpotBundle\\Entity\\SpotFilter#s:2:"14";'),
+(27, 'BardisCMS\\SpotBundle\\Entity\\Spot', 's:2:"34";', 'BardisCMS\\SpotBundle\\Entity\\Spot#s:2:"34";'),
+(28, 'BardisCMS\\SpotBundle\\Entity\\SpotDestinationFilter', 's:2:"12";', 'BardisCMS\\SpotBundle\\Entity\\SpotDestinationFilter#s:2:"12";'),
+(29, 'BardisCMS\\SpotBundle\\Entity\\Spot', 's:2:"32";', 'BardisCMS\\SpotBundle\\Entity\\Spot#s:2:"32";');
 
 -- --------------------------------------------------------
 
@@ -1380,7 +1728,131 @@ CREATE TABLE IF NOT EXISTS `timeline__timeline` (
   PRIMARY KEY (`id`),
   KEY `IDX_FFBC6AD59D32F035` (`action_id`),
   KEY `IDX_FFBC6AD523EDC87` (`subject_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=125 ;
+
+--
+-- Dumping data for table `timeline__timeline`
+--
+
+INSERT INTO `timeline__timeline` (`id`, `action_id`, `subject_id`, `context`, `type`, `created_at`) VALUES
+(7, 4, 8, 'GLOBAL', 'timeline', '2014-02-05 19:49:53'),
+(8, 4, 8, 'SONATA_ADMIN', 'timeline', '2014-02-05 19:49:53'),
+(9, 5, 8, 'GLOBAL', 'timeline', '2014-02-05 19:50:34'),
+(10, 5, 8, 'SONATA_ADMIN', 'timeline', '2014-02-05 19:50:34'),
+(11, 6, 8, 'GLOBAL', 'timeline', '2014-02-05 19:50:56'),
+(12, 6, 8, 'SONATA_ADMIN', 'timeline', '2014-02-05 19:50:56'),
+(13, 7, 8, 'GLOBAL', 'timeline', '2014-02-05 20:03:04'),
+(14, 7, 8, 'SONATA_ADMIN', 'timeline', '2014-02-05 20:03:04'),
+(15, 8, 8, 'GLOBAL', 'timeline', '2014-02-05 20:03:57'),
+(16, 8, 8, 'SONATA_ADMIN', 'timeline', '2014-02-05 20:03:57'),
+(17, 9, 8, 'GLOBAL', 'timeline', '2014-02-05 20:11:23'),
+(18, 9, 8, 'SONATA_ADMIN', 'timeline', '2014-02-05 20:11:23'),
+(19, 10, 8, 'GLOBAL', 'timeline', '2014-02-05 20:11:42'),
+(20, 10, 8, 'SONATA_ADMIN', 'timeline', '2014-02-05 20:11:42'),
+(21, 11, 8, 'GLOBAL', 'timeline', '2014-02-05 20:11:52'),
+(22, 11, 8, 'SONATA_ADMIN', 'timeline', '2014-02-05 20:11:52'),
+(23, 12, 8, 'GLOBAL', 'timeline', '2014-02-05 20:28:45'),
+(24, 12, 8, 'SONATA_ADMIN', 'timeline', '2014-02-05 20:28:45'),
+(25, 13, 8, 'GLOBAL', 'timeline', '2014-02-05 20:28:56'),
+(26, 13, 8, 'SONATA_ADMIN', 'timeline', '2014-02-05 20:28:56'),
+(27, 14, 8, 'GLOBAL', 'timeline', '2014-02-05 20:30:10'),
+(28, 14, 8, 'SONATA_ADMIN', 'timeline', '2014-02-05 20:30:10'),
+(29, 15, 8, 'GLOBAL', 'timeline', '2014-02-05 20:32:15'),
+(30, 15, 8, 'SONATA_ADMIN', 'timeline', '2014-02-05 20:32:15'),
+(31, 16, 8, 'GLOBAL', 'timeline', '2014-02-10 20:39:14'),
+(32, 16, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 20:39:14'),
+(33, 17, 8, 'GLOBAL', 'timeline', '2014-02-10 20:39:35'),
+(34, 17, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 20:39:35'),
+(35, 18, 8, 'GLOBAL', 'timeline', '2014-02-10 21:47:12'),
+(36, 18, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 21:47:12'),
+(37, 19, 8, 'GLOBAL', 'timeline', '2014-02-10 21:47:39'),
+(38, 19, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 21:47:39'),
+(39, 20, 8, 'GLOBAL', 'timeline', '2014-02-10 21:48:19'),
+(40, 20, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 21:48:19'),
+(41, 21, 8, 'GLOBAL', 'timeline', '2014-02-10 21:48:36'),
+(42, 21, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 21:48:36'),
+(43, 22, 8, 'GLOBAL', 'timeline', '2014-02-10 21:48:59'),
+(44, 22, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 21:48:59'),
+(45, 23, 8, 'GLOBAL', 'timeline', '2014-02-10 21:49:28'),
+(46, 23, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 21:49:28'),
+(47, 24, 8, 'GLOBAL', 'timeline', '2014-02-10 21:53:56'),
+(48, 24, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 21:53:56'),
+(49, 25, 8, 'GLOBAL', 'timeline', '2014-02-10 21:57:06'),
+(50, 25, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 21:57:06'),
+(51, 26, 8, 'GLOBAL', 'timeline', '2014-02-10 21:57:28'),
+(52, 26, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 21:57:28'),
+(53, 27, 8, 'GLOBAL', 'timeline', '2014-02-10 21:57:47'),
+(54, 27, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 21:57:47'),
+(55, 28, 8, 'GLOBAL', 'timeline', '2014-02-10 21:58:07'),
+(56, 28, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 21:58:07'),
+(57, 29, 8, 'GLOBAL', 'timeline', '2014-02-10 21:59:42'),
+(58, 29, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 21:59:42'),
+(59, 30, 8, 'GLOBAL', 'timeline', '2014-02-10 21:59:55'),
+(60, 30, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 21:59:55'),
+(61, 31, 8, 'GLOBAL', 'timeline', '2014-02-10 22:43:03'),
+(62, 31, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 22:43:03'),
+(63, 32, 8, 'GLOBAL', 'timeline', '2014-02-10 22:48:03'),
+(64, 32, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 22:48:03'),
+(65, 33, 8, 'GLOBAL', 'timeline', '2014-02-10 22:48:14'),
+(66, 33, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 22:48:14'),
+(67, 34, 8, 'GLOBAL', 'timeline', '2014-02-10 22:48:55'),
+(68, 34, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 22:48:55'),
+(69, 35, 8, 'GLOBAL', 'timeline', '2014-02-10 22:49:05'),
+(70, 35, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 22:49:06'),
+(71, 36, 8, 'GLOBAL', 'timeline', '2014-02-10 23:20:20'),
+(72, 36, 8, 'SONATA_ADMIN', 'timeline', '2014-02-10 23:20:20'),
+(73, 37, 8, 'GLOBAL', 'timeline', '2014-02-15 00:23:02'),
+(74, 37, 8, 'SONATA_ADMIN', 'timeline', '2014-02-15 00:23:02'),
+(75, 38, 8, 'GLOBAL', 'timeline', '2014-02-15 00:37:29'),
+(76, 38, 8, 'SONATA_ADMIN', 'timeline', '2014-02-15 00:37:29'),
+(77, 39, 8, 'GLOBAL', 'timeline', '2014-02-15 00:37:39'),
+(78, 39, 8, 'SONATA_ADMIN', 'timeline', '2014-02-15 00:37:39'),
+(79, 40, 8, 'GLOBAL', 'timeline', '2014-02-15 00:37:51'),
+(80, 40, 8, 'SONATA_ADMIN', 'timeline', '2014-02-15 00:37:51'),
+(81, 41, 8, 'GLOBAL', 'timeline', '2014-02-15 00:38:02'),
+(82, 41, 8, 'SONATA_ADMIN', 'timeline', '2014-02-15 00:38:02'),
+(83, 42, 8, 'GLOBAL', 'timeline', '2014-02-15 00:50:38'),
+(84, 42, 8, 'SONATA_ADMIN', 'timeline', '2014-02-15 00:50:38'),
+(85, 43, 8, 'GLOBAL', 'timeline', '2014-02-15 00:52:02'),
+(86, 43, 8, 'SONATA_ADMIN', 'timeline', '2014-02-15 00:52:02'),
+(87, 44, 8, 'GLOBAL', 'timeline', '2014-02-15 01:15:29'),
+(88, 44, 8, 'SONATA_ADMIN', 'timeline', '2014-02-15 01:15:29'),
+(89, 45, 8, 'GLOBAL', 'timeline', '2014-02-15 03:13:49'),
+(90, 45, 8, 'SONATA_ADMIN', 'timeline', '2014-02-15 03:13:49'),
+(91, 46, 8, 'GLOBAL', 'timeline', '2014-02-15 03:53:44'),
+(92, 46, 8, 'SONATA_ADMIN', 'timeline', '2014-02-15 03:53:44'),
+(93, 47, 8, 'GLOBAL', 'timeline', '2014-02-15 22:12:11'),
+(94, 47, 8, 'SONATA_ADMIN', 'timeline', '2014-02-15 22:12:11'),
+(95, 48, 8, 'GLOBAL', 'timeline', '2014-02-15 22:12:35'),
+(96, 48, 8, 'SONATA_ADMIN', 'timeline', '2014-02-15 22:12:35'),
+(97, 49, 8, 'GLOBAL', 'timeline', '2014-02-15 22:13:44'),
+(98, 49, 8, 'SONATA_ADMIN', 'timeline', '2014-02-15 22:13:44'),
+(99, 50, 8, 'GLOBAL', 'timeline', '2014-02-16 01:22:49'),
+(100, 50, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:22:49'),
+(101, 51, 8, 'GLOBAL', 'timeline', '2014-02-16 01:23:06'),
+(102, 51, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:23:06'),
+(103, 52, 8, 'GLOBAL', 'timeline', '2014-02-16 01:23:22'),
+(104, 52, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:23:22'),
+(105, 53, 8, 'GLOBAL', 'timeline', '2014-02-16 01:23:35'),
+(106, 53, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:23:35'),
+(107, 54, 8, 'GLOBAL', 'timeline', '2014-02-16 01:26:19'),
+(108, 54, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:26:19'),
+(109, 55, 8, 'GLOBAL', 'timeline', '2014-02-16 01:27:35'),
+(110, 55, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:27:35'),
+(111, 56, 8, 'GLOBAL', 'timeline', '2014-02-16 01:27:58'),
+(112, 56, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:27:58'),
+(113, 57, 8, 'GLOBAL', 'timeline', '2014-02-16 01:28:48'),
+(114, 57, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:28:48'),
+(115, 58, 8, 'GLOBAL', 'timeline', '2014-02-16 01:31:56'),
+(116, 58, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:31:56'),
+(117, 59, 8, 'GLOBAL', 'timeline', '2014-02-16 01:32:12'),
+(118, 59, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:32:12'),
+(119, 60, 8, 'GLOBAL', 'timeline', '2014-02-16 01:32:35'),
+(120, 60, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:32:35'),
+(121, 61, 8, 'GLOBAL', 'timeline', '2014-02-16 01:33:07'),
+(122, 61, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:33:07'),
+(123, 62, 8, 'GLOBAL', 'timeline', '2014-02-16 01:33:27'),
+(124, 62, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:33:27');
 
 --
 -- Constraints for dumped tables

@@ -145,5 +145,19 @@
 		<argument>sonata.block.clearcache</argument>
 		<argument type="service" id="templating" />
 	  </service>  
+	  <service id="marineweatherapi.client" class="%guzzle.client.class%">
+		 <tag name="guzzle.client" />
+		 <argument>http://api.worldweatheronline.com/premium/v1/marine.ashx</argument>
+		 <call method="addSubscriber">
+			 <argument type="service" id="misd_guzzle.cache.filesystem" />
+		 </call>
+	 </service>
+	 <service id="weatherapi.client" class="%guzzle.client.class%">
+		 <tag name="guzzle.client" />
+		 <argument>http://api.worldweatheronline.com/premium/v1/</argument>
+		 <call method="addSubscriber">
+			 <argument type="service" id="misd_guzzle.cache.filesystem" />
+		 </call>
+	 </service>
    </services>
 </container>

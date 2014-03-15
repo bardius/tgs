@@ -1,0 +1,79 @@
+{% if weatherData is defined %}
+		<dl class="tabs" data-tab>
+			<dd class="active">
+				<a href="#dailyWeatherTab" title="Daily Weather"><h3>Daily Weather</h3></a>
+			</dd>
+			<dd>
+				<a href="#weeklyWeatherTab" title="Weekly Weather"><h3>Weekly Weather</h3></a>
+			</dd>
+		</dl>
+		<div class="tabs-content">
+			<div id="dailyWeatherTab" class="row collapse content spotWeatherRow active">
+				{% for hourlyWeatherData in weatherData[0]['hourly'] %}
+					{% if loop.index == (("now"|date("H", "Europe/Athens")) / 3)|round %}
+					<div class="columns large-4 small-12">
+						<p>weather now {{ "now"|date("D") }} {{ "now"|date("F d") }}</p>						
+						<p>{{ page.title }}</p>						
+						<p><img src="{{ hourlyWeatherData.weatherIconUrl[0].value }}" />
+						{{ hourlyWeatherData.weatherIconUrl[0].value|split('/')|last }}</p>						
+						<p>winddir 16Point {{ hourlyWeatherData.winddir16Point }}</p>						
+						<p>WindGust Kmph {{ hourlyWeatherData.WindGustKmph }}</p>						
+						<p>windspeed Kmph {{ hourlyWeatherData.windspeedKmph }}</p>						
+						<p>windspeed Beaufort {{ '%.1f'|format(((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) }}</p>						
+						<p>tempC {{ hourlyWeatherData.tempC }}</p>						
+						<p>water Temp_C {{ hourlyWeatherData.waterTemp_C }}</p>						
+						<p>humidity {{ hourlyWeatherData.humidity }}</p>						
+						<p>visibility {{ hourlyWeatherData.visibility }}</p>						
+						<p>cloudcover {{ hourlyWeatherData.cloudcover }}</p>		
+						<p>swell Height_m {{ hourlyWeatherData.swellHeight_m }}</p>		
+						<p>swell Period_secs {{ hourlyWeatherData.swellPeriod_secs }}</p>
+					</div>
+					{% endif %}					
+				{% endfor %}
+				{% for hourlyWeatherData in weatherData[0]['hourly'] %}
+				{% if loop.index < 9 %}
+					<div class="columns large-1 small-12">	
+						<p>{{ loop.index0 * 3 }}</p>
+						<p>winddir 16Point {{ hourlyWeatherData.winddir16Point }}</p>						
+						<p>WindGust Kmph {{ hourlyWeatherData.WindGustKmph }}</p>						
+						<p>windspeed Kmph {{ hourlyWeatherData.windspeedKmph }}</p>
+						<p>windspeed Beaufort {{ '%.1f'|format(((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) }}</p>							
+						<p>tempC {{ hourlyWeatherData.tempC }}</p>						
+						<p>water Temp_C {{ hourlyWeatherData.waterTemp_C }}</p>						
+						<p>humidity {{ hourlyWeatherData.humidity }}</p>						
+						<p>visibility {{ hourlyWeatherData.visibility }}</p>						
+						<p>cloudcover {{ hourlyWeatherData.cloudcover }}</p>		
+						<p>swell Height_m {{ hourlyWeatherData.swellHeight_m }}</p>		
+						<p>swell Period_secs {{ hourlyWeatherData.swellPeriod_secs }}</p>
+					</div>
+					{% endif %}
+				{% endfor %}	
+			</div>
+			<div id="weeklyWeatherTab" class="row collapse content spotWeatherRow">
+				{% for weeklyWeatherData in weatherData %}
+				{% if loop.index0 > 0 %}
+					<div class="columns large-2 small-12">
+						<p>{{ ('+'~loop.index0~' day')|date("D F d") }}</p>
+						{% for dailyWeatherData in weeklyWeatherData['hourly'] %}
+						{% if loop.index == 5 %}
+						
+						<p>winddir 16Point {{ dailyWeatherData.winddir16Point }}</p>						
+						<p>WindGust Kmph {{ dailyWeatherData.WindGustKmph }}</p>						
+						<p>windspeed Kmph {{ dailyWeatherData.windspeedKmph }}</p>
+						<p>windspeed Beaufort {{ '%.1f'|format(((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) }}</p>							
+						<p>tempC {{ dailyWeatherData.tempC }}</p>						
+						<p>water Temp_C {{ dailyWeatherData.waterTemp_C }}</p>						
+						<p>humidity {{ dailyWeatherData.humidity }}</p>						
+						<p>visibility {{ dailyWeatherData.visibility }}</p>						
+						<p>cloudcover {{ dailyWeatherData.cloudcover }}</p>		
+						<p>swell Height_m {{ dailyWeatherData.swellHeight_m }}</p>		
+						<p>swell Period_secs {{ dailyWeatherData.swellPeriod_secs }}</p>
+					{% endif %}
+					{% endfor %}
+					</div>
+				{% endif %}						
+				{% endfor %}
+			</div>
+		</div>
+
+{% endif %}

@@ -1130,6 +1130,29 @@ header{
 			}
 		}
 	}
+	
+	.spotWeather{
+		margin-bottom: rem-calc(44);
+		
+		.spotWeatherRow{
+			padding: 0;
+			width: 100%;
+			
+			.columns{
+				padding: rem-calc(10);
+				border-right: 1px solid $white-color;
+				overflow: hidden;
+				
+				&:nth-child(6){
+					border-right: none;
+				} 
+				
+				p{
+					font-size: rem-calc(12);
+				}
+			}
+		}		
+	}
 }
 
 

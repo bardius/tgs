@@ -15,7 +15,7 @@
                 {% for i in 0..(totalPages - 1) %}
                     {% if i != currentpage %}
                         <li>
-							<a class="pageNumber" <a class="pageNumber" href="{{ app.request.getBaseURL() }}/spots/{{ extraParams }}/{{ i }}" title="Page {{ i }}">{{ i }}</a>
+							<a class="pageNumber" href="{{ app.request.getBaseURL() }}/spots/{{ extraParams }}/{{ i }}" title="Page {{ i }}">{{ i }}</a>
 						</li>
                     {% else %}
                         <li class="current">

@@ -50,6 +50,11 @@ class Configuration implements ConfigurationInterface
                     ->useAttributeAsKey('name')
                         ->prototype('scalar')->defaultValue(null)->end()
                     ->end() 
+                
+                ->arrayNode('worldweatheronline')
+                    ->useAttributeAsKey('name')
+                        ->prototype('scalar')->defaultValue(null)->end()
+                    ->end() 
 			
             ->end();
 
