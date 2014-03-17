@@ -19,6 +19,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 use BardisCMS\ContentBlockBundle\Entity\ContentBlock;
 use BardisCMS\SpotBundle\Entity\SpotDestinationFilter;
 use BardisCMS\SpotBundle\Entity\SpotFilter;
+use BardisCMS\DestinationBundle\Entity\Destination;
 
 
 /**
@@ -151,6 +152,12 @@ class Spot
      * @ORM\Column(type="text", nullable=true)
      */ 
     protected $summary = null;
+	
+    /**
+     * @ORM\ManyToOne(targetEntity="BardisCMS\DestinationBundle\Entity\Destination")
+     * @ORM\JoinColumn(name="related_destination", referencedColumnName="id", onDelete="SET NULL")
+     */
+    protected $relatedDestination;
    
     /**
      * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="spot_maincontents", cascade={"persist"})
@@ -662,6 +669,30 @@ class Spot
     public function getSummary()
     {
         return $this->summary;
+    }
+
+    /**
+     * Set relatedDestination
+     *
+     * @param \BardisCMS\DestinationBundle\Entity\Destination $relatedDestination
+     *
+     * @return Spot
+     */
+    public function setRelatedDestination(\BardisCMS\DestinationBundle\Entity\Destination $relatedDestination = null)
+    {
+        $this->relatedDestination = $relatedDestination;
+    
+        return $this;
+    }
+
+    /**
+     * Get relatedDestination
+     *
+     * @return \BardisCMS\DestinationBundle\Entity\Destination 
+     */
+    public function getRelatedDestination()
+    {
+        return $this->relatedDestination;
     }
 
     /**

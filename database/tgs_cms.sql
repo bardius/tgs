@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 16, 2014 at 02:43 AM
+-- Generation Time: Mar 16, 2014 at 08:52 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.16
 
@@ -417,7 +417,7 @@ CREATE TABLE IF NOT EXISTS `content_images` (
   `imageOrder` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8829CEC6991EFFB9` (`imagefile`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -756,7 +756,7 @@ CREATE TABLE IF NOT EXISTS `fos_user_user` (
 --
 
 INSERT INTO `fos_user_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `created_at`, `updated_at`, `date_of_birth`, `firstname`, `lastname`, `website`, `biography`, `gender`, `locale`, `timezone`, `phone`, `facebook_uid`, `facebook_name`, `facebook_data`, `twitter_uid`, `twitter_name`, `twitter_data`, `gplus_uid`, `gplus_name`, `gplus_data`, `token`, `two_step_code`, `bakeFrequency`, `sex`, `bakeChoises`, `age`, `children`, `campaign`) VALUES
-(13, 'administrator', 'administrator', 'george@bardis.info', 'george@bardis.info', 1, 'brys9cc04t4cs0gk40k4cgsggkskcws', '0ANGjUZ51MFVKewONAjFbQhoaQ5HHypCO7Urck2l5MMduKJASx0/mkCf/5cVm/9RoiH7JzQ2BLumtd382CPJAg==', '2014-02-15 22:09:26', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL, '2014-02-04 23:43:19', '2014-02-15 22:09:26', NULL, NULL, NULL, NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, NULL, NULL, 'N;', NULL, NULL, NULL);
+(13, 'administrator', 'administrator', 'george@bardis.info', 'george@bardis.info', 1, 'brys9cc04t4cs0gk40k4cgsggkskcws', '0ANGjUZ51MFVKewONAjFbQhoaQ5HHypCO7Urck2l5MMduKJASx0/mkCf/5cVm/9RoiH7JzQ2BLumtd382CPJAg==', '2014-03-14 22:45:47', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL, '2014-02-04 23:43:19', '2014-03-14 22:45:47', NULL, NULL, NULL, NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, NULL, NULL, 'N;', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1123,7 +1123,7 @@ CREATE TABLE IF NOT EXISTS `spots` (
 
 INSERT INTO `spots` (`id`, `author`, `introimage`, `spotattributes`, `date`, `title`, `alias`, `pageOrder`, `spotOrder`, `showPageTitle`, `publishState`, `featuredSpot`, `pageclass`, `mapLatitude`, `mapLongitude`, `description`, `keywords`, `introtext`, `introclass`, `pagetype`, `summary`) VALUES
 (31, 13, 146, NULL, '2014-02-04', 'Spots', 'list', 99, 99, 1, 1, 0, NULL, NULL, NULL, NULL, NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>', NULL, 'spot_home', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.</p>'),
-(32, 13, 152, 1, '2014-02-04', 'Test spot page 1', 'test-spot-page-1', 99, 99, 1, 1, 1, NULL, '52.1111', '31.1111', 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, '<p>Lorem ipsum dolor sit amet</p>', NULL, 'spot_article', '<p>The term "surfing" refers to the act of riding a wave, regardless of whether the wave is ridden with a board or without a board, and regardless of the stance used. For instance, the native peoples of the Pacific surfed waves on alaia, paipo, and other such crafts, and did so on their bellies, knees, and However, the modern day definition of surfing most often refers to a surfer riding a wave standing up on a surfboard, and this is also referred to as stand-up surfing.</p>'),
+(32, 13, 152, 1, '2014-02-04', 'Test spot page 1', 'test-spot-page-1', 99, 99, 1, 1, 1, NULL, '40.275112', '23.370659', 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports.', NULL, '<p>Lorem ipsum dolor sit amet</p>', NULL, 'spot_article', '<p>The term "surfing" refers to the act of riding a wave, regardless of whether the wave is ridden with a board or without a board, and regardless of the stance used. For instance, the native peoples of the Pacific surfed waves on alaia, paipo, and other such crafts, and did so on their bellies, knees, and However, the modern day definition of surfing most often refers to a surfer riding a wave standing up on a surfboard, and this is also referred to as stand-up surfing.</p>'),
 (33, 13, NULL, NULL, '2014-02-04', 'Test spot page 2', 'test-spot-page-2', 99, 99, 1, 1, 1, NULL, '52.1111', '31.1111', 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports 2.', NULL, 'Lorem ipsum dolor sit amet 2', NULL, 'spot_article', NULL),
 (34, 13, NULL, NULL, '2014-02-15', 'Test spot page 2 Clone', 'test-spot-page-2-clone', 99, 99, 1, 1, 0, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports 2.', NULL, '<p>Lorem ipsum dolor sit amet 2</p>', NULL, 'spot_article', NULL);
 
@@ -1402,7 +1402,7 @@ CREATE TABLE IF NOT EXISTS `timeline__action` (
   `duplicate_priority` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=63 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=64 ;
 
 --
 -- Dumping data for table `timeline__action`
@@ -1467,7 +1467,8 @@ INSERT INTO `timeline__action` (`id`, `verb`, `status_current`, `status_wanted`,
 (59, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:32:12'),
 (60, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:32:35'),
 (61, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:33:07'),
-(62, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:33:27');
+(62, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-02-16 01:33:27'),
+(63, 'sonata.admin.update', 'published', 'frozen', NULL, NULL, '2014-03-14 22:48:45');
 
 -- --------------------------------------------------------
 
@@ -1484,7 +1485,7 @@ CREATE TABLE IF NOT EXISTS `timeline__action_component` (
   PRIMARY KEY (`id`),
   KEY `IDX_6ACD1B169D32F035` (`action_id`),
   KEY `IDX_6ACD1B16E2ABAFFF` (`component_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=187 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=190 ;
 
 --
 -- Dumping data for table `timeline__action_component`
@@ -1667,7 +1668,10 @@ INSERT INTO `timeline__action_component` (`id`, `action_id`, `component_id`, `ty
 (183, 61, 8, 'subject', NULL),
 (184, 62, 29, 'target', NULL),
 (185, 62, NULL, 'target_text', 'Test spot page 1'),
-(186, 62, 8, 'subject', NULL);
+(186, 62, 8, 'subject', NULL),
+(187, 63, 29, 'target', NULL),
+(188, 63, NULL, 'target_text', 'Test spot page 1'),
+(189, 63, 8, 'subject', NULL);
 
 -- --------------------------------------------------------
 
@@ -1728,7 +1732,7 @@ CREATE TABLE IF NOT EXISTS `timeline__timeline` (
   PRIMARY KEY (`id`),
   KEY `IDX_FFBC6AD59D32F035` (`action_id`),
   KEY `IDX_FFBC6AD523EDC87` (`subject_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=125 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=127 ;
 
 --
 -- Dumping data for table `timeline__timeline`
@@ -1852,7 +1856,9 @@ INSERT INTO `timeline__timeline` (`id`, `action_id`, `subject_id`, `context`, `t
 (121, 61, 8, 'GLOBAL', 'timeline', '2014-02-16 01:33:07'),
 (122, 61, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:33:07'),
 (123, 62, 8, 'GLOBAL', 'timeline', '2014-02-16 01:33:27'),
-(124, 62, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:33:27');
+(124, 62, 8, 'SONATA_ADMIN', 'timeline', '2014-02-16 01:33:27'),
+(125, 63, 8, 'GLOBAL', 'timeline', '2014-03-14 22:48:46'),
+(126, 63, 8, 'SONATA_ADMIN', 'timeline', '2014-03-14 22:48:46');
 
 --
 -- Constraints for dumped tables

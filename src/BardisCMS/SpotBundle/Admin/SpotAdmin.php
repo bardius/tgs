@@ -53,7 +53,8 @@ class SpotAdmin extends Admin
                 ))
             ->end()
             ->with('Filters & Destinations', array('collapsed' => true))
-                ->add('spotDestinationFilters', 'entity', array('class' => 'BardisCMS\SpotBundle\Entity\SpotDestinationFilter', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Associated Destinations', 'required' => false))
+                ->add('relatedDestination', 'entity', array('class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Related Destination', 'attr' => array('class' => 'autoCompleteItems autoCompleteSpot'), 'required' => false))
+                ->add('spotDestinationFilters', 'entity', array('class' => 'BardisCMS\SpotBundle\Entity\SpotDestinationFilter', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Associated Destination Categories', 'required' => false))
                 ->add('spotFilters', 'entity', array('class' => 'BardisCMS\SpotBundle\Entity\SpotFilter', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Spot Filters', 'required' => false))                
                 ->setHelps(array(
                     'spotFilters'				=> 'Select the associated filters',
@@ -91,7 +92,7 @@ class SpotAdmin extends Admin
                 $formMapper                          
                         ->with('Spot Specific Information', array('collapsed' => true))
                             ->add('showPageTitle', 'choice', array('choices' => array('0' => 'Hide Title', '1' => 'Show Title'), 'preferred_choices' => array('1'), 'label' => 'Title Display', 'required' => true))
-                            ->add('summary', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced'), 'label' => 'Spot Description', 'required' => false))
+							->add('summary', 'textarea', array('attr' => array('class' => 'tinymce', 'data-theme' => 'advanced'), 'label' => 'Spot Description', 'required' => false))
                             ->add('spotOrder', null, array('label' => 'Spot Item Ordering', 'required' => false))
                             ->add('pageclass', null, array('label' => 'Spot Page CSS Class', 'required' => false))
                             ->add('mapLongitude', null, array('label' => 'Spot Map Longitude', 'required' => false))
@@ -177,6 +178,7 @@ class SpotAdmin extends Admin
             ->addIdentifier('alias')
             ->addIdentifier('publishStateAsString', null, array('sortable' => false, 'label' => 'Publish State'))
             ->addIdentifier('pagetypeAsString', null, array('sortable' => false, 'label' => 'Page Type'))
+            ->addIdentifier('relatedDestination')
             ->addIdentifier('spotDestinationFilters')
             ->addIdentifier('spotFilters')
             ->addIdentifier('featuredSpotAsString', null, array('sortable' => false, 'label' => 'Featured Spot'))

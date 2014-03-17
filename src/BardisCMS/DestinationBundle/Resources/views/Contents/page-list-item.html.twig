@@ -7,14 +7,16 @@
 	
     <a class="readMoreImage" href="{{ url('DestinationBundle_page_normal', { 'alias': pageItem.alias }) }}" title="{{ pageItem.title }}">
         {% if pageItem.introImage.id is defined %}
-		{% media pageItem.introImage.id, 'medium' with {'alt': pageItem.title, 'title': ''} %}
+		{% media pageItem.introImage.id, 'medium' with {'alt': pageItem.title, 'title': pageItem.title } %}
         {% else %}
         <img src="/images/site_assets/defaultDestinationThumb.jpg" alt="{{ pageItem.title }}" />
         {% endif %}
+		{#
 		<span class="introItemText">
 			<span class="introItemDesc">
 				{{ pageItem.introtext|striptags }}
 			</span>
 		</span>
+		#}
     </a>
 </div>

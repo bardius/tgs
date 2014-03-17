@@ -458,7 +458,8 @@ header{
 			padding-bottom:11%;
 			
 			.spotItem{
-				margin: 0 rem-calc(6);
+				padding: 0 rem-calc(6);
+				margin: rem-calc(3) 0;
 				
 				h5{
 					display: block;
@@ -488,6 +489,7 @@ header{
 							top: 25%;
 							display: inline-block;
 							text-align: center;
+							font-size: rem-calc(12);
 						}								
 					}
 					

@@ -284,7 +284,35 @@ class SpotRepository extends EntityRepository
     }
 	
 	
-    public function getRelatedSpots($spotdestinationIds, $currentPageId, $publishStates)
+    public function getRelatedSpots($spotdestination, $currentPageId, $publishStates)
+    {   
+		$pages = null;
+		
+        if(!empty($spotdestination))
+        {
+            $qb = $this->_em->createQueryBuilder();
+            
+            $qb->select('DISTINCT p')
+                ->from('SpotBundle:Spot', 'p')
+                ->where($qb->expr()->andX(
+                    $qb->expr()->eq('p.relatedDestination', ':spotdestination'),
+                    $qb->expr()->in('p.publishState', ':publishState'),
+                    $qb->expr()->neq('p.id', ':currentPage')
+                ))
+                ->orderBy('p.spotOrder', 'ASC')
+                ->setParameter('spotdestination', $spotdestination)
+                ->setParameter('publishState', $publishStates)
+                ->setParameter('currentPage', $currentPageId)
+            ;
+
+			$pages = $qb->getQuery()->getResult();
+        }
+            
+        return  $pages;
+    }  
+	
+	
+    public function getAssociatedSpots($spotdestinationIds, $currentPageId, $publishStates)
     {   
 		$pages = null;
 		

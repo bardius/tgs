@@ -1,7 +1,5 @@
-{% if relatedDestinations is defined and relatedDestinations is not null %}
-	{% for spot_destination in relatedDestinations %}
-		<a class="spotDestinationLink" href="{{ url('DestinationBundle_page_normal', { 'alias': spot_destination.destination.alias }) }}" title="{{ spot_destination.title }}">
-			{{ spot_destination.title }} 
-		</a>
-	{% endfor %}
+{% if page.relatedDestination.alias is defined and page.relatedDestination.alias is not null and page.relatedDestination.title is defined and page.relatedDestination.title is not null %}
+	<a class="spotDestinationLink" href="{{ url('DestinationBundle_page_normal', { 'alias': page.relatedDestination.alias }) }}" title="{{ page.relatedDestination.title }}">
+		{{ page.relatedDestination.title }} 
+	</a>
 {% endif %}
