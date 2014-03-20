@@ -45,7 +45,8 @@ $default-float: left;
 $primary-color: #4cb9bb;
 $secondary-color: #808080;
 $hover-color: #38898a;
-$alert-color: #f04124;
+$alert-color: #FFBABA;
+$alert-copy-color: #D8000C;
 $success-color: #43AC6A;
 $warning-color: #f08a24;
 $info-color: #a0d3e8;
@@ -53,6 +54,7 @@ $white-color: #ffffff;
 $dark-gray-color: #515151;
 $light-black-color: #080808;
 $yellow-color: #f8f0a2;
+$light-gray-color: rgba(249, 247, 235, 0.4);
 
 // We use these to control various global styles
 $body-bg: #fff;

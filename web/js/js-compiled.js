@@ -103,7 +103,7 @@ a("section",this),a("> ul",this).first()}b.data("index",0);var d=b.parent();d.ha
 			
 			// Start the AJAX based contact form
 			CMS.foundationConfig.ajaxSubmittedForm('#contactform', '#contactFormBtn');
-			CMS.foundationConfig.ajaxSubmittedForm('#add_comment_form', '#submitCommentBtn');
+			//CMS.foundationConfig.ajaxSubmittedForm('#add_comment_form', '#submitCommentBtn');
 		},
 		    
 	    ajaxSubmittedForm: function(formId, formSubmitBtnId) {
@@ -124,7 +124,7 @@ a("section",this),a("> ul",this).first()}b.data("index",0);var d=b.parent();d.ha
 					$.post(formAction, formData, function(responce) {
 
 						$(".formError").remove();
-						$("label.error").removeClass('error');
+						$(formId +" .error").removeClass('error');
 
 						if (responce.hasErrors === false) {
 							formElement.trigger("reset");
@@ -136,12 +136,10 @@ a("section",this),a("> ul",this).first()}b.data("index",0);var d=b.parent();d.ha
 								var errorArray = responce.errors;
 								
 								$.each(errorArray, function(key, val) {
-									console.log(key);
-									console.log(formId + '_' + key);
-									console.log(val[0]);
 									// find type of input, return validation
 									$(formId + '_' + key).addClass('error');
-									$(formId + '_' + key).after($('<small class="formError error">' + val[0] + '</small>').hide());	
+									$(formId + '_' + key).closest(".formFieldContainer").addClass('error');
+									$(formId + '_' + key).closest(".formFieldContainer").after($('<small class="formError error">' + val[0] + '</small>').hide());	
 								});
 							}
 							

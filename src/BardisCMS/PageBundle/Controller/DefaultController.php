@@ -316,10 +316,10 @@ class DefaultController extends Controller {
 
 				// If data is valid send the email with the twig email template set in the views
 				$message = \Swift_Message::newInstance()
-						->setSubject('Enquiry from ' . $websiteTitle . ' website: ' . $emailData['firstname'] . ' ' . $emailData['surname'])
+						->setSubject('Enquiry from ' . $websiteTitle . ' website: ' . $emailData['fullname'])
 						->setFrom($emailData['email'])
 						->setTo($settings->getEmailRecepient())
-						->setBody($this->renderView('PageBundle:Email:contactFormEmail.txt.twig', array('sender' => $emailData['firstname'] . ' ' . $emailData['surname'], 'mailData' => $emailData['comment'])));
+						->setBody($this->renderView('PageBundle:Email:contactFormEmail.txt.twig', array('sender' => $emailData['fullname'], 'mailData' => $emailData['comment'])));
 
 				// The responce for the user upon successful submission
 				$successMsg = 'Thank you for contacting us, we will be in touch soon';

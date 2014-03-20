@@ -1701,9 +1701,9 @@ select {
 }
 /* line 111, ../bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box.alert {
-  background-color: #f04124;
-  border-color: #de2d0f;
-  color: white;
+  background-color: #ffbaba;
+  border-color: #ff7c7c;
+  color: #2c2c2c;
 }
 /* line 112, ../bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box.secondary {
@@ -2434,17 +2434,17 @@ button.success:hover, button.success:focus, .button.success:hover, .button.succe
 }
 /* line 209, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.alert, .button.alert {
-  background-color: #f04124;
-  border-color: #cf2a0e;
-  color: white;
+  background-color: #ffbaba;
+  border-color: #ff6262;
+  color: #333333;
 }
 /* line 144, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.alert:hover, button.alert:focus, .button.alert:hover, .button.alert:focus {
-  background-color: #cf2a0e;
+  background-color: #ff6262;
 }
-/* line 155, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
+/* line 150, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.alert:hover, button.alert:focus, .button.alert:hover, .button.alert:focus {
-  color: white;
+  color: #333333;
 }
 /* line 211, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.large, .button.large {
@@ -2567,9 +2567,9 @@ button.disabled.success:hover, button.disabled.success:focus, button[disabled].s
 }
 /* line 225, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.alert, button[disabled].alert, .button.disabled.alert, .button[disabled].alert {
-  background-color: #f04124;
-  border-color: #cf2a0e;
-  color: white;
+  background-color: #ffbaba;
+  border-color: #ff6262;
+  color: #333333;
   cursor: default;
   opacity: 0.7;
   -webkit-box-shadow: none;
@@ -2577,15 +2577,15 @@ button.disabled.alert, button[disabled].alert, .button.disabled.alert, .button[d
 }
 /* line 144, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert:hover, button[disabled].alert:focus, .button.disabled.alert:hover, .button.disabled.alert:focus, .button[disabled].alert:hover, .button[disabled].alert:focus {
-  background-color: #cf2a0e;
+  background-color: #ff6262;
 }
-/* line 155, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
+/* line 150, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert:hover, button[disabled].alert:focus, .button.disabled.alert:hover, .button.disabled.alert:focus, .button[disabled].alert:hover, .button[disabled].alert:focus {
-  color: white;
+  color: #333333;
 }
 /* line 168, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert:hover, button[disabled].alert:focus, .button.disabled.alert:hover, .button.disabled.alert:focus, .button[disabled].alert:hover, .button[disabled].alert:focus {
-  background-color: #f04124;
+  background-color: #ffbaba;
 }
 
 @media only screen and (min-width: 40.063em) {
@@ -3713,8 +3713,8 @@ fieldset legend {
   font-size: 0.75rem;
   font-weight: normal;
   font-style: italic;
-  background: #f04124;
-  color: white;
+  background: #ffbaba;
+  color: #333333;
 }
 /* line 450, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 [data-abide] span.error, [data-abide] small.error {
@@ -3730,8 +3730,8 @@ span.error, small.error {
   font-size: 0.75rem;
   font-weight: normal;
   font-style: italic;
-  background: #f04124;
-  color: white;
+  background: #ffbaba;
+  color: #333333;
 }
 
 /* line 458, ../bower_components/foundation/scss/foundation/components/_forms.scss */
@@ -3743,7 +3743,7 @@ span.error, small.error {
 /* line 463, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 .error label,
 .error label.error {
-  color: #f04124;
+  color: #ffbaba;
 }
 /* line 468, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 .error > small,
@@ -3755,8 +3755,8 @@ span.error, small.error {
   font-size: 0.75rem;
   font-weight: normal;
   font-style: italic;
-  background: #f04124;
-  color: white;
+  background: #ffbaba;
+  color: #333333;
 }
 /* line 473, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 .error > label > small {
@@ -3782,7 +3782,7 @@ textarea.error {
 
 /* line 494, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 label.error {
-  color: #f04124;
+  color: #ffbaba;
 }
 
 /* line 48, ../bower_components/foundation/scss/foundation/components/_inline-lists.scss */
@@ -4051,8 +4051,8 @@ kbd {
 }
 /* line 95, ../bower_components/foundation/scss/foundation/components/_labels.scss */
 .label.alert {
-  background-color: #f04124;
-  color: white;
+  background-color: #ffbaba;
+  color: #333333;
 }
 /* line 96, ../bower_components/foundation/scss/foundation/components/_labels.scss */
 .label.success {
@@ -4659,7 +4659,7 @@ ul.pagination li {
 }
 /* line 62, ../bower_components/foundation/scss/foundation/components/_progress-bars.scss */
 .progress.alert .meter {
-  background: #f04124;
+  background: #ffbaba;
   height: 100%;
   display: block;
 }
@@ -5758,11 +5758,11 @@ meta.foundation-mq-topbar {
 }
 /* line 316, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > a.button.alert {
-  background: #f04124;
+  background: #ffbaba;
 }
 /* line 318, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > a.button.alert:hover {
-  background: #d42b0f;
+  background: #ff6b6b;
 }
 /* line 326, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li:hover > a {
@@ -6213,7 +6213,7 @@ small {
 code {
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   font-weight: bold;
-  color: #bd260d;
+  color: #ff4343;
 }
 
 /* Lists */
@@ -11071,18 +11071,166 @@ header {
 	Generic Page styles
 -----------------------------------------*/
 /*-------------------------------------------
+	Contact Page styles
+-----------------------------------------*/
+/* line 535, ../scss/_styles.scss */
+.contactPage .contact h3 {
+  font-size: 3.5rem;
+  transform: rotate(-3deg);
+  margin: 0 0 2.5rem 0;
+  text-transform: lowercase;
+  font-family: "gotham_book", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  line-height: 1.1;
+}
+/* line 544, ../scss/_styles.scss */
+.contactPage .contact #contactFormHolder {
+  background: gray;
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+/* line 549, ../scss/_styles.scss */
+.contactPage .contact #contactFormHolder legend {
+  border: 0 none;
+  color: #515151;
+  font-family: "burbank_big_condensed", Verdana, Tahoma, Arial, sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.6;
+  margin: 0 0 2.5rem 0;
+}
+/* line 560, ../scss/_styles.scss */
+.contactPage .contact #contactFormHolder label {
+  display: inline-block;
+  width: 100%;
+  color: white;
+  font-family: "burbank_big_condensed", Verdana, Tahoma, Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2.375rem;
+  cursor: pointer;
+  margin: 0 0 1.25rem 0;
+  text-shadow: 0 1px 0 gray;
+  letter-spacing: 1px;
+}
+/* line 574, ../scss/_styles.scss */
+.contactPage .contact #contactFormHolder .formFieldContainer {
+  background: none repeat 0 0 rgba(249, 247, 235, 0.4);
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+  padding: 0.625rem;
+  position: relative;
+}
+/* line 583, ../scss/_styles.scss */
+.contactPage .contact #contactFormHolder .formFieldContainer input[type="text"],
+.contactPage .contact #contactFormHolder .formFieldContainer input[type="email"],
+.contactPage .contact #contactFormHolder .formFieldContainer textarea {
+  background: url("../images/site_assets/form_bg.png") 0 0 repeat;
+  color: #515151;
+  font-size: 1rem;
+  height: 2.5rem;
+  margin: 0;
+  padding: 0.375rem;
+  position: relative;
+  width: 100%;
+  border: 0 none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.25) inset;
+  -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.25) inset;
+  max-width: 100%;
+}
+/* line 600, ../scss/_styles.scss */
+.contactPage .contact #contactFormHolder .formFieldContainer textarea {
+  height: 11.25rem;
+  resize: vertical;
+}
+/* line 605, ../scss/_styles.scss */
+.contactPage .contact #contactFormHolder .formFieldContainer:before {
+  border: 1px dashed #FFFFFF;
+  border-radius: 9px;
+  bottom: 4px;
+  content: "";
+  left: 4px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  z-index: 0;
+}
+/* line 617, ../scss/_styles.scss */
+.contactPage .contact #contactFormHolder .formFieldContainer.error:before {
+  border: 1px dashed #d8000c;
+}
+/* line 622, ../scss/_styles.scss */
+.contactPage .contact #contactFormHolder small {
+  border: 0 none;
+  color: white;
+  font-family: "gotham_book", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  text-align: right;
+  width: 100%;
+  display: inline-block;
+  line-height: 1.4;
+}
+/* line 632, ../scss/_styles.scss */
+.contactPage .contact #contactFormHolder small.error {
+  color: #d8000c;
+  border: 1px solid #d8000c;
+}
+/* line 638, ../scss/_styles.scss */
+.contactPage .contact #contactFormHolder .button {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  padding: 0.5rem 6rem;
+  margin: 1.25rem auto;
+  display: block;
+}
+/* line 648, ../scss/_styles.scss */
+.contactPage .roundPhoto {
+  background: gray;
+  border-radius: 50%;
+  margin: 1.25rem 0 1.25rem 10%;
+  padding: 16px;
+  position: relative;
+  width: 90%;
+  overflow: hidden;
+}
+/* line 657, ../scss/_styles.scss */
+.contactPage .roundPhoto img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  display: block;
+}
+/* line 666, ../scss/_styles.scss */
+.contactPage .contact-info-box {
+  width: 90%;
+  margin: 1.25rem 0 1.25rem 10%;
+}
+/* line 670, ../scss/_styles.scss */
+.contactPage .contact-info-box hr {
+  border-top: 1px dashed gray;
+  border-bottom: 1px solid gray;
+  height: 6px;
+  margin: 0 0 15px;
+  padding: 1px 0 0;
+  width: 100%;
+}
+
+/*-------------------------------------------
 	Destination Page styles
 -----------------------------------------*/
-/* line 531, ../scss/_styles.scss */
+/* line 688, ../scss/_styles.scss */
 .destinationList {
   margin-bottom: 1.875rem !important;
 }
-/* line 534, ../scss/_styles.scss */
+/* line 691, ../scss/_styles.scss */
 .destinationList .destination_cat_pageItem {
   margin-bottom: 2.5rem;
   overflow: hidden;
 }
-/* line 538, ../scss/_styles.scss */
+/* line 695, ../scss/_styles.scss */
 .destinationList .destination_cat_pageItem h3 {
   color: white;
   background: none #4cb9bb;
@@ -11095,15 +11243,15 @@ header {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-/* line 551, ../scss/_styles.scss */
+/* line 708, ../scss/_styles.scss */
 .destinationList .destination_cat_pageItem h3 a {
   color: white;
 }
-/* line 556, ../scss/_styles.scss */
+/* line 713, ../scss/_styles.scss */
 .destinationList .destination_cat_pageItem .readMoreImage {
   position: relative;
 }
-/* line 559, ../scss/_styles.scss */
+/* line 716, ../scss/_styles.scss */
 .destinationList .destination_cat_pageItem .readMoreImage .introItemText {
   display: inline-block;
   width: 100%;
@@ -11121,7 +11269,7 @@ header {
   -o-transition: all 400ms ease-in-out;
   transition: all 400ms ease-in-out;
 }
-/* line 578, ../scss/_styles.scss */
+/* line 735, ../scss/_styles.scss */
 .destinationList .destination_cat_pageItem .readMoreImage .introItemDesc {
   display: inline-block;
   width: 100%;
@@ -11131,7 +11279,7 @@ header {
   font-size: 1rem;
   padding: 0;
 }
-/* line 588, ../scss/_styles.scss */
+/* line 745, ../scss/_styles.scss */
 .destinationList .destination_cat_pageItem .readMoreImage span {
   display: inline;
   width: auto;
@@ -11141,11 +11289,11 @@ header {
   font-size: 1rem;
   padding: 0;
 }
-/* line 601, ../scss/_styles.scss */
+/* line 758, ../scss/_styles.scss */
 .destinationList .destination_cat_pageItem:hover .introItemText {
   margin-bottom: 0;
 }
-/* line 607, ../scss/_styles.scss */
+/* line 764, ../scss/_styles.scss */
 .destinationList .isRound {
   display: inline-block;
   text-align: center;
@@ -11159,7 +11307,7 @@ header {
   padding-top: 84%;
   border: 4px solid #4cb9bb;
 }
-/* line 620, ../scss/_styles.scss */
+/* line 777, ../scss/_styles.scss */
 .destinationList .isRound .roundTitle {
   display: inline-block;
   height: 100%;
@@ -11176,7 +11324,7 @@ header {
   border-radius: 50%;
   overflow: hidden;
 }
-/* line 636, ../scss/_styles.scss */
+/* line 793, ../scss/_styles.scss */
 .destinationList .isRound .roundTitle .verticalCenterer {
   display: table;
   height: 100%;
@@ -11185,7 +11333,7 @@ header {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
-/* line 644, ../scss/_styles.scss */
+/* line 801, ../scss/_styles.scss */
 .destinationList .isRound .roundTitle .verticalCenterer span {
   display: table-cell;
   vertical-align: middle;
@@ -11193,35 +11341,35 @@ header {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
-/* line 655, ../scss/_styles.scss */
+/* line 812, ../scss/_styles.scss */
 .destinationList .isRound:hover, .destinationList .isRound:focus {
   color: white;
   background-color: #515151;
   border-color: #515151;
 }
 
-/* line 665, ../scss/_styles.scss */
+/* line 822, ../scss/_styles.scss */
 .destinationListBelow .pageDescription {
   padding: 0;
 }
 
-/* line 672, ../scss/_styles.scss */
+/* line 829, ../scss/_styles.scss */
 .destinationTopText.pageDescription {
   padding: 0;
   margin-bottom: 1.875rem;
 }
 
-/* line 680, ../scss/_styles.scss */
+/* line 837, ../scss/_styles.scss */
 .destinationArticlePage h2 {
   color: #515151;
   line-height: 0.9;
 }
-/* line 685, ../scss/_styles.scss */
+/* line 842, ../scss/_styles.scss */
 .destinationArticlePage h3 {
   font-size: 3.375rem;
   line-height: 1;
 }
-/* line 690, ../scss/_styles.scss */
+/* line 847, ../scss/_styles.scss */
 .destinationArticlePage h5 {
   display: inline-block;
   width: 100%;
@@ -11230,31 +11378,31 @@ header {
   color: #515151;
   margin-bottom: 0.875rem;
 }
-/* line 698, ../scss/_styles.scss */
+/* line 855, ../scss/_styles.scss */
 .destinationArticlePage h5 a {
   color: #515151;
 }
-/* line 701, ../scss/_styles.scss */
+/* line 858, ../scss/_styles.scss */
 .destinationArticlePage h5 a:hover, .destinationArticlePage h5 a:focus {
   color: #4cb9bb;
 }
-/* line 708, ../scss/_styles.scss */
+/* line 865, ../scss/_styles.scss */
 .destinationArticlePage .pageDescription {
   margin-bottom: 2.75rem;
 }
-/* line 712, ../scss/_styles.scss */
+/* line 869, ../scss/_styles.scss */
 .destinationArticlePage .destinationSports {
   margin-bottom: 1.875rem;
 }
-/* line 715, ../scss/_styles.scss */
+/* line 872, ../scss/_styles.scss */
 .destinationArticlePage .destinationSports .destinationSport {
   text-align: center;
 }
-/* line 720, ../scss/_styles.scss */
+/* line 877, ../scss/_styles.scss */
 .destinationArticlePage .destinationDirectionsText {
   margin-bottom: 1.875rem;
 }
-/* line 724, ../scss/_styles.scss */
+/* line 881, ../scss/_styles.scss */
 .destinationArticlePage .isRound {
   display: inline-block;
   text-align: center;
@@ -11268,7 +11416,7 @@ header {
   padding-top: 88%;
   margin: 8px 0;
 }
-/* line 737, ../scss/_styles.scss */
+/* line 894, ../scss/_styles.scss */
 .destinationArticlePage .isRound .roundTitle {
   display: inline-block;
   height: 100%;
@@ -11285,14 +11433,14 @@ header {
   border-radius: 50%;
   overflow: hidden;
 }
-/* line 753, ../scss/_styles.scss */
+/* line 910, ../scss/_styles.scss */
 .destinationArticlePage .isRound .roundTitle .verticalCenterer {
   display: inline-block;
   height: 100%;
   width: 100%;
   text-align: center;
 }
-/* line 759, ../scss/_styles.scss */
+/* line 916, ../scss/_styles.scss */
 .destinationArticlePage .isRound .roundTitle .verticalCenterer img {
   height: 60%;
   width: auto;
@@ -11300,22 +11448,22 @@ header {
   margin-bottom: 4%;
   font-size: 0.0625rem;
 }
-/* line 767, ../scss/_styles.scss */
+/* line 924, ../scss/_styles.scss */
 .destinationArticlePage .isRound .roundTitle .verticalCenterer span {
   width: 100%;
   display: inline-block;
 }
-/* line 774, ../scss/_styles.scss */
+/* line 931, ../scss/_styles.scss */
 .destinationArticlePage .isRound:hover, .destinationArticlePage .isRound:focus {
   color: white;
   background-color: #515151;
   border-color: #515151;
 }
-/* line 781, ../scss/_styles.scss */
+/* line 938, ../scss/_styles.scss */
 .destinationArticlePage .relatedSpot {
   text-align: center;
 }
-/* line 784, ../scss/_styles.scss */
+/* line 941, ../scss/_styles.scss */
 .destinationArticlePage .relatedSpot a {
   display: inline-block;
   font-size: 2rem;
@@ -11327,7 +11475,7 @@ header {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-/* line 796, ../scss/_styles.scss */
+/* line 953, ../scss/_styles.scss */
 .destinationArticlePage .relatedSpot a img {
   display: inline-block;
   width: 100%;
@@ -11340,11 +11488,11 @@ header {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-/* line 813, ../scss/_styles.scss */
+/* line 970, ../scss/_styles.scss */
 .destinationArticlePage .relatedSpot a:hover {
   color: #4cb9bb;
 }
-/* line 816, ../scss/_styles.scss */
+/* line 973, ../scss/_styles.scss */
 .destinationArticlePage .relatedSpot a:hover img {
   -moz-box-shadow: inset 0 0 20px 5px #000;
   -webkit-box-shadow: inset 0 0 20px 5px #000;
@@ -11354,16 +11502,16 @@ header {
 /*-------------------------------------------
 	Spot Page styles
 -----------------------------------------*/
-/* line 831, ../scss/_styles.scss */
+/* line 988, ../scss/_styles.scss */
 .spotsList {
   margin-bottom: 1.875rem !important;
 }
-/* line 834, ../scss/_styles.scss */
+/* line 991, ../scss/_styles.scss */
 .spotsList .spot_articleItem {
   margin-bottom: 2.5rem;
   overflow: hidden;
 }
-/* line 838, ../scss/_styles.scss */
+/* line 995, ../scss/_styles.scss */
 .spotsList .spot_articleItem h3 {
   color: white;
   background: none #4cb9bb;
@@ -11376,15 +11524,15 @@ header {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-/* line 851, ../scss/_styles.scss */
+/* line 1008, ../scss/_styles.scss */
 .spotsList .spot_articleItem h3 a {
   color: white;
 }
-/* line 856, ../scss/_styles.scss */
+/* line 1013, ../scss/_styles.scss */
 .spotsList .spot_articleItem .readMoreImage {
   position: relative;
 }
-/* line 859, ../scss/_styles.scss */
+/* line 1016, ../scss/_styles.scss */
 .spotsList .spot_articleItem .readMoreImage .introItemText {
   display: inline-block;
   width: 100%;
@@ -11402,7 +11550,7 @@ header {
   -o-transition: all 400ms ease-in-out;
   transition: all 400ms ease-in-out;
 }
-/* line 878, ../scss/_styles.scss */
+/* line 1035, ../scss/_styles.scss */
 .spotsList .spot_articleItem .readMoreImage .introItemDesc {
   display: inline-block;
   width: 100%;
@@ -11412,7 +11560,7 @@ header {
   font-size: 1rem;
   padding: 0;
 }
-/* line 888, ../scss/_styles.scss */
+/* line 1045, ../scss/_styles.scss */
 .spotsList .spot_articleItem .readMoreImage span {
   display: inline;
   width: auto;
@@ -11422,48 +11570,48 @@ header {
   font-size: 0.8125rem;
   padding: 0;
 }
-/* line 901, ../scss/_styles.scss */
+/* line 1058, ../scss/_styles.scss */
 .spotsList .spot_articleItem:hover .introItemText {
   margin-bottom: 0;
 }
 
-/* line 908, ../scss/_styles.scss */
+/* line 1065, ../scss/_styles.scss */
 .spotListBelow {
   margin-bottom: calc-rem(30);
 }
-/* line 911, ../scss/_styles.scss */
+/* line 1068, ../scss/_styles.scss */
 .spotListBelow .pageDescription {
   padding: 0;
 }
 
-/* line 918, ../scss/_styles.scss */
+/* line 1075, ../scss/_styles.scss */
 .spotTopText.pageDescription {
   padding: 0;
   margin-bottom: 1.875rem;
 }
 
-/* line 930, ../scss/_styles.scss */
+/* line 1087, ../scss/_styles.scss */
 .spotsListBelow .pageDescription {
   padding: 0;
 }
 
-/* line 937, ../scss/_styles.scss */
+/* line 1094, ../scss/_styles.scss */
 .spotsTopText.pageDescription {
   padding: 0;
   margin-bottom: 1.875rem;
 }
 
-/* line 945, ../scss/_styles.scss */
+/* line 1102, ../scss/_styles.scss */
 .spotArticlePage h2 {
   color: #515151;
   line-height: 0.9;
 }
-/* line 950, ../scss/_styles.scss */
+/* line 1107, ../scss/_styles.scss */
 .spotArticlePage h3 {
   font-size: 3.375rem;
   line-height: 1;
 }
-/* line 955, ../scss/_styles.scss */
+/* line 1112, ../scss/_styles.scss */
 .spotArticlePage h5 {
   display: inline-block;
   width: 100%;
@@ -11472,19 +11620,19 @@ header {
   color: #515151;
   margin-bottom: 0.875rem;
 }
-/* line 963, ../scss/_styles.scss */
+/* line 1120, ../scss/_styles.scss */
 .spotArticlePage h5 a {
   color: #515151;
 }
-/* line 966, ../scss/_styles.scss */
+/* line 1123, ../scss/_styles.scss */
 .spotArticlePage h5 a:hover, .spotArticlePage h5 a:focus {
   color: #4cb9bb;
 }
-/* line 973, ../scss/_styles.scss */
+/* line 1130, ../scss/_styles.scss */
 .spotArticlePage .pageDescription {
   margin-bottom: 2.75rem;
 }
-/* line 977, ../scss/_styles.scss */
+/* line 1134, ../scss/_styles.scss */
 .spotArticlePage .isRound {
   display: inline-block;
   text-align: center;
@@ -11498,7 +11646,7 @@ header {
   padding-top: 88%;
   margin-bottom: 1rem;
 }
-/* line 990, ../scss/_styles.scss */
+/* line 1147, ../scss/_styles.scss */
 .spotArticlePage .isRound .roundTitle {
   display: inline-block;
   height: 100%;
@@ -11515,14 +11663,14 @@ header {
   border-radius: 50%;
   overflow: hidden;
 }
-/* line 1006, ../scss/_styles.scss */
+/* line 1163, ../scss/_styles.scss */
 .spotArticlePage .isRound .roundTitle .verticalCenterer {
   display: inline-block;
   height: 100%;
   width: 100%;
   text-align: center;
 }
-/* line 1012, ../scss/_styles.scss */
+/* line 1169, ../scss/_styles.scss */
 .spotArticlePage .isRound .roundTitle .verticalCenterer img {
   height: 60%;
   width: auto;
@@ -11530,22 +11678,22 @@ header {
   margin-bottom: 4%;
   font-size: 0.0625rem;
 }
-/* line 1020, ../scss/_styles.scss */
+/* line 1177, ../scss/_styles.scss */
 .spotArticlePage .isRound .roundTitle .verticalCenterer span {
   width: 100%;
   display: inline-block;
 }
-/* line 1028, ../scss/_styles.scss */
+/* line 1185, ../scss/_styles.scss */
 .spotArticlePage .isRound:hover, .spotArticlePage .isRound:focus {
   color: white;
   background-color: #515151;
   border-color: #515151;
 }
-/* line 1035, ../scss/_styles.scss */
+/* line 1192, ../scss/_styles.scss */
 .spotArticlePage .relatedSpot {
   text-align: center;
 }
-/* line 1038, ../scss/_styles.scss */
+/* line 1195, ../scss/_styles.scss */
 .spotArticlePage .relatedSpot a {
   display: inline-block;
   font-size: 2rem;
@@ -11557,7 +11705,7 @@ header {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-/* line 1050, ../scss/_styles.scss */
+/* line 1207, ../scss/_styles.scss */
 .spotArticlePage .relatedSpot a img {
   display: inline-block;
   width: 100%;
@@ -11570,35 +11718,35 @@ header {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-/* line 1067, ../scss/_styles.scss */
+/* line 1224, ../scss/_styles.scss */
 .spotArticlePage .relatedSpot a:hover {
   color: #4cb9bb;
 }
-/* line 1070, ../scss/_styles.scss */
+/* line 1227, ../scss/_styles.scss */
 .spotArticlePage .relatedSpot a:hover img {
   -moz-box-shadow: inset 0 0 20px 5px #000;
   -webkit-box-shadow: inset 0 0 20px 5px #000;
   box-shadow: inset 0 0 20px 5px #000;
 }
-/* line 1079, ../scss/_styles.scss */
+/* line 1236, ../scss/_styles.scss */
 .spotArticlePage .contentBlock {
   margin-bottom: 2.75rem;
 }
-/* line 1083, ../scss/_styles.scss */
+/* line 1240, ../scss/_styles.scss */
 .spotArticlePage .spotAttributes {
   margin-bottom: 2.75rem;
 }
-/* line 1086, ../scss/_styles.scss */
+/* line 1243, ../scss/_styles.scss */
 .spotArticlePage .spotAttributes .spotAttributeTitle {
   display: block;
   line-height: 1;
   text-transform: uppercase;
 }
-/* line 1095, ../scss/_styles.scss */
+/* line 1252, ../scss/_styles.scss */
 .spotArticlePage .spotAttributes .spotAttributeRow {
   padding: 0;
 }
-/* line 1098, ../scss/_styles.scss */
+/* line 1255, ../scss/_styles.scss */
 .spotArticlePage .spotAttributes .spotAttributeRow .columns {
   padding: 0.625rem;
   height: 160px;
@@ -11606,11 +11754,11 @@ header {
   border-bottom: 1px solid white;
   overflow: hidden;
 }
-/* line 1107, ../scss/_styles.scss */
+/* line 1264, ../scss/_styles.scss */
 .spotArticlePage .spotAttributes .spotAttributeRow .columns:nth-child(6), .spotArticlePage .spotAttributes .spotAttributeRow .columns:nth-child(12), .spotArticlePage .spotAttributes .spotAttributeRow .columns:nth-child(18) {
   border-right: none;
 }
-/* line 1111, ../scss/_styles.scss */
+/* line 1268, ../scss/_styles.scss */
 .spotArticlePage .spotAttributes .spotAttributeRow .columns h5 {
   color: white;
   text-align: center;
@@ -11622,7 +11770,7 @@ header {
   height: 2.5rem;
   margin: 0 0 10px 0;
 }
-/* line 1123, ../scss/_styles.scss */
+/* line 1280, ../scss/_styles.scss */
 .spotArticlePage .spotAttributes .spotAttributeRow .columns span {
   color: #f8f0a2;
   text-align: center;
@@ -11632,26 +11780,26 @@ header {
   display: inline-block;
   width: 100%;
 }
-/* line 1136, ../scss/_styles.scss */
+/* line 1293, ../scss/_styles.scss */
 .spotArticlePage .spotWeather {
   margin-bottom: 2.75rem;
 }
-/* line 1139, ../scss/_styles.scss */
+/* line 1296, ../scss/_styles.scss */
 .spotArticlePage .spotWeather .spotWeatherRow {
   padding: 0;
   width: 100%;
 }
-/* line 1143, ../scss/_styles.scss */
+/* line 1300, ../scss/_styles.scss */
 .spotArticlePage .spotWeather .spotWeatherRow .columns {
   padding: 0.625rem;
   border-right: 1px solid white;
   overflow: hidden;
 }
-/* line 1148, ../scss/_styles.scss */
+/* line 1305, ../scss/_styles.scss */
 .spotArticlePage .spotWeather .spotWeatherRow .columns:nth-child(6) {
   border-right: none;
 }
-/* line 1152, ../scss/_styles.scss */
+/* line 1309, ../scss/_styles.scss */
 .spotArticlePage .spotWeather .spotWeatherRow .columns p {
   font-size: 0.75rem;
 }
@@ -11659,45 +11807,45 @@ header {
 /*-------------------------------------------
 	News - Events Page styles
 -----------------------------------------*/
-/* line 1165, ../scss/_styles.scss */
+/* line 1322, ../scss/_styles.scss */
 .blog_articleItem {
   margin-bottom: 5rem;
 }
-/* line 1168, ../scss/_styles.scss */
+/* line 1325, ../scss/_styles.scss */
 .blog_articleItem h3 {
   font-size: 3.75rem;
   line-height: 1;
   margin-top: 0.75rem;
 }
-/* line 1173, ../scss/_styles.scss */
+/* line 1330, ../scss/_styles.scss */
 .blog_articleItem h3 a {
   color: gray;
 }
-/* line 1176, ../scss/_styles.scss */
+/* line 1333, ../scss/_styles.scss */
 .blog_articleItem h3 a:hover {
   color: #4cb9bb;
 }
-/* line 1181, ../scss/_styles.scss */
+/* line 1338, ../scss/_styles.scss */
 .blog_articleItem h3 small {
   color: gray;
   font-size: 2.25rem;
 }
-/* line 1187, ../scss/_styles.scss */
+/* line 1344, ../scss/_styles.scss */
 .blog_articleItem .tagList {
   display: none;
 }
-/* line 1191, ../scss/_styles.scss */
+/* line 1348, ../scss/_styles.scss */
 .blog_articleItem p {
   font-size: 1.25rem;
   font-family: "gotham_book", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   color: #515151;
 }
-/* line 1197, ../scss/_styles.scss */
+/* line 1354, ../scss/_styles.scss */
 .blog_articleItem .readMore {
   text-align: right;
   margin: 0;
 }
-/* line 1201, ../scss/_styles.scss */
+/* line 1358, ../scss/_styles.scss */
 .blog_articleItem .readMore a {
   font-size: 1.625rem;
   font-family: "burbank_big_condensed", Verdana, Tahoma, Arial, sans-serif;
@@ -11706,12 +11854,12 @@ header {
   display: inline-block;
   line-height: 5rem;
 }
-/* line 1211, ../scss/_styles.scss */
+/* line 1368, ../scss/_styles.scss */
 .blog_articleItem .readMore a .hasArrow:after {
   content: "\279C";
   color: #515151;
 }
-/* line 1217, ../scss/_styles.scss */
+/* line 1374, ../scss/_styles.scss */
 .blog_articleItem .readMore a .isCyrcle {
   color: white;
   border: 4px solid white;
@@ -11730,11 +11878,11 @@ header {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-/* line 1237, ../scss/_styles.scss */
+/* line 1394, ../scss/_styles.scss */
 .blog_articleItem .readMore a:hover, .blog_articleItem .readMore a:focus {
   color: #515151;
 }
-/* line 1240, ../scss/_styles.scss */
+/* line 1397, ../scss/_styles.scss */
 .blog_articleItem .readMore a:hover .isCyrcle, .blog_articleItem .readMore a:focus .isCyrcle {
   color: white;
   background: none #515151;
@@ -11743,21 +11891,21 @@ header {
 /* -----------------------------------------
 	Pagination
 ----------------------------------------- */
-/* line 1253, ../scss/_styles.scss */
+/* line 1410, ../scss/_styles.scss */
 .paginationHolder {
   margin-bottom: 3.75rem;
 }
-/* line 1256, ../scss/_styles.scss */
+/* line 1413, ../scss/_styles.scss */
 .paginationHolder ul {
   text-align: center;
 }
-/* line 1259, ../scss/_styles.scss */
+/* line 1416, ../scss/_styles.scss */
 .paginationHolder ul li {
   float: none;
   display: inline-block;
   height: auto;
 }
-/* line 1264, ../scss/_styles.scss */
+/* line 1421, ../scss/_styles.scss */
 .paginationHolder ul li a {
   color: white;
   font-size: 1.375rem;
@@ -11766,18 +11914,18 @@ header {
   font-family: "burbank_big_condensed", Verdana, Tahoma, Arial, sans-serif;
   background: none gray;
 }
-/* line 1272, ../scss/_styles.scss */
+/* line 1429, ../scss/_styles.scss */
 .paginationHolder ul li a:hover, .paginationHolder ul li a:focus {
   color: white;
   background: none #4cb9bb;
 }
-/* line 1281, ../scss/_styles.scss */
+/* line 1438, ../scss/_styles.scss */
 .paginationHolder ul li.current a {
   color: white;
   background: none #515151;
   font-weight: normal;
 }
-/* line 1286, ../scss/_styles.scss */
+/* line 1443, ../scss/_styles.scss */
 .paginationHolder ul li.current a:hover, .paginationHolder ul li.current a:focus {
   color: white;
   background: none #515151;
@@ -11786,13 +11934,13 @@ header {
 /* -----------------------------------------
 	Filter form styles
 ----------------------------------------- */
-/* line 1299, ../scss/_styles.scss */
+/* line 1456, ../scss/_styles.scss */
 #filterResultsFormHolder {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
   position: relative;
 }
-/* line 1304, ../scss/_styles.scss */
+/* line 1461, ../scss/_styles.scss */
 #filterResultsFormHolder label {
   font-size: 2.5625rem;
   text-rendering: optimizeLegibility;
@@ -11804,15 +11952,15 @@ header {
   letter-spacing: 2px;
   font-weight: 300;
 }
-/* line 1316, ../scss/_styles.scss */
+/* line 1473, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox {
   padding-top: 12px;
 }
-/* line 1319, ../scss/_styles.scss */
+/* line 1476, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox input {
   display: none;
 }
-/* line 1323, ../scss/_styles.scss */
+/* line 1480, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox input + label {
   padding: 0 0 0 28px;
   display: inline-block;
@@ -11825,7 +11973,7 @@ header {
   cursor: pointer;
   margin: 0;
 }
-/* line 1335, ../scss/_styles.scss */
+/* line 1492, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox input + label:after {
   content: '\00a0';
   font-size: 1.375rem;
@@ -11842,19 +11990,19 @@ header {
   line-height: 0.5;
   text-align: center;
 }
-/* line 1353, ../scss/_styles.scss */
+/* line 1510, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox input:checked + label:after {
   content: '\2714';
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0), inset 0px -15px 10px -12px rgba(0, 0, 0, 0), inset 15px 10px -12px rgba(13, 59, 131, 0);
 }
-/* line 1359, ../scss/_styles.scss */
+/* line 1516, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox .isBox,
 #filterResultsFormHolder .customCheckBox .isRound {
   display: inline-block;
   width: 90%;
   text-align: center;
 }
-/* line 1364, ../scss/_styles.scss */
+/* line 1521, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox .isBox input + label,
 #filterResultsFormHolder .customCheckBox .isRound input + label {
   color: white;
@@ -11869,30 +12017,30 @@ header {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-/* line 1378, ../scss/_styles.scss */
+/* line 1535, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox .isBox input + label:after,
 #filterResultsFormHolder .customCheckBox .isRound input + label:after {
   display: none;
 }
-/* line 1382, ../scss/_styles.scss */
+/* line 1539, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox .isBox input + label:hover,
 #filterResultsFormHolder .customCheckBox .isRound input + label:hover {
   border: 4px solid #4cb9bb;
   background: none #4cb9bb;
 }
-/* line 1388, ../scss/_styles.scss */
+/* line 1545, ../scss/_styles.scss */
 #filterResultsFormHolder .customCheckBox .isBox input:checked + label,
 #filterResultsFormHolder .customCheckBox .isRound input:checked + label {
   background: none #515151;
   border: 4px solid white;
   border-radius: 4px;
 }
-/* line 1396, ../scss/_styles.scss */
+/* line 1553, ../scss/_styles.scss */
 #filterResultsFormHolder .mainFilters {
   padding-top: 2px;
 }
 
-/* line 1401, ../scss/_styles.scss */
+/* line 1558, ../scss/_styles.scss */
 #filterResultsForm .formBtns {
   float: none;
   position: absolute;
@@ -11901,16 +12049,16 @@ header {
   width: 25%;
 }
 
-/* line 1409, ../scss/_styles.scss */
+/* line 1566, ../scss/_styles.scss */
 #filterResultsForm .formBtns .checkAllBox {
   float: left;
   margin-top: 4px;
 }
 
-/* line 1414, ../scss/_styles.scss */
+/* line 1571, ../scss/_styles.scss */
 #filterResultsForm #filterResultsBtn {
   float: right;
-  background: url(../images/site_assets/indexSlideArrow.png) no-repeat 80% 50% #0a3982;
+  background: url("../images/site_assets/indexSlideArrow.png") no-repeat 80% 50% #0a3982;
   border-radius: 16px 16px 16px 16px;
   color: #FFFFFF;
   display: block;
@@ -11925,13 +12073,13 @@ header {
   font-weight: normal!important;
 }
 
-/* line 1431, ../scss/_styles.scss */
+/* line 1588, ../scss/_styles.scss */
 #filterResultsForm #filterResultsBtn:hover {
   cursor: pointer;
   background: url("../images/site_assets/indexSlideArrow.png") no-repeat 80% 50% #011a48;
 }
 
-/* line 1436, ../scss/_styles.scss */
+/* line 1593, ../scss/_styles.scss */
 #filterResultsForm .checkAllBox label {
   font-size: 0.9285em;
   font-size: 0.9285rem;
@@ -11943,19 +12091,19 @@ header {
   margin-bottom: 0;
 }
 
-/* line 1453, ../scss/_styles.scss */
+/* line 1610, ../scss/_styles.scss */
 .lt-ie9 #filterResultsForm .customCheckBox input {
   display: inline-block;
   float: left;
   clear: left;
 }
-/* line 1459, ../scss/_styles.scss */
+/* line 1616, ../scss/_styles.scss */
 .lt-ie9 #filterResultsForm .customCheckBox input + label {
   display: inline-block;
   float: left;
   clear: none;
 }
-/* line 1464, ../scss/_styles.scss */
+/* line 1621, ../scss/_styles.scss */
 .lt-ie9 #filterResultsForm .customCheckBox input + label:after {
   display: none;
 }
@@ -11966,7 +12114,7 @@ header {
 /* -----------------------------------------
 	Google Map
 ----------------------------------------- */
-/* line 1492, ../scss/_styles.scss */
+/* line 1649, ../scss/_styles.scss */
 #map_canvas {
   width: 95%;
   height: 100%;
@@ -11976,7 +12124,7 @@ header {
 /* -----------------------------------------
 	Footer Styles
 ----------------------------------------- */
-/* line 1502, ../scss/_styles.scss */
+/* line 1659, ../scss/_styles.scss */
 footer {
   margin-top: 30px;
   background: #4cb9bb;
@@ -11984,18 +12132,18 @@ footer {
   overflow: hidden;
   color: white;
 }
-/* line 1509, ../scss/_styles.scss */
+/* line 1666, ../scss/_styles.scss */
 footer #copyrights {
   text-align: center;
   font-size: 0.75rem;
 }
-/* line 1514, ../scss/_styles.scss */
+/* line 1671, ../scss/_styles.scss */
 footer #footerNav {
   width: 100%;
   text-transform: uppercase;
   margin-top: 2.25rem;
 }
-/* line 1519, ../scss/_styles.scss */
+/* line 1676, ../scss/_styles.scss */
 footer #footerNav .level0 a {
   overflow: hidden;
   color: white;
@@ -12009,19 +12157,19 @@ footer #footerNav .level0 a {
   transition: all 300ms ease-in-out;
 }
 
-/* line 1535, ../scss/_styles.scss */
+/* line 1692, ../scss/_styles.scss */
 .contentFooter {
   text-align: center;
   margin-top: 5rem !important;
 }
-/* line 1539, ../scss/_styles.scss */
+/* line 1696, ../scss/_styles.scss */
 .contentFooter h5 {
   text-align: center;
   font-size: 2.125rem;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-/* line 1546, ../scss/_styles.scss */
+/* line 1703, ../scss/_styles.scss */
 .contentFooter h6 {
   text-align: center;
   font-size: 1.25rem;
@@ -12030,7 +12178,7 @@ footer #footerNav .level0 a {
   margin: 1.25rem 0 0 0;
   font-family: "gotham_book", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
-/* line 1555, ../scss/_styles.scss */
+/* line 1712, ../scss/_styles.scss */
 .contentFooter .isRound {
   display: inline-block;
   text-align: center;
@@ -12044,19 +12192,19 @@ footer #footerNav .level0 a {
   height: auto;
   padding-top: 52%;
 }
-/* line 1568, ../scss/_styles.scss */
+/* line 1725, ../scss/_styles.scss */
 .contentFooter .isRound.magazineLink {
   background: url("../images/site_assets/magazineIcon.png") no-repeat 50% 50% gray;
 }
-/* line 1572, ../scss/_styles.scss */
+/* line 1729, ../scss/_styles.scss */
 .contentFooter .isRound.mapLink {
   background: url("../images/site_assets/mapIcon.png") no-repeat 50% 50% gray;
 }
-/* line 1576, ../scss/_styles.scss */
+/* line 1733, ../scss/_styles.scss */
 .contentFooter .isRound.addSpotLink {
   background: url("../images/site_assets/addSpotIcon.png") no-repeat 50% 50% gray;
 }
-/* line 1580, ../scss/_styles.scss */
+/* line 1737, ../scss/_styles.scss */
 .contentFooter .isRound span {
   display: inline-block;
   height: 100%;
@@ -12073,17 +12221,17 @@ footer #footerNav .level0 a {
   border-radius: 50%;
   overflow: hidden;
 }
-/* line 1596, ../scss/_styles.scss */
+/* line 1753, ../scss/_styles.scss */
 .contentFooter .isRound span small {
   display: none;
 }
-/* line 1601, ../scss/_styles.scss */
+/* line 1758, ../scss/_styles.scss */
 .contentFooter .isRound:hover, .contentFooter .isRound:focus {
   color: white;
   background-color: #515151;
   border-color: #515151;
 }
-/* line 1608, ../scss/_styles.scss */
+/* line 1765, ../scss/_styles.scss */
 .contentFooter .smoIcons {
   display: inline-block;
   text-align: center;
@@ -12092,13 +12240,13 @@ footer #footerNav .level0 a {
   padding: 0;
   width: 100%;
 }
-/* line 1616, ../scss/_styles.scss */
+/* line 1773, ../scss/_styles.scss */
 .contentFooter .smoIcons li {
   display: inline-block;
   padding: 0;
   margin: 0 8px;
 }
-/* line 1621, ../scss/_styles.scss */
+/* line 1778, ../scss/_styles.scss */
 .contentFooter .smoIcons li a {
   color: white;
   border: 2px solid white;
@@ -12113,24 +12261,24 @@ footer #footerNav .level0 a {
   background: none 50% 50% no-repeat gray;
   vertical-align: middle;
 }
-/* line 1635, ../scss/_styles.scss */
+/* line 1792, ../scss/_styles.scss */
 .contentFooter .smoIcons li a span {
   display: none;
 }
-/* line 1639, ../scss/_styles.scss */
+/* line 1796, ../scss/_styles.scss */
 .contentFooter .smoIcons li a:hover, .contentFooter .smoIcons li a:focus {
   color: white;
   background-color: #515151;
 }
-/* line 1645, ../scss/_styles.scss */
+/* line 1802, ../scss/_styles.scss */
 .contentFooter .smoIcons li .fbIcon {
   background-image: url("../images/site_assets/fbIcon.png");
 }
-/* line 1649, ../scss/_styles.scss */
+/* line 1806, ../scss/_styles.scss */
 .contentFooter .smoIcons li .tweetIcon {
   background-image: url("../images/site_assets/tweetIcon.png");
 }
-/* line 1653, ../scss/_styles.scss */
+/* line 1810, ../scss/_styles.scss */
 .contentFooter .smoIcons li .mailIcon {
   background-image: url("../images/site_assets/mailIcon.png");
 }
@@ -12139,67 +12287,67 @@ footer #footerNav .level0 a {
 	Media Queries for mobile / tablets responsivenes
 ----------------------------------------------------- */
 @media only screen and (device-width: 320px) and (orientation: portrait) {
-  /* line 1666, ../scss/_styles.scss */
+  /* line 1823, ../scss/_styles.scss */
   html {
     font-size: 10px!important;
   }
 }
 @media only screen and (device-width: 320px) and (orientation: landscape) {
-  /* line 1673, ../scss/_styles.scss */
+  /* line 1830, ../scss/_styles.scss */
   html {
     font-size: 11px!important;
   }
 }
 @media only screen and (max-width: 380px) {
-  /* line 1681, ../scss/_styles.scss */
+  /* line 1838, ../scss/_styles.scss */
   html {
     font-size: 10px!important;
   }
 }
 @media only screen and (max-width: 498px) {
-  /* line 1688, ../scss/_styles.scss */
+  /* line 1845, ../scss/_styles.scss */
   html {
     font-size: 10px!important;
   }
 }
 @media only screen and (max-width: 766px) and (min-width: 499px) {
-  /* line 1695, ../scss/_styles.scss */
+  /* line 1852, ../scss/_styles.scss */
   html {
     font-size: 12px!important;
   }
 }
 @media only screen and (max-width: 767px) {
-  /* line 1703, ../scss/_styles.scss */
+  /* line 1860, ../scss/_styles.scss */
   html {
     font-size: 13px!important;
   }
 }
 @media only screen and (device-width: 768px) and (orientation: portrait) {
-  /* line 1710, ../scss/_styles.scss */
+  /* line 1867, ../scss/_styles.scss */
   html {
     font-size: 12px!important;
   }
 }
 @media only screen and (device-width: 768px) and (orientation: landscape) {
-  /* line 1717, ../scss/_styles.scss */
+  /* line 1874, ../scss/_styles.scss */
   html {
     font-size: 13px!important;
   }
 }
 @media only screen and (max-width: 959px) and (min-width: 768px) {
-  /* line 1724, ../scss/_styles.scss */
+  /* line 1881, ../scss/_styles.scss */
   html {
     font-size: 13px!important;
   }
 }
 @media only screen and (min-width: 960px) {
-  /* line 1730, ../scss/_styles.scss */
+  /* line 1887, ../scss/_styles.scss */
   html {
     font-size: 14px!important;
   }
 }
 @media print {
-  /* line 1736, ../scss/_styles.scss */
+  /* line 1893, ../scss/_styles.scss */
   div:not(.reveal-modal) {
     display: inherit !important;
   }

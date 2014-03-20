@@ -10,7 +10,7 @@
 		<div class="tabs-content">
 			<div id="dailyWeatherTab" class="row collapse content spotWeatherRow active">
 				{% for hourlyWeatherData in weatherData[0]['hourly'] %}
-					{% if loop.index == (("now"|date("H", "Europe/Athens")) / 3)|round %}
+					{% if (loop.index0 == (("now"|date("H", "Europe/Athens")) / 3)|round) or (loop.index0 == 0 and (("now"|date("H", "Europe/Athens")) / 3)|round) == 8 %}
 					<div class="columns large-4 small-12">
 						<p>weather now {{ "now"|date("D") }} {{ "now"|date("F d") }}</p>						
 						<p>{{ page.title }}</p>						
@@ -42,7 +42,7 @@
 					{% endif %}					
 				{% endfor %}
 				{% for hourlyWeatherData in weatherData[0]['hourly'] %}
-				{% if loop.index < 9 %}
+				{% if loop.index0 < 8 %}
 					<div class="columns large-1 small-12">	
 						<p>{{ loop.index0 * 3 }}</p>						
 						<p><img src="{{ hourlyWeatherData.weatherIconUrl[0].value }}" />
@@ -77,33 +77,35 @@
 				{% for weeklyWeatherData in weatherData %}
 				{% if loop.index0 > 0 %}
 					<div class="columns large-2 small-12">
-						<p>{{ ('+'~loop.index0~' day')|date("D F d") }}</p>
-						{% for dailyWeatherData in weeklyWeatherData['hourly'] %}
-						{% if loop.index == 5 %}						
-						<p><img src="{{ dailyWeatherData.weatherIconUrl[0].value }}" />
-						{{ dailyWeatherData.weatherIconUrl[0].value|split('/')|last }}</p>							
-						<p>winddir 16Point {{ dailyWeatherData.winddir16Point }}</p>						
-						<p>WindGust Knots {{ '%.1f'|format(dailyWeatherData.WindGustKmph / 1.85325) }}</p>		
-						<p>WindGust Beaufort {{ '%.1f'|format(((dailyWeatherData.WindGustKmph / 3.01) ** 0.6666) + 0.5) }}</p>
-						<p>windspeed Knots {{ '%.1f'|format(dailyWeatherData.windspeedKmph / 1.85325) }}</p>						
-						<p>windspeed Beaufort {{ '%.1f'|format(((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) }}</p>						
-						<p>tempC {{ dailyWeatherData.tempC }}</p>						
-						<p>water Temp_C {{ dailyWeatherData.waterTemp_C }}</p>						
-						<p>humidity {{ dailyWeatherData.humidity }}</p>						
-						<p>visibility {{ dailyWeatherData.visibility }}</p>						
-						<p>cloudcover {{ dailyWeatherData.cloudcover }}</p>		
-						<p>swell Height_m {{ dailyWeatherData.swellHeight_m }}</p>	
-						<p>swell Height_ft {{ dailyWeatherData.swellHeight_ft }}</p>			
-						<p>swell Period_secs {{ dailyWeatherData.swellPeriod_secs }}</p>
-						<p>rating 
-							{% if (((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) < 3 %}
-								1
-							{% elseif ((((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) >= 3) and ((((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) < 5) %}
-								2
-							{% elseif 5 <= (((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) %}
-								3
-							{% endif %}	
-						</p>
+						<div class="weeklyWeatherDay">
+							<p>{{ ('+'~loop.index0~' day')|date("D F d") }}</p>
+							{% for dailyWeatherData in weeklyWeatherData['hourly'] %}
+							{% if loop.index == 5 %}						
+							<p><img src="{{ dailyWeatherData.weatherIconUrl[0].value }}" />
+							{{ dailyWeatherData.weatherIconUrl[0].value|split('/')|last }}</p>							
+							<p>winddir 16Point {{ dailyWeatherData.winddir16Point }}</p>						
+							<p>WindGust Knots {{ '%.1f'|format(dailyWeatherData.WindGustKmph / 1.85325) }}</p>		
+							<p>WindGust Beaufort {{ '%.1f'|format(((dailyWeatherData.WindGustKmph / 3.01) ** 0.6666) + 0.5) }}</p>
+							<p>windspeed Knots {{ '%.1f'|format(dailyWeatherData.windspeedKmph / 1.85325) }}</p>						
+							<p>windspeed Beaufort {{ '%.1f'|format(((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) }}</p>						
+							<p>tempC {{ dailyWeatherData.tempC }}</p>						
+							<p>water Temp_C {{ dailyWeatherData.waterTemp_C }}</p>						
+							<p>humidity {{ dailyWeatherData.humidity }}</p>						
+							<p>visibility {{ dailyWeatherData.visibility }}</p>						
+							<p>cloudcover {{ dailyWeatherData.cloudcover }}</p>		
+							<p>swell Height_m {{ dailyWeatherData.swellHeight_m }}</p>	
+							<p>swell Height_ft {{ dailyWeatherData.swellHeight_ft }}</p>			
+							<p>swell Period_secs {{ dailyWeatherData.swellPeriod_secs }}</p>
+							<p>rating 
+								{% if (((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) < 3 %}
+									1
+								{% elseif ((((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) >= 3) and ((((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) < 5) %}
+									2
+								{% elseif 5 <= (((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) %}
+									3
+								{% endif %}	
+							</p>
+						</div>
 					{% endif %}
 					{% endfor %}
 					</div>

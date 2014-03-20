@@ -518,9 +518,166 @@ header{
 	}
 }
 
+
 /*-------------------------------------------
 	Generic Page styles
 -----------------------------------------*/ 
+
+
+/*-------------------------------------------
+	Contact Page styles
+-----------------------------------------*/
+
+.contactPage {
+	
+	.contact{
+		
+		h3{
+			font-size: rem-calc(56);
+			transform: rotate(-3deg);
+			margin: 0 0 rem-calc(40) 0;
+			text-transform: lowercase;
+			font-family: $body-font-family;
+			line-height: 1.1;
+		}
+		
+		#contactFormHolder {
+			background: $secondary-color;
+			border-radius: 10px;
+			padding: rem-calc(20);
+			
+			legend{
+				border: 0 none;
+				color: $dark-gray-color;
+				font-family: $alt-font-family;
+				font-size: rem-calc(24);
+				text-align: center;
+				text-transform: uppercase;
+				line-height: 1.6;	
+				margin: 0 0 rem-calc(40) 0;
+			}
+			
+			label{
+				display: inline-block;
+				width: 100%;
+				color: $white-color;
+				font-family: $alt-font-family;
+				text-align: center;
+				text-transform: uppercase;
+				font-size: rem-calc(38);
+				cursor: pointer;
+				margin: 0 0 rem-calc(20) 0;
+				text-shadow: 0 1px 0 $secondary-color;
+				letter-spacing: 1px;
+			}
+			
+			.formFieldContainer{
+				background: none repeat 0 0 $light-gray-color;
+				border-radius: 10px;
+				margin-bottom: rem-calc(20);
+				padding: rem-calc(10);
+				position: relative;
+				
+				input[type="text"],
+				input[type="email"],
+				textarea {
+					background: url("../images/site_assets/form_bg.png") 0 0 repeat;
+					color: $dark-gray-color;
+					font-size: rem-calc(16);
+					height: rem-calc(40);
+					margin: 0;
+					padding: rem-calc(6);
+					position: relative;
+					width: 100%;
+					border: 0 none;
+					border-radius: 5px;
+					-webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.25) inset;
+					-moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.25) inset;
+					box-shadow: 0 0 30px rgba(0, 0, 0, 0.25) inset;
+					max-width: 100%;
+				}
+				
+				textarea {
+					height: rem-calc(180);	
+					resize: vertical;			
+				}
+				
+				&:before{
+					border: 1px dashed #FFFFFF;
+					border-radius: 9px;
+					bottom: 4px;
+					content: "";
+					left: 4px;
+					position: absolute;
+					right: 4px;
+					top: 4px;
+					z-index: 0;
+				}
+				
+				&.error:before{
+					border: 1px dashed $alert-copy-color;				
+				}
+			}
+			
+			small{
+				border: 0 none;
+				color: $white-color;
+				font-family: $body-font-family;
+				font-size: rem-calc(14);
+				text-align: right;
+				width: 100%;
+				display: inline-block;
+				line-height: 1.4;
+				
+				&.error{
+					color: $alert-copy-color;
+					border: 1px solid $alert-copy-color;
+				}
+			}
+			
+			.button {
+				font-size: rem-calc(24);
+				line-height: 1.4;
+				padding: 0.5rem 6rem;
+				margin: rem-calc(20) auto;
+				display: block;
+			}
+		}		
+	}
+	
+	.roundPhoto {
+		background: $secondary-color;
+		border-radius: 50%;
+		margin: rem-calc(20) 0 rem-calc(20) 10%;
+		padding: 16px;
+		position: relative;
+		width: 90%;
+		overflow: hidden;
+		
+		img{
+			width: 100%;
+			height:auto;
+			border-radius: 50%;
+			overflow: hidden;
+			display: block;
+		}
+	}
+	
+	.contact-info-box{
+		width: 90%;
+		margin: rem-calc(20) 0 rem-calc(20) 10%;
+				
+		hr {
+			border-top: 1px dashed $secondary-color;
+			border-bottom: 1px solid $secondary-color;
+			height:6px;
+			margin: 0 0 15px;
+			padding: 1px 0 0;
+			width: 100%;
+		}
+	}
+}
+
 
 
 
@@ -1413,7 +1570,7 @@ header{
 
 #filterResultsForm #filterResultsBtn{
 	float: right;
-	background: url(../images/site_assets/indexSlideArrow.png) no-repeat 80% 50% #0A3982;
+	background: url("../images/site_assets/indexSlideArrow.png") no-repeat 80% 50% #0A3982;
 	border-radius: 16px 16px 16px 16px;
 	color: #FFFFFF;
 	display: block;

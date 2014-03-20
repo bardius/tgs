@@ -114,6 +114,31 @@ class DestinationRepository extends EntityRepository
             
         $qb->select('DISTINCT s')
             ->from('SpotBundle:Spot', 's')
+            ->where($qb->expr()->andX(
+                $qb->expr()->eq('s.relatedDestination', ':destination'),
+                $qb->expr()->in('s.publishState', ':publishState'),
+                $qb->expr()->eq('s.pagetype', ':pagetype')
+            ))
+            ->orderBy('s.date', 'DESC')
+            ->setParameter('destination', $currentPageId)
+            ->setParameter('publishState', $publishStates)
+            ->setParameter('pagetype', 'spot_article')
+        ;
+                    
+        $relatedSpots = $qb->getQuery()->getResult();
+        
+        return  $relatedSpots;
+    }
+	
+    
+    public function getRelatedByDestinationCategorySpots($currentPageId, $publishStates)
+    {   
+        $relatedSpots = null;
+		
+        $qb = $this->_em->createQueryBuilder(); 
+            
+        $qb->select('DISTINCT s')
+            ->from('SpotBundle:Spot', 's')
             ->innerJoin('s.spotDestinationFilters', 'd')
             ->where($qb->expr()->andX(
                 $qb->expr()->in('d.destination', ':destination'),
