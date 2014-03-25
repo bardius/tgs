@@ -1,1 +1,12 @@
-<h5><a href="{{ app.request.getBaseURL() }}/spot/{{ spotItem.alias }}" title="{{ spotItem.title }}" class="readMore"><span>{{ spotItem.title }}</span></a></h5>
+ {# <h5><a href="{{ app.request.getBaseURL() }}/spot/{{ spotItem.alias }}" title="{{ spotItem.title }}" class="readMore"><span>{{ spotItem.title }}</span></a></h5> #}
+
+	<div class="relatedSpot {% if spotItem.pageclass is not null %}{{ spotItem.pageclass }}{% endif %}">
+		<a href="{{ url('SpotBundle_page_normal', { 'alias': spotItem.alias }) }}" title="{{ spotItem.title }}">
+			{% if spotItem.introimage.id is defined %}
+				{% media spotItem.introimage.id, 'xsmall' with {'alt': spotItem.title, 'title': ''} %}
+			{% else %}
+				<img src="/images/site_assets/defaultSpotListThumb.jpg" alt="{{ spotItem.title }}" />
+			{% endif %}
+			<span class="relatedSpotTitle">{{ spotItem.title }}</span>
+		</a>
+    </div>

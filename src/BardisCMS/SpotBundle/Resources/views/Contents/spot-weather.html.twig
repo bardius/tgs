@@ -10,7 +10,7 @@
 		<div class="tabs-content">
 			<div id="dailyWeatherTab" class="row collapse content spotWeatherRow active">
 				{% for hourlyWeatherData in weatherData[0]['hourly'] %}
-					{% if (loop.index0 == (("now"|date("H", "Europe/Athens")) / 3)|round) or (loop.index0 == 0 and (("now"|date("H", "Europe/Athens")) / 3)|round) == 8 %}
+					{% if (loop.index0 == (("now"|date("H", "Europe/Athens")) / 3)|round) or (loop.index0 == 0 and (("now"|date("H", "Europe/Athens")) / 3)|round == 8) %}
 					<div class="columns large-4 small-12">
 						<p>weather now {{ "now"|date("D") }} {{ "now"|date("F d") }}</p>						
 						<p>{{ page.title }}</p>						

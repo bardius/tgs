@@ -142,6 +142,8 @@ class MenuBuilder {
 
 							if (null === $alias) {
 								$menu->addChild($menuItem->getTitle(), array('uri' => '/' . $menuItem->getRoute() . '/' . $pageFunction . $urlParams));
+							} elseif ('index' === $alias){
+								$menu->addChild($menuItem->getTitle(), array('uri' => '/'));
 							} else {
 								$menu->addChild($menuItem->getTitle(), array('uri' => '/' . $alias . $urlParams));
 							}
