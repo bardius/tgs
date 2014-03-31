@@ -68,6 +68,53 @@ a("section",this),a("> ul",this).first()}b.data("index",0);var d=b.parent();d.ha
 		}
 	},
 			
+	CMS.tgsUI = {
+
+		init: function() {
+			
+			$('.is-Bf').hide();
+			$('.is-Meters').hide();
+			
+		},
+	
+		unitConvertDisplay: function(unit) {
+	
+			switch(unit)
+			{
+				
+				case 'knots':
+					$('.is-Bf').fadeOut(0, function(){
+						$('.is-Knots').fadeIn(200);						
+					});
+					
+					break;
+
+				case 'bf':
+					$('.is-Knots').fadeOut(0, function(){
+						$('.is-Bf').fadeIn(200);						
+					});
+					
+					break;
+
+				case 'meters':
+					$('.is-Ft').fadeOut(0, function(){
+						$('.is-Meters').fadeIn(200);						
+					});
+					
+					break;
+
+				case 'ft':
+					$('.is-Meters').fadeOut(0, function(){
+						$('.is-Ft').fadeIn(200);						
+					});
+					
+					break;
+
+				default:
+				
+			}
+		}
+	},			
 
     CMS.foundationConfig = {
 		
@@ -165,6 +212,7 @@ a("section",this),a("> ul",this).first()}b.data("index",0);var d=b.parent();d.ha
 
     $(function() {
 		CMS.foundationConfig.init();
+		CMS.tgsUI.init();		
 		
 		if($('#mapModal').length > 0){
 			CMS.siteConfig.mapInit();			

@@ -3,15 +3,30 @@
 		<ul data-orbit>
 		{% for contentBlock in page.bannercontentblocks|sort_by_attribute('ordering') %}
 			{% if contentBlock.publishedState == 1 and contentBlock.contentType == 'slide'%}
-				<li class="bannerSlide {% if contentBlock.className is not null %}{{ contentBlock.className }}{% endif %}" {% if contentBlock.idName is not null %}id="{{ contentBlock.idName }}"{% endif %}>
+				<li class="bannerSlide {% if contentBlock.className is not null %}{{ contentBlock.className }}{% endif %}" {% if contentBlock.idName is not null %}id="{{ contentBlock.idName }}"{% endif %} data-orbit-slide="bannerSlide-{{ loop.index0 }}">
 					{% if contentBlock.slide.imagefile.id is defined %}
 						{% media contentBlock.slide.imagefile.id, 'slide' with {'alt': contentBlock.slide.imageLinkTitle, 'title': '' } %}
 					{% else %}	
-						<img src="/imgages/site_assets/default_top_banner.jpeg" alt="{{ contentBlock.slide.imageLinkTitle }}" />
+						<img src="/images/site_assets/defaultTopBanner.jpg" alt="{{ contentBlock.slide.imageLinkTitle }}" />
 					{% endif %}
 					{% if contentBlock.slide.imageLinkTitle is not empty %}
 					<div class="orbit-caption">{{ contentBlock.slide.imageLinkTitle }}</div>						
 					{% endif %}
+				</li>
+			{% endif %}
+		{% endfor %}
+		</ul>
+		<ul class="bannerSlidesNav inline-list text-center">
+		{% for contentBlock in page.bannercontentblocks|sort_by_attribute('ordering') %}
+			{% if contentBlock.publishedState == 1 and contentBlock.contentType == 'slide'%}
+				<li>
+					<a href="#" data-orbit-link="bannerSlide-{{ loop.index0 }}" title="{{ contentBlock.slide.imageLinkTitle }}">
+					{% if contentBlock.slide.imagefile.id is defined %}
+						{% media contentBlock.slide.imagefile.id, 'adminthumb' with {'alt': contentBlock.slide.imageLinkTitle, 'title': '' } %}
+					{% else %}	
+						<img src="/images/site_assets/defaultTopBanner_adminthumb.jpg" alt="{{ contentBlock.slide.imageLinkTitle }}" />
+					{% endif %}
+					</a>
 				</li>
 			{% endif %}
 		{% endfor %}
@@ -25,7 +40,7 @@
 					{% if contentBlock.slide.imagefile.id is defined %}
 						{% media contentBlock.slide.imagefile.id, 'slide' with {'alt': contentBlock.slide.imageLinkTitle, 'title': '' } %}
 					{% else %}	
-						<img src="/imgages/site_assets/default_top_banner.jpeg" alt="{{ contentBlock.slide.imageLinkTitle }}" />
+						<img src="/imgages/site_assets/defaultTopBanner.jpg" alt="{{ contentBlock.slide.imageLinkTitle }}" />
 					{% endif %}
 					{% if contentBlock.slide.imageLinkTitle is not empty %}
 					<div class="orbit-caption">{{ contentBlock.slide.imageLinkTitle }}</div>						

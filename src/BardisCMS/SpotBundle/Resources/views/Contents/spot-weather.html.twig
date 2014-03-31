@@ -12,55 +12,96 @@
 				{% for hourlyWeatherData in weatherData[0]['hourly'] %}
 					{% if (loop.index0 == (("now"|date("H", "Europe/Athens")) / 3)|round) or (loop.index0 == 0 and (("now"|date("H", "Europe/Athens")) / 3)|round == 8) %}
 					<div class="columns large-4 small-12">
-						<p>weather now {{ "now"|date("D") }} {{ "now"|date("F d") }}</p>						
-						<p>{{ page.title }}</p>						
-						<p><img src="{{ hourlyWeatherData.weatherIconUrl[0].value }}" />
-						{{ hourlyWeatherData.weatherIconUrl[0].value|split('/')|last }}</p>						
-						<p>winddir 16Point {{ hourlyWeatherData.winddir16Point }}</p>						
-						<p>WindGust Knots {{ '%.1f'|format(hourlyWeatherData.WindGustKmph / 1.85325) }}</p>		
-						<p>WindGust Beaufort {{ '%.1f'|format(((hourlyWeatherData.WindGustKmph / 3.01) ** 0.6666) + 0.5) }}</p>
-						<p>windspeed Knots {{ '%.1f'|format(hourlyWeatherData.windspeedKmph / 1.85325) }}</p>						
-						<p>windspeed Beaufort {{ '%.1f'|format(((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) }}</p>						
-						<p>tempC {{ hourlyWeatherData.tempC }}</p>						
-						<p>water Temp_C {{ hourlyWeatherData.waterTemp_C }}</p>						
-						<p>humidity {{ hourlyWeatherData.humidity }}</p>						
-						<p>visibility {{ hourlyWeatherData.visibility }}</p>						
-						<p>cloudcover {{ hourlyWeatherData.cloudcover }}</p>		
-						<p>swell Height_m {{ hourlyWeatherData.swellHeight_m }}</p>		
-						<p>swell Height_ft {{ hourlyWeatherData.swellHeight_ft }}</p>		
-						<p>swell Period_secs {{ hourlyWeatherData.swellPeriod_secs }}</p>
-						<p>rating 
-							{% if (((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) < 3 %}
-								1
-							{% elseif ((((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) >= 3) and ((((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) < 5) %}
-								2
-							{% elseif 5 <= (((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) %}
-								3
-							{% endif %}	
+						<p class="date large-12 small-12"><span class="left">{{ "now"|date("l") }}</span> <span class="right">{{ "now"|date("F d") }}</span></p>					
+						<p class="spotName large-7 small-12">
+							{{ page.title }}<br>
+							<span class="weatherIcon">{{ hourlyWeatherData.weatherIconUrl|weatherIconToChar }}</span>
 						</p>
+						<div class="conversionSwitches large-5 small-12">
+							<div class="switch large round">
+								<input id="windSpeed" name="switch-windSpeed" type="radio" checked onclick="CMS.tgsUI.unitConvertDisplay('knots');">
+								<label for="windSpeed" onclick="CMS.tgsUI.unitConvertDisplay('knots');">KNOTS</label>
+								<input id="windSpeed-bf" name="switch-windSpeed" type="radio" onclick="CMS.tgsUI.unitConvertDisplay('bf');">
+								<label for="windSpeed-bf" onclick="CMS.tgsUI.unitConvertDisplay('bf');">BF</label>
+								<span></span>
+							</div>
+							<div class="switch large round">
+								<input id="height-ft" name="switch-height" type="radio" checked onclick="CMS.tgsUI.unitConvertDisplay('ft');">
+								<label for="height-ft" onclick="CMS.tgsUI.unitConvertDisplay('ft');">FT</label>
+								<input id="height" name="switch-height" type="radio" onclick="CMS.tgsUI.unitConvertDisplay('meters');">
+								<label for="height" onclick="CMS.tgsUI.unitConvertDisplay('meters');">M</label>
+								<span></span>
+							</div>
+						</div>
+						<p class="large-3 small-12">
+							wind or wave icon
+						</p>
+						<p class="large-3 small-12">
+							{{ hourlyWeatherData.winddir16Point }}
+						</p>
+						<p class="large-3 small-12">
+							<span class="surfSpotOnly">
+								Speed<br>
+								<span class="largeNumber is-Knots">{{ '%.1f'|format(hourlyWeatherData.windspeedKmph / 1.85325) }}</span>
+								<span class="largeNumber is-Bf">{{ '%.1f'|format(((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) }}</span>	
+							</span>
+							<span class="surfSpotOnly">
+								Height<br>
+								<span class="largeNumber is-Ft">{{ hourlyWeatherData.swellHeight_ft }}</span>
+								<span class="largeNumber is-Meters">{{ hourlyWeatherData.swellHeight_m }}</span>
+							</span>
+						</p>
+						<p class="large-3 small-12">
+							<span>
+								Gust<br>
+								<span class="largeNumber is-Knots">{{ '%.1f'|format(hourlyWeatherData.WindGustKmph / 1.85325) }}</span>
+								<span class="largeNumber is-Bf">{{ '%.1f'|format(((hourlyWeatherData.WindGustKmph / 3.01) ** 0.6666) + 0.5) }}</span>
+							</span>
+							<span class="surfSpotOnly">
+								Period<br>
+								<span class="largeNumber">{{ hourlyWeatherData.swellPeriod_secs }}</span>
+							</span>
+						</p>						
+						<p class="noVerticalPadding large-6 small-12"><span class="predictionTitle">Temperature: </span><span class="largeNumber">{{ hourlyWeatherData.tempC }}&deg;</span></p>
+						<p class="noVerticalPadding large-6 small-12"><span class="predictionTitle">Humidity: </span><span class="largeNumber">{{ hourlyWeatherData.humidity }}%</span></p>							
+						<p class="noVerticalPadding large-6 small-12"><span class="predictionTitle">Sea Temperature: </span><span class="largeNumber">{{ hourlyWeatherData.waterTemp_C }}&deg;</span></p>	
+						<p class="noVerticalPadding large-6 small-12"><span class="predictionTitle">Visibility: </span><span class="largeNumber">{{ hourlyWeatherData.visibility }}%</span></p>				
+						<p class="noVerticalPadding large-6 small-12"><span class="predictionTitle">Rating: </span>
+							<span class="largeNumber">
+								<span class="ratingIndicator {% if (((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) < 3 %}
+									ratingIndicator1
+								{% elseif ((((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) >= 3) and ((((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) < 5) %}
+									ratingIndicator2
+								{% elseif 5 <= (((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) %}
+									ratingIndicator3
+								{% endif %}"></span>
+							</span>
+						</p>																
+						<p class="noVerticalPadding large-6 small-12"><span class="predictionTitle">Cloudcover: </span><span class="largeNumber">{{ hourlyWeatherData.cloudcover }}%</span></p>
 					</div>
 					{% endif %}					
 				{% endfor %}
 				{% for hourlyWeatherData in weatherData[0]['hourly'] %}
 				{% if loop.index0 < 8 %}
 					<div class="columns large-1 small-12">	
-						<p>{{ loop.index0 * 3 }}</p>						
-						<p><img src="{{ hourlyWeatherData.weatherIconUrl[0].value }}" />
-						{{ hourlyWeatherData.weatherIconUrl[0].value|split('/')|last }}</p>	
-						<p>winddir 16Point {{ hourlyWeatherData.winddir16Point }}</p>						
-						<p>WindGust Knots {{ '%.1f'|format(hourlyWeatherData.WindGustKmph / 1.85325) }}</p>		
-						<p>WindGust Beaufort {{ '%.1f'|format(((hourlyWeatherData.WindGustKmph / 3.01) ** 0.6666) + 0.5) }}</p>
-						<p>windspeed Knots {{ '%.1f'|format(hourlyWeatherData.windspeedKmph / 1.85325) }}</p>						
-						<p>windspeed Beaufort {{ '%.1f'|format(((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) }}</p>							
-						<p>tempC {{ hourlyWeatherData.tempC }}</p>						
-						<p>water Temp_C {{ hourlyWeatherData.waterTemp_C }}</p>						
-						<p>humidity {{ hourlyWeatherData.humidity }}</p>						
-						<p>visibility {{ hourlyWeatherData.visibility }}</p>						
-						<p>cloudcover {{ hourlyWeatherData.cloudcover }}</p>		
-						<p>swell Height_m {{ hourlyWeatherData.swellHeight_m }}</p>	
-						<p>swell Height_ft {{ hourlyWeatherData.swellHeight_ft }}</p>		
-						<p>swell Period_secs {{ hourlyWeatherData.swellPeriod_secs }}</p>
-						<p>rating 
+						<p class="date large-12 small-12 text-center">{{ (loop.index0 * 3)|number_format(2, '.', ',') }}</p>
+						<p class="large-12 small-12">wind icon</p>	
+						<p class="large-12 small-12">{{ hourlyWeatherData.winddir16Point }}</p>	
+						<p class="large-12 small-12">
+							Speed: <span class="largeNumber is-Knots">{{ '%.0f'|format(hourlyWeatherData.windspeedKmph / 1.85325) }}</span><span class="largeNumber is-Bf">{{ '%.0f'|format(((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) }}</span>
+						</p>	
+						<p class="large-12 small-12">
+							Gust: <span class="largeNumber is-Knots">{{ '%.0f'|format(hourlyWeatherData.WindGustKmph / 1.85325) }}</span><span class="largeNumber is-Bf">{{ '%.0f'|format(((hourlyWeatherData.WindGustKmph / 3.01) ** 0.6666) + 0.5) }}</span>
+						</p>
+						<p class="large-12 small-12">waves icon</p>	
+						<p class="large-12 small-12">
+							Height: <span class="largeNumber is-Ft">{{ hourlyWeatherData.swellHeight_ft }}</span><span class="largeNumber is-Meters">{{ hourlyWeatherData.swellHeight_m }}</span>
+						</p>
+						<p class="large-12 small-12">Period: {{ hourlyWeatherData.swellPeriod_secs }}</p>
+						<p><span class="weatherIcon">{{ hourlyWeatherData.weatherIconUrl|weatherIconToChar }}</span></p>												
+						<p class="large-12 small-12">Temp: {{ hourlyWeatherData.tempC }}&deg;</p>														
+						<p class="large-12 small-12">Cloud: {{ hourlyWeatherData.cloudcover }}%</p>		
+						<p class="large-12 small-12">Rating:  
 							{% if (((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) < 3 %}
 								1
 							{% elseif ((((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) >= 3) and ((((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) < 5) %}
@@ -78,11 +119,10 @@
 				{% if loop.index0 > 0 %}
 					<div class="columns large-2 small-12">
 						<div class="weeklyWeatherDay">
-							<p>{{ ('+'~loop.index0~' day')|date("D F d") }}</p>
+							<p class="date large-12 small-12 text-center">{{ ('+'~loop.index0~' day')|date("D F d") }}</p>
 							{% for dailyWeatherData in weeklyWeatherData['hourly'] %}
 							{% if loop.index == 5 %}						
-							<p><img src="{{ dailyWeatherData.weatherIconUrl[0].value }}" />
-							{{ dailyWeatherData.weatherIconUrl[0].value|split('/')|last }}</p>							
+							<p><span class="weatherIcon">{{ dailyWeatherData.weatherIconUrl|weatherIconToChar }}</span></p>							
 							<p>winddir 16Point {{ dailyWeatherData.winddir16Point }}</p>						
 							<p>WindGust Knots {{ '%.1f'|format(dailyWeatherData.WindGustKmph / 1.85325) }}</p>		
 							<p>WindGust Beaufort {{ '%.1f'|format(((dailyWeatherData.WindGustKmph / 3.01) ** 0.6666) + 0.5) }}</p>

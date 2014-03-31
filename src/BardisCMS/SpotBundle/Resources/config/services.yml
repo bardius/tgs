@@ -19,3 +19,8 @@ services:
         class: BardisCMS\SpotBundle\Twig\BooleanToStringExtension
         tags:
             - { name: twig.extension }
+  
+  spot.twig.weatherIconToChar_extension:
+        class: BardisCMS\SpotBundle\Twig\WeatherIconToCharExtension
+        tags:
+            - { name: twig.extension }
