@@ -1,5 +1,3 @@
-Header set Created-By "George Bardis - george@bardis.info"
-
 <IfModule mod_rewrite.c>
     RewriteEngine On
 	RewriteBase /
@@ -32,19 +30,16 @@ Header set Created-By "George Bardis - george@bardis.info"
     RewriteRule ^(.*)$ app_dev.php [QSA,L]
 </IfModule>
 
-#### disable directory browsing ####
+#### disable directory browsing
 Options All -Indexes
 
-#### enable directory browsing ####
-# Options All +Indexes
+#### Set the timezone
+# SetEnv TZ Europe/London
 
-#### Set the timezone ####
-# SetEnv TZ Australia/Melbourne
+#### Sample Redirects
+#### Redirect 301 http://www.domain.com/home http://www.domain.com/
 
-#### Sample Redirects ####
-# Redirect 301 http://www.domain.com/home http://www.domain.com/
-
-#### Always download attachments ####
+#### Always download attachments
 AddType application/octet-stream .pdf
 AddType application/octet-stream .zip
 
@@ -106,5 +101,49 @@ FileETag None
 	ExpiresByType text/html A600
 </IfModule>
 
+#### Set headers
+<ifModule mod_headers.c>
+	#### IE
+	Header set X-UA-Compatible "IE=Edge,chrome=1"
+
+	#### P3P Header of IE issues with 3rd party coockies
+	Header set P3P: "cp=Flora UK"
+
+	#### Security Hardening
+	# Vivid Matter - Bulletproof Header Security
+	# Don't allow pages to be framed externally - Defends against CSRF
+	Header append X-FRAME-OPTIONS "SAMEORIGIN"
+
+	# Tell the browser to attempt the HTTPS version first
+	#Header add Strict-Transport-Security "max-age=157680000"
+
+	# Turn on IE8-IE9 XSS prevention tools
+	#Header set X-XSS-Protection "1; mode=block"
+
+	# Only allow JavaScript from the same domain to be run.
+	# Don't allow inline JavaScript to run.
+	#Header set X-Content-Security-Policy "allow 'self';"
+
+	# Prevent mime based attacks
+	Header set X-Content-Type-Options "nosniff"
+
+	# Disable server signature
+	Header set ServerSignature "Off"
+	Header set ServerTokens "Prod"
+
+	# Control Cross-Domain Policies
+	#Header set X-Permitted-Cross-Domain-Policies "master-only"
+	
+	#### Set the content language header
+	Header set Content-Language en
+
+	#### Set the Creator
+	Header set Created-By "George Bardis - george@bardis.info"
+	Header set Version "1.0.0"
+</ifModule>
+
 #
 ############ End -  Optimize for YSlow
+
+#### Disable server signature
+ServerSignature Off
