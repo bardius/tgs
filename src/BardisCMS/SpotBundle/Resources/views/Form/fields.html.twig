@@ -30,17 +30,18 @@ This file is part of the BardisCMS.
 {% endblock %}
 
 
-{# form_label #}
+{# form_label_rounded #}
 {% block form_label %}
     {% if label is empty %}
-        {% set label = name|humanize %}
-    {% endif %}
-    <label class="columns large-2 small-12" for="{{ id }}">
-		{{ label|trans }}
-		{% if required %}
-            <span class="symfony-form-required" title="This field is required">*</span>
-        {% endif %}
-    </label>
+		{% set label = name|humanize %}
+	{% endif %}
+	<label class="columns large-2 small-12 isRound {{ label|trans }}Filter" for="{{ id }}">
+		<span class="roundTitle">
+			<span class="verticalCenterer">
+				<span>{{ label|trans }}{% if required %}<span class="symfony-form-required" title="This field is required">*</span>{% endif %}</span>
+			</span>
+		</span>
+	</label>
 {% endblock %}
 
 
@@ -48,7 +49,7 @@ This file is part of the BardisCMS.
 {% block form_rows_custom %}
 {% spaceless %}
     {% for child in form %}
-	<div class="columns large-3 small-4">
+	<div class="columns large-3 small-6">
 		{{ form_widget(child) }}		
 		{{ form_label(child) }}
 		{{ form_errors(child) }}
@@ -60,8 +61,8 @@ This file is part of the BardisCMS.
 {% block form_rows_custom_blue %}
 {% spaceless %}
     {% for child in form %}
-	<div class="columns large-3 small-4">			
-		<span class="isBox isBlue">
+	<div class="columns large-3 small-6">			
+		<span class="isBox isBlue isFilter">
 			<span>
 				<small>			
 				{{ form_widget(child) }}		
@@ -78,8 +79,8 @@ This file is part of the BardisCMS.
 {% block form_rows_custom_gray %}
 {% spaceless %}
     {% for child in form %}
-	<div class="columns large-3 small-4">			
-		<span class="isBox isGray">
+	<div class="columns large-4 small-6">			
+		<span class="isBox isGray isFilter">
 			<span>
 				<small>			
 				{{ form_widget(child) }}		
@@ -96,11 +97,11 @@ This file is part of the BardisCMS.
 {% block form_rows_custom_rounded %}
 {% spaceless %}
     {% for child in form %}
-	<div class="columns large-3 small-4">			
-		<span class="isRound">
+	<div class="columns large-2 small-6 isRoundFilter">			
+		<span class="isRound isFilter">
 			<span>
 				<small>			
-				{{ form_widget(child) }}		
+				{{ form_widget(child) }}	
 				{{ form_label(child) }}
 				{{ form_errors(child) }}
 				</small>

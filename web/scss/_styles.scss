@@ -1926,85 +1926,272 @@ header{
 	.customCheckBox {
 		padding-top: 12px;
 		
-		input{
-			display: none;
-		}
-		
-		input + label {
-			padding: 0 0 0 28px;
-			display: inline-block;
-			position: relative;
-			line-height: 1.2;
-			clear: left;
-			float: left;
-			font-size: rem-calc(24);
-			width: auto;
-			cursor: pointer;
-			margin: 0;
-			
-			&:after{
-				content: '\00a0';
-				font-size: rem-calc(22);
-				position: absolute;
-				top: 3px;
-				left: 0px;
-				color: $dark-gray-color;
-				box-shadow: 0 1px 2px rgba(0,0,0,0), inset 0px 1px 3px rgba(13,59,131,0);
-				border: 2px solid $dark-gray-color;
-				border-radius: 50%;
-				background: none transparent;
-				width: rem-calc(20);
-				height: rem-calc(20);
-				line-height: 0.5;
-				text-align: center;			
-			}
-		}
-		
-		input:checked + label:after {
-			content: '\2714';
-			box-shadow: 0 1px 2px rgba(0,0,0,0), inset 0px -15px 10px -12px rgba(0,0,0,0), inset 15px 10px -12px rgba(13,59,131,0);
-		}
-		
-		.isBox,
-		.isRound{
-			display: inline-block;
-			width: 90%;
+		.columns {
 			text-align: center;
-			
+		
+			input{
+				display: none;
+			}
+
 			input + label {
-				color: $white-color;
+				padding: 0 0 0 28px;
 				display: inline-block;
-				padding: 6px 0;
-				width: 100%;
-				background: none $secondary-color;
+				position: relative;
+				line-height: 1.2;
+				clear: left;
 				float: left;
-				border: 4px solid $secondary-color;
-				
-				-webkit-transition: all 300ms ease-in-out;
-				-moz-transition: all 300ms ease-in-out;
-				-o-transition: all 300ms ease-in-out;
-				transition: all 300ms ease-in-out;
-				
-				&:after{
-					display: none;
-				}
-				
-				&:hover{
-					border: 4px solid $primary-color;
-					background: none $primary-color;					
+				font-size: rem-calc(24);
+				width: auto;
+				cursor: pointer;
+				margin: 0;
+
+				&:after {
+					content: '\00a0';
+					font-size: rem-calc(22);
+					position: absolute;
+					top: 3px;
+					left: 0px;
+					color: $dark-gray-color;
+					box-shadow: 0 1px 2px rgba(0,0,0,0), inset 0px 1px 3px rgba(13,59,131,0);
+					border: 2px solid $dark-gray-color;
+					border-radius: 50%;
+					background: none transparent;
+					width: rem-calc(20);
+					height: rem-calc(20);
+					line-height: 0.5;
+					text-align: center;			
 				}
 			}
+
+			input:checked + label:after {
+				content: '\2714';
+				box-shadow: 0 1px 2px rgba(0,0,0,0), inset 0px -15px 10px -12px rgba(0,0,0,0), inset 15px 10px -12px rgba(13,59,131,0);
+			}
+
+			.isFilter{
+				display: inline-block;
+				width: 90%;
+				text-align: center;
+
+				input + label {
+					color: $white-color;
+					display: inline-block;
+					padding: 6px 0;
+					width: 100%;
+					background: none $secondary-color;
+					float: left;
+					border: 4px solid $secondary-color;
+
+					-webkit-transition: all 300ms ease-in-out;
+					-moz-transition: all 300ms ease-in-out;
+					-o-transition: all 300ms ease-in-out;
+					transition: all 300ms ease-in-out;
+
+					&:after{
+						display: none;
+					}
+
+					&:hover{
+						border: 4px solid $dark-gray-color;
+						background: none $dark-gray-color;					
+					}
+				}
+
+				input:checked + label {
+					background: none $dark-gray-color;
+					border: 4px solid $white-color;				
+					border-radius: 4px;
+				}
+			}	
+		}
+	
+		&.mainFilters{
+			padding-top: 2px;
+			margin-bottom: 20px;
+		}
+
+		&.blueFilters{
 			
-			input:checked + label {
-				background: none $dark-gray-color;
-				border: 4px solid $white-color;				
-				border-radius: 4px;
+			.columns {
+
+				input + label{
+					border: 4px solid $primary-color;
+					background: none $primary-color;
+
+					&:hover{
+						border: 4px solid $dark-primary-color;
+						background: none $dark-primary-color;			
+					}
+				}
+
+				input:checked + label {
+					background: none $dark-primary-color;
+					border: 4px solid $white-color;
+				}
+			}	
+		}
+		
+		.isRoundFilter {
+			width: 20%;
+			
+			.isRound {
+				width: 100%;
+		
+				.isRound {
+					display: inline-block;
+					text-align: center;
+					color: $white-color;
+					background-color: $secondary-color;	
+					border-radius: 50%!important;
+					overflow: hidden;
+					position: relative;
+					width: 100%;
+					height: auto;
+					padding-top: 90%;
+					border: 4px solid $secondary-color;
+
+					.roundTitle{
+						display: inline-block;
+						height: 100%;
+						width: 100%;
+						padding: 10%;
+						position: absolute;
+						left: 0;
+						top: 0;
+						text-align: center;
+						font-size: rem-calc(22);
+						line-height: 1.15;
+						letter-spacing: 2px;
+						font-family: $alt-font-family;
+						border-radius: 50%;
+						overflow: hidden;
+
+						.verticalCenterer{
+							display: table;
+							height: 100%;
+							width: 100%;
+							background: url("../images/site_assets/defaultSportIcon.png") 50% 20% no-repeat;
+							background-size: auto 65%;
+							
+							-webkit-box-sizing: content-box;
+							-moz-box-sizing: content-box;
+							box-sizing: content-box;
+
+							span{
+								display: table-cell;
+								vertical-align: bottom;
+								
+								-webkit-box-sizing: content-box;
+								-moz-box-sizing: content-box;
+								box-sizing: content-box;
+							}
+						}
+					}				
+				}	
+					
+				.SurfFilter{
+					border: 4px solid $primary-color;
+					background: none $primary-color;
+
+					.roundTitle{
+
+						.verticalCenterer{
+							background-image: url("../images/site_assets/surfIcon.png");							
+						}						
+					}
+
+					&:hover{
+						border: 4px solid $dark-gray-color;
+						background: none $dark-gray-color;			
+					}
+				}
+
+				.WindsurfFilter{
+					border: 4px solid #72b300;
+					background: none #72b300;
+
+					.roundTitle{
+
+						.verticalCenterer{
+							background-image: url("../images/site_assets/windsurfIcon.png");							
+						}						
+					}
+
+					&:hover{
+						border: 4px solid $dark-gray-color;
+						background: none $dark-gray-color;			
+					}
+				}
+
+				.WakeboardFilter{
+					border: 4px solid #ef752d;
+					background: none #ef752d;
+
+					.roundTitle{
+
+						.verticalCenterer{
+							background-image: url("../images/site_assets/wakeboardIcon.png");							
+						}						
+					}
+
+					&:hover{
+						border: 4px solid $dark-gray-color;
+						background: none $dark-gray-color;			
+					}
+				}
+
+				.KitesurfFilter{
+					border: 4px solid #8f225a;
+					background: none #8f225a;
+
+					.roundTitle{
+
+						.verticalCenterer{
+							background-image: url("../images/site_assets/kitesurfIcon.png");							
+						}						
+					}
+
+					&:hover{
+						border: 4px solid $dark-gray-color;
+						background: none $dark-gray-color;			
+					}
+				}
+			
+				.WaterskiFilter{
+					border: 4px solid #fb0078;
+					background: none #fb0078;
+
+					.roundTitle{
+
+						.verticalCenterer{
+							background-image: url("../images/site_assets/waterskiIcon.png");							
+						}						
+					}
+
+					&:hover{
+						border: 4px solid $dark-gray-color;
+						background: none $dark-gray-color;			
+					}	
+				}				
+
+				input:checked + .SurfFilter,
+				input:checked + .WindsurfFilter,
+				input:checked + .WakeboardFilter,
+				input:checked + .KitesurfFilter,
+				input:checked + .WaterskiFilter {
+					background: none $dark-gray-color;
+					border: 4px solid $white-color;
+				}
 			}
 		}
 	}
 	
-	.mainFilters{
-		padding-top: 2px;		
+	#spotfiltersform_destinations{
+		
+			.isFilter{
+				margin-bottom: 10px;
+			}
+
 	}
 }
 

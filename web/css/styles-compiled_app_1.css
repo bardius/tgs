@@ -12387,11 +12387,15 @@ header {
   padding-top: 12px;
 }
 /* line 1929, ../scss/_styles.scss */
-#filterResultsFormHolder .customCheckBox input {
+#filterResultsFormHolder .customCheckBox .columns {
+  text-align: center;
+}
+/* line 1932, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .columns input {
   display: none;
 }
-/* line 1933, ../scss/_styles.scss */
-#filterResultsFormHolder .customCheckBox input + label {
+/* line 1936, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .columns input + label {
   padding: 0 0 0 28px;
   display: inline-block;
   position: relative;
@@ -12403,8 +12407,8 @@ header {
   cursor: pointer;
   margin: 0;
 }
-/* line 1945, ../scss/_styles.scss */
-#filterResultsFormHolder .customCheckBox input + label:after {
+/* line 1948, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .columns input + label:after {
   content: '\00a0';
   font-size: 1.375rem;
   position: absolute;
@@ -12420,21 +12424,19 @@ header {
   line-height: 0.5;
   text-align: center;
 }
-/* line 1963, ../scss/_styles.scss */
-#filterResultsFormHolder .customCheckBox input:checked + label:after {
+/* line 1966, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .columns input:checked + label:after {
   content: '\2714';
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0), inset 0px -15px 10px -12px rgba(0, 0, 0, 0), inset 15px 10px -12px rgba(13, 59, 131, 0);
 }
-/* line 1969, ../scss/_styles.scss */
-#filterResultsFormHolder .customCheckBox .isBox,
-#filterResultsFormHolder .customCheckBox .isRound {
+/* line 1971, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .columns .isFilter {
   display: inline-block;
   width: 90%;
   text-align: center;
 }
-/* line 1974, ../scss/_styles.scss */
-#filterResultsFormHolder .customCheckBox .isBox input + label,
-#filterResultsFormHolder .customCheckBox .isRound input + label {
+/* line 1976, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .columns .isFilter input + label {
   color: white;
   display: inline-block;
   padding: 6px 0;
@@ -12447,30 +12449,184 @@ header {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-/* line 1988, ../scss/_styles.scss */
-#filterResultsFormHolder .customCheckBox .isBox input + label:after,
-#filterResultsFormHolder .customCheckBox .isRound input + label:after {
+/* line 1990, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .columns .isFilter input + label:after {
   display: none;
 }
-/* line 1992, ../scss/_styles.scss */
-#filterResultsFormHolder .customCheckBox .isBox input + label:hover,
-#filterResultsFormHolder .customCheckBox .isRound input + label:hover {
-  border: 4px solid #4cb9bb;
-  background: none #4cb9bb;
+/* line 1994, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .columns .isFilter input + label:hover {
+  border: 4px solid #515151;
+  background: none #515151;
 }
-/* line 1998, ../scss/_styles.scss */
-#filterResultsFormHolder .customCheckBox .isBox input:checked + label,
-#filterResultsFormHolder .customCheckBox .isRound input:checked + label {
+/* line 2000, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .columns .isFilter input:checked + label {
   background: none #515151;
   border: 4px solid white;
   border-radius: 4px;
 }
-/* line 2006, ../scss/_styles.scss */
-#filterResultsFormHolder .mainFilters {
+/* line 2008, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox.mainFilters {
   padding-top: 2px;
+  margin-bottom: 20px;
+}
+/* line 2017, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox.blueFilters .columns input + label {
+  border: 4px solid #4cb9bb;
+  background: none #4cb9bb;
+}
+/* line 2021, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox.blueFilters .columns input + label:hover {
+  border: 4px solid #3a8985;
+  background: none #3a8985;
+}
+/* line 2027, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox.blueFilters .columns input:checked + label {
+  background: none #3a8985;
+  border: 4px solid white;
+}
+/* line 2034, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter {
+  width: 20%;
+}
+/* line 2037, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound {
+  width: 100%;
+}
+/* line 2040, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .isRound {
+  display: inline-block;
+  text-align: center;
+  color: white;
+  background-color: gray;
+  border-radius: 50%!important;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding-top: 90%;
+  border: 4px solid gray;
+}
+/* line 2053, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .isRound .roundTitle {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  padding: 10%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  font-size: 1.375rem;
+  line-height: 1.15;
+  letter-spacing: 2px;
+  font-family: "burbank_big_condensed", Verdana, Tahoma, Arial, sans-serif;
+  border-radius: 50%;
+  overflow: hidden;
+}
+/* line 2069, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .isRound .roundTitle .verticalCenterer {
+  display: table;
+  height: 100%;
+  width: 100%;
+  background: url("../images/site_assets/defaultSportIcon.png") 50% 20% no-repeat;
+  background-size: auto 65%;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* line 2080, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .isRound .roundTitle .verticalCenterer span {
+  display: table-cell;
+  vertical-align: bottom;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* line 2092, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .SurfFilter {
+  border: 4px solid #4cb9bb;
+  background: none #4cb9bb;
+}
+/* line 2098, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .SurfFilter .roundTitle .verticalCenterer {
+  background-image: url("../images/site_assets/surfIcon.png");
+}
+/* line 2103, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .SurfFilter:hover {
+  border: 4px solid #515151;
+  background: none #515151;
+}
+/* line 2109, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .WindsurfFilter {
+  border: 4px solid #72b300;
+  background: none #72b300;
+}
+/* line 2115, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .WindsurfFilter .roundTitle .verticalCenterer {
+  background-image: url("../images/site_assets/windsurfIcon.png");
+}
+/* line 2120, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .WindsurfFilter:hover {
+  border: 4px solid #515151;
+  background: none #515151;
+}
+/* line 2126, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .WakeboardFilter {
+  border: 4px solid #ef752d;
+  background: none #ef752d;
+}
+/* line 2132, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .WakeboardFilter .roundTitle .verticalCenterer {
+  background-image: url("../images/site_assets/wakeboardIcon.png");
+}
+/* line 2137, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .WakeboardFilter:hover {
+  border: 4px solid #515151;
+  background: none #515151;
+}
+/* line 2143, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .KitesurfFilter {
+  border: 4px solid #8f225a;
+  background: none #8f225a;
+}
+/* line 2149, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .KitesurfFilter .roundTitle .verticalCenterer {
+  background-image: url("../images/site_assets/kitesurfIcon.png");
+}
+/* line 2154, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .KitesurfFilter:hover {
+  border: 4px solid #515151;
+  background: none #515151;
+}
+/* line 2160, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .WaterskiFilter {
+  border: 4px solid #fb0078;
+  background: none #fb0078;
+}
+/* line 2166, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .WaterskiFilter .roundTitle .verticalCenterer {
+  background-image: url("../images/site_assets/waterskiIcon.png");
+}
+/* line 2171, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound .WaterskiFilter:hover {
+  border: 4px solid #515151;
+  background: none #515151;
+}
+/* line 2181, ../scss/_styles.scss */
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound input:checked + .SurfFilter,
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound input:checked + .WindsurfFilter,
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound input:checked + .WakeboardFilter,
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound input:checked + .KitesurfFilter,
+#filterResultsFormHolder .customCheckBox .isRoundFilter .isRound input:checked + .WaterskiFilter {
+  background: none #515151;
+  border: 4px solid white;
+}
+/* line 2191, ../scss/_styles.scss */
+#filterResultsFormHolder #spotfiltersform_destinations .isFilter {
+  margin-bottom: 10px;
 }
 
-/* line 2011, ../scss/_styles.scss */
+/* line 2198, ../scss/_styles.scss */
 #filterResultsForm .formBtns {
   float: none;
   position: absolute;
@@ -12479,13 +12635,13 @@ header {
   width: 25%;
 }
 
-/* line 2019, ../scss/_styles.scss */
+/* line 2206, ../scss/_styles.scss */
 #filterResultsForm .formBtns .checkAllBox {
   float: left;
   margin-top: 4px;
 }
 
-/* line 2024, ../scss/_styles.scss */
+/* line 2211, ../scss/_styles.scss */
 #filterResultsForm #filterResultsBtn {
   float: right;
   background: url("../images/site_assets/indexSlideArrow.png") no-repeat 80% 50% #0a3982;
@@ -12503,13 +12659,13 @@ header {
   font-weight: normal!important;
 }
 
-/* line 2041, ../scss/_styles.scss */
+/* line 2228, ../scss/_styles.scss */
 #filterResultsForm #filterResultsBtn:hover {
   cursor: pointer;
   background: url("../images/site_assets/indexSlideArrow.png") no-repeat 80% 50% #011a48;
 }
 
-/* line 2046, ../scss/_styles.scss */
+/* line 2233, ../scss/_styles.scss */
 #filterResultsForm .checkAllBox label {
   font-size: 0.9285em;
   font-size: 0.9285rem;
@@ -12521,19 +12677,19 @@ header {
   margin-bottom: 0;
 }
 
-/* line 2063, ../scss/_styles.scss */
+/* line 2250, ../scss/_styles.scss */
 .lt-ie9 #filterResultsForm .customCheckBox input {
   display: inline-block;
   float: left;
   clear: left;
 }
-/* line 2069, ../scss/_styles.scss */
+/* line 2256, ../scss/_styles.scss */
 .lt-ie9 #filterResultsForm .customCheckBox input + label {
   display: inline-block;
   float: left;
   clear: none;
 }
-/* line 2074, ../scss/_styles.scss */
+/* line 2261, ../scss/_styles.scss */
 .lt-ie9 #filterResultsForm .customCheckBox input + label:after {
   display: none;
 }
@@ -12544,7 +12700,7 @@ header {
 /* -----------------------------------------
 	Google Map
 ----------------------------------------- */
-/* line 2102, ../scss/_styles.scss */
+/* line 2289, ../scss/_styles.scss */
 #map_canvas {
   width: 95%;
   height: 100%;
@@ -12554,7 +12710,7 @@ header {
 /* -----------------------------------------
 	Footer Styles
 ----------------------------------------- */
-/* line 2112, ../scss/_styles.scss */
+/* line 2299, ../scss/_styles.scss */
 footer {
   margin-top: 30px;
   background: #4cb9bb;
@@ -12562,34 +12718,34 @@ footer {
   overflow: hidden;
   color: white;
 }
-/* line 2119, ../scss/_styles.scss */
+/* line 2306, ../scss/_styles.scss */
 footer #copyrights {
   text-align: left;
 }
-/* line 2122, ../scss/_styles.scss */
+/* line 2309, ../scss/_styles.scss */
 footer #copyrights p {
   font-size: 0.8125rem;
 }
-/* line 2127, ../scss/_styles.scss */
+/* line 2314, ../scss/_styles.scss */
 footer #footerNav {
   width: 100%;
   text-transform: uppercase;
   margin-top: 2.25rem;
 }
-/* line 2132, ../scss/_styles.scss */
+/* line 2319, ../scss/_styles.scss */
 footer #footerNav .footer-menu {
   text-align: center;
   background: transparent;
   width: 100%;
   display: inline-block;
 }
-/* line 2138, ../scss/_styles.scss */
+/* line 2325, ../scss/_styles.scss */
 footer #footerNav .footer-menu .level0 {
   float: none;
   display: inline-block;
   margin: 0;
 }
-/* line 2143, ../scss/_styles.scss */
+/* line 2330, ../scss/_styles.scss */
 footer #footerNav .footer-menu .level0 a {
   overflow: hidden;
   color: white;
@@ -12603,19 +12759,19 @@ footer #footerNav .footer-menu .level0 a {
   transition: all 300ms ease-in-out;
 }
 
-/* line 2161, ../scss/_styles.scss */
+/* line 2348, ../scss/_styles.scss */
 .contentFooter {
   text-align: center;
   margin-top: 5rem !important;
 }
-/* line 2165, ../scss/_styles.scss */
+/* line 2352, ../scss/_styles.scss */
 .contentFooter h5 {
   text-align: center;
   font-size: 2.125rem;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-/* line 2172, ../scss/_styles.scss */
+/* line 2359, ../scss/_styles.scss */
 .contentFooter h6 {
   text-align: center;
   font-size: 1.25rem;
@@ -12624,7 +12780,7 @@ footer #footerNav .footer-menu .level0 a {
   margin: 1.25rem 0 0 0;
   font-family: "gotham_book", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
-/* line 2181, ../scss/_styles.scss */
+/* line 2368, ../scss/_styles.scss */
 .contentFooter .isRound {
   display: inline-block;
   text-align: center;
@@ -12638,19 +12794,19 @@ footer #footerNav .footer-menu .level0 a {
   height: auto;
   padding-top: 52%;
 }
-/* line 2194, ../scss/_styles.scss */
+/* line 2381, ../scss/_styles.scss */
 .contentFooter .isRound.magazineLink {
   background: url("../images/site_assets/magazineIcon.png") no-repeat 50% 50% gray;
 }
-/* line 2198, ../scss/_styles.scss */
+/* line 2385, ../scss/_styles.scss */
 .contentFooter .isRound.mapLink {
   background: url("../images/site_assets/mapIcon.png") no-repeat 50% 50% gray;
 }
-/* line 2202, ../scss/_styles.scss */
+/* line 2389, ../scss/_styles.scss */
 .contentFooter .isRound.addSpotLink {
   background: url("../images/site_assets/addSpotIcon.png") no-repeat 50% 50% gray;
 }
-/* line 2206, ../scss/_styles.scss */
+/* line 2393, ../scss/_styles.scss */
 .contentFooter .isRound span {
   display: inline-block;
   height: 100%;
@@ -12667,17 +12823,17 @@ footer #footerNav .footer-menu .level0 a {
   border-radius: 50%;
   overflow: hidden;
 }
-/* line 2222, ../scss/_styles.scss */
+/* line 2409, ../scss/_styles.scss */
 .contentFooter .isRound span small {
   display: none;
 }
-/* line 2227, ../scss/_styles.scss */
+/* line 2414, ../scss/_styles.scss */
 .contentFooter .isRound:hover, .contentFooter .isRound:focus {
   color: white;
   background-color: #515151;
   border-color: #515151;
 }
-/* line 2234, ../scss/_styles.scss */
+/* line 2421, ../scss/_styles.scss */
 .contentFooter .smoIcons {
   display: inline-block;
   text-align: center;
@@ -12686,13 +12842,13 @@ footer #footerNav .footer-menu .level0 a {
   padding: 0;
   width: 100%;
 }
-/* line 2242, ../scss/_styles.scss */
+/* line 2429, ../scss/_styles.scss */
 .contentFooter .smoIcons li {
   display: inline-block;
   padding: 0;
   margin: 0 8px;
 }
-/* line 2247, ../scss/_styles.scss */
+/* line 2434, ../scss/_styles.scss */
 .contentFooter .smoIcons li a {
   color: white;
   border: 2px solid white;
@@ -12707,24 +12863,24 @@ footer #footerNav .footer-menu .level0 a {
   background: none 50% 50% no-repeat gray;
   vertical-align: middle;
 }
-/* line 2261, ../scss/_styles.scss */
+/* line 2448, ../scss/_styles.scss */
 .contentFooter .smoIcons li a span {
   display: none;
 }
-/* line 2265, ../scss/_styles.scss */
+/* line 2452, ../scss/_styles.scss */
 .contentFooter .smoIcons li a:hover, .contentFooter .smoIcons li a:focus {
   color: white;
   background-color: #515151;
 }
-/* line 2271, ../scss/_styles.scss */
+/* line 2458, ../scss/_styles.scss */
 .contentFooter .smoIcons li .fbIcon {
   background-image: url("../images/site_assets/fbIcon.png");
 }
-/* line 2275, ../scss/_styles.scss */
+/* line 2462, ../scss/_styles.scss */
 .contentFooter .smoIcons li .tweetIcon {
   background-image: url("../images/site_assets/tweetIcon.png");
 }
-/* line 2279, ../scss/_styles.scss */
+/* line 2466, ../scss/_styles.scss */
 .contentFooter .smoIcons li .mailIcon {
   background-image: url("../images/site_assets/mailIcon.png");
 }
@@ -12733,37 +12889,37 @@ footer #footerNav .footer-menu .level0 a {
 	Media Queries for mobile / tablets responsivenes
 ----------------------------------------------------- */
 @media only screen and (device-width: 320px) and (orientation: portrait) {
-  /* line 2292, ../scss/_styles.scss */
+  /* line 2479, ../scss/_styles.scss */
   html {
     font-size: 10px!important;
   }
 }
 @media only screen and (device-width: 320px) and (orientation: landscape) {
-  /* line 2299, ../scss/_styles.scss */
+  /* line 2486, ../scss/_styles.scss */
   html {
     font-size: 11px!important;
   }
 }
 @media only screen and (max-width: 380px) {
-  /* line 2307, ../scss/_styles.scss */
+  /* line 2494, ../scss/_styles.scss */
   html {
     font-size: 10px!important;
   }
 }
 @media only screen and (max-width: 498px) {
-  /* line 2314, ../scss/_styles.scss */
+  /* line 2501, ../scss/_styles.scss */
   html {
     font-size: 10px!important;
   }
 }
 @media only screen and (max-width: 766px) and (min-width: 499px) {
-  /* line 2321, ../scss/_styles.scss */
+  /* line 2508, ../scss/_styles.scss */
   html {
     font-size: 12px!important;
   }
 }
 @media only screen and (max-width: 767px) {
-  /* line 2329, ../scss/_styles.scss */
+  /* line 2516, ../scss/_styles.scss */
   html {
     font-size: 13px!important;
   }
@@ -12771,25 +12927,25 @@ footer #footerNav .footer-menu .level0 a {
   /*-------------------------------------------
   	Navigation Menu Styles
   -----------------------------------------*/
-  /* line 2343, ../scss/_styles.scss */
+  /* line 2530, ../scss/_styles.scss */
   .top-bar ul .level0 a {
     font-size: 1.5rem;
   }
 }
 @media only screen and (device-width: 768px) and (orientation: portrait) {
-  /* line 2353, ../scss/_styles.scss */
+  /* line 2540, ../scss/_styles.scss */
   html {
     font-size: 12px!important;
   }
 }
 @media only screen and (device-width: 768px) and (orientation: landscape) {
-  /* line 2360, ../scss/_styles.scss */
+  /* line 2547, ../scss/_styles.scss */
   html {
     font-size: 13px!important;
   }
 }
 @media only screen and (max-width: 959px) and (min-width: 768px) {
-  /* line 2367, ../scss/_styles.scss */
+  /* line 2554, ../scss/_styles.scss */
   html {
     font-size: 13px!important;
   }
@@ -12797,19 +12953,19 @@ footer #footerNav .footer-menu .level0 a {
   /*-------------------------------------------
   	Navigation Menu Styles
   -----------------------------------------*/
-  /* line 2381, ../scss/_styles.scss */
+  /* line 2568, ../scss/_styles.scss */
   .top-bar ul .level0 a {
     font-size: 1.5rem;
   }
 }
 @media only screen and (min-width: 960px) {
-  /* line 2390, ../scss/_styles.scss */
+  /* line 2577, ../scss/_styles.scss */
   html {
     font-size: 14px!important;
   }
 }
 @media print {
-  /* line 2396, ../scss/_styles.scss */
+  /* line 2583, ../scss/_styles.scss */
   div:not(.reveal-modal) {
     display: inherit !important;
   }

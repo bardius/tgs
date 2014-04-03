@@ -107,7 +107,7 @@ FileETag None
 	Header set X-UA-Compatible "IE=Edge,chrome=1"
 
 	#### P3P Header of IE issues with 3rd party coockies
-	Header set P3P: "cp=Flora UK"
+	Header set P3P: "cp=The Greek Spots"
 
 	#### Security Hardening
 	# Vivid Matter - Bulletproof Header Security
@@ -144,6 +144,3 @@ FileETag None
 
 #
 ############ End -  Optimize for YSlow
-
-#### Disable server signature
-ServerSignature Off
