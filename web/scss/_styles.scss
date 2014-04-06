@@ -2195,6 +2195,8 @@ header{
 	}
 }
 
+.advancedFilters
+
 #filterResultsForm .formBtns {
 	float: none;
 	position: absolute;
@@ -2203,42 +2205,66 @@ header{
 	width: 25%;
 }
 
-#filterResultsForm .formBtns .checkAllBox{
-	float: left;
-	margin-top: 4px;
-}
+#filterResultsForm{
+	
+	.advancedFiltersContainer{
+	
+		.accordion {
+			
+			dd > a {
+				background: none repeat 0 0 transparent;
+				color: $dark-gray-color;
+				display: inline-block;
+				width: auto;
+				font-family: $alt-font-family;
+				text-tranform: uppercase;;
+				font-size: 1.25rem;
+				padding: 1.25rem;
+			}
+		}
+		
+	}
+	
+	.formBtns{
+		
+		.checkAllBox{
+			float: left;
+			margin-top: 4px;
+			
+			label{
+				font-size: 0.9285em;
+				font-size: 0.9285rem;
+				line-height: 1.285em;
+				line-height: 1.285rem;
+				text-transform: none;
+				color: #052763;
+				cursor: pointer;
+				margin-bottom:0;    
+			}
+		}
+	}	
 
-#filterResultsForm #filterResultsBtn{
-	float: right;
-	background: url("../images/site_assets/indexSlideArrow.png") no-repeat 80% 50% #0A3982;
-	border-radius: 16px 16px 16px 16px;
-	color: #FFFFFF;
-	display: block;
-	font-family: "futuramedium", "Helvetica", Tahoma, Arial, sans-serif;
-	font-size: 16px;
-	height: 32px;
-	line-height: 32px;
-	padding: 0 34px 0 16px;
-	text-align: left;
-	text-transform: uppercase;
-	border: none;
-	font-weight: normal!important;
-}
+	#filterResultsBtn {
+	   float: right;
+	   background: url("../images/site_assets/indexSlideArrow.png") no-repeat 80% 50% #0A3982;
+	   border-radius: 16px 16px 16px 16px;
+	   color: #FFFFFF;
+	   display: block;
+	   font-family: "futuramedium", "Helvetica", Tahoma, Arial, sans-serif;
+	   font-size: 16px;
+	   height: 32px;
+	   line-height: 32px;
+	   padding: 0 34px 0 16px;
+	   text-align: left;
+	   text-transform: uppercase;
+	   border: none;
+	   font-weight: normal!important;
 
-#filterResultsForm #filterResultsBtn:hover{
-	cursor: pointer;
-	background: url("../images/site_assets/indexSlideArrow.png") no-repeat 80% 50% #011A48;    
-}
-
-#filterResultsForm .checkAllBox label{
-	font-size: 0.9285em;
-	font-size: 0.9285rem;
-	line-height: 1.285em;
-	line-height: 1.285rem;
-	text-transform: none;
-	color: #052763;
-	cursor: pointer;
-	margin-bottom:0;    
+	   &:hover{
+		   cursor: pointer;
+		   background: url("../images/site_assets/indexSlideArrow.png") no-repeat 80% 50% #011A48;
+	   }
+   }
 }
 
 .lt-ie9 {

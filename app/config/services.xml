@@ -3,7 +3,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
       <service id="sonata.admin.pages" class="BardisCMS\PageBundle\Admin\PageAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Pages" label="Manage Website Pages" />
+          <tag name="sonata.admin" manager_type="orm" group="Pages" label="Website Pages" />
           <argument />
           <argument>BardisCMS\PageBundle\Entity\Page</argument>
           <argument>PageBundle:PageAdmin</argument>
@@ -12,7 +12,7 @@
           </call>
       </service>
       <service id="sonata.admin.categories" class="BardisCMS\CategoryBundle\Admin\CategoryAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Category" label="Manage Categories" />
+          <tag name="sonata.admin" manager_type="orm" group="Category" label="Categories" />
           <argument />
           <argument>BardisCMS\CategoryBundle\Entity\Category</argument>
           <argument>CategoryBundle:CategoryAdmin</argument>
@@ -21,7 +21,7 @@
           </call>
       </service>
       <service id="sonata.admin.tags" class="BardisCMS\TagBundle\Admin\TagAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Tag" label="Manage Tags" />
+          <tag name="sonata.admin" manager_type="orm" group="Tag" label="Tags" />
           <argument />
           <argument>BardisCMS\TagBundle\Entity\Tag</argument>
           <argument>TagBundle:TagAdmin</argument>
@@ -30,7 +30,7 @@
           </call>
       </service>
       <service id="sonata.admin.blogs" class="BardisCMS\BlogBundle\Admin\BlogAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Blog" label="Manage Blog Pages" />
+          <tag name="sonata.admin" manager_type="orm" group="Blog" label="Blog Pages" />
           <argument />
           <argument>BardisCMS\BlogBundle\Entity\Blog</argument>
           <argument>BlogBundle:BlogAdmin</argument>
@@ -39,7 +39,7 @@
           </call>
       </service>
       <service id="sonata.admin.destination" class="BardisCMS\DestinationBundle\Admin\DestinationAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Destination" label="Manage Destination Pages" />
+          <tag name="sonata.admin" manager_type="orm" group="Destination" label="Destination Pages" />
           <argument />
           <argument>BardisCMS\DestinationBundle\Entity\Destination</argument>
           <argument>DestinationBundle:DestinationAdmin</argument>
@@ -48,7 +48,7 @@
           </call>
       </service>
       <service id="sonata.admin.spots" class="BardisCMS\SpotBundle\Admin\SpotAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Spot" label="Manage Spot Pages" />
+          <tag name="sonata.admin" manager_type="orm" group="Spot" label="Spot Pages" />
           <argument />
           <argument>BardisCMS\SpotBundle\Entity\Spot</argument>
           <argument>SpotBundle:SpotAdmin</argument>
@@ -57,7 +57,7 @@
           </call>
       </service>
       <service id="sonata.admin.menus" class="BardisCMS\MenuBundle\Admin\MenuAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Menus" label="Manage Menus" />
+          <tag name="sonata.admin" manager_type="orm" group="Menus" label="Menus" />
           <argument />
           <argument>BardisCMS\MenuBundle\Entity\Menu</argument>
           <argument>MenuBundle:MenuAdmin</argument>
@@ -66,7 +66,7 @@
           </call>
       </service>
       <service id="sonata.admin.destinationcategories" class="BardisCMS\DestinationBundle\Admin\DestinationCategoriesAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Destination Categories" label="Manage Destination Categories" />
+          <tag name="sonata.admin" manager_type="orm" group="Destination Categories" label="Destination Categories" />
           <argument />
           <argument>BardisCMS\DestinationBundle\Entity\DestinationCategory</argument>
           <argument>SonataAdminBundle:CRUD</argument>
@@ -75,7 +75,7 @@
           </call>
       </service>
       <service id="sonata.admin.spotdestinationfilters" class="BardisCMS\SpotBundle\Admin\SpotDestinationFiltersAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Spot Destinations" label="Manage Spot Destinations" />
+          <tag name="sonata.admin" manager_type="orm" group="Spot Destinations" label="Spot Destinations" />
 
           <argument />
           <argument>BardisCMS\SpotBundle\Entity\SpotDestinationFilter</argument>
@@ -85,7 +85,7 @@
           </call>
       </service>
       <service id="sonata.admin.destinationtags" class="BardisCMS\DestinationBundle\Admin\DestinationTagsAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Destination Tags" label="Manage Destination Tags" />
+          <tag name="sonata.admin" manager_type="orm" group="Destination Tags" label="Destination Tags" />
           <argument />
           <argument>BardisCMS\DestinationBundle\Entity\DestinationTag</argument>
           <argument>SonataAdminBundle:CRUD</argument>
@@ -94,7 +94,7 @@
           </call>
       </service>
       <service id="sonata.admin.spotfilters" class="BardisCMS\SpotBundle\Admin\SpotFiltersAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Spot Filters" label="Manage Spot Filters" />
+          <tag name="sonata.admin" manager_type="orm" group="Spot Filters" label="Spot Filters" />
           <argument />
           <argument>BardisCMS\SpotBundle\Entity\SpotFilter</argument>
           <argument>SonataAdminBundle:CRUD</argument>
@@ -103,7 +103,7 @@
           </call>
       </service>
       <service id="sonata.admin.contentblocks" class="BardisCMS\ContentBlockBundle\Admin\ContentBlockAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Content Blocks" label="Manage Content Blocks" />
+          <tag name="sonata.admin" manager_type="orm" group="Content Blocks" label="Content Blocks" />
           <argument />
           <argument>BardisCMS\ContentBlockBundle\Entity\ContentBlock</argument>
           <argument>SonataAdminBundle:CRUD</argument>
@@ -112,7 +112,7 @@
           </call>
       </service>
       <service id="sonata.admin.settings" class="BardisCMS\SettingsBundle\Admin\SettingsAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Settings" label="Manage Website Settings" />
+          <tag name="sonata.admin" manager_type="orm" group="Settings" label="Website Settings" />
           <argument />
           <argument>BardisCMS\SettingsBundle\Entity\Settings</argument>
           <argument>SettingsBundle:SettingsAdmin</argument>
@@ -132,7 +132,7 @@
 			<argument type="service" id="security.context"/>
      </service>	  
       <service id="sonata.admin.comments" class="BardisCMS\CommentBundle\Admin\CommentAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="Comments" label="Manage Comments" />
+          <tag name="sonata.admin" manager_type="orm" group="Comments" label="Comments" />
           <argument />
           <argument>BardisCMS\CommentBundle\Entity\Comment</argument>
           <argument>CommentBundle:CommentAdmin</argument>

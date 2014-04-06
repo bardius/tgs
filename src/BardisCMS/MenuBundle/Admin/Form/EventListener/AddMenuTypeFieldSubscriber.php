@@ -50,19 +50,19 @@ class AddMenuTypeFieldSubscriber implements EventSubscriberInterface
         // check the menu type and presend the required field to enter page id
         switch ($data->getMenuType()) {
             case 'Blog':
-                $form->add($this->factory->createNamed('blog', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\BlogBundle\Entity\Blog', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Blog Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteBlogs'), 'required' => false)));
+                $form->add($this->factory->createNamed('blog', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\BlogBundle\Entity\Blog', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Blog Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteBlogs', 'data-sonata-select2' => 'false'), 'required' => false)));
                 $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('auto_initialize' => false, 'label' => 'Extra URL Params', 'required' => false)));
                 break;
             case 'Destination':
-                $form->add($this->factory->createNamed('destination', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Destination Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteDestination'), 'required' => false)));
+                $form->add($this->factory->createNamed('destination', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Destination Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteDestination', 'data-sonata-select2' => 'false'), 'required' => false)));
                 $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('auto_initialize' => false, 'label' => 'Extra URL Params', 'required' => false)));
                 break;
             case 'Spot':
-                $form->add($this->factory->createNamed('spot', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\SpotBundle\Entity\Spot', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Spot Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteSpot'), 'required' => false)));
+                $form->add($this->factory->createNamed('spot', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\SpotBundle\Entity\Spot', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Spot Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteSpot', 'data-sonata-select2' => 'false'), 'required' => false)));
                 $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('auto_initialize' => false, 'label' => 'Extra URL Params', 'required' => false)));
                 break;
             case 'Page':
-                $form->add($this->factory->createNamed('page', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\PageBundle\Entity\Page', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Page', 'attr' => array('class' => 'autoCompleteItems autoCompletePages'), 'required' => false)));
+                $form->add($this->factory->createNamed('page', 'entity', null, array('auto_initialize' => false, 'class' => 'BardisCMS\PageBundle\Entity\Page', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Linked Page', 'attr' => array('class' => 'autoCompleteItems autoCompletePages', 'data-sonata-select2' => 'false'), 'required' => false)));
                 $form->add($this->factory->createNamed('menuUrlExtras', 'text', null, array('auto_initialize' => false, 'label' => 'Extra URL Params', 'required' => false)));
                 break;
             case 'http':

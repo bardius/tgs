@@ -25,7 +25,7 @@ class DestinationCategoriesAdmin extends Admin
         $formMapper
             ->with('Category Details', array('collapsed' => false))
                 ->add('title', null, array('label' => 'Category Title', 'required' => true))
-				->add('destinationListPage', 'entity', array('auto_initialize' => false, 'class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Destination List Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteDestination'), 'required' => false))                
+				->add('destinationListPage', 'entity', array('auto_initialize' => false, 'class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Destination List Page', 'attr' => array('class' => 'autoCompleteItems autoCompleteDestination', 'data-sonata-select2' => 'false'), 'required' => false))                
                 ->add('class', null, array('label' => 'Intro Item CSS Class', 'required' => false))
                 ->add('icon', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'icons', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Category Icon', 'required' => false))
                 ->setHelps(array(

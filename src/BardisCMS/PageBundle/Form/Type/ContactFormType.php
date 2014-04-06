@@ -92,7 +92,8 @@ class ContactFormType extends AbstractType {
         ));
 
         $resolver->setDefaults(array(
-            'constraints' => $collectionConstraint
+			'intention'		=> 'contact_form',
+            'constraints'	=> $collectionConstraint
         ));
     }
 

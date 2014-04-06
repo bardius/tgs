@@ -26,7 +26,7 @@ class SpotDestinationFiltersAdmin extends Admin
         $formMapper
             ->with('Spot Destination Filter Details', array('collapsed' => false))
                 ->add('title', null, array('label' => 'Destination Title', 'required' => true))
-                ->add('destination', 'entity', array('class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Related Destination', 'attr' => array('class' => 'autoCompleteItems autoCompleteSpot'), 'required' => false))
+                ->add('destination', 'entity', array('class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Related Destination', 'attr' => array('class' => 'autoCompleteItems autoCompleteSpot', 'data-sonata-select2' => 'false'), 'required' => false))
                 ->add('class', null, array('label' => 'Intro Item CSS Class', 'required' => false))
                 ->add('spotDestinationFilterIcon', 'sonata_media_type', array( 'provider' => 'sonata.media.provider.image', 'context' => 'icons', 'attr' => array( 'class' => 'imagefield'), 'label' => 'Spot Destination Icon', 'required' => false))
                 ->setHelps(array(

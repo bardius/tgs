@@ -53,7 +53,7 @@ class SpotAdmin extends Admin
                 ))
             ->end()
             ->with('Filters & Destinations', array('collapsed' => true))
-                ->add('relatedDestination', 'entity', array('class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Related Destination', 'attr' => array('class' => 'autoCompleteItems autoCompleteSpot'), 'required' => false))
+                ->add('relatedDestination', 'entity', array('class' => 'BardisCMS\DestinationBundle\Entity\Destination', 'property' => 'title', 'expanded' => false, 'multiple' => false, 'label' => 'Select Related Destination', 'attr' => array('class' => 'autoCompleteItems autoCompleteSpot', 'data-sonata-select2' => 'false'), 'required' => false))
                 ->add('spotDestinationFilters', 'entity', array('class' => 'BardisCMS\SpotBundle\Entity\SpotDestinationFilter', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Associated Destination Categories', 'required' => false))
                 ->add('spotFilters', 'entity', array('class' => 'BardisCMS\SpotBundle\Entity\SpotFilter', 'property' => 'title', 'expanded' => true, 'multiple' => true, 'label' => 'Spot Filters', 'required' => false))                
                 ->setHelps(array(
