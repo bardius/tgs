@@ -82,6 +82,7 @@
     float: left;
     margin: 10px 0;
     padding: 10px;
+    width: auto!important;
 	
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -148,6 +149,11 @@
 .sonata-collection-delete{
     color: #FFF!important;
     text-decoration: none!important;
+}
+
+.btn-default  .sonata-collection-add,
+.btn-default  .sonata-collection-delete{
+    color: #666666 !important;
 }
 
 .sonata-bc input.btn {

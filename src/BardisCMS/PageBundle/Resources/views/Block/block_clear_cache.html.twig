@@ -2,13 +2,13 @@
 
 {% block block %}
     <h3 class="sonata-clearcache-title">{{ settings.title }}</h3>
-	<div class="btn-group" align="left">
-		<a class="btn btn-small" href="/admin/bardiscms/page/page/clearcache">
-			<i class="icon-trash"></i>
+	<div class="btn-group panel" align="left">
+		<a class="btn btn-warning" href="/admin/bardiscms/page/page/clearcache" target="_blank">
+			<i class="glyphicon glyphicon-refresh"></i>
             {% trans from 'SonataAdminBundle' %}clear_cache_dev{% endtrans %}
         </a>
-		<a class="btn btn-small" href="/admin/bardiscms/page/page/clearcacheprod">
-			<i class="icon-trash"></i>
+		<a class="btn btn-warning" href="/admin/bardiscms/page/page/clearcacheprod" target="_blank">
+			<i class="glyphicon glyphicon-refresh"></i>
             {% trans from 'SonataAdminBundle' %}clear_cache_prod{% endtrans %}
         </a>
 	</div>

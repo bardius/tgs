@@ -21,11 +21,30 @@ function execute_commands($commands, $output)
     }
 }
 
-$output->writeln("<info>Clearing Production Cache</info>");
+$output->writeln("<info>Clearing Cache</info>");
 
 execute_commands(array(
-    'php ../app/console cache:clear --env=prod',
-    'php ../app/console cache:create-cache-class --env=prod'
+    'php ../app/console cache:clear --env=prod --no-debug --no-warmup'
+), $output);
+
+execute_commands(array(
+    'php ../app/console doctrine:cache:clear-metadata --env=prod --no-debug'
+), $output);
+
+execute_commands(array(
+    'php ../app/console doctrine:cache:clear-query --env=prod --no-debug'
+), $output);
+
+execute_commands(array(
+    'php ../app/console doctrine:cache:clear-result --env=prod --no-debug'
+), $output);
+
+execute_commands(array(
+    'php ../app/console cache:create-cache-class --env=prod --no-debug'
+), $output);
+
+execute_commands(array(
+    'php ../app/console cache:warmup --env=prod --no-debug'
 ), $output);
 
 $output->writeln('<info>Done!</info>');
@@ -33,7 +52,7 @@ $output->writeln('<info>Done!</info>');
 $output->writeln("<info>Generating Assets</info>");
 
 execute_commands(array(
-	'php ../app/console assetic:dump'
+	'php ../app/console assetic:dump --env=prod --no-debug'
 ), $output);
 
 $output->writeln('<info>Done!</info>');

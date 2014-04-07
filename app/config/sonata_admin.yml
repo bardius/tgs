@@ -129,9 +129,9 @@ sonata_admin:
               label: Users
               items:
                   - sonata.user.admin.user
-                  - sonata.user.admin.group
+                  # - sonata.user.admin.group
            sonata_medias:
               label: Media
               items:
                   - sonata.media.admin.media
-                  - sonata.media.admin.gallery
+                  # - sonata.media.admin.gallery
