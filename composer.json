@@ -38,6 +38,8 @@
 		"leafo/scssphp": "dev-master",
 		"leafo/scssphp-compass": "dev-master",
 		"sonata-project/intl-bundle": "2.1.*",
+		"mrclay/minify": "dev-master",
+		"toopay/assetic-minifier": "dev-master",
 		"misd/guzzle-bundle": "dev-master"
 	},
 	"scripts": {

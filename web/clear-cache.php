@@ -51,6 +51,12 @@ $output->writeln('<info>Done!</info>');
 
 $output->writeln("<info>Generating Assets</info>");
 
+$currentDir = getcwd();
+
+execute_commands(array(
+	'php ../app/console assets:install ' . $currentDir . ' --env=prod --no-debug'
+), $output);
+
 execute_commands(array(
 	'php ../app/console assetic:dump --env=dev --no-debug'
 ), $output);

@@ -24,7 +24,7 @@ Thumbs.db
 nbproject/
 
 
-# Symfonny2 #
+# Symfony2 #
 #############
 app/bootstrap.php.cache
 app/cache/*
@@ -39,7 +39,6 @@ parameters.yml
 /web/foundation/sass/.sass-cache/
 vendor/
 /web/bower_components/*
-/#web/stylesheets/*
 web/uploads/
 
 

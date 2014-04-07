@@ -196,7 +196,13 @@ twig:
         - 'ContentBlockBundle:Form:fields.html.twig'
         - 'PageBundle:Form:fields.html.twig'
 
-# Assetic Configuration
+# Assetic Configuration       
+minifier:
+    filter:
+        name:
+            css:	minifier_css
+            js:		minifier_js
+            
 assetic:
     debug:						%kernel.debug%    
     use_controller:
@@ -204,10 +210,12 @@ assetic:
         profiler:     false        
     read_from:        "%kernel.root_dir%/../web"
     write_to:         "%kernel.root_dir%/../web"
-    java:							%javapath%
-    # node:             %nodepath%
-    # ruby:             %rubypath%
-    # sass:             %sasspath%
+    
+    #java:						  %javapath%
+    #node:              %nodepath%
+    #ruby:              %rubypath%
+    #sass:              %sasspath%
+    
     bundles:
       - PageBundle
       - BlogBundle
@@ -216,16 +224,20 @@ assetic:
       - FOSUserBundle
     
     filters:
-        cssrewrite: ~
+        cssrewrite:		~
+        #jsminplus:		~
+        #    apply_to:		"\.js"
+        #cssmin:				~
+        #    apply_to:		"\.css$"
+        scss:					~
         #scssphp:
         #  apply_to: "\.scss$"
         #  import_paths: [ "%kernel.root_dir%/../web/bower_components/foundation/scss" ]
         #  compass: true
-        scss:       ~
-        yui_css:
-            jar:    "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar.jar"
-        yui_js:
-            jar:    "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar.jar"
+        #yui_css:
+        #    jar:    "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar.jar"
+        #yui_js:
+        #    jar:    "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar.jar"
 
 # Swiftmailer Configuration
 swiftmailer:

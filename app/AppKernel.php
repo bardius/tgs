@@ -50,6 +50,7 @@ class AppKernel extends Kernel
             new BardisCMS\MobileDetectBundle\MobileDetectBundle(),
             new BardisCMS\CommentBundle\CommentBundle(),
 			new Misd\GuzzleBundle\MisdGuzzleBundle(),
+			new Minifier\MinifierBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
