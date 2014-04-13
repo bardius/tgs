@@ -40,6 +40,7 @@
 		"sonata-project/intl-bundle": "2.1.*",
 		"mrclay/minify": "dev-master",
 		"toopay/assetic-minifier": "dev-master",
+		"stof/doctrine-extensions-bundle": "1.1.*@dev",
 		"misd/guzzle-bundle": "dev-master"
 	},
 	"scripts": {

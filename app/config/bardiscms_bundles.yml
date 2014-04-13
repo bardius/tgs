@@ -50,7 +50,7 @@ tag:
         special:       Special Tags
        
 category:        
-    loadservices: false
+    loadservices: true
 
 menu:      
     actions:

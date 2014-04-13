@@ -1,6 +1,7 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 	RewriteBase /
+
 	#### Redirect non www to www ####
 	# RewriteCond %{HTTP_HOST} ^domain.com [NC]
 	# RewriteRule ^(.*)$ http://www.domain.com/$1 [L,R=301]
@@ -24,10 +25,10 @@
 	# Block out any script trying to modify a _REQUEST variable via URL
 	RewriteCond %{QUERY_STRING} _REQUEST(=|[|\%[0-9A-Z]{0,2})
 	# Send all blocked request to homepage with 403 Forbidden error!
-	RewriteRule ^(.*)$ app_dev.php [F,L]
+	RewriteRule ^(.*)$ app.php [F,L]
 
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ app_dev.php [QSA,L]
+    RewriteRule ^(.*)$ app.php [QSA,L]
 </IfModule>
 
 #### disable directory browsing
@@ -48,7 +49,7 @@ AddType application/octet-stream .zip
 #
 
 #### HTTP ETag header ####
-FileETag None
+#FileETag None
 
 #### Gzip Files ####
 <ifModule mod_deflate.c>
@@ -72,7 +73,7 @@ FileETag None
     Header set Cache-Control "private"
   </filesMatch>
   <filesMatch "\.(x?html?|php)$">
-    Header set Cache-Control "private, must-revalidate"
+    #Header set Cache-Control "private, must-revalidate"
   </filesMatch>
 </ifModule>
 

@@ -3,6 +3,7 @@
 namespace BardisCMS\DestinationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Application\Sonata\MediaBundle\Entity\Media;
 use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -182,6 +183,12 @@ class Destination
      * @ORM\JoinTable(name="destination_modalcontent_blocks")
      **/
     protected $modalcontentblocks;
+	
+	/**
+     * @ORM\Column(name="date_last_modified", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $dateLastModified;
     
 
     public function __construct() {
@@ -190,35 +197,6 @@ class Destination
         $this->secondarycontentblocks 	= new \Doctrine\Common\Collections\ArrayCollection();
         $this->bannercontentblocks 		= new \Doctrine\Common\Collections\ArrayCollection();
 		$this->date						= new \DateTime();
-    }
-	
-    /**
-     * toString Title
-     *
-     * @return string 
-     */
-    public function __toString()
-    {
-		if($this->getTitle()){
-			return (string)$this->getTitle();			
-		}
-		else{
-			return (string)'New Destination Page';
-		}
-    }
-    
-    /**
-    * toString PublishState
-    *
-    * @return string 
-    */
-    public function getPublishStateAsString()
-    {
-        switch($this->getPublishState()){
-            case(0): return "Unpublished";
-            case(1): return "Published";
-            case(2): return "Preview";
-        }
     }
     
     /**
@@ -976,5 +954,55 @@ class Destination
     public function getModalcontentblocks()
     {
         return $this->modalcontentblocks;
+    }
+		
+	/**
+	 * Get dateLastModified
+	 *
+	 * @return integer 
+	 */
+    public function getDateLastModified()
+    {
+        return $this->dateLastModified;
+    }
+
+	/**
+	 * Set dateLastModified
+	 *
+	 * @param integer $dateLastModified
+	 * @return Page
+	 */
+	public function setDateLastModified($dateLastModified) {
+		$this->dateLastModified = $dateLastModified;
+		return $this;
+	}
+	
+    /**
+     * toString Title
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
+		}
+		else{
+			return (string)'New Destination Page';
+		}
+    }
+    
+    /**
+    * toString PublishState
+    *
+    * @return string 
+    */
+    public function getPublishStateAsString()
+    {
+        switch($this->getPublishState()){
+            case(0): return "Unpublished";
+            case(1): return "Published";
+            case(2): return "Preview";
+        }
     }
 }

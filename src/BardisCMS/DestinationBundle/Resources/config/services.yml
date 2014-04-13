@@ -1,4 +1,11 @@
-parameters:
-#    skeleton.example.class: BardisCMS\SkeletonBundle\Example
-
 services:
+      
+  destination.tag_timestamp_listener:
+    class: BardisCMS\DestinationBundle\Listener\TagTimestampListener
+    tags:
+        - { name: doctrine.event_listener, event: onFlush }
+      
+  destination.category_timestamp_listener:
+    class: BardisCMS\DestinationBundle\Listener\CategoryTimestampListener
+    tags:
+        - { name: doctrine.event_listener, event: onFlush }

@@ -50,6 +50,7 @@ class AppKernel extends Kernel
             new BardisCMS\MobileDetectBundle\MobileDetectBundle(),
             new BardisCMS\CommentBundle\CommentBundle(),
 			new Misd\GuzzleBundle\MisdGuzzleBundle(),
+			new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 			new Minifier\MinifierBundle(),
         );
 

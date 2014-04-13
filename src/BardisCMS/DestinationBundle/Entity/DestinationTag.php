@@ -3,6 +3,7 @@
 namespace BardisCMS\DestinationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use BardisCMS\DestinationBundle\Entity\Destination;
 use Application\Sonata\MediaBundle\Entity\Media;
 
@@ -47,40 +48,17 @@ class DestinationTag
     * @ORM\ManyToMany(targetEntity="BardisCMS\DestinationBundle\Entity\Destination", mappedBy="tags", cascade={"all"})
     */
     protected $destinations;
+	
+	/**
+     * @ORM\Column(name="date_last_modified", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $dateLastModified;
+
 
     public function __construct()
     {
         $this->destinations = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * toString Title
-     *
-     * @return string 
-     */
-    public function __toString()
-    {
-		if($this->getTitle()){
-			return (string)$this->getTitle();			
-		}
-		else{
-			return (string)'New Destination Tag';
-		}
-    }
-    
-    /**
-    * toString tagCategory
-    *
-    * @return string 
-    */
-    public function getTagCategoryAsString()
-    {
-        switch($this->getTagCategory()){
-			case('sample1'):	return "Sample 1";
-            case('sample1'):	return "Sample 2";
-			case('sample1'):	return "Sample 3";
-            default:            return $this->getTagCategory();
-        }
     }
 
 
@@ -222,5 +200,43 @@ class DestinationTag
     public function getStyleColor()
     {
         return $this->styleColor;
+    }
+		
+	/**
+	 * Get dateLastModified
+	 *
+	 * @return integer 
+	 */
+    public function getDateLastModified()
+    {
+        return $this->dateLastModified;
+    }
+
+    /**
+     * toString Title
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
+		}
+		else{
+			return (string)'New Destination Tag';
+		}
+    }
+    
+    /**
+    * toString tagCategory
+    *
+    * @return string 
+    */
+    public function getTagCategoryAsString()
+    {
+        switch($this->getTagCategory()){
+			case('sports'):		return "Sports";
+            default:            return $this->getTagCategory();
+        }
     }
 }

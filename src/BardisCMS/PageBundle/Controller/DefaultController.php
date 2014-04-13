@@ -60,6 +60,30 @@ class DefaultController extends Controller {
 		} else {
 			$publishStates = array(1, 2);
 		}
+		
+		if($this->container->getParameter('kernel.environment') == 'prod'){			
+			$serveMobile = $this->get('bardiscms_mobile_detect.device_detection')->testMobile();
+			
+			$response = new Response();
+			
+			// set a custom Cache-Control directive
+			$response->headers->addCacheControlDirective('must-revalidate', true);
+			// create a Response with a ETag and/or a Last-Modified header
+			$response->setETag(md5($page->getId() . '-' . $publishStates. '-' . $extraParams. '-' . $currentpage . '-' . $linkUrlParams . '-' . $serveMobile));
+			// use last modified header
+			$response->setLastModified($page->getDateLastModified());
+			// Set response as public. Otherwise it will be private by default.
+			$response->setPublic();
+			// set multiple vary headers
+			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			
+			//var_dump($response->isNotModified($this->getRequest()));
+			//var_dump($response->getStatusCode());
+			if ($response->isNotModified($this->getRequest())) {
+				// return the 304 Response immediately
+				return $response;
+			}
+		}
 
 		// Set the website settings and metatags
 		$page = $this->get('bardiscms_settings.set_page_settings')->setPageSettings($page);
@@ -223,11 +247,12 @@ class DefaultController extends Controller {
 			
 			$response = $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'news' => $newspages , 'events' => $eventspages, 'spots' => $spotspages, 'mobile' => $serveMobile));
 			
-			/*$cacheIsOn = true;
-			if($cacheIsOn){
-				$response->setMaxAge(3600);
-				$response->setPublic();				
-			}*/
+			// set a custom Cache-Control directive
+			$response->setETag(md5($page->getId() . '-' . $publishStates. '-' . $extraParams. '-' . $currentpage . '-' .  $linkUrlParams. '-' . $serveMobile));
+			$response->setLastModified($page->getDateLastModified());
+			$response->setPublic();
+			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			
 			return $response;
 		}
 		// Render contact page type

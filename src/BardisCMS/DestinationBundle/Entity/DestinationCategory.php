@@ -3,6 +3,7 @@
 namespace BardisCMS\DestinationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use BardisCMS\DestinationBundle\Entity\Destination;
 use Application\Sonata\MediaBundle\Entity\Media;
 
@@ -49,26 +50,17 @@ class DestinationCategory
     * @ORM\ManyToMany(targetEntity="BardisCMS\DestinationBundle\Entity\Destination", mappedBy="categories", cascade={"all"})
     */
     protected $destinations;
+	
+	/**
+     * @ORM\Column(name="date_last_modified", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $dateLastModified;
+	
 
     public function __construct()
     {
         $this->destinations = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    
-    /**
-     * toString Title
-     *
-     * @return string 
-     */
-    public function __toString()
-    {
-		if($this->getTitle()){
-			return (string)$this->getTitle();			
-		}
-		else{
-			return (string)'New Destination Category';
-		}
     }
 
     /**
@@ -186,10 +178,6 @@ class DestinationCategory
     {
         return $this->destinations;
     }
-	
-	
-	
-	
     
     /**
      * Set destinationListPage
@@ -211,5 +199,30 @@ class DestinationCategory
     public function getDestinationListPage()
     {
         return $this->destinationListPage;
+    }
+		
+	/**
+	 * Get dateLastModified
+	 *
+	 * @return integer 
+	 */
+    public function getDateLastModified()
+    {
+        return $this->dateLastModified;
+    }
+    
+    /**
+     * toString Title
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
+		}
+		else{
+			return (string)'New Destination Category';
+		}
     }
 }

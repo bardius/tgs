@@ -11,6 +11,7 @@
 namespace BardisCMS\ContentBlockBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use BardisCMS\PageBundle\Entity\Page;
 use BardisCMS\BlogBundle\Entity\Blog;
 use BardisCMS\DestinationBundle\Entity\Destination;
@@ -205,6 +206,12 @@ class ContentBlock
      * @ORM\JoinColumn(name="youtube", referencedColumnName="id", onDelete="CASCADE")
      */ 
     protected $youtube;
+	
+	/**
+     * @ORM\Column(name="date_last_modified", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $dateLastModified;
 
    
     public function __construct()
@@ -1177,8 +1184,22 @@ class ContentBlock
     {
         return $this->spot_bannercontents;
     }
-	
-	
+		
+	/**
+	 * Get dateLastModified
+	 *
+	 * @return integer 
+	 */
+    public function getDateLastModified()
+    {
+        return $this->dateLastModified;
+    }
+    
+    /**
+    * toString Title
+    *
+    * @return string 
+    */	
     public function __toString()
     {
 		if($this->getTitle()){
