@@ -249,230 +249,6 @@ class SpotAttribute
 
 
     /**
-     * toString Title
-     *
-     * @return string 
-     */
-    public function __toString()
-    {
-		if($this->getTitle()){
-			return (string)$this->getTitle();			
-		}
-		else{
-			return (string)'New Spot Attribute';
-		}
-    }
-    
-    /**
-    * toString PublicTransportation
-    *
-    * @return string 
-    */
-    public function getPublicTransportationAsString()
-    {
-        switch($this->getPublicTransportation()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString AccessProblem
-    *
-    * @return string 
-    */
-    public function getAccessProblemAsString()
-    {
-        switch($this->getAccessProblem()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString SurfClub
-    *
-    * @return string 
-    */
-    public function getSurfClubAsString()
-    {
-        switch($this->getSurfClub()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString Lessons
-    *
-    * @return string 
-    */
-    public function getLessonsAsString()
-    {
-        switch($this->getLessons()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString Rental
-    *
-    * @return string 
-    */
-    public function getRentalAsString()
-    {
-        switch($this->getRental()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString Storage
-    *
-    * @return string 
-    */
-    public function getStorageAsString()
-    {
-        switch($this->getStorage()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString Repair
-    *
-    * @return string 
-    */
-    public function getRepairAsString()
-    {
-        switch($this->getRepair()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString Gearshop
-    *
-    * @return string 
-    */
-    public function getGearshopAsString()
-    {
-        switch($this->getGearshop()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString Rescue
-    *
-    * @return string 
-    */
-    public function getRescueAsString()
-    {
-        switch($this->getRescue()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString SnacksAndDrinks
-    *
-    * @return string 
-    */
-    public function getSnacksAndDrinksAsString()
-    {
-        switch($this->getSnacksAndDrinks()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString Parking
-    *
-    * @return string 
-    */
-    public function getParkingAsString()
-    {
-        switch($this->getParking()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString Toilets
-    *
-    * @return string 
-    */
-    public function getToiletsAsString()
-    {
-        switch($this->getToilets()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString Showers
-    *
-    * @return string 
-    */
-    public function getShowersAsString()
-    {
-        switch($this->getShowers()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString Nightlife
-    *
-    * @return string 
-    */
-    public function getNightlifeAsString()
-    {
-        switch($this->getNightlife()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString Family
-    *
-    * @return string 
-    */
-    public function getFamilyAsString()
-    {
-        switch($this->getFamily()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-    
-    /**
-    * toString Restaurants
-    *
-    * @return string 
-    */
-    public function getRestaurantsAsString()
-    {
-        switch($this->getRestaurants()){
-            case(0): return "No";
-            case(1): return "Yes";
-        }
-    }
-
-
-    /**
      * Get id
      *
      * @return integer 
@@ -1488,5 +1264,229 @@ class SpotAttribute
     public function getRestaurants()
     {
         return $this->restaurants;
+    }
+
+
+    /**
+     * toString Title
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
+		}
+		else{
+			return (string)'New Spot Attribute';
+		}
+    }
+    
+    /**
+    * toString PublicTransportation
+    *
+    * @return string 
+    */
+    public function getPublicTransportationAsString()
+    {
+        switch($this->getPublicTransportation()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString AccessProblem
+    *
+    * @return string 
+    */
+    public function getAccessProblemAsString()
+    {
+        switch($this->getAccessProblem()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString SurfClub
+    *
+    * @return string 
+    */
+    public function getSurfClubAsString()
+    {
+        switch($this->getSurfClub()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString Lessons
+    *
+    * @return string 
+    */
+    public function getLessonsAsString()
+    {
+        switch($this->getLessons()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString Rental
+    *
+    * @return string 
+    */
+    public function getRentalAsString()
+    {
+        switch($this->getRental()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString Storage
+    *
+    * @return string 
+    */
+    public function getStorageAsString()
+    {
+        switch($this->getStorage()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString Repair
+    *
+    * @return string 
+    */
+    public function getRepairAsString()
+    {
+        switch($this->getRepair()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString Gearshop
+    *
+    * @return string 
+    */
+    public function getGearshopAsString()
+    {
+        switch($this->getGearshop()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString Rescue
+    *
+    * @return string 
+    */
+    public function getRescueAsString()
+    {
+        switch($this->getRescue()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString SnacksAndDrinks
+    *
+    * @return string 
+    */
+    public function getSnacksAndDrinksAsString()
+    {
+        switch($this->getSnacksAndDrinks()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString Parking
+    *
+    * @return string 
+    */
+    public function getParkingAsString()
+    {
+        switch($this->getParking()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString Toilets
+    *
+    * @return string 
+    */
+    public function getToiletsAsString()
+    {
+        switch($this->getToilets()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString Showers
+    *
+    * @return string 
+    */
+    public function getShowersAsString()
+    {
+        switch($this->getShowers()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString Nightlife
+    *
+    * @return string 
+    */
+    public function getNightlifeAsString()
+    {
+        switch($this->getNightlife()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString Family
+    *
+    * @return string 
+    */
+    public function getFamilyAsString()
+    {
+        switch($this->getFamily()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
+    }
+    
+    /**
+    * toString Restaurants
+    *
+    * @return string 
+    */
+    public function getRestaurantsAsString()
+    {
+        switch($this->getRestaurants()){
+            case(0): return "No";
+            case(1): return "Yes";
+        }
     }
 }

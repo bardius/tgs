@@ -24,3 +24,13 @@ services:
         class: BardisCMS\SpotBundle\Twig\WeatherIconToCharExtension
         tags:
             - { name: twig.extension }
+      
+  spot.spotfilter_timestamp_listener:
+    class: BardisCMS\SpotBundle\Listener\SpotFilterTimestampListener
+    tags:
+        - { name: doctrine.event_listener, event: onFlush }
+      
+  spot.spotdestination_timestamp_listener:
+    class: BardisCMS\SpotBundle\Listener\SpotDestinationFilterTimestampListener
+    tags:
+        - { name: doctrine.event_listener, event: onFlush }

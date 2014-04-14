@@ -774,16 +774,6 @@ class Page {
 		$this->dateLastModified = $dateLastModified;
 		return $this;
 	}
-		
-	/**
-	 * Get dateContentChanged
-	 *
-	 * @return integer 
-	 */
-    public function getDateContentChanged()
-    {
-        return $this->dateContentChanged;
-    }
 
 	/**
 	 * toString Title

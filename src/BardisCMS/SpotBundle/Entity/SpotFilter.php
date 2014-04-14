@@ -11,6 +11,7 @@
 namespace BardisCMS\SpotBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use BardisCMS\SpotBundle\Entity\Spot;
 use Application\Sonata\MediaBundle\Entity\Media;
 
@@ -51,50 +52,18 @@ class SpotFilter
     */
     protected $spots;
 	
+	/**
+     * @ORM\Column(name="date_last_modified", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $dateLastModified;
+	
 
     public function __construct()
     {
         $this->spots = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-
-    /**
-     * toString Title
-     *
-     * @return string 
-     */
-    public function __toString()
-    {
-		if($this->getTitle()){
-			return (string)$this->getTitle();			
-		}
-		else{
-			return (string)'New Spot Filter';
-		}
-    }
-    
-    /**
-    * toString filterCategory
-    *
-    * @return string 
-    */
-    public function getFilterCategoryAsString()
-    {
-        switch($this->getFilterCategory()){
-            case('amenities'):		return "Amenities/Facilities";
-            case('budget'):			return "Budget";
-            case('experience'):		return "Experience";
-            case('lifestyle'):		return "Lifestyle";
-            case('season'):			return "Season";
-            case('sea_state'):		return "Sea State";
-            case('sport'):			return "Sport";
-            case('style'):			return "Style";
-            case('swell_length'):	return "Swell Length";
-            case('wind_force'):		return "Wind Force";
-            default:				return $this->getFilterCategory();
-        }
-    }
-
+	
     /**
      * Get id
      *
@@ -209,5 +178,52 @@ class SpotFilter
     public function getSpots()
     {
         return $this->spots;
+    }
+		
+	/**
+	 * Get dateLastModified
+	 *
+	 * @return integer 
+	 */
+    public function getDateLastModified()
+    {
+        return $this->dateLastModified;
+    }
+
+    /**
+     * toString Title
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+		if($this->getTitle()){
+			return (string)$this->getTitle();			
+		}
+		else{
+			return (string)'New Spot Filter';
+		}
+    }
+    
+    /**
+    * toString filterCategory
+    *
+    * @return string 
+    */
+    public function getFilterCategoryAsString()
+    {
+        switch($this->getFilterCategory()){
+            case('amenities'):		return "Amenities/Facilities";
+            case('budget'):			return "Budget";
+            case('experience'):		return "Experience";
+            case('lifestyle'):		return "Lifestyle";
+            case('season'):			return "Season";
+            case('sea_state'):		return "Sea State";
+            case('sport'):			return "Sport";
+            case('style'):			return "Style";
+            case('swell_length'):	return "Swell Length";
+            case('wind_force'):		return "Wind Force";
+            default:				return $this->getFilterCategory();
+        }
     }
 }
