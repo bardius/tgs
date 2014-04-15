@@ -68,19 +68,24 @@ class DefaultController extends Controller {
 			
 			// set a custom Cache-Control directive
 			$response->headers->addCacheControlDirective('must-revalidate', true);
+			// set multiple vary headers
+			$response->setVary(array('Accept-Encoding', 'User-Agent'));
 			// create a Response with a ETag and/or a Last-Modified header
-			$response->setETag(md5($page->getId() . '-' . $publishStates. '-' . $extraParams. '-' . $currentpage . '-' . $linkUrlParams . '-' . $serveMobile));
+			//$response->setETag(md5($page->getId() . '-' . $publishStates. '-' . $extraParams. '-' . $currentpage . '-' . $linkUrlParams . '-' . $serveMobile . '-' .$page->getDateLastModified()));
 			// use last modified header
 			$response->setLastModified($page->getDateLastModified());
 			// Set response as public. Otherwise it will be private by default.
 			$response->setPublic();
-			// set multiple vary headers
-			$response->setVary(array('Accept-Encoding', 'User-Agent'));
 			
-			//var_dump($response->isNotModified($this->getRequest()));
-			//var_dump($response->getStatusCode());
-			if ($response->isNotModified($this->getRequest())) {
+			var_dump($response->isNotModified($this->getRequest()));
+			var_dump($response->getStatusCode());
+			if (!$response->isNotModified($this->getRequest())) {
+				// Marks the Response stale
+				$response->expire();
+			}
+			else{				
 				// return the 304 Response immediately
+				$response->setSharedMaxAge(3600);
 				return $response;
 			}
 		}
@@ -197,7 +202,7 @@ class DefaultController extends Controller {
 			$pages = $pageList['pages'];
 			$totalPages = $pageList['totalPages'];
 
-			return $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'mobile' => $serveMobile));
+			$response = $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'mobile' => $serveMobile));
 		}
 		// Render tag list page type
 		else if ($page->getPagetype() == 'page_tag_list') {
@@ -217,7 +222,7 @@ class DefaultController extends Controller {
 			$pages = $pageList['pages'];
 			$totalPages = $pageList['totalPages'];
 
-			return $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView(), 'mobile' => $serveMobile));
+			$response = $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView(), 'mobile' => $serveMobile));
 		}
 		// Render homepage page type
 		else if ($page->getPagetype() == 'homepage') {
@@ -246,22 +251,26 @@ class DefaultController extends Controller {
 			//usort($pages, array("BardisCMS\PageBundle\Controller\DefaultController", "sortHomepageItemsCompare"));
 			
 			$response = $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'news' => $newspages , 'events' => $eventspages, 'spots' => $spotspages, 'mobile' => $serveMobile));
-			
-			// set a custom Cache-Control directive
-			$response->setETag(md5($page->getId() . '-' . $publishStates. '-' . $extraParams. '-' . $currentpage . '-' .  $linkUrlParams. '-' . $serveMobile));
-			$response->setLastModified($page->getDateLastModified());
-			$response->setPublic();
-			$response->setVary(array('Accept-Encoding', 'User-Agent'));
-			
-			return $response;
 		}
 		// Render contact page type
 		else if ($page->getPagetype() == 'contact') {
-			return $this->ContactForm($this->getRequest(), $page);
+			$response = $this->ContactForm($this->getRequest(), $page);
 		}
-
-		// Render normal page type
-		return $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'mobile' => $serveMobile));
+		else{
+			// Render normal page type
+			$response = $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'mobile' => $serveMobile));			
+		}
+		
+		if($this->container->getParameter('kernel.environment') == 'prod'){	
+			// set a custom Cache-Control directive
+			$response->setPublic();
+			$response->setLastModified($page->getDateLastModified());
+			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			$response->headers->addCacheControlDirective('must-revalidate', true);
+			$response->setSharedMaxAge(3600);
+		}
+		
+		return $response;
 	}
 
 	// Get and display to the 404 error page
