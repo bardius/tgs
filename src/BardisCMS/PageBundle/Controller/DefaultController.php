@@ -77,8 +77,8 @@ class DefaultController extends Controller {
 			// Set response as public. Otherwise it will be private by default.
 			$response->setPublic();
 			
-			var_dump($response->isNotModified($this->getRequest()));
-			var_dump($response->getStatusCode());
+			//var_dump($response->isNotModified($this->getRequest()));
+			//var_dump($response->getStatusCode());
 			if (!$response->isNotModified($this->getRequest())) {
 				// Marks the Response stale
 				$response->expire();
@@ -254,7 +254,7 @@ class DefaultController extends Controller {
 		}
 		// Render contact page type
 		else if ($page->getPagetype() == 'contact') {
-			$response = $this->ContactForm($this->getRequest(), $page);
+			return $this->ContactForm($this->getRequest(), $page);
 		}
 		else{
 			// Render normal page type
@@ -287,7 +287,18 @@ class DefaultController extends Controller {
 		// Set the website settings and metatags
 		$page = $this->get('bardiscms_settings.set_page_settings')->setPageSettings($page);
 
-		return $this->render('PageBundle:Default:page.html.twig', array('page' => $page))->setStatusCode(404);
+		$response = $this->render('PageBundle:Default:page.html.twig', array('page' => $page))->setStatusCode(404);
+		
+		if($this->container->getParameter('kernel.environment') == 'prod'){	
+			// set a custom Cache-Control directive
+			$response->setPublic();
+			$response->setLastModified($page->getDateLastModified());
+			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			$response->headers->addCacheControlDirective('must-revalidate', true);
+			$response->setSharedMaxAge(3600);
+		}
+		
+		return $response;
 	}
 
 	// Get and display all items from all bundles in the sitemap xml
@@ -308,13 +319,30 @@ class DefaultController extends Controller {
 
 		$sitemapList = array_merge($sitemapList, $blogpages, $destinationpages, $spotspages);
 
-		return $this->render('PageBundle:Default:sitemap.xml.twig', array('sitemapList' => $sitemapList));
+		$response = $this->render('PageBundle:Default:sitemap.xml.twig', array('sitemapList' => $sitemapList));
+		
+		if($this->container->getParameter('kernel.environment') == 'prod'){	
+			// set a custom Cache-Control directive
+			$response->setPublic();
+			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			$response->setSharedMaxAge(3600);
+		}
+		
+		return $response;
 	}
 
 	// Get and display the sitemap xsl to style the xml of the sitemap
 	public function sitemapxslAction() {
 
-		return $this->render('PageBundle:Default:sitemap.xsl.twig');
+		$response = $this->render('PageBundle:Default:sitemap.xsl.twig');
+		
+		if($this->container->getParameter('kernel.environment') == 'prod'){	
+			// set a custom Cache-Control directive
+			$response->setPublic();
+			$response->setSharedMaxAge(3600);
+		}
+		
+		return $response;
 	}
 
 	// Get the contact form page
@@ -398,7 +426,18 @@ class DefaultController extends Controller {
 		}		
 		// If the form has not been submited yet
 		else {
-			return $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'form' => $form->createView(), 'ajaxform' => $ajaxForm));
+			$response = $this->render('PageBundle:Default:page.html.twig', array('page' => $page, 'form' => $form->createView(), 'ajaxform' => $ajaxForm));
+		
+			if($this->container->getParameter('kernel.environment') == 'prod'){	
+				// set a custom Cache-Control directive
+				$response->setPublic();
+				$response->setLastModified($page->getDateLastModified());
+				$response->setVary(array('Accept-Encoding', 'User-Agent'));
+				$response->headers->addCacheControlDirective('must-revalidate', true);
+				$response->setSharedMaxAge(3600);
+			}
+
+			return $response;
 		}
 	}
 	
