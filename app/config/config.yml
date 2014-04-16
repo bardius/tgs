@@ -281,7 +281,8 @@ sonata_user:
     admin:
         user:
             class: Application\Sonata\UserBundle\Admin\Entity\BardisCMSUserAdmin
-            
+
+# Doctrine Extensions
 stof_doctrine_extensions:
           
     default_locale: en_GB

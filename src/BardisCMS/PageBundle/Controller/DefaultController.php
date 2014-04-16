@@ -61,7 +61,7 @@ class DefaultController extends Controller {
 			$publishStates = array(1, 2);
 		}
 		
-		var_dump($this->container->getParameter('kernel.environment'));
+		//var_dump($this->container->getParameter('kernel.environment'));
 		
 		if($this->container->getParameter('kernel.environment') == 'prod' && $settings->getActivateHttpCache()){
 			
@@ -76,8 +76,8 @@ class DefaultController extends Controller {
 			// Set response as public. Otherwise it will be private by default.
 			$response->setPublic();
 			
-			var_dump($response->isNotModified($this->getRequest()));
-			var_dump($response->getStatusCode());			
+			//var_dump($response->isNotModified($this->getRequest()));
+			//var_dump($response->getStatusCode());			
 			if (!$response->isNotModified($this->getRequest())) {
 				// Marks the Response stale
 				$response->expire();
