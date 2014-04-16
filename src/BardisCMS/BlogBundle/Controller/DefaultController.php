@@ -69,7 +69,7 @@ class DefaultController extends Controller
 		
 		var_dump($this->container->getParameter('kernel.environment'));
 		
-		if($this->container->getParameter('kernel.environment') == 'prod'){	
+		if($this->container->getParameter('kernel.environment') == 'prod' && $settings->getActivateHttpCache()){	
 			
 			$response = new Response();
 			
@@ -213,8 +213,10 @@ class DefaultController extends Controller
     
     
     // Get the required data to display to the correct view depending on pagetype
-    public function renderPage($page, $id, $publishStates, $extraParams, $currentpage, $totalpageitems, $linkUrlParams)
-    {
+    public function renderPage($page, $id, $publishStates, $extraParams, $currentpage, $totalpageitems, $linkUrlParams){
+		// Check if mobile content should be served		
+        $serveMobile = $this->get('bardiscms_mobile_detect.device_detection')->testMobile();
+		$settings = $this->get('bardiscms_settings.load_settings')->loadSettings();
                         
         if ($page->getPagetype() == 'blog_cat_page')
         {            
@@ -287,7 +289,7 @@ class DefaultController extends Controller
 			}
 		}
 		
-		if($this->container->getParameter('kernel.environment') == 'prod'){	
+		if($this->container->getParameter('kernel.environment') == 'prod' && $settings->getActivateHttpCache()){	
 			// set a custom Cache-Control directive
 			$response->setPublic();
 			$response->setLastModified($page->getDateLastModified());
@@ -304,6 +306,7 @@ class DefaultController extends Controller
     public function render404Page()
     {        
         $page  = $this->getDoctrine()->getRepository('PageBundle:Page')->findOneByAlias('404');
+		$settings = $this->get('bardiscms_settings.load_settings')->loadSettings();
         
         // Check if page exists
         if (!$page) {
@@ -315,7 +318,7 @@ class DefaultController extends Controller
         
         $response = $this->render('PageBundle:Default:page.html.twig', array('page' => $page))->setStatusCode(404);
 		
-		if($this->container->getParameter('kernel.environment') == 'prod'){	
+		if($this->container->getParameter('kernel.environment') == 'prod' && $settings->getActivateHttpCache()){
 			// set a custom Cache-Control directive
 			$response->setPublic();
 			$response->setLastModified($page->getDateLastModified());
