@@ -63,6 +63,36 @@ class DefaultController extends Controller
         {
             $publishStates = array(1, 2);                
         }
+		
+		var_dump($this->container->getParameter('kernel.environment'));
+		
+		if($this->container->getParameter('kernel.environment') == 'prod'){
+			
+			$response = new Response();
+			
+			// set a custom Cache-Control directive
+			$response->headers->addCacheControlDirective('must-revalidate', true);
+			// set multiple vary headers
+			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			// create a Response with a ETag and/or a Last-Modified header
+			//$response->setETag(md5($page->getId() . '-' . $publishStates. '-' . $extraParams. '-' . $currentpage . '-' . $linkUrlParams  . '-' .$page->getDateLastModified()));
+			// use last modified header
+			$response->setLastModified($page->getDateLastModified());
+			// Set response as public. Otherwise it will be private by default.
+			$response->setPublic();
+			
+			var_dump($response->isNotModified($this->getRequest()));
+			var_dump($response->getStatusCode());
+			if (!$response->isNotModified($this->getRequest())) {
+				// Marks the Response stale
+				$response->expire();
+			}
+			else{				
+				// return the 304 Response immediately
+				$response->setSharedMaxAge(3600);
+				return $response;
+			}
+		}
         
         // Set the website settings and metatags
 		$page = $this->get('bardiscms_settings.set_page_settings')->setPageSettings($page);
@@ -88,7 +118,7 @@ class DefaultController extends Controller
             $pages			= $pageList['pages'];
             $totalPages		= $pageList['totalPages'];
             
-            return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems));
+            $response = $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems));
         }
         else if ($page->getPageType() == 'destination_home')
         {
@@ -96,16 +126,28 @@ class DefaultController extends Controller
             
             $pages      = $pageList['pages'];
             
-            return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'extraParams' => $extraParams, 'linkUrlParams' => $linkUrlParams));
+            $response = $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'extraParams' => $extraParams, 'linkUrlParams' => $linkUrlParams));
         }
         else if ($page->getPageType() == 'destination_article')
         {
 			$relatedSpots	= $this->getDoctrine()->getRepository('DestinationBundle:Destination')->getRelatedSpots($id, $publishStates);
             
-            return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'relatedSpots' => $relatedSpots));            
+            $response = $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page, 'relatedSpots' => $relatedSpots));            
         }
-        
-        return $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page));
+		else{        
+			$response = $this->render('DestinationBundle:Default:page.html.twig', array('page' => $page));			
+		}
+		
+		if($this->container->getParameter('kernel.environment') == 'prod'){	
+			// set a custom Cache-Control directive
+			$response->setPublic();
+			$response->setLastModified($page->getDateLastModified());
+			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			$response->headers->addCacheControlDirective('must-revalidate', true);
+			$response->setSharedMaxAge(3600);
+		}
+		
+		return $response;
     }
     
     
@@ -122,7 +164,18 @@ class DefaultController extends Controller
         // Set the website settings and metatags
 		$page = $this->get('bardiscms_settings.set_page_settings')->setPageSettings($page);
         
-        return $this->render('PageBundle:Default:page.html.twig', array('page' => $page))->setStatusCode(404);
+        $response = $this->render('PageBundle:Default:page.html.twig', array('page' => $page))->setStatusCode(404);
+		
+		if($this->container->getParameter('kernel.environment') == 'prod'){	
+			// set a custom Cache-Control directive
+			$response->setPublic();
+			$response->setLastModified($page->getDateLastModified());
+			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			$response->headers->addCacheControlDirective('must-revalidate', true);
+			$response->setSharedMaxAge(3600);
+		}
+		
+		return $response;
     } 
     
 }

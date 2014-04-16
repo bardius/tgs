@@ -66,6 +66,34 @@ class DefaultController extends Controller
         {
             $publishStates = array(1, 2);                
         }
+		
+		var_dump($this->container->getParameter('kernel.environment'));
+		
+		if($this->container->getParameter('kernel.environment') == 'prod'){	
+			
+			$response = new Response();
+			
+			// set a custom Cache-Control directive
+			$response->headers->addCacheControlDirective('must-revalidate', true);
+			// set multiple vary headers
+			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			// create a Response with a Last-Modified header
+			$response->setLastModified($page->getDateLastModified());
+			// Set response as public. Otherwise it will be private by default.
+			$response->setPublic();
+			
+			var_dump($response->isNotModified($this->getRequest()));
+			var_dump($response->getStatusCode());
+			if (!$response->isNotModified($this->getRequest())) {
+				// Marks the Response stale
+				$response->expire();
+			}
+			else{				
+				// return the 304 Response immediately
+				$response->setSharedMaxAge(3600);
+				return $response;
+			}
+		}
         
         // Set the website settings and metatags
 		$page = $this->get('bardiscms_settings.set_page_settings')->setPageSettings($page);
@@ -205,7 +233,7 @@ class DefaultController extends Controller
             $pages      = $pageList['pages'];
             $totalPages = $pageList['totalPages'];
             
-            return $this->render('BlogBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems));
+            $response = $this->render('BlogBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems));
         }      
         else if ($page->getPagetype() == 'blog_filtered_list')
         {          
@@ -228,7 +256,7 @@ class DefaultController extends Controller
             $pages      = $pageList['pages'];
             $totalPages = $pageList['totalPages'];
             
-            return $this->render('BlogBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
+            $response = $this->render('BlogBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages, 'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems, 'filterForm' => $filterForm->createView()));
         }
         else if ($page->getPagetype() == 'blog_home')
         {            
@@ -237,26 +265,38 @@ class DefaultController extends Controller
             $pages      = $pageList['pages'];
             $totalPages = $pageList['totalPages'];
             
-            return $this->render('BlogBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages,  'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems));
+            $response = $this->render('BlogBundle:Default:page.html.twig', array('page' => $page, 'pages' => $pages, 'totalPages' => $totalPages,  'extraParams' => $extraParams, 'currentpage' => $currentpage, 'linkUrlParams' => $linkUrlParams, 'totalpageitems' => $totalpageitems));
         }
-		
-        $commentsEnabled = true;
-		
-		if($commentsEnabled){
-			// Retrieving the comments the views
-			$postComments = null;
-			$postComments = $this->getPostComments($id);
-
-			// Adding the form for new comment
-			$comment = new Comment();
-			$comment->setBlogPost($page);
-			$form = $this->createForm(new CommentType(), $comment);
-		
-			return $this->render('BlogBundle:Default:page.html.twig', array('page' => $page, 'form' => $form->createView(), 'comments' => $postComments));			
-		}
 		else{		
-			return $this->render('BlogBundle:Default:page.html.twig', array('page' => $page));			
+			$commentsEnabled = false;
+
+			if($commentsEnabled){
+				// Retrieving the comments the views
+				$postComments = null;
+				$postComments = $this->getPostComments($id);
+
+				// Adding the form for new comment
+				$comment = new Comment();
+				$comment->setBlogPost($page);
+				$form = $this->createForm(new CommentType(), $comment);
+
+				$response = $this->render('BlogBundle:Default:page.html.twig', array('page' => $page, 'form' => $form->createView(), 'comments' => $postComments));			
+			}
+			else{		
+				$response = $this->render('BlogBundle:Default:page.html.twig', array('page' => $page));			
+			}
 		}
+		
+		if($this->container->getParameter('kernel.environment') == 'prod'){	
+			// set a custom Cache-Control directive
+			$response->setPublic();
+			$response->setLastModified($page->getDateLastModified());
+			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			$response->headers->addCacheControlDirective('must-revalidate', true);
+			$response->setSharedMaxAge(3600);
+		}
+		
+		return $response;
     }
     
     
@@ -273,7 +313,18 @@ class DefaultController extends Controller
         // Set the website settings and metatags
 		$page = $this->get('bardiscms_settings.set_page_settings')->setPageSettings($page);
         
-        return $this->render('PageBundle:Default:page.html.twig', array('page' => $page))->setStatusCode(404);
+        $response = $this->render('PageBundle:Default:page.html.twig', array('page' => $page))->setStatusCode(404);
+		
+		if($this->container->getParameter('kernel.environment') == 'prod'){	
+			// set a custom Cache-Control directive
+			$response->setPublic();
+			$response->setLastModified($page->getDateLastModified());
+			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			$response->headers->addCacheControlDirective('must-revalidate', true);
+			$response->setSharedMaxAge(3600);
+		}
+		
+		return $response;
     }
 	
     

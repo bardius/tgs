@@ -61,8 +61,9 @@ class DefaultController extends Controller {
 			$publishStates = array(1, 2);
 		}
 		
-		if($this->container->getParameter('kernel.environment') == 'prod'){			
-			$serveMobile = $this->get('bardiscms_mobile_detect.device_detection')->testMobile();
+		var_dump($this->container->getParameter('kernel.environment'));
+		
+		if($this->container->getParameter('kernel.environment') == 'prod'){
 			
 			$response = new Response();
 			
@@ -71,14 +72,14 @@ class DefaultController extends Controller {
 			// set multiple vary headers
 			$response->setVary(array('Accept-Encoding', 'User-Agent'));
 			// create a Response with a ETag and/or a Last-Modified header
-			//$response->setETag(md5($page->getId() . '-' . $publishStates. '-' . $extraParams. '-' . $currentpage . '-' . $linkUrlParams . '-' . $serveMobile . '-' .$page->getDateLastModified()));
+			//$response->setETag(md5($page->getId() . '-' . $publishStates. '-' . $extraParams. '-' . $currentpage . '-' . $linkUrlParams  . '-' .$page->getDateLastModified()));
 			// use last modified header
 			$response->setLastModified($page->getDateLastModified());
 			// Set response as public. Otherwise it will be private by default.
 			$response->setPublic();
 			
-			//var_dump($response->isNotModified($this->getRequest()));
-			//var_dump($response->getStatusCode());
+			var_dump($response->isNotModified($this->getRequest()));
+			var_dump($response->getStatusCode());
 			if (!$response->isNotModified($this->getRequest())) {
 				// Marks the Response stale
 				$response->expire();
