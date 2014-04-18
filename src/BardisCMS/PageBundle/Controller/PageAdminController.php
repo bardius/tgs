@@ -119,22 +119,6 @@ class PageAdminController extends Controller {
 		
 		$this->get('security.context')->setToken(null);
 		$this->get('session')->invalidate();
-		
-		/* Sample of how you can call CLI command from a controller
-		$input = new StringInput(null);
-		$output = new NullOutput();
-		$realCacheDir = $this->container->getParameter('kernel.cache_dir');
-		$filesystem   = $this->container->get('filesystem');
-
-        if (!is_writable($realCacheDir)) {
-            throw new \RuntimeException(sprintf('Unable to write in the "%s" directory', $realCacheDir));
-        }
-
-		$command = new CacheClearCommand();
-		$command->setContainer($this->container);
-		$command->run($input, $output);
-		var_dump($output);
-		*/
 
         return new RedirectResponse('/clear-cache.php');
 	}
@@ -145,6 +129,14 @@ class PageAdminController extends Controller {
 		$this->get('session')->invalidate();
 
         return new RedirectResponse('/clear-cache-prod.php');
+	}
+	
+	public function clearHTTPCacheAction() {
+		
+		$this->get('security.context')->setToken(null);
+		$this->get('session')->invalidate();
+
+        return new RedirectResponse('/clear-http-cache.php');
 	}
 
 }

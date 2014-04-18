@@ -248,6 +248,7 @@ class PageAdmin extends Admin {
 		$collection->add('delete', $this->getRouterIdParameter() . '/delete');
 		$collection->add('clearCache', 'clearcache');
 		$collection->add('clearCacheProd', 'clearcacheprod');
+		$collection->add('clearHTTPCache', 'clearhttpcache');
 	}
 
 }

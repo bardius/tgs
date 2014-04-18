@@ -102,12 +102,12 @@ framework:
     session:        
        # storage_id:           session.storage.native
        # handler_id:           session.handler.native_file
-       # name:                 ~
+        name:									tgs
        # cookie_lifetime:      ~
        # cookie_path:          ~
        # cookie_domain:        ~
        # cookie_secure:        ~
-       # cookie_httponly:      ~
+        cookie_httponly:			true
        # gc_divisor:           ~
        # gc_probability:       ~
        # gc_maxlifetime:       ~
