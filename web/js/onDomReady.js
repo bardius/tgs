@@ -145,7 +145,7 @@
 				},
 				orbit : {
 					animation: 'fade',
-					timer_speed: 7000,
+					timer_speed: 6000,
 					pause_on_hover: true,
 					resume_on_mouseout: false,
 					animation_speed: 900,
@@ -153,7 +153,7 @@
 					navigation_arrows: true,
 					slide_number: false,
 					bullets: false,
-					timer: false,
+					timer: true,
 					circular: true,
 					swipe: true,
 					variable_height: false
