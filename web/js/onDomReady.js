@@ -72,6 +72,8 @@
 			$('.is-Bf').hide();
 			$('.is-Meters').hide();
 			
+			CMS.tgsUI.filtersFormInit();
+			
 		},
 	
 		unitConvertDisplay: function(unit) {
@@ -110,6 +112,21 @@
 				default:
 				
 			}
+		},
+
+		filtersFormInit: function() {
+	
+			$('.displayActiveStatus').on('click', function(e){
+				$(this).toggleClass('isActive');
+				
+				var accordioTriggers = $(this).closest('dl').find('a.displayActiveStatus').not(this);
+				accordioTriggers.removeClass('isActive');
+			});
+        
+			$('#resetFilters').change(function() {
+				var checkboxes = $(this).closest('form').find(':checkbox').not(this);
+				checkboxes.removeAttr('checked');
+			});
 		}
 	},			
 

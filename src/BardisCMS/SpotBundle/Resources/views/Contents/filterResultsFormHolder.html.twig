@@ -23,7 +23,7 @@
 							<div class="columns large-12 small-12 advancedFiltersContainer">
 								<dl class="accordion" data-accordion>
 									<dd>
-										<a class="advancedFiltersTitle" href="#advancedFilters">See More Filters</a>	
+										<a class="advancedFiltersTitle displayActiveStatus" href="#advancedFilters">See More Filters</a>	
 										<div id="advancedFilters" class="row collapse content">
 											<div class="columns large-12 small-12">  
 												<div class="row collapse">
@@ -85,10 +85,17 @@
                             </div>
                               
                             <div class="formBtns columns large-12 small-12">
-                                <input type="submit" id="filterResultsBtn" value="GO" />
-                                <div class="customCheckBox checkAllBox">
-									<input class="checkAllBtn" type="checkbox" id="CheckAll" name="CheckAll" value="1" />
-                                    <label for="CheckAll">Show All</label>
-                                </div>
+								<div class="row collapse">
+									<div class="columns large-6 small-6 customCheckBox resetFiltersBox">
+										<input class="resetFiltersBtn" type="checkbox" id="resetFilters" name="resetFilters" value="1" />
+										<label for="resetFilters">Reset Filters</label>
+									</div>
+									<div class="columns large-6 small-6 applyFiltersHolder">
+										<label>
+											<span class="hasArrow">All Checked? Hit </span>
+											<input class="isCyrcle" type="submit" id="filterResultsBtn" value="GO" />
+										</label>
+									</div>
+								</div>
                             </div>
                         </form>

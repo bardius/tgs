@@ -1458,11 +1458,17 @@ header{
 			display: block;
 			line-height: 1;
 			text-transform: uppercase;
+			background-color: #7ac6c8;
 			background-color: rgba(76,185,187, 0.7);
 			border-bottom: 1px solid $white-color;
 			
 			&:hover{
+				background-color: $primary-color;	
 				background-color: rgba(76,185,187, 1);				
+			}
+			
+			&.isActive{
+				background-color: $primary-color;				
 			}
 		}
 		
@@ -1870,6 +1876,7 @@ header{
 			float: none;
 			display: inline-block;
 			height: auto;
+			margin: 4px 0;
 			
 			a {
 				color: $white-color;
@@ -1883,19 +1890,19 @@ header{
 					color: $white-color;
 					background: none $primary-color;				
 				}
-			}
-		}		
+			}		
 		
-		li.current{
-			
-			a{
-				color: $white-color;
-				background: none $dark-gray-color;
-				font-weight: normal;
-				
-				&:hover, &:focus {
+			&.current{
+
+				a{
 					color: $white-color;
-					background: none $dark-gray-color;				
+					background: none $dark-gray-color;
+					font-weight: normal;
+
+					&:hover, &:focus {
+						color: $white-color;
+						background: none $dark-gray-color;				
+					}
 				}
 			}
 		}
@@ -1924,7 +1931,7 @@ header{
 	}
 	
 	.customCheckBox {
-		padding-top: 12px;
+		padding-top: 6px;
 		
 		.columns {
 			text-align: center;
@@ -2213,58 +2220,207 @@ header{
 			
 			dd > a {
 				background: none repeat 0 0 transparent;
-				color: $dark-gray-color;
+				color: $secondary-color;
 				display: inline-block;
 				width: auto;
 				font-family: $alt-font-family;
-				text-tranform: uppercase;;
-				font-size: 1.25rem;
-				padding: 1.25rem;
+				text-tranform: uppercase;
+				padding: 0;
+				font-size: rem-calc(34);
+				letter-spacing: 2px;
+
+				&:after {
+					padding-left: 12px;
+					font-size: rem-calc(22);
+					line-height: 1.4;
+					content: "\25BC"; // ▼
+					color: $secondary-color;
+				}
+				
+				&:hover{
+					color: $dark-gray-color;
+				}
+				
+				&.isActive{
+					color: $dark-gray-color;
+
+					&:after {
+						content: "\25B6"; // ►
+						color: $dark-gray-color;
+					}
+				}
+			}
+			
+			.content{
+				background: none transparent;
+				padding: 0;
+				height: 0;
+				overflow: hidden;
+					
+				-webkit-transition: all 300ms ease-in-out;
+				-moz-transition: all 300ms ease-in-out;
+				-o-transition: all 300ms ease-in-out;
+				transition: all 300ms ease-in-out;				
+			
+				&.active{
+					height: auto;
+					background: none transparent;
+					margin-top: 12px;
+					padding-top: 12px;
+					border-top: 2px dashed $secondary-color;
+				}
+				
+				label.large-2{
+					font-size: rem-calc(34);
+					line-height: 1.2;
+					margin-bottom: 12px;
+				}
+				
+				.customCheckBox {
+					margin-bottom: 12px;
+						
+					input + label {
+						padding: 0 0 0 28px;
+						display: inline-block;
+						position: relative;
+						line-height: 1.2;
+						clear: left;
+						float: left;
+						font-size: rem-calc(24);
+						width: auto;
+						cursor: pointer;
+						margin: 0 5%;
+
+						&:after {
+							content: '\00a0';
+							font-size: rem-calc(20);
+							position: absolute;
+							top: 3px;
+							left: 0px;
+							color: $dark-gray-color;
+							box-shadow: 0 1px 2px rgba(0,0,0,0), inset 0px 1px 3px rgba(13,59,131,0);
+							border: 2px solid $dark-gray-color;
+							border-radius: 50%;
+							background: none transparent;
+							width: rem-calc(18);
+							height: rem-calc(18);
+							line-height: 0.5;
+							text-align: center;			
+						}
+					}
+
+					input:checked + label:after {
+						content: '\2714';
+						box-shadow: 0 1px 2px rgba(0,0,0,0), inset 0px -15px 10px -12px rgba(0,0,0,0), inset 15px 10px -12px rgba(13,59,131,0);
+					}
+				}
 			}
 		}
 		
 	}
-	
+
 	.formBtns{
+		margin-top: 12px;
+		padding-top: 12px;
+		border-top: 2px dashed $secondary-color;
 		
-		.checkAllBox{
-			float: left;
-			margin-top: 4px;
+		.customCheckBox {
 			
-			label{
-				font-size: 0.9285em;
-				font-size: 0.9285rem;
-				line-height: 1.285em;
-				line-height: 1.285rem;
-				text-transform: none;
-				color: #052763;
+			input{
+				display: none;
+			}
+						
+			input + label {
+				display: inline-block;
+				position: relative;
+				line-height: 1.2;
+				font-size: rem-calc(24);
 				cursor: pointer;
-				margin-bottom:0;    
+				margin: 0;
+				color: $secondary-color;
+				text-transform: none;
+					
+				-webkit-transition: all 300ms ease-in-out;
+				-moz-transition: all 300ms ease-in-out;
+				-o-transition: all 300ms ease-in-out;
+				transition: all 300ms ease-in-out;	
+
+				&:after {
+					content: '\00a0';
+					font-size: rem-calc(20);
+					color: $dark-gray-color;
+					line-height: 1.2;
+					padding-left: 12px;
+				}
+
+				&:hover {
+					color: $dark-gray-color;
+
+					&:after {
+						content: '\2716'; // ✖
+					}
+				}
+			}
+		}
+		
+		.applyFiltersHolder{
+			text-align: right;
+			margin: 0;
+
+			label{
+				font-size: rem-calc(34);
+				color: $secondary-color;
+				display: inline-block;
+				line-height: rem-calc(80);
+				cursor: pointer;
+				text-transform: none;
+
+				-webkit-transition: all 300ms ease-in-out;
+				-moz-transition: all 300ms ease-in-out;
+				-o-transition: all 300ms ease-in-out;
+				transition: all 300ms ease-in-out;
+
+				.hasArrow{
+
+					&:after {
+						content: "\279C"; // ➜
+						color: $dark-gray-color;
+					}
+				}
+
+				.isCyrcle{
+					color: $white-color;
+					border: 4px solid $white-color;
+					overflow: hidden;
+					display: inline-block;
+					border-radius: 50%;
+					font-size: rem-calc(46);
+					line-height: rem-calc(70);
+					text-align: center;
+					width: rem-calc(80);
+					height: rem-calc(80);
+					background: none $secondary-color;
+					font-family: $alt-font-family;
+					vertical-align: middle;
+					cursor: pointer;
+
+					-webkit-transition: all 300ms ease-in-out;
+					-moz-transition: all 300ms ease-in-out;
+					-o-transition: all 300ms ease-in-out;
+					transition: all 300ms ease-in-out;
+				}
+
+				&:hover, &:focus {
+					color: $dark-gray-color;
+
+					.isCyrcle{					
+						color: $white-color;
+						background: none $dark-gray-color;
+					}
+				}			
 			}
 		}
 	}	
-
-	#filterResultsBtn {
-	   float: right;
-	   background: url("../images/site_assets/indexSlideArrow.png") no-repeat 80% 50% #0A3982;
-	   border-radius: 16px 16px 16px 16px;
-	   color: #FFFFFF;
-	   display: block;
-	   font-family: "futuramedium", "Helvetica", Tahoma, Arial, sans-serif;
-	   font-size: 16px;
-	   height: 32px;
-	   line-height: 32px;
-	   padding: 0 34px 0 16px;
-	   text-align: left;
-	   text-transform: uppercase;
-	   border: none;
-	   font-weight: normal!important;
-
-	   &:hover{
-		   cursor: pointer;
-		   background: url("../images/site_assets/indexSlideArrow.png") no-repeat 80% 50% #011A48;
-	   }
-   }
 }
 
 .lt-ie9 {
