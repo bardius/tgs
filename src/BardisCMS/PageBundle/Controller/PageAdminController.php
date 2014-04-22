@@ -16,10 +16,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-use Symfony\Component\Console\Input\StringInput;
-use Symfony\Component\Console\Output\NullOutput;
-use Symfony\Bundle\FrameworkBundle\Command\CacheClearCommand;
-use Symfony\Component\Process\Process;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 class PageAdminController extends Controller {
 
@@ -132,8 +130,23 @@ class PageAdminController extends Controller {
 	}
 	
 	public function clearHTTPCacheAction() {
+		
+		$fs = new Filesystem;
+		
+		try {
+			$fs->remove(
+				array(
+				__DIR__.'/../../../../app/cache/prod/http_cache',
+				__DIR__.'/../../../../app/cache/dev/http_cache',
+				__DIR__.'/../../../../app/cache/prod/weatherapi',
+				__DIR__.'/../../../../app/cache/dev/weatherapi'
+				)
+			);
+			$this->get('session')->getFlashBag()->add('sonata_flash_success', 'HTTP Cache Cleared');
+		} catch (IOExceptionInterface $e) {		
+			$this->get('session')->getFlashBag()->add('sonata_flash_error', 'An error occurred while deleting your HTTP cache at ' . $e->getPath() . '');
+		}
 
-        return new RedirectResponse('/clear-http-cache.php');
+        return new RedirectResponse('/admin/dashboard');
 	}
-
 }
