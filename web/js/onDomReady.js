@@ -12,6 +12,7 @@
 		GMapScriptURL:	'http://maps.google.com/maps/api/js?sensor=false&key=',
 		
 		mapInit: function() {
+			
 			$.getScript(CMS.siteConfig.GMapScriptURL + CMS.siteConfig.mapKey + "&callback=CMS.siteConfig.showMap");
 		},
 		
@@ -73,7 +74,7 @@
 			$('.is-Meters').hide();
 			
 			CMS.tgsUI.filtersFormInit();
-			
+			CMS.tgsUI.infinitePagination();		
 		},
 	
 		unitConvertDisplay: function(unit) {
@@ -127,6 +128,40 @@
 				var checkboxes = $(this).closest('form').find(':checkbox').not(this);
 				checkboxes.removeAttr('checked');
 			});
+		},
+		
+		// The ajax pagination plugin call
+		infinitePagination: function() {
+			
+			if($('.spotsList').length > 0){
+				var container = ".spotsList";
+				var item = ".spot_articleItem";
+			}
+			else{
+				var container = ".blogArticleList";
+				var item = ".blog_articleItem";
+			}
+			
+			var ias = $.ias({
+				container	: ".spotsList",
+				item		: ".spot_articleItem",
+				pagination	: ".pagination",
+				next		: ".nextPageLink"
+			});
+			
+			ias.extension(
+				new IASSpinnerExtension({
+					src: '/images/site_assets/loading.gif',
+					html: '<div class="ias-spinner" style="text-align: center;"><img src="{src}"/></div>'
+				})
+			);
+			
+			ias.extension(
+				new IASNoneLeftExtension({
+					text: 'No more sports to load',
+					html: '<div class="ias-noneleft" style="text-align: center;">{text}</div>'
+				})
+			);
 		}
 	},			
 
@@ -225,6 +260,7 @@
     };
 
     $(function() {
+		
 		CMS.foundationConfig.init();
 		CMS.tgsUI.init();		
 		

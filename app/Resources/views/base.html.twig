@@ -23,7 +23,7 @@
 		<link rel="shortcut icon" href="{{ app.request.uriForPath('/favicon.ico') }}" />
 		<link rel="apple-touch-icon" href="{{ app.request.uriForPath('/apple-touch-icon.png') }}" />
 
-		{% stylesheets filter="minifier_css" output="css/styles-compiled.css" 'stylesheets/app.css' 'stylesheets/legacy.css' %}
+		{% stylesheets filter="?minifier_css" output="css/styles-compiled.css" 'stylesheets/app.css' 'stylesheets/legacy.css' %}
 		<link rel="stylesheet" href="{{ asset_url }}" />
 		{% endstylesheets %}
 
@@ -46,6 +46,7 @@
 		<script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
 		<script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+		<script src="/js/polyfills/rem.min.js"></script>
 		<![endif]-->
 		
 	</head>
@@ -92,15 +93,15 @@
 			</div>  
 		</div>
 		
-		{% javascripts filter='?minifier_js' output='js/jquery.min.js' 
-			'bower_components/jquery/jquery.js' 
-			'js/polyfills/rem.min.js' 
+		{% javascripts filter='minifier_js' output='js/jquery.min.js' 
+			'bower_components/jquery/dist/jquery.min.js'
 		%}
 		<script type="text/javascript" src="{{ asset_url }}"></script>
 		{% endjavascripts %}
 
-		{% javascripts filter='minifier_js' output='js/js-compiled.js' 
+		{% javascripts filter='?minifier_js' output='js/js-compiled.js' 
 			'bower_components/foundation/js/foundation.min.js' 
+			'js/jquery-ias.min.js' 
 			'js/onDomReady.js' 
 		%}
 

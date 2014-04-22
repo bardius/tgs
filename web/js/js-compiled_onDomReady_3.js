@@ -1,6 +1,7 @@
 (function(CMS, $) {
 	
 	CMS.siteConfig = {
+		// Map settings
 		map:			null,
 		mapKey:			'AIzaSyB8uoWbuhHNagbpi22tEeZYiT41toB171g',
 		mapLatitude:	$('#mapLat').val(),
@@ -11,6 +12,7 @@
 		GMapScriptURL:	'http://maps.google.com/maps/api/js?sensor=false&key=',
 		
 		mapInit: function() {
+			
 			$.getScript(CMS.siteConfig.GMapScriptURL + CMS.siteConfig.mapKey + "&callback=CMS.siteConfig.showMap");
 		},
 		
@@ -64,6 +66,104 @@
 		}
 	},
 			
+	CMS.tgsUI = {
+
+		init: function() {
+			
+			$('.is-Bf').hide();
+			$('.is-Meters').hide();
+			
+			CMS.tgsUI.filtersFormInit();
+			CMS.tgsUI.infinitePagination();		
+		},
+	
+		unitConvertDisplay: function(unit) {
+	
+			switch(unit)
+			{
+				
+				case 'knots':
+					$('.is-Bf').fadeOut(0, function(){
+						$('.is-Knots').fadeIn(200);						
+					});
+					
+					break;
+
+				case 'bf':
+					$('.is-Knots').fadeOut(0, function(){
+						$('.is-Bf').fadeIn(200);						
+					});
+					
+					break;
+
+				case 'meters':
+					$('.is-Ft').fadeOut(0, function(){
+						$('.is-Meters').fadeIn(200);						
+					});
+					
+					break;
+
+				case 'ft':
+					$('.is-Meters').fadeOut(0, function(){
+						$('.is-Ft').fadeIn(200);						
+					});
+					
+					break;
+
+				default:
+				
+			}
+		},
+
+		filtersFormInit: function() {
+	
+			$('.displayActiveStatus').on('click', function(e){
+				$(this).toggleClass('isActive');
+				
+				var accordioTriggers = $(this).closest('dl').find('a.displayActiveStatus').not(this);
+				accordioTriggers.removeClass('isActive');
+			});
+        
+			$('#resetFilters').change(function() {
+				var checkboxes = $(this).closest('form').find(':checkbox').not(this);
+				checkboxes.removeAttr('checked');
+			});
+		},
+		
+		// The ajax pagination plugin call
+		infinitePagination: function() {
+			
+			if($('.spotsList').length > 0){
+				var container = ".spotsList";
+				var item = ".spot_articleItem";
+			}
+			else{
+				var container = ".blogArticleList";
+				var item = ".blog_articleItem";
+			}
+			
+			var ias = $.ias({
+				container	: ".spotsList",
+				item		: ".spot_articleItem",
+				pagination	: ".pagination",
+				next		: ".nextPageLink"
+			});
+			
+			ias.extension(
+				new IASSpinnerExtension({
+					src: '/images/site_assets/loading.gif',
+					html: '<div class="ias-spinner" style="text-align: center;"><img src="{src}"/></div>'
+				})
+			);
+			
+			ias.extension(
+				new IASNoneLeftExtension({
+					text: 'No more sports to load',
+					html: '<div class="ias-noneleft" style="text-align: center;">{text}</div>'
+				})
+			);
+		}
+	},			
 
     CMS.foundationConfig = {
 		
@@ -80,15 +180,17 @@
 				},
 				orbit : {
 					animation: 'fade',
-					timer_speed: 8000,
+					timer_speed: 6000,
 					pause_on_hover: true,
 					resume_on_mouseout: false,
-					animation_speed: 700,
-					stack_on_small: true,
+					animation_speed: 900,
+					stack_on_small: false,
 					navigation_arrows: true,
 					slide_number: false,
-					bullets: true,
-					timer: false,
+					bullets: false,
+					timer: true,
+					circular: true,
+					swipe: true,
 					variable_height: false
 				},
 				dropdown : {
@@ -97,7 +199,7 @@
 			
 			// Start the AJAX based contact form
 			CMS.foundationConfig.ajaxSubmittedForm('#contactform', '#contactFormBtn');
-			CMS.foundationConfig.ajaxSubmittedForm('#add_comment_form', '#submitCommentBtn');
+			//CMS.foundationConfig.ajaxSubmittedForm('#add_comment_form', '#submitCommentBtn');
 		},
 		    
 	    ajaxSubmittedForm: function(formId, formSubmitBtnId) {
@@ -118,7 +220,7 @@
 					$.post(formAction, formData, function(responce) {
 
 						$(".formError").remove();
-						$("label.error").removeClass('error');
+						$(formId +" .error").removeClass('error');
 
 						if (responce.hasErrors === false) {
 							formElement.trigger("reset");
@@ -130,12 +232,10 @@
 								var errorArray = responce.errors;
 								
 								$.each(errorArray, function(key, val) {
-									console.log(key);
-									console.log(formId + '_' + key);
-									console.log(val[0]);
 									// find type of input, return validation
 									$(formId + '_' + key).addClass('error');
-									$(formId + '_' + key).after($('<small class="formError error">' + val[0] + '</small>').hide());	
+									$(formId + '_' + key).closest(".formFieldContainer").addClass('error');
+									$(formId + '_' + key).closest(".formFieldContainer").after($('<small class="formError error">' + val[0] + '</small>').hide());	
 								});
 							}
 							
@@ -160,7 +260,9 @@
     };
 
     $(function() {
+		
 		CMS.foundationConfig.init();
+		CMS.tgsUI.init();		
 		
 		if($('#mapModal').length > 0){
 			CMS.siteConfig.mapInit();			
