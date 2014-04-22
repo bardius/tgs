@@ -27,6 +27,11 @@
 	# Send all blocked request to homepage with 403 Forbidden error!
 	RewriteRule ^(.*)$ app.php [F,L]
 
+	RewriteCond %{REQUEST_URI} ^/admin(/.*|)$ [NC]
+    RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.*)$ app_admin.php [QSA,L]
+
+	RewriteCond %{REQUEST_URI} !^/admin(/.*|)$ [NC]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ app.php [QSA,L]
 </IfModule>

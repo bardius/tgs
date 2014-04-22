@@ -132,9 +132,6 @@ class PageAdminController extends Controller {
 	}
 	
 	public function clearHTTPCacheAction() {
-		
-		$this->get('security.context')->setToken(null);
-		$this->get('session')->invalidate();
 
         return new RedirectResponse('/clear-http-cache.php');
 	}
