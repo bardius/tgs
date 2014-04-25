@@ -1,11 +1,14 @@
+[![devDependency Status](https://david-dm.org/bardius/tgs/dev-status.png)](https://david-dm.org/bardius/tgs#info=devDependencies) [![Build Status](https://travis-ci.org/bardius/tgs.svg?branch=master)](https://travis-ci.org/bardius/tgs) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tgs/tgs/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
-Symfony2 BardisCMS v2.4.1
+![](http://f.cl.ly/items/3d0o1O190m0U443I0B1I/Screen%20Shot%202013-10-07%20at%2022.05.42.png)
+
+Symfony2 BardisCMS v2.4.3
 ======================================================
 
-This is a Symfony2 based CMS based on version 2.4.1.  
+This is a Symfony2 based CMS based on version 2.4.3.  
   
-You can find the requirements for Symfony2 here http://symfony.com/doc/2.2/reference/requirements.html  
-You can find the documentation for Symfony2 here http://symfony.com/doc/2.2/book/index.html  
+You can find the requirements for Symfony2 here http://symfony.com/doc/current/reference/requirements.html  
+You can find the documentation for Symfony2 here http://symfony.com/doc/current/book/index.html  
   
 The CMS requires the existence of 3 pages to work. These are the homepage, the 404 page and the tagged page (if there are tags and filtered results).  
   
@@ -42,7 +45,7 @@ Tip: Additionally in the same file you have to set the paths for sass, compass a
 composer.phar install
 
 9. Run the CLI symphony2 commands  
-	* php app/console cache:clear  
+	* php app/console cache:clear [--env=prod]
 	(to clear and warmup cache)
 	* php app/console assets:install  
 	(to generate the bundle assets)
@@ -52,13 +55,13 @@ composer.phar install
 	(to load required/sample data to database)
 	* php app/console sonata:media:sync-thumbnails sonata.media.provider.image  
 	(to generate the required by sample data images)
-	* php app/console assetic:dump  
+	* php app/console assetic:dump [--env=prod]
 	(to generate the assets for the front end)
 
  
 ### Front end Framework Setup ###
 
-Due to the use of the Zurb Foundation Framework 5 (version 1.0.1) the need for the following steps is unavoidable unless you do not need the framework at all. 
+Due to the use of the Zurb Foundation Framework 5 (version 5.2.2) the need for the following steps is unavoidable unless you do not need the framework at all. 
   
 We need to install NodeJs, Node Packaged Modules, Ruby, compass, sass, foundation gems and GIT and bower dependency manager if they are not already installed to the system. 
   
@@ -74,21 +77,20 @@ http://compass-style.org/install/			(Compass)
 http://foundation.zurb.com/docs/sass.html	(Foundation 5 - Sass based)  
   
 The command line steps are:  
-
-	1. npm install -g bower
+	
+	1. [sudo] npm install -g bower grunt-cli
 	2. gem update --system
 	3. gem install sass
 	4. gem install compass
 	5. gem install foundation
-
-Navigate in your /web folder via Git bash and run
-
-	bower install  
+	6. Navigate in your /web folder via bash and run
+	7. [sudo] npm install
+	8. bower install
+	9. grunt deploy [watch]
 
 Tip: In case you are behind a firewall and connection to git is refused force https for all git connections with running this in your bash git config --global url."https://".insteadOf git://
 
-	compass compile
-	php app/console assetic:dump  
+	php app/console assetic:dump  [--env=prod]
   
 Your project should work now and you can see your front end working.  
 Please Login to /admin/dashboard and alter your website settings and you are finally set to go.
