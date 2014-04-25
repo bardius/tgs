@@ -83,10 +83,9 @@ The command line steps are:
 	3. gem install sass
 	4. gem install compass
 	5. gem install foundation
-	6. Navigate in your /web folder via bash and run
-	7. [sudo] npm install
-	8. bower install
-	9. grunt deploy [watch]
+	6. [sudo] npm install
+	7. bower install
+	8. grunt deploy [watch]
 
 Tip: In case you are behind a firewall and connection to git is refused force https for all git connections with running this in your bash git config --global url."https://".insteadOf git://
 

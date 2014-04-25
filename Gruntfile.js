@@ -23,21 +23,21 @@ module.exports = function(grunt) {
 			
 			js : {
 				// <%=config.js.distDir%>
-				distDir : 'js/',
+				distDir : 'web/js/',
 
 				// <%=config.js.distFile%>
 				distFile : 'app.min.js',
 
 				// <%=config.js.fileList%>
 				fileList : [
-					'bower_components/foundation/js/foundation.min.js',
-					//'bower_components/foundation/js/foundation.js',
-					//'bower_components/foundation/js/foundation/*.js',
-					'bower_components/jquery-ias/src/jquery-ias.js',
-					'bower_components/jquery-ias/src/callbacks.js',
-					'bower_components/jquery-ias/src/extension/spinner.js',
-					'bower_components/jquery-ias/src/extension/noneleft.js',
-					'js/onDomReady.js'
+					'web/bower_components/foundation/js/foundation.min.js',
+					//'web/bower_components/foundation/js/foundation.js',
+					//'web/bower_components/foundation/js/foundation/*.js',
+					'web/bower_components/jquery-ias/src/jquery-ias.js',
+					'web/bower_components/jquery-ias/src/callbacks.js',
+					'web/bower_components/jquery-ias/src/extension/spinner.js',
+					'web/bower_components/jquery-ias/src/extension/noneleft.js',
+					'web/js/onDomReady.js'
 				]
 			}
 		},
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
 			},
 			
 			scss: {
-				files: ['scss/**/*.scss'],
+				files: ['web/scss/**/*.scss'],
 				tasks: ['sass:dist', 'autoprefixer:dist']
 			},			
 			
@@ -77,7 +77,7 @@ module.exports = function(grunt) {
 			dist: {
 			
 				options: {
-					loadPath: ['bower_components/foundation/scss'],				
+					loadPath: ['web/bower_components/foundation/scss'],				
 					unixNewlines: true,
 					style: 'expanded', //compressed - expanded
 					lineNumbers: false,
@@ -87,8 +87,8 @@ module.exports = function(grunt) {
 				},
 
 				files: {
-					'css/app.css' : 'scss/app.scss',
-					'css/legacy.css': 'scss/legacy.scss'
+					'web/css/app.css' : 'web/scss/app.scss',
+					'web/css/legacy.css': 'web/scss/legacy.scss'
 				}				
 			}
 		},
@@ -113,8 +113,8 @@ module.exports = function(grunt) {
 				},
 
 				files: {
-					'css/app.css' : 'css/app.css',
-					'css/legacy.css': 'css/legacy.css'
+					'web/css/app.css' : 'web/css/app.css',
+					'web/css/legacy.css': 'web/css/legacy.css'
 				}
 			}
 		},		
@@ -154,8 +154,8 @@ module.exports = function(grunt) {
 			dist: {
 			
 				files: {
-					'css/app.css' : 'css/app.css',
-					'css/legacy.css': 'css/legacy.css'
+					'web/css/app.css' : 'web/css/app.css',
+					'web/css/legacy.css': 'web/css/legacy.css'
 				}
 			}
 		},		
