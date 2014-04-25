@@ -133,8 +133,8 @@ module.exports = function(grunt) {
 				beautify: false, // beautify: beautify your code for debugging/troubleshooting purposes
 				compress: false,
 				// report: 'gzip', // report: Show file size report
-				//sourceMap: '<%=config.js.distDir%><%=config.js.distFile%>.map',
-				//sourceMappingURL: '/<%=config.js.distFile%>.map',
+				sourceMap: '<%=config.js.distDir%><%=config.js.distFile%>.map',
+				sourceMappingURL: '/<%=config.js.distFile%>.map'
 			},
 			
 			js: {
