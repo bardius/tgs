@@ -3,6 +3,7 @@
 	"camelcase":  false,
 	"curly": true,
 	"debug":  true,
+	"expr":  true,
 	"forin": true,
 	"latedef":  true,
 	"laxcomma":  true,
