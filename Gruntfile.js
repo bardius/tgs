@@ -210,7 +210,7 @@ module.exports = function(grunt) {
 	*/
 	// Default task
 	grunt.registerTask('default', [
-		'jshint',
+		//'jshint',
 		'uglify',
 		'sass:dist',
 		'autoprefixer:dist'
@@ -222,6 +222,7 @@ module.exports = function(grunt) {
 	* run jshint, uglify and sass
 	*/
 	grunt.registerTask('dev', [
+		//'jshint',
 		'uglify',
 		'sass:dist',
 		'autoprefixer:dist'
@@ -247,9 +248,10 @@ module.exports = function(grunt) {
 
 	//Travis CI to test build
 	grunt.registerTask('travis', [
-		'jshint',
+		//'jshint',
 		'uglify',
 		'sass:dist',
-		'autoprefixer:dist'
+		'autoprefixer:dist',
+		'csso:dist'
 	]);
 };
