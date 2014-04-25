@@ -21,8 +21,8 @@
 
 		<meta name="author" content="{% block metaAuthor %}George Bardis{% endblock %}">
 		
-		<link rel='canonical' href='{{ app.request.getRequestURI() }}' />
-		<link rel="alternate" hreflang="en" href="{{ app.request.getRequestURI() }}" />
+		<link rel='canonical' href='{{ app.request.getHttpHost() }}{{ app.request.getRequestURI() }}' />
+		<link rel="alternate" hreflang="en" href="{{ app.request.getHttpHost() }}{{ app.request.getRequestURI() }}" />
 
 		<link rel="shortcut icon" href="{{ app.request.uriForPath('/favicon.ico') }}" />
 		<link rel="apple-touch-icon" href="{{ app.request.uriForPath('/apple-touch-icon.png') }}" />
