@@ -1,4 +1,4 @@
-[![devDependency Status](https://david-dm.org/bardius/tgs/dev-status.png)](https://david-dm.org/bardius/tgs#info=devDependencies) [![Build Status](https://travis-ci.org/bardius/tgs.svg?branch=master)](https://travis-ci.org/bardius/tgs) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tgs/tgs/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![devDependency Status](https://david-dm.org/bardius/tgs/dev-status.svg)](https://david-dm.org/bardius/tgs#info=devDependencies) [![Build Status](https://travis-ci.org/bardius/tgs.svg?branch=master)](https://travis-ci.org/bardius/tgs) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/bardius/tgs/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ![](http://f.cl.ly/items/3d0o1O190m0U443I0B1I/Screen%20Shot%202013-10-07%20at%2022.05.42.png)
 
