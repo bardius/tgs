@@ -1,6 +1,6 @@
 {
 	"globals": {"console": true},
-	"camelcase":  true,
+	"camelcase":  false,
 	"curly": true,
 	"debug":  true,
 	"forin": true,

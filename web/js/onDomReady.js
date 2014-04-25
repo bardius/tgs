@@ -134,14 +134,16 @@
 		
 		// The ajax pagination plugin call
 		infinitePagination: function() {
+			var container;
+			var item;
 			
 			if($('.spotsList').length > 0){
-				var container = ".spotsList";
-				var item = ".spot_articleItem";
+				container = ".spotsList";
+				item = ".spot_articleItem";
 			}
 			else{
-				var container = ".blogArticleList";
-				var item = ".blog_articleItem";
+				container = ".blogArticleList";
+				item = ".blog_articleItem";
 			}
 			
 			var ias = $.ias({
