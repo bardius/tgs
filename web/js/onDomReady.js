@@ -1,5 +1,7 @@
 (function(CMS, $) {
 	
+	'use strict';
+	
 	CMS.siteConfig = {
 		// Map settings
 		map:			null,
@@ -182,7 +184,7 @@
 					animation: 'fade',
 					timer_speed: 6000,
 					pause_on_hover: true,
-					resume_on_mouseout: false,
+					resume_on_mouseout: true,
 					animation_speed: 900,
 					stack_on_small: false,
 					navigation_arrows: true,
@@ -258,7 +260,8 @@
 			 });
 		 */
     };
-
+	
+	// Shorthand for $( document ).ready()
     $(function() {
 		
 		CMS.foundationConfig.init();
@@ -268,7 +271,6 @@
 			CMS.siteConfig.mapInit();			
 		}
     });
-    // END DOC READY
 
     /* Optional triggers
      
@@ -282,5 +284,5 @@
 	
     });
      */
-
+	
 })(window.CMS = window.CMS || {}, jQuery);

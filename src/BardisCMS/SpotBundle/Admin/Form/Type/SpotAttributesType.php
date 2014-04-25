@@ -37,7 +37,8 @@ class SpotAttributesType extends AbstractType
 		
 		$this->spotTypeChoices = array(
 			'Beach'			=> 'Beach',
-			'Shorebreak'	=> 'Shorebreak'
+			'Shorebreak'	=> 'Shorebreak',
+			'Lagoon'		=> 'Lagoon'
 		);
 		
 		$this->sportsChoices = array(
@@ -51,7 +52,7 @@ class SpotAttributesType extends AbstractType
 		$this->experienceChoices = array(
 			'Beginner'		=> 'Beginner',
 			'Intermediate'	=> 'Intermediate',
-			'Advanced '		=> 'Advanced ',
+			'Advanced'		=> 'Advanced ',
 			'All'			=> 'All'
 		);
 		
@@ -96,7 +97,7 @@ class SpotAttributesType extends AbstractType
 		$this->windForceChoices = array(
 			'Light'		=> 'Light',
 			'Medium'	=> 'Medium',
-			'Strong '	=> 'Strong'
+			'Strong'	=> 'Strong'
 		);
 		
 		$this->bestWindDirectionChoices = array(
@@ -119,9 +120,11 @@ class SpotAttributesType extends AbstractType
 		);
 		
 		$this->relativeChoices = array(
-			'Side off'		=> 'Side off',
-			'Side on'		=> 'Side on',
-			'Side shore '	=> 'Side shore'
+			'Side Off Shore'	=> 'Side Off Shore',
+			'Side On Shore'		=> 'Side On Shore',
+			'Side Shore'		=> 'Side Shore',
+			'Off Shore'			=> 'Off Shore',
+			'On Shore'			=> 'On Shore'
 		);
 		
 		$this->seaStateChoices = array(

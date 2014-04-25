@@ -1825,7 +1825,7 @@ header{
 			.hasArrow{
 				
 				&:after {
-					content: "\279C"; // ➜
+					content: "\279C";
 					color: $dark-gray-color;
 				}
 			}
@@ -2233,7 +2233,7 @@ header{
 					padding-left: 12px;
 					font-size: rem-calc(22);
 					line-height: 1.4;
-					content: "\25BC"; // ▼
+					content: "\25BC";
 					color: $secondary-color;
 				}
 				
@@ -2245,7 +2245,7 @@ header{
 					color: $dark-gray-color;
 
 					&:after {
-						content: "\25B6"; // ►
+						content: "\25B6";
 						color: $dark-gray-color;
 					}
 				}
@@ -2357,7 +2357,7 @@ header{
 					color: $dark-gray-color;
 
 					&:after {
-						content: '\2716'; // ✖
+						content: '\2716';
 					}
 				}
 			}
@@ -2383,7 +2383,7 @@ header{
 				.hasArrow{
 
 					&:after {
-						content: "\279C"; // ➜
+						content: "\279C";
 						color: $dark-gray-color;
 					}
 				}
@@ -2489,7 +2489,8 @@ footer{
 		text-align: left;
 		
 		p{
-			font-size: rem-calc(13);			
+			font-size: rem-calc(13);
+			text-align: center;
 		}
 	}
 	

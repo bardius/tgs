@@ -23,13 +23,13 @@
 		<link rel="shortcut icon" href="{{ app.request.uriForPath('/favicon.ico') }}" />
 		<link rel="apple-touch-icon" href="{{ app.request.uriForPath('/apple-touch-icon.png') }}" />
 
-		{% stylesheets filter="?minifier_css" output="css/styles-compiled.css" 'stylesheets/app.css' 'stylesheets/legacy.css' %}
+		{% stylesheets output="css/compiled.css" 'css/app.css' 'css/legacy.css' %}
 		<link rel="stylesheet" href="{{ asset_url }}" />
 		{% endstylesheets %}
 
 		{% block stylesheets %}{% endblock %}
 
-		{% javascripts filter='?minifier_js' output='js/modernizr.js' 'bower_components/modernizr/modernizr.js' %}
+		{% javascripts filter="minifier_js" output='js/modernizr.min.js' 'bower_components/modernizr/modernizr.js' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
 		{% endjavascripts %}
 		
@@ -93,19 +93,14 @@
 			</div>  
 		</div>
 		
-		{% javascripts filter='minifier_js' output='js/jquery.min.js' 
-			'bower_components/jquery/dist/jquery.min.js'
-		%}
+		{% javascripts output='js/jquery.min.js' 'bower_components/jquery/jquery.min.js' %}
 		<script type="text/javascript" src="{{ asset_url }}"></script>
 		{% endjavascripts %}
 
-		{% javascripts filter='?minifier_js' output='js/js-compiled.js' 
-			'bower_components/foundation/js/foundation.min.js' 
-			'js/jquery-ias.min.js' 
-			'js/onDomReady.js' 
-		%}
+		{% javascripts output='js/compiled.min.js' 'js/app.min.js' %}
 
 		<script type="text/javascript" src="{{ asset_url }}"></script>
+		
 		<!-- Proper defer loading of javascript (Source: http://www.feedthebot.com/pagespeed/defer-loading-javascript.html) -->
 		<!-- 
 		<script type="text/javascript">
