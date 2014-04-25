@@ -30,8 +30,9 @@ module.exports = function(grunt) {
 
 				// <%=config.js.fileList%>
 				fileList : [
-					'bower_components/foundation/js/foundation.js',
-					'bower_components/foundation/js/foundation/*.js',
+					'bower_components/foundation/js/foundation.min.js',
+					//'bower_components/foundation/js/foundation.js',
+					//'bower_components/foundation/js/foundation/*.js',
 					'bower_components/jquery-ias/src/jquery-ias.js',
 					'bower_components/jquery-ias/src/callbacks.js',
 					'bower_components/jquery-ias/src/extension/spinner.js',
@@ -78,7 +79,7 @@ module.exports = function(grunt) {
 				options: {
 					loadPath: ['bower_components/foundation/scss'],				
 					unixNewlines: true,
-					style: 'expanded', //compressed
+					style: 'expanded', //compressed - expanded
 					lineNumbers: false,
 					debugInfo : false,
 					precision : 8,
