@@ -1,4 +1,4 @@
-[![devDependency Status](https://david-dm.org/bardius/tgs/dev-status.svg)](https://david-dm.org/bardius/tgs#info=devDependencies) [![Build Status](https://travis-ci.org/bardius/tgs.svg?branch=master)](https://travis-ci.org/bardius/tgs) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![Built with Foundation 5](https://cdn.gruntjs.com/builtwith.png)](http://foundation.zurb.com/)
+[![devDependency Status](https://david-dm.org/bardius/tgs/dev-status.svg)](https://david-dm.org/bardius/tgs#info=devDependencies) [![Build Status](https://travis-ci.org/bardius/tgs.svg?branch=master)](https://travis-ci.org/bardius/tgs) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ![](http://www.bardis.info/bardisCMS.png)
 
@@ -45,6 +45,7 @@ Tip: Additionally in the same file you have to set the paths for sass, compass a
 composer.phar install
 
 9. Run the CLI symphony2 commands  
+
 	* php app/console cache:clear [--env=prod]
 	(to clear and warmup cache)
 	* php app/console assets:install  
