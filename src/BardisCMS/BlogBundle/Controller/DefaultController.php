@@ -67,8 +67,6 @@ class DefaultController extends Controller
             $publishStates = array(1, 2);                
         }
 		
-		//var_dump($this->container->getParameter('kernel.environment'));
-		
 		if($this->container->getParameter('kernel.environment') == 'prod' && $settings->getActivateHttpCache()){	
 			
 			$response = new Response();
@@ -124,7 +122,7 @@ class DefaultController extends Controller
         
         $selectedTags       = array();
         $selectedCategories = array();        
-        $extraParams        = explode('|', $extraParams);
+        $extraParams        = explode('|', urldecode($extraParams));
         
         if (isset($extraParams[0]))
         {
@@ -213,7 +211,8 @@ class DefaultController extends Controller
     
     
     // Get the required data to display to the correct view depending on pagetype
-    public function renderPage($page, $id, $publishStates, $extraParams, $currentpage, $totalpageitems, $linkUrlParams){
+    public function renderPage($page, $id, $publishStates, $extraParams, $currentpage, $totalpageitems, $linkUrlParams)
+	{
 		// Check if mobile content should be served		
         $serveMobile = $this->get('bardiscms_mobile_detect.device_detection')->testMobile();
 		$settings = $this->get('bardiscms_settings.load_settings')->loadSettings();

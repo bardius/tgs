@@ -113,7 +113,7 @@ class DefaultController extends Controller {
 
 		$selectedTags = array();
 		$selectedCategories = array();
-		$extraParams = explode('|', $extraParams);
+		$extraParams = explode('|', urldecode($extraParams));
 
 		// Getting the tags from the params
 		if (isset($extraParams[0])) {
