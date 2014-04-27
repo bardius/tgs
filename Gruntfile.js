@@ -78,8 +78,8 @@ module.exports = function(grunt) {
 			
 				options: {
 					loadPath: ['web/bower_components/foundation/scss'],				
-					unixNewlines: false,
-					style: 'compressed', //compressed - expanded
+					unixNewlines: true,
+					style: 'expanded', //compressed - expanded
 					lineNumbers: false,
 					debugInfo : false,
 					precision : 8,

@@ -1,12 +1,13 @@
 {
-	"name": "symfony/framework-standard-edition",
-	"description": "The \"Symfony Standard Edition\" distribution",
+	"name": "symfony2-bardiscms",
+	"title": "Symfony2 BardisCMS & Foundation 5",
+	"description": "Foundation 5 front end framework for Symfony2 BardisCMS",
 	"autoload": {
 		"psr-0": {"": "src/"}
 	},
 	"require": {
-		"php": ">=5.4.3",
-		"symfony/symfony": "2.4.3",
+		"php": ">=5.3.3",
+		"symfony/symfony": "v2.4.4",
 		"doctrine/orm": ">=2.3.0",
 		"doctrine/doctrine-bundle": "dev-master",
 		"doctrine/doctrine-fixtures-bundle": "dev-master",
@@ -14,7 +15,7 @@
 		"twig/extensions": "dev-master",
 		"symfony/assetic-bundle": "dev-master",
 		"symfony/swiftmailer-bundle": "dev-master",
-		"symfony/monolog-bundle": "2.4.*",
+		"symfony/monolog-bundle": "dev-master",
 		"sensio/distribution-bundle": "dev-master",
 		"sensio/framework-extra-bundle": ">=2.2.0",
 		"sensio/generator-bundle": "dev-master",
@@ -34,11 +35,7 @@
 		"facebook/php-sdk": "dev-master",
 		"simplethings/entity-audit-bundle": "dev-master",
 		"stfalcon/tinymce-bundle": "dev-master",
-		"pimple/pimple": "dev-master",
-		"leafo/scssphp": "dev-master",
-		"leafo/scssphp-compass": "dev-master",
-		"sonata-project/intl-bundle": "2.1.*",
-		"mrclay/minify": "dev-master",
+		"sonata-project/intl-bundle": "dev-master",
 		"toopay/assetic-minifier": "dev-master",
 		"stof/doctrine-extensions-bundle": "1.1.*@dev",
 		"misd/guzzle-bundle": "dev-master"

@@ -1,18 +1,61 @@
-[![devDependency Status](https://david-dm.org/bardius/tgs/dev-status.svg)](https://david-dm.org/bardius/tgs#info=devDependencies) [![Build Status](https://travis-ci.org/bardius/tgs.svg?branch=master)](https://travis-ci.org/bardius/tgs) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Build Status](https://travis-ci.org/bardius/BardisCMS.svg?branch=master)](https://travis-ci.org/bardius/BardisCMS)
+[![Dependency Status](https://www.versioneye.com/user/projects/535c8e24fe0d073b48000126/badge.png)](https://www.versioneye.com/user/projects/535c8e24fe0d073b48000126)
+[![Dependency Status](https://www.versioneye.com/user/projects/535c8e18fe0d073b4800011c/badge.png)](https://www.versioneye.com/user/projects/535c8e18fe0d073b4800011c)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Coverage Status](https://coveralls.io/repos/bardius/BardisCMS/badge.png)](https://coveralls.io/r/bardius/BardisCMS)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/)](https://scrutinizer-ci.com/)
+[![Packagist Stable Version]
+[![License]
 
 ![](http://www.bardis.info/bardisCMS.png)
 
-Symfony2 BardisCMS v2.4.3
-======================================================
+Symfony2 (v.2.4.4) distribution with integrated Zurb Foundation 5 
+============================================================================
 
-This is a Symfony2 based CMS based on version 2.4.3.  
-  
+BardisCMS is a Symfony2 (v.2.4.4) distribution with integrated Zurb Foundation 5 Framework.
+
+Travis CI, Bower and Grunt with custom builds are included for better workflow on front end.
+
+All the major bundles are pre-configured (Sonata Admin, Sonata User, Sonata Media, FOSUser, KnpMenu, Guzzle) combined with my own bundles (Page, Settings, ContentBlocks, Blog, Comments, Tags, Categories) to provide a fully functional out of the box responsive CMS for websites with exceptional performance, usage of REST API's and caching abilities.
+
+A Skeleton Bundle is provided as part of the CMS so new content types/functionality that comply with the current architecture can easily be added.
+
+You can browse the Git repository, that I update with big releases every couple of months or so, and use freely for your projects.
+
 You can find the requirements for Symfony2 here http://symfony.com/doc/current/reference/requirements.html  
 You can find the documentation for Symfony2 here http://symfony.com/doc/current/book/index.html  
+You can find the documentation for Zurb Foundation 5 here http://foundation.zurb.com/docs/
   
-The CMS requires the existence of 3 pages to work. These are the homepage, the 404 page and the tagged page (if there are tags and filtered results).  
+The CMS requires the existence of 3 pages to work. These are the homepage, the 404 page and the tagged page.  
   
-SkeletonBundle is a basic structured bundle with simple functionalities (similar to normal pages) so it can be cloned to create new bundles for new content types.  
+SkeletonBundle is a fully structured bundle with simple functionalities (similar to normal pages) so it can be cloned to create new bundles for new content types.  
+  
+
+Quick Start
+------------------------------------------------------
+
+The fastest way to get everything running is:
+
+	1. git clone https://github.com/bardius/BardisCMS.git
+	2. composer self-update
+	3. composer install
+	4. npm install -g bower grunt-cli
+	5. npm install
+	6. bower install
+	7. bardisCMS-deploy.sh
+  
+
+Bundle List
+------------------------------------------------------
+
+	1. FOSUserBundle
+	2. SonataBlockBundle
+	3. SonataUserBundle
+	4. SonataMediaBundle
+	5. SonataAdminBundle
+	6. SonataTimelineBundle
+	7. KnpMenu
+	8. Guzzle
   
 
 Deployment / Local Installation
@@ -68,14 +111,14 @@ We need to install NodeJs, Node Packaged Modules, Ruby, compass, sass, foundatio
   
 More information can be found below at their official web sites:  
   
-http://git-scm.com/downloads				(GIT)  
-http://nodejs.org/							(NodeJs)  
-https://npmjs.org/							(Node Packaged Modules)  
-http://www.rubyinstaller.org/				(Ruby)  
-https://github.com/bower/bower				(Bower)  
-http://sass-lang.com/install				(Sass)  
-http://compass-style.org/install/			(Compass)  
-http://foundation.zurb.com/docs/sass.html	(Foundation 5 - Sass based)  
+	http://git-scm.com/downloads				(GIT)  
+	http://nodejs.org/							(NodeJs)  
+	https://npmjs.org/							(Node Packaged Modules)  
+	http://www.rubyinstaller.org/				(Ruby)  
+	https://github.com/bower/bower				(Bower)  
+	http://sass-lang.com/install				(Sass)  
+	http://compass-style.org/install/			(Compass)  
+	http://foundation.zurb.com/docs/sass.html	(Foundation 5 - Sass based)  
   
 The command line steps are:  
 	
@@ -232,27 +275,27 @@ The skeleton bundle is now ready to be used as base for the creation of new cont
 
 The process for this is to:
 
-01. Copy the SkeletonBundle folder and rename it properly (e.g. ProductsBundle)
-02. Edit the admin class file with the correct names for fields and variables.
-03. Edit the Controller files with correct namespaces and variable names
-04. Change the Dependency Injection configuration and extension to fit your bundle
-05. Edit the Entity file to fit your database needs
-06. Edit the repository file to suit your needs
-07. Change the bundles routing file to provide the required functional urls
-08. Alter the views
-09. Add the requested configuration values to the config.yml
-10. Add the bundle to the registered bundles list in AppKernel.php
-11. Clear cache
-12. Add the a service for the new bundle admin and add it to the sonata admin config
-13. Include the bundle routing file to the app routing
-14. Edit the menu entity so you can add menu items for that bundle
-15. Edit the tag entity so you can add menu items for that bundle
-16. Edit the category entity so you can add menu items for that bundle
-17. Edit the contentblocks entity so you can add menu items for that bundle
-18. Edit the AddMenuTypeFieldSubscriber to be able to create menu items for that bundle
-19. Edit the MenuBuilder to add the case for the link generation of your bundle
-20. doctrine:schema:update --force
-21. Create an Page in that bundle to display the filtered results with alias tagged
+	01. Copy the SkeletonBundle folder and rename it properly (e.g. ProductsBundle)
+	02. Edit the admin class file with the correct names for fields and variables.
+	03. Edit the Controller files with correct namespaces and variable names
+	04. Change the Dependency Injection configuration and extension to fit your bundle
+	05. Edit the Entity file to fit your database needs
+	06. Edit the repository file to suit your needs
+	07. Change the bundles routing file to provide the required functional urls
+	08. Alter the views
+	09. Add the requested configuration values to the config.yml
+	10. Add the bundle to the registered bundles list in AppKernel.php
+	11. Clear cache
+	12. Add the a service for the new bundle admin and add it to the sonata admin config
+	13. Include the bundle routing file to the app routing
+	14. Edit the menu entity so you can add menu items for that bundle
+	15. Edit the tag entity so you can add menu items for that bundle
+	16. Edit the category entity so you can add menu items for that bundle
+	17. Edit the contentblocks entity so you can add menu items for that bundle
+	18. Edit the AddMenuTypeFieldSubscriber to be able to create menu items for that bundle
+	19. Edit the MenuBuilder to add the case for the link generation of your bundle
+	20. doctrine:schema:update --force
+	21. Create an Page in that bundle to display the filtered results with alias tagged
 
 Your new bundle should now work.
 (prequisites are the PageBundle, SettingsBundle and MenuBundle)
