@@ -26,6 +26,7 @@ Thumbs.db
 *.sublime-*
 nbproject/
 node_modules/
+aws_details/
 
 
 # Symfony2 #
