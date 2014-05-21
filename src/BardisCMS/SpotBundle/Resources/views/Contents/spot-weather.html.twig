@@ -34,13 +34,13 @@
 							</div>
 						</div>
 						<p class="large-3 small-12">
-							wind or wave icon
+							<span class="spotFeaturedAttributeIcon"></span>
 						</p>
-						<p class="large-3 small-12">
-							{{ hourlyWeatherData.winddir16Point }}
+						<p class="large-3 small-12">							
+							<span class="windDirection windDirection{{ hourlyWeatherData.winddir16Point }}"><span class="ieOnly">{{ hourlyWeatherData.winddir16Point }}</span></span>
 						</p>
-						<p class="large-3 small-12">
-							<span class="surfSpotOnly">
+						<p class="large-3 small-12 mainStats">
+							<span class="notSurfSpotOnly">
 								Speed<br>
 								<span class="largeNumber is-Knots">{{ '%.1f'|format(hourlyWeatherData.windspeedKmph / 1.85325) }}</span>
 								<span class="largeNumber is-Bf">{{ '%.1f'|format(((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) }}</span>	
@@ -51,8 +51,8 @@
 								<span class="largeNumber is-Meters">{{ hourlyWeatherData.swellHeight_m }}</span>
 							</span>
 						</p>
-						<p class="large-3 small-12">
-							<span>
+						<p class="large-3 small-12 mainStats">
+							<span class="notSurfSpotOnly">
 								Gust<br>
 								<span class="largeNumber is-Knots">{{ '%.1f'|format(hourlyWeatherData.WindGustKmph / 1.85325) }}</span>
 								<span class="largeNumber is-Bf">{{ '%.1f'|format(((hourlyWeatherData.WindGustKmph / 3.01) ** 0.6666) + 0.5) }}</span>
@@ -62,7 +62,7 @@
 								<span class="largeNumber">{{ hourlyWeatherData.swellPeriod_secs }}</span>
 							</span>
 						</p>						
-						<p class="noVerticalPadding large-6 small-12"><span class="predictionTitle">Temperature: </span><span class="largeNumber">{{ hourlyWeatherData.tempC }}&deg;</span></p>
+						<p class="noVerticalPadding clearBoth large-6 small-12"><span class="predictionTitle">Temperature: </span><span class="largeNumber">{{ hourlyWeatherData.tempC }}&deg;</span></p>
 						<p class="noVerticalPadding large-6 small-12"><span class="predictionTitle">Humidity: </span><span class="largeNumber">{{ hourlyWeatherData.humidity }}%</span></p>							
 						<p class="noVerticalPadding large-6 small-12"><span class="predictionTitle">Sea Temperature: </span><span class="largeNumber">{{ hourlyWeatherData.waterTemp_C }}&deg;</span></p>	
 						<p class="noVerticalPadding large-6 small-12"><span class="predictionTitle">Visibility: </span><span class="largeNumber">{{ hourlyWeatherData.visibility }}%</span></p>				

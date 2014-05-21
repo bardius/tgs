@@ -1711,6 +1711,83 @@ header{
 							}
 						}
 					}
+					
+					.spotFeaturedAttributeIcon{
+						color: $white-color;
+						overflow: hidden;
+						display: inline-block;
+						border-radius: 50%;
+						width: 90%;
+						padding-top: 90%;
+						background: none 50% 50% no-repeat #00f847;
+						background-image: url("../images/site_assets/windIcon.png");				
+						background-size: auto 84%;
+					}
+					
+					.windDirection{
+						color: $white-color;
+						overflow: hidden;
+						display: inline-block;
+						width: 90%;
+						padding-top: 90%;
+						background: none 50% 50% no-repeat transparent;
+						background-image: url("../images/site_assets/windDirectionIcon.png");				
+						background-size: auto 84%;
+						transform: rotate(0);
+						
+						.ieOnly{
+							display: none;
+						}
+						
+						&.windDirectionN{
+							transform: rotate(315deg);
+						}
+						
+						&.windDirectionNNE{
+							transform: rotate(0);
+						}
+						
+						&.windDirectionNNW{
+							transform: rotate(270deg);
+						}
+						
+						&.windDirectionW{
+							transform: rotate(225deg);
+						}
+						
+						&.windDirectionE{
+							transform: rotate(45deg);
+						}
+						
+						&.windDirectionS{
+							transform: rotate(135deg);
+						}
+						
+						&.windDirectionSSW{
+							transform: rotate(180deg);
+						}
+						
+						&.windDirectionSSE{
+							transform: rotate(90deg);
+						}
+					}
+	
+					.mainStats{
+						font-size: rem-calc(18);
+						font-weight: bold;
+
+						.notSurfSpotOnly{
+							display: inline-block!important;
+						}
+
+						.surfSpotOnly{
+							display: none!important;
+						}
+
+						.largeNumber {
+							font-size: rem-calc(28);
+						}
+					}
 										
 					.conversionSwitches{
 						padding: rem-calc(10);
@@ -1728,6 +1805,11 @@ header{
 							}
 							
 							label{
+								color: $white-color;
+							}
+							
+							input{
+								color: $white-color;								
 							}
 						}
 					}
@@ -1771,6 +1853,24 @@ header{
 				}
 			}
 		}		
+	}
+}
+
+.surfOnlySpot{
+					
+	.spotFeaturedAttributeIcon{
+		background-image: url("../images/site_assets/waveIcon.png")!important;
+	}
+	
+	.mainStats{		
+	
+		.notSurfSpotOnly{
+			display: none!important;
+		}
+
+		.surfSpotOnly{
+			display: inline-block!important;
+		}	
 	}
 }
 

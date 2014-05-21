@@ -1,5 +1,5 @@
 {
-	"name": "symfony2-bardiscms-foundation-libsass-template",
+	"name": "bardis-cms-symfony2",
 		
 	"title": "Symfony2 BardisCMS & Foundation 5",
 	
@@ -36,11 +36,14 @@
 		"grunt-contrib-sass": "~0.7.2",
 		"grunt-contrib-jshint": "~0.10.0",
 		"grunt-contrib-watch": "~0.6.1",
-		"grunt-contrib-uglify": "~0.3.2",
-		"grunt-csso": "~0.5.3",
-		"load-grunt-tasks": "~0.3.0",
+		"grunt-contrib-uglify": "~0.4.0",
+		"grunt-csso": "~0.6.1",
+		"load-grunt-tasks": "~0.4.0",
 		"grunt-jscs-checker": "~0.4.1",
-		"grunt-autoprefixer": "~0.7.2"
+		"grunt-autoprefixer": "~0.7.2",
+		"grunt-symfony2": "~0.4.0",
+		"grunt-composer": "~0.2.0",
+		"grunt-bower-task": "~0.3.4"
 	},
 		
 	"keywords": [],

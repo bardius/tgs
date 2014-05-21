@@ -22,8 +22,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="large-12 small-12 columns spotsPage {% if page.pageType == 'spot_article' %}spotArticlePage {% endif %}{% if page.pageclass is not null %}{{ page.pageclass }}{% endif %}">
-    {% if page.pagetype == 'spot_article' %}    
+<div class="large-12 small-12 columns spotsPage {% if page.pageType == 'spot_article' %}spotArticlePage {% endif %}{% if page.pageclass is not null %}{{ page.pageclass }}{% endif %}{% if page.spotAttributes is not null %}{% if page.spotAttributes.sports|length == 1 and page.spotAttributes.sports[0] == 'Surf' %} surfOnlySpot{% endif %}{% endif %}">
+ {% if page.pagetype == 'spot_article' %}    
         <div class="row spotsContent contentRow">
             <div class="large-12 small-12 columns">
                 <h2 class="leftAlign">
