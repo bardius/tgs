@@ -76,7 +76,14 @@
 			$('.is-Meters').hide();
 			
 			CMS.tgsUI.filtersFormInit();
-			CMS.tgsUI.infinitePagination();		
+			CMS.tgsUI.infinitePagination();
+			CMS.tgsUI.equalHeights();
+			
+			// On debounced window resize
+			$(window).smartresize(function(){
+				CMS.tgsUI.equalHeights();
+			});
+
 		},
 	
 		unitConvertDisplay: function(unit) {
@@ -166,8 +173,58 @@
 					html: '<div class="ias-noneleft" style="text-align: center;">{text}</div>'
 				})
 			);
+		},
+			
+		equalHeights: function(){
+			var $parent   = $('[data-equalheights]');
+			if ( $parent.length === 0 ) { return; }
+			var $item     = $parent.data("equalheights").el;
+			var $minWidth = $parent.data("equalheights").minwidth || 768;
+
+			// Make auto when below this width
+			if ($(window).width() < $minWidth) {
+				$parent.find($item).css('height', 'auto');
+				return;
+			}
+
+			var currentTallest  = 0;
+			var currentRowStart = 0;
+			var rowDivs         = [];
+			var $el;
+			var topPosition     = 0;
+
+			$parent.find($item).each(function() {
+				$el         = $(this);
+				topPosition = $el.position().top;
+
+				$el.css('height', 'auto');
+
+				if (currentRowStart != topPosition) {
+
+					// we just came to a new row.  Set all the heights on the completed row
+					for (var currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+						rowDivs[currentDiv].height(currentTallest);
+					}
+
+					// set the variables for the new row
+					rowDivs.length = 0; // empty the array
+					currentRowStart = topPosition;
+					currentTallest = $el.height();
+					rowDivs.push($el);
+
+				} else {
+					// another div on the current row.  Add it to the list and check if it's taller
+					rowDivs.push($el);
+					currentTallest = Math.max(currentTallest, $el.height());
+				}
+
+				// do the last row
+				for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+					rowDivs[currentDiv].height(currentTallest);
+				}
+			});
 		}
-	},			
+	},		
 
     CMS.foundationConfig = {
 		

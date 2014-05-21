@@ -1619,7 +1619,7 @@ header{
 		
 		.tabs-content{
 			margin-top: 8px;
-			background-color: $white-color;
+			background-color: transparent;
 	
 			.spotWeatherRow{
 				padding: 0;
@@ -1644,7 +1644,8 @@ header{
 						&.date{
 							font-size: rem-calc(18);
 							line-height: 2;
-							background-color: rgba(255, 255, 255, 0.15);							
+							background-color: rgba(255, 255, 255, 0.15);
+							font-weight: bold;
 						
 							span{
 								
@@ -1667,6 +1668,7 @@ header{
 							font-weight: bold;
 							line-height: 1.2;
 							text-transform: uppercase;
+							text-align: center;
 						} 
 
 						span{
@@ -1685,7 +1687,7 @@ header{
 							}
 							
 							&.largeNumber{
-								font-size: rem-calc(18);
+								font-size: rem-calc(20);
 								font-weight: bold;
 								text-align: right;
 								overflow: hidden;
@@ -1717,8 +1719,8 @@ header{
 						overflow: hidden;
 						display: inline-block;
 						border-radius: 50%;
-						width: 90%;
-						padding-top: 90%;
+						width: 100%;
+						padding-top: 100%;
 						background: none 50% 50% no-repeat #00f847;
 						background-image: url("../images/site_assets/windIcon.png");				
 						background-size: auto 84%;
@@ -1728,8 +1730,8 @@ header{
 						color: $white-color;
 						overflow: hidden;
 						display: inline-block;
-						width: 90%;
-						padding-top: 90%;
+						width: 100%;
+						padding-top: 100%;
 						background: none 50% 50% no-repeat transparent;
 						background-image: url("../images/site_assets/windDirectionIcon.png");				
 						background-size: auto 84%;
@@ -1785,8 +1787,13 @@ header{
 						}
 
 						.largeNumber {
-							font-size: rem-calc(28);
+							font-size: rem-calc(30);
 						}
+					}
+					
+					.horizontallySpaced{
+						padding-top: rem-calc(24);
+						padding-bottom: rem-calc(34);
 					}
 										
 					.conversionSwitches{
@@ -1874,6 +1881,49 @@ header{
 	}
 }
 
+
+#dailyWeatherTab{	
+
+	.hourlyPrediction{
+
+		.wavesIcon{
+			background-image: url("../images/site_assets/waveIcon.png")!important;		
+		}
+
+		.fullWidth{
+			padding-left: 0!important;
+			padding-right: 0!important;	
+
+			.largeNumber{
+				display: inline;
+			}
+			
+			.breakLine{
+				display: inline-block;
+				width: 100%;
+			}
+		}
+		
+		.noVerticalPadding{
+			padding-top: 0!important;
+			padding-bottom: 0!important;		
+		}
+		
+		.noBottomPadding{
+			padding-bottom: 0!important;		
+		}
+
+		.spotFeaturedAttributeIconSmall,
+		.windDirectionSmall {
+			width: 70%!important;
+			padding-top: 70%!important;
+		}
+
+		.weatherIconSmall{
+			font-size: rem-calc(36);
+		}
+	}
+}
 
 /*-------------------------------------------
 	News - Events Page styles

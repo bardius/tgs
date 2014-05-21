@@ -37,6 +37,7 @@ module.exports = function(grunt) {
 					'web/bower_components/jquery-ias/src/callbacks.js',
 					'web/bower_components/jquery-ias/src/extension/spinner.js',
 					'web/bower_components/jquery-ias/src/extension/noneleft.js',
+					'web/js/smartResize.js',
 					'web/js/onDomReady.js'
 				]
 			}
