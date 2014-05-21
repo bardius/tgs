@@ -1742,35 +1742,63 @@ header{
 						}
 						
 						&.windDirectionN{
-							transform: rotate(315deg);
+							transform: rotate(318deg);
 						}
 						
 						&.windDirectionNNE{
-							transform: rotate(0);
+							transform: rotate(340deg);
 						}
 						
-						&.windDirectionNNW{
-							transform: rotate(270deg);
+						&.windDirectionNE{
+							transform: rotate(3);
 						}
 						
-						&.windDirectionW{
-							transform: rotate(225deg);
+						&.windDirectionENE{
+							transform: rotate(25);
 						}
 						
 						&.windDirectionE{
-							transform: rotate(45deg);
+							transform: rotate(48deg);
 						}
 						
-						&.windDirectionS{
-							transform: rotate(135deg);
-						}
-						
-						&.windDirectionSSW{
-							transform: rotate(180deg);
+						&.windDirectionESE{
+							transform: rotate(70deg);
 						}
 						
 						&.windDirectionSSE{
-							transform: rotate(90deg);
+							transform: rotate(93deg);
+						}
+						
+						&.windDirectionS{
+							transform: rotate(115deg);
+						}
+						
+						&.windDirectionSSW{
+							transform: rotate(138deg);
+						}
+						
+						&.windDirectionSW{
+							transform: rotate(160deg);
+						}
+						
+						&.windDirectionWSW{
+							transform: rotate(183deg);
+						}
+						
+						&.windDirectionW{
+							transform: rotate(205deg);
+						}
+						
+						&.windDirectionWNW{
+							transform: rotate(228deg);
+						}
+						
+						&.windDirectionNW{
+							transform: rotate(25deg);
+						}
+						
+						&.windDirectionNNW{
+							transform: rotate(273deg);
 						}
 					}
 	
@@ -1820,6 +1848,141 @@ header{
 							}
 						}
 					}
+					
+					.windKnotsBg{
+						color: #000;
+						background-color: #ff14a2;
+					}
+					
+					.windKnotsBg0{
+						color: #000;
+						background-color: #eaeaea;
+					}
+					
+					.windKnotsBg1{
+						color: #000;
+						background-color: #eaeaea;
+					}
+					
+					.windKnotsBg2{
+						color: #000;
+						background-color: #eaeaea;
+					}
+					
+					.windKnotsBg3{
+						color: #000;
+						background-color: #eaeaea;
+					}
+					
+					.windKnotsBg4{
+						color: #000;
+						background-color: #eaeaea;
+					}
+					
+					.windKnotsBg5{
+						color: #000;
+						background-color: #eaeaea;
+					}
+					
+					.windKnotsBg6{
+						color: #000;
+						background-color: #d8fdfb;
+					}
+					
+					.windKnotsBg7{
+						color: #000;
+						background-color: #b1fbf8;
+					}
+					
+					.windKnotsBg8{
+						color: #000;
+						background-color: #8af9f4;
+					}
+					
+					.windKnotsBg9{
+						color: #000;
+						background-color: #65f7ec;
+					}
+					
+					.windKnotsBg10{
+						color: #000;
+						background-color: #4ef9b7;
+					}
+					
+					.windKnotsBg11{
+						color: #000;
+						background-color: #38fb83;
+					}
+					
+					.windKnotsBg12{
+						color: #000;
+						background-color: #22fc4f;
+					}
+					
+					.windKnotsBg13{
+						color: #000;
+						background-color: #0bfe1a;
+					}
+					
+					.windKnotsBg14{
+						color: #000;
+						background-color: #18fe00;
+					}
+					
+					.windKnotsBg15{
+						color: #000;
+						background-color: #48fb00;
+					}
+					
+					.windKnotsBg16{
+						color: #000;
+						background-color: #78f800;
+					}
+					
+					.windKnotsBg17{
+						color: #000;
+						background-color: #a8f500;
+					}
+					
+					.windKnotsBg18{
+						color: #000;
+						background-color: #d9f200;
+					}
+					
+					.windKnotsBg19{
+						color: #000;
+						background-color: #ffea01;
+					}
+					
+					.windKnotsBg20{
+						color: #000;
+						background-color: #ffc909;
+					}
+					
+					.windKnotsBg21{
+						color: #000;
+						background-color: #ffa910;
+					}
+					
+					.windKnotsBg22{
+						color: #000;
+						background-color: #ff8918;
+					}
+					
+					.windKnotsBg23{
+						color: #000;
+						background-color: #ff691f;
+					}
+					
+					.windKnotsBg24{
+						color: #000;
+						background-color: #ff4927;
+					}
+					
+					.windKnotsBg25{
+						color: #000;
+						background-color: #ff3033;
+					}
 										
 					&:nth-child(1){
 						background-color: #45aca9;
@@ -1864,9 +2027,12 @@ header{
 }
 
 .surfOnlySpot{
+	
+	.mainPrediction{
 					
-	.spotFeaturedAttributeIcon{
-		background-image: url("../images/site_assets/waveIcon.png")!important;
+		.spotFeaturedAttributeIcon{
+			background-image: url("../images/site_assets/waveIcon.png")!important;
+		}		
 	}
 	
 	.mainStats{		
