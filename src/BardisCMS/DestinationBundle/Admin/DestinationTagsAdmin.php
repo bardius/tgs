@@ -56,6 +56,9 @@ class DestinationTagsAdmin extends Admin
         
         // Setting up the available tag categories and preffered choice
         $tagcategoriesChoices   = $pageSettings['tagcategories'];
+		
+        $stylecolorChoices          = $pageSettings['stylecolors'];
+        reset($stylecolorChoices);
         
         $datagridMapper
             ->add('title')

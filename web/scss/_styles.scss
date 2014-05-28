@@ -2091,6 +2091,54 @@ header{
 	}
 }
 
+#weeklyWeatherTab{
+	
+	.weeklyWeatherDay{
+
+		.dailyWeatherColumn{
+			background: transparent!important;
+			border: none!important;
+
+			.wavesIcon{
+				background-image: url("../images/site_assets/waveIcon.png")!important;		
+			}
+
+			.fullWidth{
+				padding-left: 0!important;
+				padding-right: 0!important;	
+
+				.largeNumber{
+					display: inline;
+				}
+
+				.breakLine{
+					display: inline-block;
+					width: 100%;
+				}
+			}
+
+			.noVerticalPadding{
+				padding-top: 0!important;
+				padding-bottom: 0!important;		
+			}
+
+			.noBottomPadding{
+				padding-bottom: 0!important;		
+			}
+
+			.spotFeaturedAttributeIconSmall,
+			.windDirectionSmall {
+				width: 70%!important;
+				padding-top: 70%!important;
+			}
+
+			.weatherIconSmall{
+				font-size: rem-calc(36);
+			}
+		}		
+	}	
+}
+
 /*-------------------------------------------
 	News - Events Page styles
 -----------------------------------------*/

@@ -159,7 +159,7 @@ class DestinationAdmin extends Admin
             ->add('pageType', 'doctrine_orm_string', array(), 'choice', array('choices' => $pagetypeChoices))
             ->add('categories')
             ->add('author')
-            ->add('date', 'doctrine_orm_date_range', array('input_type' => 'date'));
+            //->add('date', 'doctrine_orm_date_range', array('input_type' => 'date'));
         ;
     }
 

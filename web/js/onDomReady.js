@@ -199,7 +199,7 @@
 
 				$el.css('height', 'auto');
 
-				if (currentRowStart != topPosition) {
+				if (currentRowStart !== topPosition) {
 
 					// we just came to a new row.  Set all the heights on the completed row
 					for (var currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
@@ -232,6 +232,7 @@
 			
 			// Start the foundation Javascript Plugins
 			$(document).foundation({
+				
 				reveal : {
 					animation: 'fadeAndPop',
 					animation_speed: 350,
@@ -239,6 +240,7 @@
 					dismiss_modal_class: 'close-reveal-modal',
 					bg_class: 'reveal-modal-bg'
 				},
+				
 				orbit : {
 					animation: 'fade',
 					timer_speed: 6000,
@@ -254,6 +256,13 @@
 					swipe: true,
 					variable_height: false
 				},
+				
+				tab: {
+					callback : function (tab) {
+					  CMS.tgsUI.equalHeights();
+					}
+				},
+						
 				dropdown : {
 				}
 			});

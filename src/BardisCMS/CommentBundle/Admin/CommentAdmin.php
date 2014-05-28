@@ -71,7 +71,7 @@ class CommentAdmin extends Admin
             ->add('title')
             ->add('commentType', 'doctrine_orm_string', array(), 'choice', array('choices' => $commentTypeChoice))
             ->add('blogPost')
-            ->add('created', 'doctrine_orm_date_range', array('input_type' => 'date'))
+            //->add('created', 'doctrine_orm_date_range', array('input_type' => 'date'))
             ->add('username')
             ->add('approved', 'doctrine_orm_string', array(), 'choice', array('choices' => array('0' => 'Hide', '1' => 'Show')))
         ;

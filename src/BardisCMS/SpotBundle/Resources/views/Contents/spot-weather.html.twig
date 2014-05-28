@@ -7,11 +7,11 @@
 				<a href="#weeklyWeatherTab" title="Weekly Weather"><h3>Weekly Weather</h3></a>
 			</dd>
 		</dl>
-		<div class="tabs-content">
-			<div id="dailyWeatherTab" class="row collapse content spotWeatherRow active" data-equalheights='{"el":".hourlyPrediction","minwidth":"580"}'>
+		<div class="tabs-content" data-equalheights='{"el":".predictionColumn","minwidth":"580"}'>
+			<div id="dailyWeatherTab" class="row collapse content spotWeatherRow active">
 				{% for hourlyWeatherData in weatherData[0]['hourly'] %}
 					{% if (loop.index0 == (("now"|date("H", "Europe/Athens")) / 3)|round) or (loop.index0 == 0 and (("now"|date("H", "Europe/Athens")) / 3)|round == 8) %}
-					<div class="columns large-4 small-12 hourlyPrediction mainPrediction">
+					<div class="columns large-4 small-12 hourlyPrediction mainPrediction predictionColumn">
 						<p class="date large-12 small-12">
 							<span class="left">{{ "now"|date("l") }}</span> <span class="right">{{ "now"|date("F d") }}</span>
 						</p>					
@@ -94,7 +94,7 @@
 				{% endfor %}
 				{% for hourlyWeatherData in weatherData[0]['hourly'] %}
 				{% if loop.index0 < 8 %}
-					<div class="columns large-1 small-12 hourlyPrediction smallPrediction" data-equalheights>	
+					<div class="columns large-1 small-12 hourlyPrediction smallPrediction predictionColumn">	
 						<p class="date large-12 small-12 text-center">
 							{{ (loop.index0 * 3)|number_format(2, '.', ',') }}
 						</p>
@@ -145,9 +145,63 @@
 				{% endfor %}	
 			</div>
 			<div id="weeklyWeatherTab" class="row collapse content spotWeatherRow">
-				{% for weeklyWeatherData in weatherData %}
-				{% if loop.index0 > 0 %}
-					<div class="columns large-2 small-12" data-equalheights='{"el":".weeklyWeatherDay","minwidth":"580"}'>
+			{% for weeklyWeatherData in weatherData %}
+			{% if loop.index0 > 0 %}
+				<div class="columns large-2 small-12 weeklyWeatherDay smallPrediction predictionColumn">
+					<p class="date large-12 small-12 text-center">
+						{{ ('+'~loop.index0~' day')|date("D F d") }}
+					</p>
+					<div class="columns large-6 small-12 dailyWeatherColumn push-3">	
+						{% for dailyWeatherData in weeklyWeatherData['hourly'] %}
+						{% if loop.index == 5 %}
+						<p class="large-12 small-4 text-center noBottomPadding">
+							<span class="spotFeaturedAttributeIcon spotFeaturedAttributeIconSmall windIcon windKnotsBg windKnotsBg{{ '%.0f'|format(dailyWeatherData.windspeedKmph / 1.85325) }}"></span>
+						</p>	
+						<p class="large-12 small-4 text-center noVerticalPadding">
+							<span class="windDirection windDirectionSmall windDirection{{ dailyWeatherData.winddir16Point }}"><span class="ieOnly">{{ dailyWeatherData.winddir16Point }}</span></span>
+						</p>	
+						<p class="large-12 small-4 text-center fullWidth noVerticalPadding">
+							Speed: <span class="largeNumber is-Knots">{{ '%.0f'|format(dailyWeatherData.windspeedKmph / 1.85325) }}</span><span class="largeNumber is-Bf">{{ '%.0f'|format(((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) }}</span>
+						</p>	
+						<p class="large-12 small-4 text-center fullWidth noVerticalPadding">
+							Gust: <span class="largeNumber is-Knots">{{ '%.0f'|format(dailyWeatherData.WindGustKmph / 1.85325) }}</span><span class="largeNumber is-Bf">{{ '%.0f'|format(((dailyWeatherData.WindGustKmph / 3.01) ** 0.6666) + 0.5) }}</span>
+						</p>
+						<p class="large-12 small-4 text-center noVerticalPadding">						
+							<span class="spotFeaturedAttributeIcon spotFeaturedAttributeIconSmall wavesIcon windKnotsBg windKnotsBg{{ '%.0f'|format(dailyWeatherData.windspeedKmph / 1.85325) }}"></span>
+						</p>	
+						<p class="large-12 small-4 text-center fullWidth noVerticalPadding">
+							Height: <span class="largeNumber is-Ft">{{ dailyWeatherData.swellHeight_ft }}</span><span class="largeNumber is-Meters">{{ dailyWeatherData.swellHeight_m }}</span>
+						</p>
+						<p class="large-12 small-4 text-center fullWidth noVerticalPadding">
+							Period: <span class="largeNumber">{{ dailyWeatherData.swellPeriod_secs }}</span>
+						</p>
+						<p class="large-12 small-4 text-center noVerticalPadding">
+							<span class="weatherIcon weatherIconSmall">{{ dailyWeatherData.weatherIconUrl|weatherIconToChar }}</span>
+						</p>												
+						<p class="large-12 small-4 text-center fullWidth noVerticalPadding">
+							Temp: <span class="largeNumber">{{ dailyWeatherData.tempC }}&deg;</span>
+						</p>														
+						<p class="large-12 small-4 text-center fullWidth noVerticalPadding">
+							Cloud: <span class="largeNumber">{{ dailyWeatherData.cloudcover }}%</span>
+						</p>		
+						<p class="large-12 small-12 text-center fullWidth noVerticalPadding">
+							Rating 
+							<span class="breakLine largeNumber text-center">
+								<span class="ratingIndicator {% if (((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) < 3 %}
+									ratingIndicator1
+								{% elseif ((((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) >= 3) and ((((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) < 5) %}
+									ratingIndicator2
+								{% elseif 5 <= (((dailyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) %}
+									ratingIndicator3
+								{% endif %}"></span>
+							</span>
+						</p>
+					</div>
+				</div>
+				{% endif %}
+				{% endfor %}
+					{#
+					<div class="columns large-2 small-12" >
 						<div class="weeklyWeatherDay">
 							<p class="date large-12 small-12 text-center">{{ ('+'~loop.index0~' day')|date("D F d") }}</p>
 							{% for dailyWeatherData in weeklyWeatherData['hourly'] %}
@@ -179,8 +233,9 @@
 					{% endif %}
 					{% endfor %}
 					</div>
-				{% endif %}						
-				{% endfor %}
+					#}
+			{% endif %}						
+			{% endfor %}
 			</div>
 		</div>
 
