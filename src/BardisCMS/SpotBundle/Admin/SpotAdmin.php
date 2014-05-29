@@ -167,7 +167,7 @@ class SpotAdmin extends Admin
             ->add('spotFilters')
             ->add('featuredSpot', 'doctrine_orm_string', array(), 'choice', array('choices' => array('0' => 'No', '1' => 'Yes')))
             ->add('author')
-            //->add('date', 'doctrine_orm_date_range', array('input_type' => 'date'));
+            ->add('date', 'doctrine_orm_date_range', array('input_type' => 'date'), 'sonata_type_date_range')
         ;
     }
 
