@@ -223,16 +223,16 @@
         },
         {
             "name": "doctrine/common",
-            "version": "dev-master",
+            "version": "2.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "434c364b6a8780c16769b60fcc56e61e6bac766f"
+                "reference": "ae92d076442e27b6910dd86a1292a8867cf5cfe4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/434c364b6a8780c16769b60fcc56e61e6bac766f",
-                "reference": "434c364b6a8780c16769b60fcc56e61e6bac766f",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/ae92d076442e27b6910dd86a1292a8867cf5cfe4",
+                "reference": "ae92d076442e27b6910dd86a1292a8867cf5cfe4",
                 "shasum": ""
             },
             "require": {
@@ -249,7 +249,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5.x-dev"
+                    "dev-master": "2.4.x-dev"
                 }
             },
             "autoload": {
@@ -297,7 +297,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2014-03-19 13:50:21"
+            "time": "2014-05-21 19:29:23"
         },
         {
             "name": "doctrine/inflector",
@@ -751,30 +751,38 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "2.4.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "1770ffa86bf74592e97ddb4a4ef249efff1537db"
+                "reference": "fcc2a3cfd69eec0734636838fbb782919a0447e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/1770ffa86bf74592e97ddb4a4ef249efff1537db",
-                "reference": "1770ffa86bf74592e97ddb4a4ef249efff1537db",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/fcc2a3cfd69eec0734636838fbb782919a0447e9",
+                "reference": "fcc2a3cfd69eec0734636838fbb782919a0447e9",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "~2.4",
+                "doctrine/common": "2.4.*",
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*",
-                "symfony/console": "~2.0"
+                "phpunit/phpunit": "4.0.*",
+                "symfony/console": "2.*"
             },
             "suggest": {
-                "symfony/console": "Allows use of the command line interface"
+                "symfony/console": "For helpful console commands such as SQL execution and import of files."
             },
+            "bin": [
+                "bin/doctrine-dbal"
+            ],
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\DBAL\\": "lib/"
@@ -813,7 +821,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-02-08 09:04:35"
+            "time": "2014-05-21 17:49:35"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -1043,26 +1051,27 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "2.4.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "63c5758070dd39a9a4dcf6e97025f712850d7e7f"
+                "reference": "5ee286e7e0e1f2364f21d18f725d735ffa5e1870"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/63c5758070dd39a9a4dcf6e97025f712850d7e7f",
-                "reference": "63c5758070dd39a9a4dcf6e97025f712850d7e7f",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/5ee286e7e0e1f2364f21d18f725d735ffa5e1870",
+                "reference": "5ee286e7e0e1f2364f21d18f725d735ffa5e1870",
                 "shasum": ""
             },
             "require": {
-                "doctrine/collections": "~1.1",
-                "doctrine/dbal": "~2.4",
+                "doctrine/collections": "~1.2",
+                "doctrine/dbal": ">=2.5-dev,<2.6-dev",
                 "ext-pdo": "*",
                 "php": ">=5.3.2",
-                "symfony/console": "~2.0"
+                "symfony/console": "2.*"
             },
             "require-dev": {
+                "phpunit/phpunit": "~4.0",
                 "satooshi/php-coveralls": "dev-master",
                 "symfony/yaml": "~2.1"
             },
@@ -1076,7 +1085,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4.x-dev"
+                    "dev-master": "2.5.x-dev"
                 }
             },
             "autoload": {
@@ -1115,7 +1124,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2014-04-21 05:07:57"
+            "time": "2014-05-28 12:40:22"
         },
         {
             "name": "facebook/php-sdk",
@@ -1170,12 +1179,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "6b384c108fa89a5ace02124d200bd916ab5ac380"
+                "reference": "047620d39f6fe5ff96ecd49d674e6e501dbec2ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/6b384c108fa89a5ace02124d200bd916ab5ac380",
-                "reference": "6b384c108fa89a5ace02124d200bd916ab5ac380",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/047620d39f6fe5ff96ecd49d674e6e501dbec2ec",
+                "reference": "047620d39f6fe5ff96ecd49d674e6e501dbec2ec",
                 "shasum": ""
             },
             "require": {
@@ -1240,7 +1249,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2014-05-27 08:47:40"
+            "time": "2014-05-28 21:36:40"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -2492,12 +2501,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "fd991850387b36a3c3f2c4860f0a3f86f4e33b52"
+                "reference": "016423a804140a33814b8fad4240dbfa49a884da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd991850387b36a3c3f2c4860f0a3f86f4e33b52",
-                "reference": "fd991850387b36a3c3f2c4860f0a3f86f4e33b52",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/016423a804140a33814b8fad4240dbfa49a884da",
+                "reference": "016423a804140a33814b8fad4240dbfa49a884da",
                 "shasum": ""
             },
             "require": {
@@ -2552,7 +2561,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-05-28 08:49:30"
+            "time": "2014-05-29 15:04:35"
         },
         {
             "name": "nelmio/api-doc-bundle",

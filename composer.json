@@ -1,7 +1,20 @@
 {
 	"name": "symfony2-bardiscms",
 	"title": "Symfony2 BardisCMS & Foundation 5",
-	"description": "Foundation 5 front end framework for Symfony2 BardisCMS",
+	"description": "The Greek Spots build on BardisCMS is a Symfony2 CMS distribution with integrated Zurb Foundation 5 (Bower and Grunt with custom builds included for better workflow) for front end and all the major bundles pre-configured (Sonata Admin, User, Media, FOSUser, KnpMenu, Guzzle) combined with extra bundles to provide a fully functional out of the box responsive CMS for websites",
+	"license": "MIT",
+        "type": "symfony-distribution",
+        "homepage": "https://github.com/bardius/BardisCMS",
+	"authors": [
+            {
+            "name": "George Bardis",
+            "email": "george@bardis.info"
+            }
+        ],
+        "support": {
+          "email": "george@bardis.info",
+          "issues": "https://github.com/bardius/BardisCMS/issues"
+        },
 	"autoload": {
 		"psr-0": {"": "src/"}
 	},
@@ -33,14 +46,13 @@
 		"sonata-project/user-bundle": "dev-master",
 		"sonata-project/doctrine-orm-admin-bundle": "dev-master",
 		"sonata-project/timeline-bundle": "dev-master",
-		"knplabs/knp-menu": "1.1.*",
-		"facebook/php-sdk": "dev-master",
-		"simplethings/entity-audit-bundle": "dev-master",
+		"knplabs/knp-menu": "1.1.*@dev",
 		"stfalcon/tinymce-bundle": "dev-master",
 		"sonata-project/intl-bundle": "dev-master",
 		"toopay/assetic-minifier": "dev-master",
 		"stof/doctrine-extensions-bundle": "1.1.*@dev",
-		"misd/guzzle-bundle": "dev-master"
+		"misd/guzzle-bundle": "dev-master",
+		"simplethings/entity-audit-bundle": "dev-master"
 	},
 	"scripts": {
 		"post-install-cmd": [
@@ -62,6 +74,7 @@
 	"minimum-stability": "dev",
 	"extra": {
 		"symfony-app-dir": "app",
-		"symfony-web-dir": "web"
+		"symfony-web-dir": "web",		
+		"symfony-assets-install": "web"
 	}
 }
