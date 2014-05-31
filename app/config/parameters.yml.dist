@@ -2,7 +2,7 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     localhost
     database_port:     ~
-    database_name:     symfony
+    database_name:     bardiscms
     database_user:     root
     database_password: ~
 
@@ -17,5 +17,7 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
     
     javapath:          /usr/bin/java
+    compass.bin:       /usr/bin/compass
+    sass.bin:          /usr/bin/sass
     
-    unix_socket:       ~ #/tmp/mysql.sock
+    unix_socket:      /tmp/mysql.sock #for mac/linux environment

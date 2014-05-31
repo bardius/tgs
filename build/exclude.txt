@@ -1,0 +1,17 @@
+
+/app/config/parameters.yml
+/web/.htaccess
+/web/uploads
+/vendor
+/node_modules
+/conf
+/build
+/aws_details
+app/logs/*
+app/sessions/*
+composer.phar
+parameters.yml
+vendor/
+/web/bower_components/*
+web/uploads/
+/web/npm-debug.log
