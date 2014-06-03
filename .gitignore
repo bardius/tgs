@@ -11,6 +11,7 @@
 
 # OS generated files #
 ######################
+
 .DS_Store
 .DS_Store?
 ._*
@@ -21,30 +22,35 @@ ehthumbs.db
 Thumbs.db
 
 
-# Random #
-#################
+# Random - Deployment Scripts#
+##############################
+
 *.sublime-*
 nbproject/
 node_modules/
-aws_details/
+/aws_details
+/build
 
 
 # Symfony2 #
 #############
+
 app/bootstrap.php.cache
 app/cache/*
 app/logs/*
 app/sessions/*
-composer.phar
-foundation/.sass-cache/
 parameters.yml
+composer.phar
+.sass-cache/
+foundation/.sass-cache/
 /web/.sass-cache/
-/web/foundation/.sass-cache/vendor/
+/web/foundation/.sass-cache/
 /web/foundation/sass/.sass-cache/
+
 vendor/
-/web/bower_components/*
 web/uploads/
-/web/npm-debug.log
+npm-debug.log
+
 
 
 
