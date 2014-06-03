@@ -366,33 +366,40 @@ class DefaultController extends Controller {
 		if ($request->getMethod() == 'POST') {
 
 			//Bind the posted form field values
-			$form->bind($request);
+			$form->handleRequest($request);
 
 			if ($form->isValid()) {
 				// Get the field values
 				$emailData = $form->getData();
 
 				// If data is valid send the email with the twig email template set in the views
+				try {
 				$message = \Swift_Message::newInstance()
 						->setSubject('Enquiry from ' . $websiteTitle . ' website: ' . $emailData['fullname'] - $emailData['email'])
 						->setFrom($settings->getEmailSender())
 						->setReplyTo($emailData['email'])
 						->setTo($settings->getEmailRecepient())
 						->setBody($this->renderView('PageBundle:Email:contactFormEmail.txt.twig', array('sender' => $emailData['fullname'], 'mailData' => $emailData['comment'])));
-
-				// The responce for the user upon successful submission
-				$successMsg = 'Thank you for contacting us, we will be in touch soon';
-				$formMessage = $successMsg;
-				$errorList = array();
-				$formhasErrors = false;
-
-				// Send the email with php swift mailerand catch errors
-				try {
-					$this->get('mailer')->send($message);
-				} catch (\Swift_TransportException $exception) {
-					// The responce for the user upon unsuccessful mailer send
+				} catch (\Swift_RfcComplianceException $exception) {
 					$formMessage = $exception->getMessage();
 					$formhasErrors = true;
+				}
+				
+				if(!$formhasErrors){
+					// The responce for the user upon successful submission
+					$successMsg = 'Thank you for contacting us, we will be in touch soon';
+					$formMessage = $successMsg;
+					$errorList = array();
+					$formhasErrors = false;
+
+					// Send the email with php swift mailerand catch errors
+					try {
+						$this->get('mailer')->send($message);
+					} catch (\Swift_TransportException $exception) {
+						// The responce for the user upon unsuccessful mailer send
+						$formMessage = $exception->getMessage();
+						$formhasErrors = true;
+					}					
 				}
 			}
 			else {
@@ -443,7 +450,9 @@ class DefaultController extends Controller {
 		
 		$errors = array();
 		
-		foreach ($form->getErrors() as $key => $error) {
+		$formErrors = $form->getErrors();		
+		
+		foreach ($formErrors as $key => $error) {
 			$template = $error->getMessageTemplate();
 			$parameters = $error->getMessageParameters();
 

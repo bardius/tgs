@@ -20,7 +20,7 @@
 	},
 	"require": {
 		"php": ">=5.3.3",
-		"symfony/symfony": "v2.4.5"
+		"symfony/symfony": "v2.4.6"
 	},
 	"require-dev": {
 		"doctrine/orm": ">=2.3.0",
@@ -52,6 +52,7 @@
 		"toopay/assetic-minifier": "dev-master",
 		"stof/doctrine-extensions-bundle": "1.1.*@dev",
 		"misd/guzzle-bundle": "dev-master",
+		"egulias/email-validator": "1.1.*",
 		"simplethings/entity-audit-bundle": "dev-master"
 	},
 	"scripts": {

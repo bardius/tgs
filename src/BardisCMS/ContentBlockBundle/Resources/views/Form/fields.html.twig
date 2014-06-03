@@ -63,7 +63,7 @@ This file is part of the BardisCMS.
 			Content Block: {{ child.title.vars.value }}
 		    </span>
 		</legend>
-		<div class="sonata-collection-row sonata-ba-collapsed-fields" style="float: left;padding: 10px;margin: 10px 0; background-color: #EEE; border: 1px solid #666;">
+		<div class="sonata-collection-row sonata-ba-collapsed-fields collapse in" style="float: left;padding: 10px;margin: 10px 0; background-color: #EEE; border: 1px solid #666;">
 			<span style="display: none;">{{ form_label(child) }}</span>
 			{% if allow_delete %}
 				<span class="btn btn-danger sonata-action-element" style="float: left;display: block; clear: both;">
@@ -71,7 +71,7 @@ This file is part of the BardisCMS.
 				</span>
 			{% endif %}
 			{{ form_errors(child, { 'attr': {'style': 'float:left;width:100%;padding:10px 0;width:100%;'} }) }}
-			{{ form_widget(child, { 'attr': {'style': 'float:left;width:100%;padding:10px 0;width:100%;' ,'class': 'sonata-ba-collapsed-fields'} }) }}     
+			{{ form_widget(child, { 'attr': {'style': 'float:left;width:100%;padding:10px 0;width:100%;' ,'class': 'sonata-ba-collapsed-fields collapse in'} }) }}     
 		</div>
 	</fieldset>
 {% endspaceless %}
@@ -108,7 +108,7 @@ This file is part of the BardisCMS.
                             Image File {{ child.imageOrder.vars.value }}
 			</a>
 		</legend>
-		<div class="sonata-collection-row sonata-ba-collapsed-fields" style="float: left;padding: 10px;margin: 10px 0; background-color: #EEE; border: 1px solid #666;">
+		<div class="sonata-collection-row sonata-ba-collapsed-fields collapse in" style="float: left;padding: 10px;margin: 10px 0; background-color: #EEE; border: 1px solid #666;">
 			<span style="display: none;">{{ form_label(child) }}</span>
 			{% if allow_delete %}
 				<span class="btn btn-danger sonata-action-element" style="float: left;display: block; clear: both;">
@@ -116,7 +116,7 @@ This file is part of the BardisCMS.
 				</span>
 			{% endif %}
 			{{ form_errors(child, { 'attr': {'style': 'float:left;width:100%;padding:10px 0;width:100%;'} }) }}
-			{{ form_widget(child, { 'attr': {'style': 'float:left;width:100%;padding:10px 0;width:100%;' ,'class': 'sonata-ba-collapsed-fields'} }) }}     
+			{{ form_widget(child, { 'attr': {'style': 'float:left;width:100%;padding:10px 0;width:100%;' ,'class': 'sonata-ba-collapsed-fields collapse in'} }) }}     
 		</div>
 	</fieldset>
 {% endspaceless %}

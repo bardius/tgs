@@ -341,7 +341,7 @@ class DefaultController extends Controller
         
         if ($request->getMethod() == 'POST') {
             
-            $filterForm->bind($request);
+            $filterForm->submit($request);
             $filterData = $filterForm->getData();
             
             $filterTags         = $this->getTagFilterTitles($filterData['tags']);     

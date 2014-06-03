@@ -58,9 +58,9 @@ class DefaultController extends Controller {
 			$ajaxForm = false;			
 		}
 		
-		// Bind the request to the comment form
+		// Submit the request to the comment form
 		$form = $this->createForm(new CommentType(), $comment);
-		$form->bind($request);	
+		$form->submit($request);	
 		
 		//Prepare the responce data
 		$errorList = array();
@@ -207,7 +207,9 @@ class DefaultController extends Controller {
 		
 		$errors = array();
 		
-		foreach ($form->getErrors() as $key => $error) {
+		$formErrors = iterator_to_array($form->getErrors());
+		
+		foreach ($formErrors as $key => $error) {
 			$template = $error->getMessageTemplate();
 			$parameters = $error->getMessageParameters();
 
