@@ -353,7 +353,8 @@ class DefaultController extends Controller {
 			$websiteTitle = '';			
 		}
 		
-		$successMgs = '';		
+		$successMgs = '';	
+		$formhasErrors = false;
 		$ajaxForm = $request->get('isAjax');
 		if(!isset($ajaxForm) || !$ajaxForm){
 			$ajaxForm = false;			
