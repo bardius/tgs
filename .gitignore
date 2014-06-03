@@ -29,7 +29,7 @@ Thumbs.db
 nbproject/
 node_modules/
 /aws_details
-/build
+/build/private.pem
 
 
 # Symfony2 #
@@ -40,7 +40,6 @@ app/cache/*
 app/logs/*
 app/sessions/*
 parameters.yml
-composer.phar
 .sass-cache/
 foundation/.sass-cache/
 /web/.sass-cache/
