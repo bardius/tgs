@@ -1,4 +1,4 @@
-<div class="large-3 small-12 columns">
+<div class="large-3 medium-3 small-6 columns">
 	{% if page.mapLongitude is not empty and page.mapLatitude is not empty %}
 		<h5>Map</h5>
 		<a class="isRound mapLink" href="#" data-reveal-id="mapModal" title="Show Map"><span><small>Show map modal</small></span></a>
@@ -7,7 +7,7 @@
 		<a class="isRound magazineLink" href="{{ url('PageBundle_page', { 'alias': 'online-magazine' }) }}" title="E-Magazine"><span><small>E-Magazine</small></span></a>
 	{% endif %}
 </div>
-<div class="large-3 small-12 columns">
+<div class="large-3 medium-3 small-6 columns">
 	<h5>Share</h5>
 	<ul class="smoIcons">
         <li>
@@ -28,11 +28,11 @@
     </ul>
 	<h6>#TheGreekSpots</h6>
 </div>
-<div class="large-3 small-12 columns">
-	<h5>Instagram Gallery</h5>
+<div class="large-3 medium-3 small-6 hide-for-small columns">
+	<h5>Instagram <span class="hide-for-small hide-for-medium">Gallery</span></h5>
 	<a class="isRound" href="http://instagram.com/thegreekspots" title="Instagram Gallery" target="_blank"><span>Do You Instagram ?</span></a>	
 </div>
-<div class="large-3 small-12 columns">
+<div class="large-3 medium-3 small-6 hide-for-small columns">
 	<h5>Add a spot</h5>
 	<a class="isRound addSpotLink" href="{{ url('PageBundle_page', { 'alias': 'add-spot' }) }}" title="Add a spot"><span><small>Add a spot</small></span></a>
 </div>

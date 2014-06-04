@@ -62,7 +62,7 @@
 			<div class="wrapper">
 				<header>
 					<div class="row header">
-						<div id="logo" class="columns small-12 large-4">
+						<div id="logo" class="columns small-6 medium-4 large-4">
 							<h1 class="logo">
 								<a href="{{ url('PageBundle_index', { 'alias': 'index' }) }}" title="{% block siteLogoTitle %}Page Title{% endblock %}">
 									<img src="{% block sitelogoImage %}{{ app.request.uriForPath('/images/site_assets/siteLogo.png') }}{% endblock %}" alt="{% block siteLogoKeywords %}Site Keywords{% endblock %}" />
@@ -70,7 +70,7 @@
 								</a>
 							</h1>
 						</div>	
-						<div class="columns small-12 large-4 right">
+						<div class="columns small-6 medium-6 large-4 right">
 						{% include '::header_smo.html.twig' %}
 						</div>						
 						<div class="columns small-12 large-12">

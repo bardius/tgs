@@ -75,6 +75,8 @@ a:hover{
 	overflow: hidden;
 	text-indent: -100%;
 	display: inline-block;
+	z-index: -1;
+    position: absolute;
 }
 
 .hidden{
@@ -147,6 +149,16 @@ td{
 	line-height: 1;
 }
 
+small.date{
+	display: inline-block;
+}
+
+.reveal-modal{
+	max-width: 100%;
+	max-height: 80%;
+	min-height: 0;
+}
+
 /*-------------------------------------------
 	Website Body / Backgrounds
 -----------------------------------------*/
@@ -209,9 +221,7 @@ header{
 	.logo{
 		float: left;
 		display: block;
-		margin: rem-calc(30) 0;
-		width: rem-calc(228);
-		height: rem-calc(144);
+		margin: rem-calc(10) 0;
 		max-width: 100%;
 		max-height: 100%;
 	}
@@ -219,11 +229,9 @@ header{
 	a{
 		display: block;
 		width: 100%;
-		-webkit-animation-duration: 1s!important;
 		animation-duration: 1s!important;
 		
 		&:hover{
-			-webkit-animation-name: pulse;
 			animation-name: pulse;
 		}
 	}
@@ -241,19 +249,18 @@ header{
 
 .headerSmo{
 	padding: 0;
-	margin: 90px 0 0 0;
+	margin: 10px 0 0 0;
 	float: right;
 	
 	li{
 		float: left;
 		padding: 0;
-		margin: 0;
+		margin: 0 0 0 3px;
 		
 		a{
 			display: block;
-			width: 46px;
-			height: 46px;
-			margin: 0 0 0 20px;
+			width: 32px;
+			height: 32px;
 			background-repeat: no-repeat;
 			background-position: 50% 50%;
 			background-size: auto 90%;
@@ -313,6 +320,26 @@ header{
 .top-bar{
 	width: 100%;
 	text-transform: uppercase;
+	transition: all 500ms ease-in-out;
+	
+	.top-bar-section{
+		width: 100%;				
+	}
+	
+	.title-area{
+		height: 34px;
+		
+		.toggle-topbar{
+			
+			&.menu-icon{
+				right: 0;
+			}
+			
+			a {
+				transition: none;
+			}
+		}
+	}
 	
 	ul{
 		background: transparent;
@@ -326,9 +353,6 @@ header{
 				font-size: rem-calc(30);
 				border-bottom: 1px solid $primary-color;
 				
-				-webkit-transition: all 300ms ease-in-out;
-				-moz-transition: all 300ms ease-in-out;
-				-o-transition: all 300ms ease-in-out;
 				transition: all 300ms ease-in-out;
 			}
 			
@@ -338,8 +362,21 @@ header{
 					border-bottom: 1px solid $white-color;		
 				}
 			}
-		}
+		}		
+	}
+	
+	&.expanded{
 		
+		.toggle-topbar{
+			
+			a{
+				color: scale-color($hover-color, $lightness: -20%);
+				
+				&:after{
+					box-shadow: 0 10px 0 1px scale-color($hover-color, $lightness: -20%), 0 16px 0 1px scale-color($hover-color, $lightness: -20%), 0 22px 0 1px scale-color($hover-color, $lightness: -20%);		
+				}
+			}
+		}
 	}
 }
 
@@ -968,6 +1005,11 @@ header{
 		}		
 	}
 	
+	.destination_articleItem{
+		margin-top: rem-calc(20);
+		text-align: center;
+	}	
+	
 	.isRound{
 		display: inline-block;
 		text-align: center;
@@ -1479,7 +1521,6 @@ header{
 			
 			.columns{
 				padding: rem-calc(10);
-				height: 160px;
 				border-right: 1px solid $white-color;
 				border-bottom: 1px solid $white-color;
 				overflow: hidden;
@@ -2161,7 +2202,8 @@ header{
 		
 		small {
 			color: $secondary-color;
-			font-size: rem-calc(36);			
+			font-size: rem-calc(36);
+			display: inline-block;
 		}
 	}
 	
@@ -2862,7 +2904,7 @@ footer{
 	#footerNav{
 		width: 100%;
 		text-transform: uppercase;
-		margin-top: rem-calc(36);
+		margin-top: rem-calc(10);
 		
 		.footer-menu{
 			text-align: center;
@@ -2874,18 +2916,16 @@ footer{
 				float: none;
 				display: inline-block;
 				margin: 0;
+				width: 100%;
 				
 				a{
 					overflow: hidden;
 					color: $white-color;
 					text-align: center;
-					padding: 0 rem-calc(20)!important;
-					letter-spacing: 2px;
-					font-size: rem-calc(26);
+					padding: 0 rem-calc(10)!important;
+					letter-spacing: 1px;
+					font-size: rem-calc(20);
 					
-					-webkit-transition: all 300ms ease-in-out;
-					-moz-transition: all 300ms ease-in-out;
-					-o-transition: all 300ms ease-in-out;
 					transition: all 300ms ease-in-out;
 				}				
 			}			
@@ -2895,19 +2935,20 @@ footer{
 
 .contentFooter{
 	text-align: center;
-	margin-top: rem-calc(80)!important;
+	margin-top: rem-calc(40)!important;
 	
 	h5{
 		text-align: center;
-		font-size: rem-calc(34);
+		font-size: rem-calc(26);
 		text-transform: uppercase;
 		letter-spacing: 2px;
+		display: inline-block;
 	}
 	
 	h6{
 		text-align: center;
-		font-size: rem-calc(20);
-		letter-spacing: 2px;
+		font-size: rem-calc(16);
+		letter-spacing: 1px;
 		color: #000;
 		margin: rem-calc(20) 0 0 0;
 		font-family: $body-font-family;
@@ -2917,14 +2958,14 @@ footer{
 		display: inline-block;
 		text-align: center;
 		color: $white-color;
-		border: 8px solid $secondary-color;
+		border: 4px solid $secondary-color;
 		background-color: $secondary-color;	
 		border-radius: 50%;
 		overflow: hidden;
 		position: relative;
-		width: 60%;
+		width: 80%;
 		height: auto;
-		padding-top: 52%;
+		padding-top: 74%;
 		
 		&.magazineLink {
 			background: url("../images/site_assets/magazineIcon.png") no-repeat 50% 50% $secondary-color;	
@@ -2947,7 +2988,7 @@ footer{
 			left: 0;
 			top: 0;
 			text-align: center;
-			font-size: rem-calc(34);
+			font-size: rem-calc(26);
 			line-height: 1.15;
 			letter-spacing: 2px;
 			font-family: $alt-font-family;
@@ -2977,7 +3018,7 @@ footer{
 		li{
 			display: inline-block;
 			padding: 0;		
-			margin: 0 8px;	
+			margin: 0 2px;	
 			
 			a{
 				color: $white-color;
@@ -2985,12 +3026,13 @@ footer{
 				overflow: hidden;
 				display: inline-block;
 				border-radius: 50%;
-				font-size: rem-calc(22);
-				line-height: rem-calc(48);
+				font-size: rem-calc(16);
+				line-height: rem-calc(36);
 				text-align: center;
-				width: rem-calc(54);
-				height: rem-calc(54);
+				width: rem-calc(40);
+				height: rem-calc(40);
 				background: none 50% 50% no-repeat $secondary-color;
+				background-size: auto 60%;
 				vertical-align: middle;
 				
 				span{
@@ -3051,10 +3093,40 @@ footer{
 	}
 }
 
-@media only screen and (max-width: 766px) and (min-width: 499px){
+@media only screen and (max-width: 600px){
+	
+	html {
+		font-size: 10px!important;
+	}
+}
+
+@media only screen and (max-width: 767px) and (min-width: 600px){
 	
 	html {
 		font-size: 12px!important;
+	}
+	
+	/* -----------------------------------------
+		Footer Styles
+	----------------------------------------- */
+
+	footer{
+
+		#footerNav{
+
+			.footer-menu{
+
+				.level0 {
+					width: auto;
+
+					a{
+						padding: 0 rem-calc(10)!important;
+						letter-spacing: 2px;
+						font-size: rem-calc(22);
+					}				
+				}			
+			}
+		}
 	}
 }
 
@@ -3102,6 +3174,24 @@ footer{
 	html {
 		font-size: 13px!important;
 	}
+
+	/*-------------------------------------------
+		Header social media buttons
+	-----------------------------------------*/
+
+	.headerSmo{
+
+		li{
+
+			a{
+				display: block;
+				width: 32px;
+				height: 32px;
+				margin: 0 0 0 20px;
+				background-size: auto 90%;		
+			}
+		}
+	}
 	
 	/*-------------------------------------------
 		Navigation Menu Styles
@@ -3119,15 +3209,181 @@ footer{
 			}			
 		}
 	}
+
+	/*-------------------------------------------
+		Spot Article Page
+	--------------------------------------------*/	
+	
+	.spotArticlePage {
+			
+		.spotAttributes {
+		
+			.spotAttributeRow {
+				
+				.columns{
+					height: 160px;
+				}				
+			}				
+		}
+	}
+	
+	/* -----------------------------------------
+		Footer Styles
+	----------------------------------------- */
+
+	footer{
+
+		#footerNav{
+			margin-top: rem-calc(36);
+
+			.footer-menu{
+
+				.level0 {
+					width: auto;
+
+					a{
+						padding: 0 rem-calc(20)!important;
+						letter-spacing: 2px;
+						font-size: rem-calc(26);
+					}				
+				}			
+			}
+		}
+	}
 }
 
 @media only screen and (min-width: 960px) {
+	
 	html {
 		font-size: 14px!important;
+	}
+
+	#logo{
+
+		.logo{
+			margin: rem-calc(30) 0;
+			max-width: rem-calc(228);
+			max-height: rem-calc(144);
+		}
+	}
+
+	/*-------------------------------------------
+		Header social media buttons
+	--------------------------------------------*/
+
+	.headerSmo{
+		margin: 90px 0 0 0;
+
+		li{
+
+			a{
+				display: block;
+				width: 46px;
+				height: 46px;
+				margin: 0 0 0 20px;
+				background-size: auto 90%;		
+			}
+		}
+	}
+
+	/*-------------------------------------------
+		Contents Footer
+	--------------------------------------------*/	
+
+	.contentFooter{
+		text-align: center;
+		margin-top: rem-calc(80)!important;
+
+		h5{
+			font-size: rem-calc(34);
+			letter-spacing: 2px;
+		}
+
+		h6{
+			font-size: rem-calc(20);
+			letter-spacing: 2px;
+			margin: rem-calc(20) 0 0 0;
+		}
+
+		.isRound{
+			border: 8px solid $secondary-color;
+			width: 60%;
+			padding-top: 52%;
+
+			span{
+				padding: 10%;
+				font-size: rem-calc(34);
+				line-height: 1.15;
+				letter-spacing: 2px;
+			}	
+		}
+
+		.smoIcons {
+
+			li{	
+				margin: 0 8px;	
+
+				a{
+					font-size: rem-calc(22);
+					line-height: rem-calc(48);
+					width: rem-calc(54);
+					height: rem-calc(54);
+				}
+			}		
+		}	
+	}
+
+	/*-------------------------------------------
+		Spot Article Page
+	--------------------------------------------*/	
+	
+	.spotArticlePage {
+			
+		.spotAttributes {
+		
+			.spotAttributeRow {
+				
+				.columns{
+					height: 160px;
+				}				
+			}				
+		}
+	}
+	
+	/* -----------------------------------------
+		Footer Styles
+	----------------------------------------- */
+
+	footer{
+
+		#copyrights{
+
+			p{
+				font-size: rem-calc(13);
+			}
+		}
+
+		#footerNav{
+			margin-top: rem-calc(36);
+
+			.footer-menu{
+
+				.level0 {
+					width: auto;
+
+					a{
+						padding: 0 rem-calc(20)!important;
+						letter-spacing: 2px;
+						font-size: rem-calc(26);
+					}				
+				}			
+			}
+		}
 	}
 }
 
 @media print {
+	
 	div:not(.reveal-modal) {
 		display: inherit !important;
 	}
