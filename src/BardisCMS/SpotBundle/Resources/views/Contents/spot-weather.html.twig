@@ -116,11 +116,14 @@
 						<p class="large-12 small-4 text-center fullWidth noVerticalPadding">
 							Height: <span class="largeNumber is-Ft">{{ hourlyWeatherData.swellHeight_ft }}</span><span class="largeNumber is-Meters">{{ hourlyWeatherData.swellHeight_m }}</span>
 						</p>
-						<p class="large-12 small-4 text-center fullWidth noVerticalPadding">
+						<p class="large-12 small-4 text-center fullWidth noVerticalPadding hide-for-medium-down">
 							Period: <span class="largeNumber">{{ hourlyWeatherData.swellPeriod_secs }}</span>
 						</p>
 						<p class="large-12 small-4 text-center noVerticalPadding">
 							<span class="weatherIcon weatherIconSmall">{{ hourlyWeatherData.weatherIconUrl|weatherIconToChar }}</span>
+						</p>
+						<p class="large-12 small-4 text-center fullWidth noVerticalPadding show-for-medium-down">
+							Period: <span class="largeNumber">{{ hourlyWeatherData.swellPeriod_secs }}</span>
 						</p>												
 						<p class="large-12 small-4 text-center fullWidth noVerticalPadding">
 							Temp: <span class="largeNumber">{{ hourlyWeatherData.tempC }}&deg;</span>
@@ -128,7 +131,7 @@
 						<p class="large-12 small-4 text-center fullWidth noVerticalPadding">
 							Cloud: <span class="largeNumber">{{ hourlyWeatherData.cloudcover }}%</span>
 						</p>		
-						<p class="large-12 small-12 text-center fullWidth noVerticalPadding">
+						<p class="large-12 small-4 text-center fullWidth noVerticalPadding">
 							Rating 
 							<span class="breakLine largeNumber text-center">
 								<span class="ratingIndicator {% if (((hourlyWeatherData.windspeedKmph / 3.01) ** 0.6666) + 0.5) < 3 %}

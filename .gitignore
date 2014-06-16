@@ -50,6 +50,8 @@ vendor/
 web/uploads/
 npm-debug.log
 
+rsync.sh
+
 
 
 

@@ -129,8 +129,8 @@
 			$('.displayActiveStatus').on('click', function(){
 				$(this).toggleClass('isActive');
 				
-				var accordioTriggers = $(this).closest('dl').find('a.displayActiveStatus').not(this);
-				accordioTriggers.removeClass('isActive');
+				var accordionTriggers = $(this).closest('dl').find('a.displayActiveStatus').not(this);
+				accordionTriggers.removeClass('isActive');
 			});
         
 			$('#resetFilters').change(function() {
