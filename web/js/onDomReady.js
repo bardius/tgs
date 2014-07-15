@@ -12,6 +12,11 @@
 		markerTitle:	$('#mapTitle').val(),
 		mapCanvasId:	'map-canvas',
 		GMapScriptURL:	'http://maps.google.com/maps/api/js?sensor=false&key=',
+		map_html:		'',
+		map_to_html:	'',
+		map_from_html:	'',
+		map_infowindow:	'',
+		marker:			'',
 		
 		mapInit: function() {
 			
@@ -22,7 +27,24 @@
 	
 			var windowHeight	= $(window).height();		
 			var mapLatlng		= new google.maps.LatLng(CMS.siteConfig.mapLatitude, CMS.siteConfig.mapLongitude);		
-			var contentString	= '<h5>' + CMS.siteConfig.markerTitle + '</h5>';
+			var contentString	= '<h4>' + CMS.siteConfig.markerTitle + '</h4>';
+		
+			// The info window version with the "to here" form open
+			CMS.siteConfig.map_to_html = contentString + '<p><small>Directions: <b>To here</b> - <a href="javascript:CMS.siteConfig.mapFromHere()">From here</a></small></p>' +
+			   '<form action="http://maps.google.com/maps" method="get"" target="_blank"><label for="saddr">Start address:</label>' +
+			   '<input type="text" SIZE=40 MAXLENGTH=40 name="saddr" id="saddr" value="" /><br>' +
+			   '<input class="button" value="Get Directions" type="submit">' +
+			   '<input type="hidden" name="daddr" value="' + CMS.siteConfig.mapLatitude + ',' + CMS.siteConfig.mapLongitude + "(" + CMS.siteConfig.markerTitle + ")" + '"/></form>';
+
+			// The info window version with the "to here" form open
+			CMS.siteConfig.map_from_html = contentString + '<p><small>Directions: <a href="javascript:CMS.siteConfig.mapToHere()">To here</a> - <b>From here</b></small></p>' +
+			   '<form action="http://maps.google.com/maps" method="get"" target="_blank"><label for="daddr">End address:</label>' +
+			   '<input type="text" SIZE=40 MAXLENGTH=40 name="daddr" id="daddr" value="" /><br>' +
+			   '<input class="button" value="Get Directions" type="submit">' +
+			   '<input type="hidden" name="saddr" value="' + CMS.siteConfig.mapLatitude + ',' + CMS.siteConfig.mapLongitude + "(" + CMS.siteConfig.markerTitle + ")" + '"/></form>';
+   
+			// The inactive version of the direction info
+			CMS.siteConfig.map_html = contentString + '<p><small>Directions: <a href="javascript:CMS.siteConfig.mapToHere()">To here</a> - <a href="javascript:CMS.siteConfig.mapFromHere()">From here</a></small></p>';
 			
 			$('#' + CMS.siteConfig.mapCanvasId).css('height', (windowHeight / 2) + 'px');
 			
@@ -44,27 +66,50 @@
 				CMS.siteConfig.map.setCenter(newCenter); 
 			});
 			
-			$(document).on('opened', '[data-reveal]', function () {
-				var newCenter = CMS.siteConfig.map.getCenter();
-				google.maps.event.trigger(CMS.siteConfig.map, "resize");
-				CMS.siteConfig.map.setCenter(newCenter); 
-			});
-			
-			if(CMS.siteConfig.mapZoom == 14){				
-				var marker		= new google.maps.Marker({
+			if(CMS.siteConfig.mapZoom === 14){				
+				CMS.siteConfig.marker	= new google.maps.Marker({
 					position:	mapLatlng,
 					map:		CMS.siteConfig.map,
 					title:		CMS.siteConfig.markerTitle
 				});
 
-				var infowindow	= new google.maps.InfoWindow({ 
-					content: contentString
+				CMS.siteConfig.map_infowindow = new google.maps.InfoWindow({ 
+					content: CMS.siteConfig.map_html,
+					disableAutoPan : false
 				});
 
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.open(CMS.siteConfig.map,marker);
+				google.maps.event.addListener(CMS.siteConfig.marker, 'click', function() {
+					CMS.siteConfig.map_infowindow.open(CMS.siteConfig.map, CMS.siteConfig.marker);
+				});
+
+				google.maps.event.addListener(CMS.siteConfig.map_infowindow, 'closeclick', function() {	
+					CMS.siteConfig.map_infowindow.setContent(CMS.siteConfig.map_html);
+				});
+				
+				//loaded fully
+				google.maps.event.addListenerOnce(CMS.siteConfig.map, 'idle', function(){
 				});
 			}
+			
+			$(document).on('opened', '[data-reveal]', function () {
+				var newCenter = CMS.siteConfig.map.getCenter();
+				google.maps.event.trigger(CMS.siteConfig.map, "resize");
+				CMS.siteConfig.map.setCenter(newCenter); 
+				CMS.siteConfig.map_infowindow.open(CMS.siteConfig.map, CMS.siteConfig.marker);
+			});
+		},
+	
+		// functions that open the directions forms
+		mapToHere: function() {
+	
+			CMS.siteConfig.map_infowindow.setContent(CMS.siteConfig.map_to_html);
+			CMS.siteConfig.map_infowindow.open(CMS.siteConfig.map, CMS.siteConfig.marker);
+		},
+		
+		mapFromHere: function() {
+	
+			CMS.siteConfig.map_infowindow.setContent(CMS.siteConfig.map_from_html);
+			CMS.siteConfig.map_infowindow.open(CMS.siteConfig.map, CMS.siteConfig.marker);
 		}
 	},
 			
