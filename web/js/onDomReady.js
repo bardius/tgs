@@ -78,12 +78,46 @@
 			CMS.tgsUI.filtersFormInit();
 			CMS.tgsUI.infinitePagination();
 			CMS.tgsUI.equalHeights();
+			CMS.tgsUI.enchanceUnitSwitch();
 			
 			// On debounced window resize
 			$(window).smartresize(function(){
 				CMS.tgsUI.equalHeights();
 			});
 
+		},
+			
+		enchanceUnitSwitch: function() {
+	
+			$('#switch-windSpeed').on('change', function(){
+				
+				if($(this).is(':checked')){
+					CMS.tgsUI.unitConvertDisplay('knots');
+					$('.switch-windSpeed span').text('KNOTS');
+					$('.switch-windSpeed span').removeClass('switched');	
+				}
+				else{		
+					CMS.tgsUI.unitConvertDisplay('bf');	
+					$('.switch-windSpeed span').text('BF');	
+					$('.switch-windSpeed span').addClass('switched');	
+				}
+			});
+	
+			$('#switch-height').on('change', function(){
+				$('.switch-height span').toggleClass('switched');
+				
+				if($(this).is(':checked')){
+					CMS.tgsUI.unitConvertDisplay('meters');	
+					$('.switch-height span').text('M');
+					$('.switch-height span').removeClass('switched');
+				}
+				else{
+					CMS.tgsUI.unitConvertDisplay('ft');
+					$('.switch-height span').text('FT');
+					$('.switch-height span').addClass('switched');					
+				}
+			});
+			
 		},
 	
 		unitConvertDisplay: function(unit) {

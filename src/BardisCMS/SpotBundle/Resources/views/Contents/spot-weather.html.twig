@@ -20,19 +20,15 @@
 							<span class="weatherIcon">{{ hourlyWeatherData.weatherIconUrl|weatherIconToChar }}</span>
 						</p>
 						<div class="conversionSwitches large-5 small-5">
-							<div class="switch large round">
-								<input id="windSpeed" name="switch-windSpeed" type="radio" checked onclick="CMS.tgsUI.unitConvertDisplay('knots');">
-								<label for="windSpeed" onclick="CMS.tgsUI.unitConvertDisplay('knots');">KNOTS</label>
-								<input id="windSpeed-bf" name="switch-windSpeed" type="radio" onclick="CMS.tgsUI.unitConvertDisplay('bf');">
-								<label for="windSpeed-bf" onclick="CMS.tgsUI.unitConvertDisplay('bf');">BF</label>
-								<span></span>
+							<div class="switch large round switch-windSpeed">
+								<input id="switch-windSpeed" name="switch-windSpeed" type="checkbox" checked>
+								<label for="switch-windSpeed"></label>
+								<span>KNOTS</span>
 							</div>
-							<div class="switch large round">
-								<input id="height-ft" name="switch-height" type="radio" checked onclick="CMS.tgsUI.unitConvertDisplay('ft');">
-								<label for="height-ft" onclick="CMS.tgsUI.unitConvertDisplay('ft');">FT</label>
-								<input id="height" name="switch-height" type="radio" onclick="CMS.tgsUI.unitConvertDisplay('meters');">
-								<label for="height" onclick="CMS.tgsUI.unitConvertDisplay('meters');">M</label>
-								<span></span>
+							<div class="switch large round switch-height">
+								<input id="switch-height" name="switch-height" type="checkbox">
+								<label for="switch-height"></label>
+								<span class="switched">FT</span>
 							</div>
 						</div>
 						<p class="large-3 small-3 clearBoth horizontallySpaced">

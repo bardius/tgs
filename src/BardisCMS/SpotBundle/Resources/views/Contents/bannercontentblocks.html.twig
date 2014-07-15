@@ -40,7 +40,7 @@
 					{% if contentBlock.slide.imagefile.id is defined %}
 						{% media contentBlock.slide.imagefile.id, 'slide' with {'alt': contentBlock.slide.imageLinkTitle, 'title': '' } %}
 					{% else %}	
-						<img src="/imgages/site_assets/defaultTopBanner.jpg" alt="{{ contentBlock.slide.imageLinkTitle }}" />
+						<img src="/images/site_assets/defaultTopBanner.jpg" alt="{{ contentBlock.slide.imageLinkTitle }}" />
 					{% endif %}
 					{% if contentBlock.slide.imageLinkTitle is not empty %}
 					<div class="orbit-caption">{{ contentBlock.slide.imageLinkTitle }}</div>						
