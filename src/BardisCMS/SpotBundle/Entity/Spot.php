@@ -182,6 +182,13 @@ class Spot
 
 
     /**
+     * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="spot_extracontents", cascade={"persist"})
+     * @ORM\JoinTable(name="spots_extracontent_blocks")
+     **/
+    protected $extracontentblocks;
+
+
+    /**
      * @ORM\ManyToMany(targetEntity="BardisCMS\ContentBlockBundle\Entity\ContentBlock", inversedBy="spot_modalcontents", cascade={"persist"})
      * @ORM\JoinTable(name="spots_modalcontent_blocks")
      **/
@@ -199,6 +206,7 @@ class Spot
         $this->maincontentblocks 		= new \Doctrine\Common\Collections\ArrayCollection();
         $this->secondarycontentblocks 	= new \Doctrine\Common\Collections\ArrayCollection();
         $this->bannercontentblocks		= new \Doctrine\Common\Collections\ArrayCollection();
+        $this->extracontentblocks		= new \Doctrine\Common\Collections\ArrayCollection();
 		$this->date						= new \DateTime();
     }
 
@@ -918,6 +926,40 @@ class Spot
     public function getModalcontentblocks()
     {
         return $this->modalcontentblocks;
+    }
+
+    /**
+     * Add extracontentblocks
+     *
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $extracontentblocks
+     *
+     * @return Spot
+     */
+    public function addExtracontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $extracontentblocks)
+    {
+        $this->extracontentblocks[] = $extracontentblocks;
+    
+        return $this;
+    }
+
+    /**
+     * Remove extracontentblocks
+     *
+     * @param \BardisCMS\ContentBlockBundle\Entity\ContentBlock $extracontentblocks
+     */
+    public function removeExtracontentblock(\BardisCMS\ContentBlockBundle\Entity\ContentBlock $extracontentblocks)
+    {
+        $this->modalcontentblocks->removeElement($extracontentblocks);
+    }
+
+    /**
+     * Get extracontentblocks
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getExtracontentblocks()
+    {
+        return $this->extracontentblocks;
     }
 		
 	/**

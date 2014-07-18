@@ -133,6 +133,11 @@ class ContentBlock
     protected $blog_extracontents;
     
     /**
+     * @ORM\ManyToMany(targetEntity="BardisCMS\SpotBundle\Entity\Spot", mappedBy="extracontentblocks", cascade={"persist"})
+     **/
+    protected $spot_extracontents;
+    
+    /**
      * @ORM\ManyToMany(targetEntity="BardisCMS\PageBundle\Entity\Page", mappedBy="modalcontentblocks", cascade={"persist"})
      **/
     protected $modalcontents;

@@ -15,6 +15,7 @@ sonata_media:
             formats:
                 adminthumb: { width: 70, height: 70, quality: 80 }
                 xsmall:			{ width: 90, height: 90, quality: 80 }
+                gallery:		{ width: 140, height: 140, quality: 80 }
                 small:			{ width: 290, height: 114, quality: 80 }
                 medium:			{ width: 410, height: 162, quality: 80 }
                 big:				{ width: 840, height: 320, quality: 80 }

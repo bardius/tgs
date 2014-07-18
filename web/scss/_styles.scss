@@ -337,6 +337,7 @@ header{
 			
 			a {
 				transition: none;
+				padding-right: 40px;
 			}
 		}
 	}
@@ -443,7 +444,7 @@ header{
 	}
 	
 	.bannerSlidesNav {
-		margin-top: -30px;
+		margin-top: 8px;
 		position: relative;
 		z-index: 98;
 		
@@ -672,7 +673,7 @@ header{
 						}
 						
 						span{
-							font-size: rem-calc(22);
+							font-size: rem-calc(20);
 							letter-spacing: 1px;
 							padding: rem-calc(6);
 							background: transparent;
@@ -681,6 +682,16 @@ header{
 							-moz-transition: all 300ms ease-in-out;
 							-o-transition: all 300ms ease-in-out;
 							transition: all 300ms ease-in-out;
+							
+							ms-word-break: break-all;
+							word-break: break-all;
+
+							// Non standard for webkit
+							word-break: break-word;
+
+							-webkit-hyphens: auto;
+							   -moz-hyphens: auto;
+									hyphens: auto;
 						}
 						
 						&:hover{
@@ -1200,6 +1211,16 @@ header{
 			-moz-transition: all 300ms ease-in-out;
 			-o-transition: all 300ms ease-in-out;
 			transition: all 300ms ease-in-out;
+							
+			ms-word-break: break-all;
+			word-break: break-all;
+
+			// Non standard for webkit
+			word-break: break-word;
+
+			-webkit-hyphens: auto;
+			-moz-hyphens: auto;
+			hyphens: auto;
 			
 			img{
 				display: inline-block;
@@ -1447,7 +1468,7 @@ header{
 		
 		a{
 			display: inline-block;
-			font-size: rem-calc(32);
+			font-size: rem-calc(24);
 			font-family: $alt-font-family;
 			text-transform: uppercase;
 			color: $dark-gray-color;
@@ -1458,6 +1479,16 @@ header{
 			-moz-transition: all 300ms ease-in-out;
 			-o-transition: all 300ms ease-in-out;
 			transition: all 300ms ease-in-out;
+							
+			ms-word-break: break-all;
+			word-break: break-all;
+
+			// Non standard for webkit
+			word-break: break-word;
+
+			-webkit-hyphens: auto;
+			-moz-hyphens: auto;
+			hyphens: auto;
 			
 			img{
 				display: inline-block;
@@ -1683,7 +1714,7 @@ header{
 					p{
 						font-family: $helv-font-family;
 						color: $white-color;
-						font-size: rem-calc(13);
+						font-size: rem-calc(16);
 						padding: rem-calc(10);
 						overflow: hidden;
 						display: inline-block;
@@ -1696,6 +1727,8 @@ header{
 							line-height: 2;
 							background-color: rgba(255, 255, 255, 0.15);
 							font-weight: bold;
+							border-top: 1px solid #fff;
+							border-bottom: 1px solid #fff;
 						
 							span{
 								
@@ -1731,8 +1764,8 @@ header{
 							}
 							
 							&.predictionTitle{
-								font-size: rem-calc(13);
-								width: 67%;
+								font-size: rem-calc(16);
+								width: 66%;
 								overflow: hidden;
 							}
 							
@@ -2125,7 +2158,7 @@ header{
 
 #dailyWeatherTab{	
 
-	.hourlyPrediction{
+	.hourlyPrediction {
 
 		.wavesIcon{
 			background-image: url("../images/site_assets/waveIcon.png")!important;		
@@ -2147,7 +2180,15 @@ header{
 		
 		.noVerticalPadding{
 			padding-top: 0!important;
-			padding-bottom: 0!important;		
+			padding-bottom: 0!important;
+					
+			&.spacedCopy{
+				margin-top: 1.25rem;
+			}
+				
+			&.halfSpacedCopy{
+				margin-top: 0.625rem;
+			}
 		}
 		
 		.noBottomPadding{
@@ -2179,14 +2220,21 @@ header{
 				}						
 			}
 		}
+		
+		&.smallPrediction {
+			
+			.noVerticalPadding {
+				font-size: rem-calc(22);				
+			}
+		}
 	}
 }
 
 #weeklyWeatherTab{
 	
-	.weeklyWeatherDay{
+	.weeklyWeatherDay {
 
-		.dailyWeatherColumn{
+		.dailyWeatherColumn {
 			background: transparent!important;
 			border: none!important;
 
@@ -2210,7 +2258,16 @@ header{
 
 			.noVerticalPadding{
 				padding-top: 0!important;
-				padding-bottom: 0!important;		
+				padding-bottom: 0!important;
+				font-size: rem-calc(22);
+					
+				&.spacedCopy{
+					margin-top: 1.25rem;
+				}
+
+				&.halfSpacedCopy{
+					margin-top: 0.625rem;
+				}
 			}
 
 			.noBottomPadding{
@@ -2226,7 +2283,19 @@ header{
 			.weatherIconSmall{
 				font-size: rem-calc(72);
 			}
-		}		
+
+			.small-4 {
+
+				&:nth-child(5),
+				&:nth-child(10){
+					clear: both;
+				}
+
+				&:nth-child(8){
+					float: right;
+				}						
+			}
+		}
 	}	
 }
 
@@ -3228,7 +3297,7 @@ footer{
 		}
 	}
 	
-	.spotArticlePage{		
+	.spotArticlePage{
 	
 		.spotWeather{
 			margin-bottom: rem-calc(44);
@@ -3246,6 +3315,10 @@ footer{
 		
 		.relatedSpot{
 			
+			a{
+				font-size: rem-calc(32);
+			}
+			
 			&:nth-child(6),
 			&:nth-child(10),
 			&:nth-child(14),
@@ -3258,11 +3331,43 @@ footer{
 				clear: both;
 			}
 		}
+		
+		.spotWeatherRow{
+
+			.columns{
+
+				p{
+					font-size: rem-calc(13);
+					
+					span{
+							
+						&.predictionTitle{
+							font-size: rem-calc(13);
+						}
+					}
+				}
+			}
+			
+			.date{
+				border: none!important;						
+			}
+		}
 	}
 	
 	#dailyWeatherTab{	
 
-		.hourlyPrediction{
+		.hourlyPrediction {
+		
+			.noVerticalPadding{
+
+				&.spacedCopy{
+					margin-top: 0;
+				}
+				
+				&.halfSpacedCopy{
+					margin-top: 0;
+				}
+			}
 
 			&.large-1{
 
@@ -3277,6 +3382,26 @@ footer{
 				
 				&:nth-child(9){
 					float: left;
+				}
+			}
+		
+			&.smallPrediction {
+
+				.noVerticalPadding {
+					font-size: rem-calc(13);				
+				}
+			}
+		}
+	}
+	
+	#weeklyWeatherTab{
+	
+		.weeklyWeatherDay {
+
+			.dailyWeatherColumn {
+
+				.noVerticalPadding{
+					font-size: rem-calc(13);
 				}
 			}
 		}

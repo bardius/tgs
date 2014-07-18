@@ -2,7 +2,7 @@
 <dl class="accordion" data-accordion>
 	<dd>
 		<a class="spotAttributeTitle displayActiveStatus isActive" href="#accessTab">Access</a>	
-		<div id="accessTab" class="row collapse spotAttributeRow content active">
+		<div id="accessTab" class="row collapse spotAttributeRow content">
 			<div class="columns large-2 small-12">
 				<h5>Nearest Airport</h5>
 				<span>{{ page.spotAttributes.nearestAirport }}</span>
@@ -301,5 +301,27 @@
 			</div>
 		</div>
 	</dd>
+	{% if page.extracontentblocks is not empty %}
+	{% for contentBlock in page.extracontentblocks|sort_by_attribute('ordering') %}
+	{% if contentBlock.publishedState == 1 and contentBlock.contentType == 'image'%}
+	<dd>
+		<a class="spotAttributeTitle displayActiveStatus" href="#photosTab">Photos</a>	
+		<div id="photosTab" class="row collapse spotAttributeRow content active">
+			<ul id="photosTab" class="columns large-12 small-12" data-clearing>
+				{% for imageBlock in contentBlock.imageFiles|sort_by_attribute('imageOrder') %}
+				{% if imageBlock.imageFile.id is defined %}
+				<li class="galleryThumb">
+					<a href="{% path imageBlock.imageFile.id, 'original' %}" title="{{contentBlock.title}}" target="_blank">
+						{% media imageBlock.imageFile.id, 'gallery' with {'alt': contentBlock.title, 'title': contentBlock.title, 'data-caption': contentBlock.title} %}
+					</a>
+				</li>
+				{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</dd>
+	{% endif %}
+	{% endfor %}
+	{% endif %}
 </dl>
 {% endif %}
