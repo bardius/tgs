@@ -70,7 +70,7 @@ class DefaultController extends Controller {
 			// set a custom Cache-Control directive
 			$response->headers->addCacheControlDirective('must-revalidate', true);
 			// set multiple vary headers
-			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			#$response->setVary(array('Accept-Encoding', 'User-Agent'));
 			// create a Response with a Last-Modified header
 			$response->setLastModified($page->getDateLastModified());
 			// Set response as public. Otherwise it will be private by default.
@@ -266,7 +266,7 @@ class DefaultController extends Controller {
 			// set a custom Cache-Control directive
 			$response->setPublic();
 			$response->setLastModified($page->getDateLastModified());
-			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			#$response->setVary(array('Accept-Encoding', 'User-Agent'));
 			$response->headers->addCacheControlDirective('must-revalidate', true);
 			$response->setSharedMaxAge(3600);
 			$response->setMaxAge(3600);
@@ -296,7 +296,7 @@ class DefaultController extends Controller {
 			// set a custom Cache-Control directive
 			$response->setPublic();
 			$response->setLastModified($page->getDateLastModified());
-			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			#$response->setVary(array('Accept-Encoding', 'User-Agent'));
 			$response->headers->addCacheControlDirective('must-revalidate', true);
 			$response->setSharedMaxAge(3600);
 			$response->setMaxAge(3600);
@@ -329,7 +329,7 @@ class DefaultController extends Controller {
 		if($this->container->getParameter('kernel.environment') == 'prod' && $settings->getActivateHttpCache()){	
 			// set a custom Cache-Control directive
 			$response->setPublic();
-			$response->setVary(array('Accept-Encoding', 'User-Agent'));
+			#$response->setVary(array('Accept-Encoding', 'User-Agent'));
 			$response->setSharedMaxAge(3600);
 			$response->setMaxAge(3600);
 		}
@@ -441,7 +441,7 @@ class DefaultController extends Controller {
 				// set a custom Cache-Control directive
 				$response->setPublic();
 				$response->setLastModified($page->getDateLastModified());
-				$response->setVary(array('Accept-Encoding', 'User-Agent'));
+				#$response->setVary(array('Accept-Encoding', 'User-Agent'));
 				$response->headers->addCacheControlDirective('must-revalidate', true);
 				$response->setSharedMaxAge(3600);
 				$response->setMaxAge(3600);
