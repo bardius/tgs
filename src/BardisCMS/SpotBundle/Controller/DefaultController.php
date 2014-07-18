@@ -90,6 +90,7 @@ class DefaultController extends Controller
 			else{				
 				// return the 304 Response immediately
 				$response->setSharedMaxAge(3600);
+				$response->setMaxAge(3600);
 				return $response;
 			}
 		}
@@ -200,6 +201,7 @@ class DefaultController extends Controller
 			$response->setVary(array('Accept-Encoding', 'User-Agent'));
 			$response->headers->addCacheControlDirective('must-revalidate', true);
 			$response->setSharedMaxAge(3600);
+			$response->setMaxAge(3600);
 		}
 		
 		return $response;
@@ -229,6 +231,7 @@ class DefaultController extends Controller
 			$response->setVary(array('Accept-Encoding', 'User-Agent'));
 			$response->headers->addCacheControlDirective('must-revalidate', true);
 			$response->setSharedMaxAge(3600);
+			$response->setMaxAge(3600);
 		}
 		
 		return $response;
